@@ -1,151 +1,165 @@
 {
-  "articles": [
-    {
-      "id": "gh-20261125-gossip-paul-george-ankle-breaker",
-      "level": "gossip",
-      "teams": [
-        "BOS",
-        "WAS"
-      ],
-      "headline": "ポール・ジョージ、相手を転倒させるステップバックでバズる",
-      "date": "2026-11-25",
-      "sourceName": "ProFootballNetwork",
-      "url": "https://www.profootballnetwork.com/nba/ankle-breaker-paul-george-stepback-stare-down/",
-      "top": false
-    },
-    {
-      "id": "gh-20261122-gossip-draymond-eddie-johnson",
-      "level": "gossip",
-      "teams": [
-        "GSW",
-        "PHX"
-      ],
-      "headline": "ドレイモンドと解説者エディ・ジョンソン、Xで舌戦が白熱",
-      "date": "2026-11-22",
-      "sourceName": "azcentral",
-      "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
-      "top": false
-    },
-    {
-      "id": "gh-20261123-gossip-gg-jackson-community-assist",
-      "level": "gossip",
-      "teams": [
-        "MEM"
-      ],
-      "headline": "GGジャクソン、10月のNBAコミュニティ賞を受賞",
-      "date": "2026-11-23",
-      "sourceName": "EIN Presswire",
-      "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
-      "top": false
-    },
-    {
-      "id": "gh-20261125-gossip-rivers-giannis",
-      "level": "gossip",
-      "teams": [
-        "MIL",
-        "MIA"
-      ],
-      "headline": "リバース、ヤニスとの関係は「問題なし」と明かす",
-      "date": "2026-11-25",
-      "sourceName": "Yardbarker",
-      "url": "https://www.yardbarker.com/nba/articles/be_honest_doc_rivers_gives_update_on_giannis_antetokounmpo_relationship_after_iq_comments/s1_17664_44616054",
-      "top": false
-    },
-    {
-      "id": "gh-20261125-gossip-brunson-swift",
-      "level": "gossip",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "ブランソン、テイラー・スウィフトを擁護「立派なニックスファン」",
-      "date": "2026-11-25",
-      "sourceName": "EssentiallySports",
-      "url": "https://www.essentiallysports.com/nba-active-basketball-news-jalen-brunson-breaks-silence-on-taylor-swift-after-tyler-kolek-called-her-the-fakest-celebrity-of-knicks-fandom/",
-      "top": false
-    },
-    {
-      "id": "gh-20261125-gossip-shelton-navarrette",
-      "level": "gossip",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "シェルトン、ニックス戦で女優ナヴァレットと談笑し話題に",
-      "date": "2026-11-25",
-      "sourceName": "Yardbarker",
-      "url": "https://www.yardbarker.com/general_sports/articles/ben_sheltons_nba_courtside_moment_with_inde_navarrette_sparks_rumours_after_trinity_rodman_split/s1_17664_44615395",
-      "top": false
-    },
-    {
-      "category": "トレード",
-      "date": "2026-11-25",
-      "headline": "ジャズ、トレード補強へ市場を積極調査",
-      "id": "gh-20261125-jazz-trade-search-fischer",
-      "level": "rumor",
-      "reporter": "Jake Fischer",
-      "sourceName": "SLC Dunk",
-      "teams": [
-        "UTA"
-      ],
-      "top": false,
-      "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz"
-    },
-    {
-      "id": "gh-20261125-nnaji-trade-fischer",
-      "level": "rumor",
-      "teams": [
-        "DEN"
-      ],
-      "headline": "ナゲッツ、ナナジのトレード先を模索　2031年1巡目は温存方針",
-      "date": "2026-11-25",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/nuggets-notes-nnaji-jones-porter-nembhard-jokic.html",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false
-    },
-    {
-      "id": "gh-20261124-kawhi-workouts-scotto",
-      "level": "reported",
-      "teams": [
-        "TOR"
-      ],
-      "headline": "カワイ、個人練習を開始　少なくともあと1週間は離脱",
-      "date": "2026-11-24",
-      "sourceName": "Basketball News",
-      "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
-      "reporter": "Michael Scotto",
-      "category": "怪我",
-      "top": true
-    },
-    {
-      "id": "gh-20261125-clippers-sellers-fischer",
-      "level": "rumor",
-      "teams": [
-        "LAC"
-      ],
-      "headline": "クリッパーズは売り手濃厚　暫定GMレデンに全権、ロペスとジョーンズJr.に関心",
-      "date": "2026-11-25",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false
-    },
-    {
-      "id": "gh-20261125-raptors-center-search-fischer",
-      "level": "rumor",
-      "teams": [
-        "TOR"
-      ],
-      "headline": "ラプターズ、センター補強を模索　デイビス放出なら有力候補に",
-      "date": "2026-11-25",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false
-    }
-  ],
-  "updatedAt": "2026-11-26T00:15:14+09:00",
-  "version": 1
+ "articles": [
+  {
+   "id": "gh-20261125-gossip-paul-george-ankle-breaker",
+   "level": "gossip",
+   "teams": [
+    "BOS",
+    "WAS"
+   ],
+   "headline": "ポール・ジョージ、相手を転倒させるステップバックでバズる",
+   "date": "2026-11-25",
+   "sourceName": "ProFootballNetwork",
+   "url": "https://www.profootballnetwork.com/nba/ankle-breaker-paul-george-stepback-stare-down/",
+   "top": false
+  },
+  {
+   "id": "gh-20261122-gossip-draymond-eddie-johnson",
+   "level": "gossip",
+   "teams": [
+    "GSW",
+    "PHX"
+   ],
+   "headline": "ドレイモンドと解説者エディ・ジョンソン、Xで舌戦が白熱",
+   "date": "2026-11-22",
+   "sourceName": "azcentral",
+   "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
+   "top": false
+  },
+  {
+   "id": "gh-20261123-gossip-gg-jackson-community-assist",
+   "level": "gossip",
+   "teams": [
+    "MEM"
+   ],
+   "headline": "GGジャクソン、10月のNBAコミュニティ賞を受賞",
+   "date": "2026-11-23",
+   "sourceName": "EIN Presswire",
+   "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
+   "top": false
+  },
+  {
+   "id": "gh-20261125-gossip-rivers-giannis",
+   "level": "gossip",
+   "teams": [
+    "MIL",
+    "MIA"
+   ],
+   "headline": "リバース、ヤニスとの関係は「問題なし」と明かす",
+   "date": "2026-11-25",
+   "sourceName": "Yardbarker",
+   "url": "https://www.yardbarker.com/nba/articles/be_honest_doc_rivers_gives_update_on_giannis_antetokounmpo_relationship_after_iq_comments/s1_17664_44616054",
+   "top": false
+  },
+  {
+   "id": "gh-20261125-gossip-brunson-swift",
+   "level": "gossip",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "ブランソン、テイラー・スウィフトを擁護「立派なニックスファン」",
+   "date": "2026-11-25",
+   "sourceName": "EssentiallySports",
+   "url": "https://www.essentiallysports.com/nba-active-basketball-news-jalen-brunson-breaks-silence-on-taylor-swift-after-tyler-kolek-called-her-the-fakest-celebrity-of-knicks-fandom/",
+   "top": false
+  },
+  {
+   "id": "gh-20261125-gossip-shelton-navarrette",
+   "level": "gossip",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "シェルトン、ニックス戦で女優ナヴァレットと談笑し話題に",
+   "date": "2026-11-25",
+   "sourceName": "Yardbarker",
+   "url": "https://www.yardbarker.com/general_sports/articles/ben_sheltons_nba_courtside_moment_with_inde_navarrette_sparks_rumours_after_trinity_rodman_split/s1_17664_44615395",
+   "top": false
+  },
+  {
+   "category": "トレード",
+   "date": "2026-11-25",
+   "headline": "ジャズ、トレード補強へ市場を積極調査",
+   "id": "gh-20261125-jazz-trade-search-fischer",
+   "level": "rumor",
+   "reporter": "Jake Fischer",
+   "sourceName": "SLC Dunk",
+   "teams": [
+    "UTA"
+   ],
+   "top": false,
+   "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz"
+  },
+  {
+   "id": "gh-20261125-nnaji-trade-fischer",
+   "level": "rumor",
+   "teams": [
+    "DEN"
+   ],
+   "headline": "ナゲッツ、ナナジのトレード先を模索　2031年1巡目は温存方針",
+   "date": "2026-11-25",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/nuggets-notes-nnaji-jones-porter-nembhard-jokic.html",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false
+  },
+  {
+   "id": "gh-20261124-kawhi-workouts-scotto",
+   "level": "reported",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "カワイ、個人練習を開始　少なくともあと1週間は離脱",
+   "date": "2026-11-24",
+   "sourceName": "Basketball News",
+   "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
+   "reporter": "Michael Scotto",
+   "category": "怪我",
+   "top": true
+  },
+  {
+   "id": "gh-20261125-clippers-sellers-fischer",
+   "level": "rumor",
+   "teams": [
+    "LAC"
+   ],
+   "headline": "クリッパーズは売り手濃厚　暫定GMレデンに全権、ロペスとジョーンズJr.に関心",
+   "date": "2026-11-25",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false
+  },
+  {
+   "id": "gh-20261125-raptors-center-search-fischer",
+   "level": "rumor",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "ラプターズ、センター補強を模索　デイビス放出なら有力候補に",
+   "date": "2026-11-25",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false
+  },
+  {
+   "id": "gh-20261125-fultz-raptors905-scotto",
+   "level": "reported",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "フルツ、ラプターズ傘下のGリーグチーム「Raptors 905」に加入へ",
+   "date": "2026-11-25",
+   "sourceName": "HoopsHype",
+   "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/25/markelle-fultz-to-join-raptors-g-league-affiliate/92958550007/",
+   "reporter": "Michael Scotto",
+   "category": "契約",
+   "top": false
+  }
+ ],
+ "updatedAt": "2026-11-26T01:45:41+09:00",
+ "version": 1
 }
