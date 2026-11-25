@@ -263,8 +263,22 @@
    "sourceName": "Sports Illustrated",
    "url": "https://www.si.com/onsi/athlete-lifestyle/victor-wembanyama-makes-playful-admission-at-selena-gomezs-spurs-courtside-appearance",
    "top": false
+  },
+  {
+   "id": "gh-20261126-rss-reaves-full-practice-spurs",
+   "level": "reported",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "リーブス、フル練習に復帰　スパーズ戦出場は未定",
+   "date": "2026-11-26",
+   "time": "06:57",
+   "sourceName": "ESPN",
+   "url": "https://www.espn.com/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs",
+   "provisional": true,
+   "top": false
   }
  ],
- "updatedAt": "2026-11-26T05:57:55+09:00",
+ "updatedAt": "2026-11-26T07:11:16+09:00",
  "version": 1
 }
