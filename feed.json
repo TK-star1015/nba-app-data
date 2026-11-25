@@ -116,8 +116,36 @@
       "reporter": "Michael Scotto",
       "category": "怪我",
       "top": true
+    },
+    {
+      "id": "gh-20261125-clippers-sellers-fischer",
+      "level": "rumor",
+      "teams": [
+        "LAC"
+      ],
+      "headline": "クリッパーズは売り手濃厚　暫定GMレデンに全権、ロペスとジョーンズJr.に関心",
+      "date": "2026-11-25",
+      "sourceName": "Hoops Rumors",
+      "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
+      "reporter": "Jake Fischer",
+      "category": "トレード",
+      "top": false
+    },
+    {
+      "id": "gh-20261125-raptors-center-search-fischer",
+      "level": "rumor",
+      "teams": [
+        "TOR"
+      ],
+      "headline": "ラプターズ、センター補強を模索　デイビス放出なら有力候補に",
+      "date": "2026-11-25",
+      "sourceName": "Hoops Rumors",
+      "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
+      "reporter": "Jake Fischer",
+      "category": "トレード",
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-25T23:58:55+09:00",
+  "updatedAt": "2026-11-26T00:15:14+09:00",
   "version": 1
 }
