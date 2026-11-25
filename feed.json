@@ -1,1 +1,35 @@
-{"articles":[{"category":"契約","date":"2026-11-25","headline":"KPJ、次チームとの合意に近づく","id":"gh-20261125-kpj-agreement-stein","level":"rumor","reporter":"Marc Stein","sourceName":"The Stein Line","teams":["ORL","DEN"],"top":false,"url":"https://marcstein.substack.com/p/another-thanksgiving-week-helping"}],"updatedAt":"2026-11-25T14:15:00+09:00","version":1}
+{
+  "articles": [
+    {
+      "category": "契約",
+      "date": "2026-11-25",
+      "headline": "KPJ、マジックとの合意に近づく",
+      "id": "gh-20261125-kpj-agreement-stein",
+      "level": "rumor",
+      "reporter": "Marc Stein",
+      "sourceName": "The Stein Line",
+      "teams": [
+        "ORL",
+        "DEN"
+      ],
+      "top": false,
+      "url": "https://marcstein.substack.com/p/another-thanksgiving-week-helping"
+    },
+    {
+      "category": "トレード",
+      "date": "2026-11-25",
+      "headline": "ジャズ、トレード補強へ市場を積極調査",
+      "id": "gh-20261125-jazz-trade-search-fischer",
+      "level": "rumor",
+      "reporter": "Jake Fischer",
+      "sourceName": "SLC Dunk",
+      "teams": [
+        "UTA"
+      ],
+      "top": false,
+      "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz"
+    }
+  ],
+  "updatedAt": "2026-11-25T17:24:00+09:00",
+  "version": 1
+}
