@@ -1,6 +1,43 @@
 {
   "articles": [
     {
+      "id": "gh-20261125-gossip-rivers-giannis",
+      "level": "gossip",
+      "teams": [
+        "MIL",
+        "MIA"
+      ],
+      "headline": "リバース、ヤニスとの関係は「問題なし」と明かす",
+      "date": "2026-11-25",
+      "sourceName": "Yardbarker",
+      "url": "https://www.yardbarker.com/nba/articles/be_honest_doc_rivers_gives_update_on_giannis_antetokounmpo_relationship_after_iq_comments/s1_17664_44616054",
+      "top": false
+    },
+    {
+      "id": "gh-20261125-gossip-brunson-swift",
+      "level": "gossip",
+      "teams": [
+        "NYK"
+      ],
+      "headline": "ブランソン、テイラー・スウィフトを擁護「立派なニックスファン」",
+      "date": "2026-11-25",
+      "sourceName": "EssentiallySports",
+      "url": "https://www.essentiallysports.com/nba-active-basketball-news-jalen-brunson-breaks-silence-on-taylor-swift-after-tyler-kolek-called-her-the-fakest-celebrity-of-knicks-fandom/",
+      "top": false
+    },
+    {
+      "id": "gh-20261125-gossip-shelton-navarrette",
+      "level": "gossip",
+      "teams": [
+        "NYK"
+      ],
+      "headline": "シェルトン、ニックス戦で女優ナヴァレットと談笑し話題に",
+      "date": "2026-11-25",
+      "sourceName": "Yardbarker",
+      "url": "https://www.yardbarker.com/general_sports/articles/ben_sheltons_nba_courtside_moment_with_inde_navarrette_sparks_rumours_after_trinity_rodman_split/s1_17664_44615395",
+      "top": false
+    },
+    {
       "category": "契約",
       "date": "2026-11-25",
       "headline": "KPJ、マジックとの合意に近づく",
@@ -30,6 +67,6 @@
       "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz"
     }
   ],
-  "updatedAt": "2026-11-25T17:24:00+09:00",
+  "updatedAt": "2026-11-25T20:56:00+09:00",
   "version": 1
 }
