@@ -64,8 +64,22 @@
       "reporter": "Jake Fischer",
       "category": "トレード",
       "top": false
+    },
+    {
+      "id": "gh-20261124-kawhi-workouts-scotto",
+      "level": "reported",
+      "teams": [
+        "TOR"
+      ],
+      "headline": "カワイ、個人練習を開始　少なくともあと1週間は離脱",
+      "date": "2026-11-24",
+      "sourceName": "Basketball News",
+      "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
+      "reporter": "Michael Scotto",
+      "category": "怪我",
+      "top": true
     }
   ],
-  "updatedAt": "2026-11-25T23:22:00+09:00",
+  "updatedAt": "2026-11-25T23:35:00+09:00",
   "version": 1
 }
