@@ -1,6 +1,44 @@
 {
   "articles": [
     {
+      "id": "gh-20261125-gossip-paul-george-ankle-breaker",
+      "level": "gossip",
+      "teams": [
+        "BOS",
+        "WAS"
+      ],
+      "headline": "ポール・ジョージ、相手を転倒させるステップバックでバズる",
+      "date": "2026-11-25",
+      "sourceName": "ProFootballNetwork",
+      "url": "https://www.profootballnetwork.com/nba/ankle-breaker-paul-george-stepback-stare-down/",
+      "top": false
+    },
+    {
+      "id": "gh-20261122-gossip-draymond-eddie-johnson",
+      "level": "gossip",
+      "teams": [
+        "GSW",
+        "PHX"
+      ],
+      "headline": "ドレイモンドと解説者エディ・ジョンソン、Xで舌戦が白熱",
+      "date": "2026-11-22",
+      "sourceName": "azcentral",
+      "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
+      "top": false
+    },
+    {
+      "id": "gh-20261123-gossip-gg-jackson-community-assist",
+      "level": "gossip",
+      "teams": [
+        "MEM"
+      ],
+      "headline": "GGジャクソン、10月のNBAコミュニティ賞を受賞",
+      "date": "2026-11-23",
+      "sourceName": "EIN Presswire",
+      "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
+      "top": false
+    },
+    {
       "id": "gh-20261125-gossip-rivers-giannis",
       "level": "gossip",
       "teams": [
@@ -80,6 +118,6 @@
       "top": true
     }
   ],
-  "updatedAt": "2026-11-25T23:35:00+09:00",
+  "updatedAt": "2026-11-25T23:58:55+09:00",
   "version": 1
 }
