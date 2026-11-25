@@ -212,8 +212,22 @@
    "reporter": "Jake Fischer",
    "category": "トレード",
    "top": false
+  },
+  {
+   "id": "gh-20261126-rss-embiid-out-heat-illness",
+   "level": "reported",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "エンビード、体調不良でヒート戦欠場　2戦連続",
+   "date": "2026-11-26",
+   "time": "05:44",
+   "sourceName": "ESPN",
+   "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
+   "provisional": true,
+   "top": false
   }
  ],
- "updatedAt": "2026-11-26T03:40:29+09:00",
+ "updatedAt": "2026-11-26T05:56:54+09:00",
  "version": 1
 }
