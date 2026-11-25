@@ -226,8 +226,45 @@
    "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
    "provisional": true,
    "top": false
+  },
+  {
+   "id": "gh-20261125-gossip-wembanyama-mr-morality",
+   "level": "gossip",
+   "teams": [
+    "SAS"
+   ],
+   "headline": "ウェンバンヤマ、「Mr. Morality」と呼ばれる　ファンが擁護",
+   "date": "2026-11-25",
+   "sourceName": "ProFootballNetwork",
+   "url": "https://www.profootballnetwork.com/nba/fans-defend-victor-wembanyama-mr-morality/",
+   "top": false
+  },
+  {
+   "id": "gh-20261125-gossip-davis-kyshawn-trip",
+   "level": "gossip",
+   "teams": [
+    "BOS",
+    "WAS"
+   ],
+   "headline": "デイビス、キショーン転倒の真相告白「俺がつまずかせた」",
+   "date": "2026-11-25",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/nba/wizards/onsi/anthony-davis-clears-wizards-teammate-s-name-regarding-viral-blunder-01m887kymefc",
+   "top": false
+  },
+  {
+   "id": "gh-20261125-gossip-selena-gomez-spurs",
+   "level": "gossip",
+   "teams": [
+    "SAS"
+   ],
+   "headline": "セレーナ・ゴメス、スパーズ戦を観戦　ウェンバンヤマ「セレーナのために見せつけた」",
+   "date": "2026-11-25",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/onsi/athlete-lifestyle/victor-wembanyama-makes-playful-admission-at-selena-gomezs-spurs-courtside-appearance",
+   "top": false
   }
  ],
- "updatedAt": "2026-11-26T05:56:54+09:00",
+ "updatedAt": "2026-11-26T05:57:55+09:00",
  "version": 1
 }
