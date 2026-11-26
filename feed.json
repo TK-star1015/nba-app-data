@@ -1,6 +1,22 @@
 {
   "articles": [
     {
+      "id": "gh-20261127-edey-ankle-soreness",
+      "level": "reported",
+      "teams": [
+        "MEM"
+      ],
+      "headline": "ザック・イーディー、左足首の痛みで前半のみ出場　金曜は出場未定",
+      "headlineEn": "Zach Edey exits with left ankle soreness, questionable for Friday",
+      "date": "2026-11-27",
+      "time": "08:31",
+      "sourceName": "Hoops Rumors",
+      "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html",
+      "reporter": "Rory Maher",
+      "category": "怪我",
+      "top": false
+    },
+    {
       "id": "gh-20261126-porzingis-giddey-fischer",
       "level": "rumor",
       "teams": [
@@ -192,7 +208,13 @@
       "sourceName": "Hoops Rumors",
       "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-nba-cup-brown-anunoby-towns-thibodeau-jent.html",
       "category": "怪我",
-      "top": true
+      "top": true,
+      "related": [
+        {
+          "label": "Hoops Rumors",
+          "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
+        }
+      ]
     },
     {
       "id": "gh-20261126-rss-lamelo-ball-ankle-injury",
@@ -206,7 +228,13 @@
       "sourceName": "Yahoo Sports",
       "url": "https://sports.yahoo.com/nba/breaking-news/article/timberwolves-g-lamelo-ball-leaves-win-vs-thunder-early-due-to-apparent-ankle-injury-031210964.html",
       "category": "怪我",
-      "top": true
+      "top": true,
+      "related": [
+        {
+          "label": "Hoops Rumors",
+          "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
+        }
+      ]
     },
     {
       "id": "gh-20261126-gossip-doncic-outburst-redick",
@@ -610,6 +638,10 @@
         {
           "label": "Indianapolis Star",
           "url": "https://www.indystar.com/story/sports/nba/pacers/2026/11/26/tyrese-haliburton-injury-report-pacers-point-guard-gets-bad-news-vs-sixers/92973719007/"
+        },
+        {
+          "label": "Hoops Rumors",
+          "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
         }
       ]
     },
@@ -747,6 +779,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T08:29:35+09:00",
+  "updatedAt": "2026-11-27T08:39:56+09:00",
   "version": 1
 }
