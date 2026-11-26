@@ -326,7 +326,13 @@
       "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
       "reporter": "Jake Fischer",
       "category": "トレード",
-      "top": false
+      "top": false,
+      "related": [
+        {
+          "label": "NY Post",
+          "url": "https://sports.yahoo.com/nba/articles/clippers-interim-gm-given-full-130000542.html"
+        }
+      ]
     },
     {
       "id": "gh-20261125-fultz-raptors905-scotto",
@@ -547,6 +553,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-26T22:01:55+09:00",
+  "updatedAt": "2026-11-26T22:24:56+09:00",
   "version": 1
 }
