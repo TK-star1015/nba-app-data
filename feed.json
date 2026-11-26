@@ -419,8 +419,50 @@
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue",
       "top": true
+    },
+    {
+      "id": "gh-20261126-gossip-brooks-durant-beef",
+      "level": "gossip",
+      "teams": [
+        "PHX",
+        "HOU"
+      ],
+      "headline": "ブルックス、デュラントとの口論で退場　因縁のサンズ対ロケッツ",
+      "date": "2026-11-26",
+      "sourceName": "Sports Illustrated",
+      "url": "https://www.si.com/nba/suns/onsi/dillon-brooks-ejected-kevin-durant-beef-boils-over-phoenix-suns-houston-rockets-clash",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-draymond-praises-eddie-johnson",
+      "level": "gossip",
+      "teams": [
+        "GSW",
+        "PHX"
+      ],
+      "headline": "ドレイモンド、舌戦のエディ・ジョンソンを称賛「素晴らしいキャリア」",
+      "date": "2026-11-26",
+      "sourceName": "Heavy",
+      "url": "https://heavy.com/sports/nba/golden-state-warriors/draymond-green-eddie-johnson-online-beef/",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-holmgren-fur-coat-roast",
+      "level": "gossip",
+      "teams": [
+        "OKC",
+        "MIN"
+      ],
+      "headline": "ホルムグレン、ベンチの毛皮コートでシャック＆バークリーにいじられる",
+      "date": "2026-11-26",
+      "sourceName": "Heavy",
+      "url": "https://heavy.com/sports/nba/oklahoma-city-thunder/chet-holmgren-roasted-by-shaq-barkley/",
+      "genre": "キラキラ",
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-26T13:11:00+09:00",
+  "updatedAt": "2026-11-26T14:58:33+09:00",
   "version": 1
 }
