@@ -1,6 +1,48 @@
 {
   "articles": [
     {
+      "id": "gh-20261126-gossip-sga-slawson-lipreader",
+      "level": "gossip",
+      "teams": [
+        "OKC",
+        "IND"
+      ],
+      "headline": "シェイとスローソンが舌戦　リップリーダーが会話を解読",
+      "headlineEn": "SGA trades trash talk with Slawson as lipreader decodes exchange",
+      "date": "2026-11-26",
+      "sourceName": "Basketball Network",
+      "url": "https://www.basketballnetwork.net/latest-news/lipreader-breaks-down-verbal-exchange-between-shai-gilgeous-alexander-and-jalen-slawson",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-arenas-eddie-johnson",
+      "level": "gossip",
+      "teams": [
+        "GSW",
+        "PHX"
+      ],
+      "headline": "アリーナス、ドレイモンド巡る舌戦に参戦　エディ・ジョンソンを一蹴",
+      "headlineEn": "Arenas jumps into Draymond beef, shuts down Eddie Johnson",
+      "date": "2026-11-26",
+      "sourceName": "EssentiallySports",
+      "url": "https://www.essentiallysports.com/nba-legends-basketball-news-its-an-illusion-gilbert-arenas-shuts-down-eddie-johnson-over-his-latest-jab-at-draymond-green/",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-westbrook-thanksgiving",
+      "level": "gossip",
+      "teams": [],
+      "headline": "ウェストブルック、雨の中 感謝祭の食事を配布",
+      "headlineEn": "Westbrook hands out Thanksgiving meals in the rain",
+      "date": "2026-11-20",
+      "sourceName": "ClutchPoints",
+      "url": "https://clutchpoints.com/nba/nba-stories/nba-news-russell-westbrook-charity-gesture-thanksgiving-day",
+      "genre": "ほのぼの",
+      "top": false
+    },
+    {
       "id": "gh-20261126-gossip-booker-hotel-prank",
       "level": "gossip",
       "teams": [
@@ -505,6 +547,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-26T17:58:03+09:00",
+  "updatedAt": "2026-11-26T21:00:00+09:00",
   "version": 1
 }
