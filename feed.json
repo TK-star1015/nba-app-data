@@ -777,8 +777,50 @@
       "url": "https://www.commercialappeal.com/story/sports/nba/grizzlies/2026/11/25/memphis-grizzlies-thanksgiving-jerami-grant-gg-jackson/92760304007/",
       "genre": "ほのぼの",
       "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-giannis-rest-jab",
+      "level": "gossip",
+      "teams": [
+        "MIA"
+      ],
+      "headline": "ヤニス・アデトクンボ、休養欠場の選手にチクリ「俺は休まない」",
+      "headlineEn": "Giannis takes a jab at players who sit out for rest: 'Not me'",
+      "date": "2026-11-26",
+      "sourceName": "ClutchPoints",
+      "url": "https://clutchpoints.com/nba/miami-heat/heat-news-giannis-antetokounmpo-takes-jab-who-take-rest-games-after-play-vs-76ers",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-draymond-baron-davis-winner",
+      "level": "gossip",
+      "teams": [
+        "GSW"
+      ],
+      "headline": "ドレイモンド、バロン・デイビスの「全員勝者」論に反論",
+      "headlineEn": "Draymond fires back at Baron Davis over 'everyone's a winner' claim",
+      "date": "2026-11-26",
+      "sourceName": "Basketball Network",
+      "url": "https://www.basketballnetwork.net/off-the-court/draymond-green-fires-back-at-baron-davis-for-saying-every-nba-player-is-winner",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-cunningham-courtside-outfits",
+      "level": "gossip",
+      "teams": [
+        "LAC"
+      ],
+      "headline": "ソフィー・カニンガム、露出コーデの観客を一喝「服を着なさい」",
+      "headlineEn": "Sophie Cunningham blasts influencers' revealing courtside outfits",
+      "date": "2026-11-20",
+      "sourceName": "Basketball Network",
+      "url": "https://www.basketballnetwork.net/off-the-court/sophie-cunningham-blasts-two-influencers-over-revealing-outfits-at-clippers-game",
+      "genre": "キラキラ",
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-27T08:39:56+09:00",
+  "updatedAt": "2026-11-27T08:59:08+09:00",
   "version": 1
 }
