@@ -493,7 +493,13 @@ window.NBA_FEED = {
       "time": "05:44",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
-      "top": true
+      "top": true,
+      "related": [
+        {
+          "label": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/article/76ers-rule-out-jaylen-brown-hamstring-list-joel-embiid-illness-as-questionable-for-fridays-game-vs-pacers-225906822.html"
+        }
+      ]
     },
     {
       "id": "gh-20261125-gossip-wembanyama-mr-morality",
@@ -735,6 +741,6 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T07:35:00+09:00",
+  "updatedAt": "2026-11-27T08:09:07+09:00",
   "version": 1
 };
