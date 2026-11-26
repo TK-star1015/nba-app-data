@@ -1,6 +1,28 @@
 {
   "articles": [
     {
+      "id": "gh-20261125-fischer-davis-no-rush",
+      "level": "rumor",
+      "teams": [
+        "WAS"
+      ],
+      "headline": "ウィザーズ、デイビス放出を急がず　本人も移籍要求せず",
+      "headlineEn": "Wizards in no rush to trade Davis; Davis not asking out",
+      "date": "2026-11-25",
+      "time": "21:00",
+      "sourceName": "Hoops Wire",
+      "url": "https://hoopswire.com/wizards-reportedly-in-no-rush-to-trade-anthony-davis-who-isnt-asking-out/",
+      "reporter": "Jake Fischer",
+      "category": "トレード",
+      "top": false,
+      "related": [
+        {
+          "label": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/288242/Raptors-Warriors-Hawks-Seen-As-Teams-To-Watch-If-Wizards-Make-Anthony-Davis-Available"
+        }
+      ]
+    },
+    {
       "id": "gh-20261126-gossip-sga-slawson-lipreader",
       "level": "gossip",
       "teams": [
@@ -591,6 +613,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-26T23:58:19+09:00",
+  "updatedAt": "2026-11-27T01:11:45+09:00",
   "version": 1
 }
