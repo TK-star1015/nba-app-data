@@ -10,7 +10,8 @@
       "date": "2026-11-25",
       "sourceName": "ClutchPoints",
       "url": "https://clutchpoints.com/nba/dallas-mavericks/mavericks-news-kyrie-irving-fan-gift-nba-cup-win-nuggets",
-      "top": false
+      "top": false,
+      "genre": "ほのぼの"
     },
     {
       "id": "gh-20261125-gossip-clingan-poster-lebron",
@@ -23,7 +24,8 @@
       "date": "2026-11-25",
       "sourceName": "Sportsnaut",
       "url": "https://sportsnaut.com/nba/donovan-clingan-posterized-lebron-james",
-      "top": false
+      "top": false,
+      "genre": "ドロドロ"
     },
     {
       "id": "gh-20261123-gossip-butler-tatum-friday-spoof",
@@ -36,7 +38,8 @@
       "date": "2026-11-23",
       "sourceName": "NY Post",
       "url": "https://nypost.com/2026/11/23/sports/jimmy-butler-trolls-jayson-tatum-after-warriors-beat-celtics/",
-      "top": false
+      "top": false,
+      "genre": "ドロドロ"
     },
     {
       "id": "gh-20261125-gossip-paul-george-ankle-breaker",
@@ -49,7 +52,8 @@
       "date": "2026-11-25",
       "sourceName": "ProFootballNetwork",
       "url": "https://www.profootballnetwork.com/nba/ankle-breaker-paul-george-stepback-stare-down/",
-      "top": false
+      "top": false,
+      "genre": "キラキラ"
     },
     {
       "id": "gh-20261122-gossip-draymond-eddie-johnson",
@@ -62,7 +66,8 @@
       "date": "2026-11-22",
       "sourceName": "azcentral",
       "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
-      "top": false
+      "top": false,
+      "genre": "ドロドロ"
     },
     {
       "id": "gh-20261123-gossip-gg-jackson-community-assist",
@@ -74,7 +79,8 @@
       "date": "2026-11-23",
       "sourceName": "EIN Presswire",
       "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
-      "top": false
+      "top": false,
+      "genre": "ほのぼの"
     },
     {
       "id": "gh-20261125-gossip-rivers-giannis",
@@ -87,7 +93,8 @@
       "date": "2026-11-25",
       "sourceName": "Yardbarker",
       "url": "https://www.yardbarker.com/nba/articles/be_honest_doc_rivers_gives_update_on_giannis_antetokounmpo_relationship_after_iq_comments/s1_17664_44616054",
-      "top": false
+      "top": false,
+      "genre": "舞台裏"
     },
     {
       "id": "gh-20261125-gossip-brunson-swift",
@@ -99,7 +106,8 @@
       "date": "2026-11-25",
       "sourceName": "EssentiallySports",
       "url": "https://www.essentiallysports.com/nba-active-basketball-news-jalen-brunson-breaks-silence-on-taylor-swift-after-tyler-kolek-called-her-the-fakest-celebrity-of-knicks-fandom/",
-      "top": false
+      "top": false,
+      "genre": "キラキラ"
     },
     {
       "id": "gh-20261125-gossip-shelton-navarrette",
@@ -111,7 +119,8 @@
       "date": "2026-11-25",
       "sourceName": "Yardbarker",
       "url": "https://www.yardbarker.com/general_sports/articles/ben_sheltons_nba_courtside_moment_with_inde_navarrette_sparks_rumours_after_trinity_rodman_split/s1_17664_44615395",
-      "top": false
+      "top": false,
+      "genre": "キラキラ"
     },
     {
       "category": "トレード",
@@ -236,7 +245,8 @@
       "date": "2026-11-25",
       "sourceName": "ProFootballNetwork",
       "url": "https://www.profootballnetwork.com/nba/fans-defend-victor-wembanyama-mr-morality/",
-      "top": false
+      "top": false,
+      "genre": "舞台裏"
     },
     {
       "id": "gh-20261125-gossip-davis-kyshawn-trip",
@@ -249,7 +259,8 @@
       "date": "2026-11-25",
       "sourceName": "Sports Illustrated",
       "url": "https://www.si.com/nba/wizards/onsi/anthony-davis-clears-wizards-teammate-s-name-regarding-viral-blunder-01m887kymefc",
-      "top": false
+      "top": false,
+      "genre": "舞台裏"
     },
     {
       "id": "gh-20261125-gossip-selena-gomez-spurs",
@@ -261,7 +272,8 @@
       "date": "2026-11-25",
       "sourceName": "Sports Illustrated",
       "url": "https://www.si.com/onsi/athlete-lifestyle/victor-wembanyama-makes-playful-admission-at-selena-gomezs-spurs-courtside-appearance",
-      "top": false
+      "top": false,
+      "genre": "キラキラ"
     },
     {
       "id": "gh-20261126-rss-reaves-full-practice-spurs",
@@ -286,7 +298,8 @@
       "date": "2026-11-25",
       "sourceName": "ClutchPoints",
       "url": "https://clutchpoints.com/nba/golden-state-warriors/warriors-news-draymond-green-tells-steve-kerr-open-bench-role-without-stephen-curry",
-      "top": false
+      "top": false,
+      "genre": "舞台裏"
     },
     {
       "id": "gh-20261125-gossip-giannis-herro-handshake",
@@ -299,7 +312,8 @@
       "date": "2026-11-25",
       "sourceName": "Yardbarker",
       "url": "https://www.yardbarker.com/nba/articles/even_warriors_draymond_green_is_shocked_by_giannis_stiffing_ex_bucks_teammates_bam_adebayo_vs_tyler_herro_beef/s1_17113_44618521",
-      "top": false
+      "top": false,
+      "genre": "ドロドロ"
     },
     {
       "id": "gh-20261123-gossip-randle-turkey-drive",
@@ -311,7 +325,8 @@
       "date": "2026-11-23",
       "sourceName": "Athlon Sports",
       "url": "https://athlonsports.com/nba/brooklyn-nets/nets-julius-randle-sends-powerful-message-ahead-of-thanksgiving",
-      "top": false
+      "top": false,
+      "genre": "ほのぼの"
     },
     {
       "id": "gh-20261126-rss-haliburton-nears-return",
@@ -340,6 +355,6 @@
       "top": true
     }
   ],
-  "updatedAt": "2026-11-26T10:52:05+09:00",
+  "updatedAt": "2026-11-26T11:30:58+09:00",
   "version": 1
 }
