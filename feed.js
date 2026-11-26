@@ -1,6 +1,21 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261127-morant-return",
+      "level": "reported",
+      "teams": [
+        "POR"
+      ],
+      "headline": "ジャ・モラント、来週にも復帰の見通し",
+      "headlineEn": "Ja Morant could return within the next week",
+      "date": "2026-11-27",
+      "time": "03:00",
+      "sourceName": "Hoops Rumors",
+      "url": "https://www.hoopsrumors.com/2026/11/northwest-notes-morant-holiday-filipowski-mitchell.html",
+      "category": "怪我",
+      "top": true
+    },
+    {
       "id": "gh-20261125-fischer-davis-no-rush",
       "level": "rumor",
       "teams": [
@@ -655,7 +670,6 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T02:58:06+09:00",
+  "updatedAt": "2026-11-27T03:20:32+09:00",
   "version": 1
-}
-;
+};
