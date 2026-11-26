@@ -224,7 +224,6 @@
       "time": "05:44",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
-      "provisional": true,
       "top": false
     },
     {
@@ -275,7 +274,6 @@
       "time": "06:57",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs",
-      "provisional": true,
       "top": false
     },
     {
@@ -326,8 +324,7 @@
       "time": "09:11",
       "sourceName": "Hoops Rumors",
       "url": "https://www.hoopsrumors.com/2026/11/tyrese-haliburton-nears-return-from-hamstring-injury.html",
-      "provisional": true,
-      "top": false
+      "top": true
     },
     {
       "id": "gh-20261126-rss-brown-exits-heat-hamstring",
@@ -340,10 +337,9 @@
       "time": "09:24",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue",
-      "provisional": true,
       "top": false
     }
   ],
-  "updatedAt": "2026-11-26T09:35:00+09:00",
+  "updatedAt": "2026-11-26T10:49:57+09:00",
   "version": 1
 }
