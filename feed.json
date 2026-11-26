@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "id": "gh-20261126-rss-lamelo-ball-ankle-injury",
+      "level": "reported",
+      "teams": [
+        "MIN"
+      ],
+      "headline": "ラメロ・ボール、足首負傷でサンダー戦を途中退場",
+      "date": "2026-11-26",
+      "time": "12:07",
+      "sourceName": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/nba/breaking-news/article/timberwolves-g-lamelo-ball-leaves-win-vs-thunder-early-due-to-apparent-ankle-injury-031210964.html",
+      "category": "怪我",
+      "top": true
+    },
+    {
       "id": "gh-20261126-gossip-doncic-outburst-redick",
       "level": "gossip",
       "teams": [
@@ -392,6 +406,6 @@
       "top": true
     }
   ],
-  "updatedAt": "2026-11-26T11:57:27+09:00",
+  "updatedAt": "2026-11-26T12:33:57+09:00",
   "version": 1
 }
