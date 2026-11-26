@@ -1,6 +1,48 @@
 {
   "articles": [
     {
+      "id": "gh-20261126-gossip-booker-hotel-prank",
+      "level": "gossip",
+      "teams": [
+        "WAS"
+      ],
+      "headline": "ブッカー、ホテルで縛られた仰天イタズラを告白",
+      "headlineEn": "Booker recalls being tied up in wild hotel-room prank",
+      "date": "2026-11-25",
+      "sourceName": "OpenCourt Basketball",
+      "url": "https://www.opencourt-basketball.com/2026/11/25/trevor-booker-reveals-crazy-story-of-how-he-was-tied-up-beaten-in-his-hotel-room-by-gilbert-arenas-nick-young-2/",
+      "genre": "舞台裏",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-yabusele-ring",
+      "level": "gossip",
+      "teams": [
+        "NYK"
+      ],
+      "headline": "ヤブセレ、移籍済みでも優勝リング「もらえるはず」",
+      "headlineEn": "Yabusele expects a championship ring despite Knicks exit",
+      "date": "2026-11-25",
+      "sourceName": "OpenCourt Basketball",
+      "url": "https://www.opencourt-basketball.com/2026/11/25/guerschon-yabusele-expects-nba-championship-ring-from-knicks-despite-frustrating-exit/",
+      "genre": "舞台裏",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-nick-wright-tickets",
+      "level": "gossip",
+      "teams": [
+        "PHI"
+      ],
+      "headline": "ニック・ライト、嘘の投稿で親切なファンにコートサイド席を贈る",
+      "headlineEn": "Nick Wright gifts courtside seats to kind fans after fake SOS post",
+      "date": "2026-11-24",
+      "sourceName": "OpenCourt Basketball",
+      "url": "https://www.opencourt-basketball.com/2026/11/24/nick-wright-pulls-off-surprise-by-giving-courtside-76ers-tickets-to-two-complete-strangers/",
+      "genre": "ほのぼの",
+      "top": false
+    },
+    {
       "id": "gh-20261126-anunoby-calf-strain",
       "level": "reported",
       "teams": [
@@ -463,6 +505,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-26T14:58:33+09:00",
+  "updatedAt": "2026-11-26T17:58:03+09:00",
   "version": 1
 }
