@@ -611,8 +611,50 @@
       "url": "https://www.sportskeeda.com/basketball/news-even-momma-james-bowing-nba-fans-can-t-get-enough-as-gloria-james-bows-down-76ers-star-lighting-up-in-2nd-qtr",
       "genre": "キラキラ",
       "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-lillard-thanksgiving-morant",
+      "level": "gossip",
+      "teams": [
+        "POR"
+      ],
+      "headline": "デイミアン・リラード、感謝祭の料理はジャ・モラントに任せる",
+      "headlineEn": "Lillard trusts Morant with the Thanksgiving dish",
+      "date": "2026-11-26",
+      "sourceName": "Basketball Network",
+      "url": "https://www.basketballnetwork.net/off-the-court/damian-lillard-on-which-teammate-hed-trust-to-bring-a-dish-to-thanksgiving",
+      "genre": "ほのぼの",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-dakota-johnson-og-anunoby",
+      "level": "gossip",
+      "teams": [
+        "NYK"
+      ],
+      "headline": "ダコタ・ジョンソン、OG・アヌノビーを「実在しない」と発言し炎上",
+      "headlineEn": "Dakota Johnson didn't believe OG Anunoby was real, sparking backlash",
+      "date": "2026-11-26",
+      "sourceName": "BuzzFeed",
+      "url": "https://www.buzzfeed.com/leylamohammed/dakota-johnson-og-anunoby-backlash-anne-hathaway",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-jerami-grant-thanksgiving",
+      "level": "gossip",
+      "teams": [
+        "MEM"
+      ],
+      "headline": "ジェラミ・グラント、感謝祭に212世帯へ食事を配布　メンフィスで恩返し",
+      "headlineEn": "Jerami Grant hands out Thanksgiving meals to 212 Memphis families",
+      "date": "2026-11-25",
+      "sourceName": "Commercial Appeal",
+      "url": "https://www.commercialappeal.com/story/sports/nba/grizzlies/2026/11/25/memphis-grizzlies-thanksgiving-jerami-grant-gg-jackson/92760304007/",
+      "genre": "ほのぼの",
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-27T01:11:45+09:00",
+  "updatedAt": "2026-11-27T02:58:06+09:00",
   "version": 1
 }
