@@ -350,18 +350,25 @@
     },
     {
       "id": "gh-20261125-kpj-magic-agreement-shams",
-      "level": "reported",
+      "level": "official",
       "teams": [
         "ORL"
       ],
       "headline": "ケビン・ポーターJr.、マジックと正式契約",
       "date": "2026-11-26",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/magic-to-sign-kevin-porter-jr.html",
+      "sourceName": "Orlando Magic",
+      "url": "https://www.nba.com/magic/news/orlando-magic-sign-free-agent-kevin-porter-jr-20261125",
       "reporter": "Shams Charania",
       "category": "契約",
       "top": true,
-      "time": "13:08"
+      "time": "13:08",
+      "headlineEn": "Kevin Porter Jr. officially signs with Magic",
+      "related": [
+        {
+          "label": "Hoops Rumors",
+          "url": "https://www.hoopsrumors.com/2026/11/magic-to-sign-kevin-porter-jr.html"
+        }
+      ]
     },
     {
       "id": "gh-20261125-lopez-lakers-fischer",
@@ -553,6 +560,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-26T22:24:56+09:00",
+  "updatedAt": "2026-11-26T22:44:25+09:00",
   "version": 1
 }
