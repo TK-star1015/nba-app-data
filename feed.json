@@ -314,8 +314,22 @@
       "sourceName": "Athlon Sports",
       "url": "https://athlonsports.com/nba/brooklyn-nets/nets-julius-randle-sends-powerful-message-ahead-of-thanksgiving",
       "top": false
+    },
+    {
+      "id": "gh-20261126-rss-haliburton-nears-return",
+      "level": "reported",
+      "teams": [
+        "IND"
+      ],
+      "headline": "ハリバートンが全体練習にフル参加、復帰が近づく",
+      "date": "2026-11-26",
+      "time": "09:11",
+      "sourceName": "Hoops Rumors",
+      "url": "https://www.hoopsrumors.com/2026/11/tyrese-haliburton-nears-return-from-hamstring-injury.html",
+      "provisional": true,
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-26T09:00:00+09:00",
+  "updatedAt": "2026-11-26T09:15:49+09:00",
   "version": 1
 }
