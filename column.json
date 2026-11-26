@@ -1,1 +1,43 @@
-{"columns":[{"date":"2026-11-26","intro":"今日のニュースから、管理人が気になったものをいくつか。","introEn":"A few things from today's news that caught the editor's eye.","takes":[{"headline":"KPJ、マジックと契約（公式）","headlineEn":"Kevin Porter Jr. signs with the Magic (official)","take":"実力は本物。マジックが拾ったのは才能そのもの。ハマれば今季の掘り出し物になる。","takeEn":"The talent is real. If it clicks, this is the steal of the season for Orlando."},{"headline":"リーブス、練習に復帰","headlineEn":"Reaves returns to practice","take":"レイカーズにとっては、誰を取るより大きいニュース。ボールを持つ人間が戻ると、周りの全員が楽になる。","takeEn":"Bigger news for the Lakers than any signing. When their ball-handler is back, everyone else's job gets easier."},{"headline":"ハリバートン、復帰が近づく","headlineEn":"Haliburton closing in on a return","take":"ペイサーズの心臓が戻ってくる。焦る理由はないが、彼がいるといないでは別のチーム。","takeEn":"The Pacers' engine is coming back. No reason to rush — but with him, they're a different team."},{"headline":"エンビード、体調不良で欠場","headlineEn":"Embiid out with an illness","take":"「また欠場」に驚かなくなったのが寂しい。本人のコンディションと、彼ありきのチーム設計。両方に答えが要る。","takeEn":"The sad part is nobody's surprised anymore. His conditioning and a team built around him — both need answers."},{"headline":"今日は試合なし（感謝祭）","headlineEn":"No games today (Thanksgiving)","take":"アメリカはサンクスギビングで全休。こういう日は、移籍と復帰の話で一日が回る。","takeEn":"A full stop for Thanksgiving in the US. On days like this, signings and returns carry the news cycle."}]}],"updatedAt":"2026-11-26T18:40:00+09:00","version":1}
+{
+  "version": 1,
+  "updatedAt": "2026-11-26T18:41:59+09:00",
+  "columns": [
+    {
+      "date": "2026-11-26",
+      "intro": "今日のニュースに、管理人が本音でツッコむ。",
+      "introEn": "Today's news, with the editor's honest, unfiltered takes.",
+      "takes": [
+        {
+          "headline": "KPJ、マジックと契約（公式）",
+          "headlineEn": "Kevin Porter Jr. signs with the Magic (official)",
+          "take": "才能だけならオールスター級。問題は才能以外の全部。マジックは宝くじを買った。当たればデカい、外れれば「やっぱりね」で終わる安い買い物。",
+          "takeEn": "All-Star talent. Everything else is the problem. Orlando bought a lottery ticket — cheap enough that if it misses, everyone just shrugs."
+        },
+        {
+          "headline": "リーブス、練習に復帰",
+          "headlineEn": "Reaves returns to practice",
+          "take": "レイカーズ最大の補強は、トレード市場じゃなくトレーナー室にいた。リーブス不在の攻撃は、主役のいない舞台みたいなものだった。",
+          "takeEn": "The Lakers' biggest pickup was in the training room all along. Without Reaves, their offense has been a play missing its lead actor."
+        },
+        {
+          "headline": "ハリバートン、復帰が近づく",
+          "headlineEn": "Haliburton closing in on a return",
+          "take": "彼なしでよく耐えたとは思う。でも本音を言えば、ハリバートンのいないペイサーズは炭酸の抜けたコーラ。早く戻ってこい。",
+          "takeEn": "Indiana survived without him, credit where it's due. But honestly, the Pacers without Haliburton are flat soda. Hurry back."
+        },
+        {
+          "headline": "エンビード、体調不良で欠場",
+          "headlineEn": "Embiid out with an illness",
+          "take": "もはやニュースですらない。エンビードの欠場に驚く人間は地球にいない。シクサーズの年間計画は、カレンダーじゃなく彼の体調表で組むべき。",
+          "takeEn": "This isn't news anymore. Nobody on Earth is surprised by an Embiid absence. Philly should build its season plan around his health chart, not the calendar."
+        },
+        {
+          "headline": "今日は試合なし（感謝祭）",
+          "headlineEn": "No games today (Thanksgiving)",
+          "take": "今日は全休。選手は七面鳥、ファンは寝不足解消。管理人はニュースがなくて暇である。",
+          "takeEn": "No games. Players get turkey, fans get sleep, and this editor gets a day with nothing to write about."
+        }
+      ]
+    }
+  ]
+}
