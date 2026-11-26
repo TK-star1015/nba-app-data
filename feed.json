@@ -224,7 +224,7 @@
       "time": "05:44",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
-      "top": false
+      "top": true
     },
     {
       "id": "gh-20261125-gossip-wembanyama-mr-morality",
@@ -274,7 +274,7 @@
       "time": "06:57",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs",
-      "top": false
+      "top": true
     },
     {
       "id": "gh-20261125-gossip-draymond-bench-kerr",
@@ -337,9 +337,9 @@
       "time": "09:24",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue",
-      "top": false
+      "top": true
     }
   ],
-  "updatedAt": "2026-11-26T10:49:57+09:00",
+  "updatedAt": "2026-11-26T10:52:05+09:00",
   "version": 1
 }
