@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "id": "gh-20261126-anunoby-calf-strain",
+      "level": "reported",
+      "teams": [
+        "NYK"
+      ],
+      "headline": "アヌノビー、左ふくらはぎの肉離れ　3戦連続欠場もデイ・トゥ・デイ",
+      "date": "2026-11-26",
+      "time": "12:46",
+      "sourceName": "Hoops Rumors",
+      "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-nba-cup-brown-anunoby-towns-thibodeau-jent.html",
+      "category": "怪我",
+      "top": true
+    },
+    {
       "id": "gh-20261126-rss-lamelo-ball-ankle-injury",
       "level": "reported",
       "teams": [
@@ -406,6 +420,6 @@
       "top": true
     }
   ],
-  "updatedAt": "2026-11-26T12:33:57+09:00",
+  "updatedAt": "2026-11-26T12:48:30+09:00",
   "version": 1
 }
