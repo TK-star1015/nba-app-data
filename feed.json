@@ -229,7 +229,8 @@
       "sourceName": "EIN Presswire",
       "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
       "top": false,
-      "genre": "ほのぼの"
+      "genre": "ほのぼの",
+      "headlineEn": "GG Jackson wins October NBA Community Assist Award"
     },
     {
       "id": "gh-20261125-gossip-rivers-giannis",
@@ -558,8 +559,38 @@
       "url": "https://heavy.com/sports/nba/oklahoma-city-thunder/chet-holmgren-roasted-by-shaq-barkley/",
       "genre": "キラキラ",
       "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-stiller-brunson-pumpfake",
+      "level": "gossip",
+      "teams": [
+        "NYK",
+        "CLE"
+      ],
+      "headline": "ベン・スティラー、ブランソンのフェイク動画を投稿　ミッチェルが宙に浮く",
+      "headlineEn": "Ben Stiller posts slow-mo of Brunson's pump fake that sent Mitchell airborne",
+      "date": "2026-11-26",
+      "sourceName": "ClutchPoints",
+      "url": "https://clutchpoints.com/nba/new-york-knicks/knicks-news-ben-stiller-video-jalen-brunson-pump-fake-donovan-mitchell",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261125-gossip-gloria-james-bow",
+      "level": "gossip",
+      "teams": [
+        "PHI",
+        "MIA"
+      ],
+      "headline": "レブロンのロゴ3Pに母グロリアもお辞儀　ファン沸く",
+      "headlineEn": "Even mom Gloria bows as LeBron drills logo three",
+      "date": "2026-11-25",
+      "sourceName": "Sportskeeda",
+      "url": "https://www.sportskeeda.com/basketball/news-even-momma-james-bowing-nba-fans-can-t-get-enough-as-gloria-james-bows-down-76ers-star-lighting-up-in-2nd-qtr",
+      "genre": "キラキラ",
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-26T23:30:31+09:00",
+  "updatedAt": "2026-11-26T23:58:19+09:00",
   "version": 1
 }
