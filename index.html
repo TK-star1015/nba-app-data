@@ -963,6 +963,36 @@ a.room-bubble:active{filter:brightness(.95)}
 .room-stamp-en{font-size:9.5px;letter-spacing:.03em}
 .room-foot{display:flex;justify-content:center;padding:10px 14px 22px}
 
+/* ===== トークルーム試作（Warriors＝GSW の部屋だけ・2026-11-27 TK承認）=====
+   他29チームの部屋とトーク一覧は現行の LINE 様式のままにして比較できる
+   よう、新スタイルは #roomView.room-trial の内側だけに閉じる
+   （renderRoom が GSW の時だけ .room-trial を付ける）。
+   ・地の色を落とす：ライトは強い LINE ブルー（#79A6D2）からごく薄い
+     青み（#E4EDF6）へ、ダークは現行の深いネイビー（#1E2A38）を
+     わずかに柔らかいトーンへ。日付ピルと未読区切りの線・文字は、
+     薄くなった地の上でも読めるよう試作側だけ濃さを調整する
+   ・吹き出しはジャンル別ニュースの .fb-bubble と形・余白・文字を一致：
+     角丸（尻尾側の角だけ4px／他は面の統一値 --radius）、内余白は
+     --sp-2 --sp-3、見出しは --fs-headline（モバイル14px）・700、
+     要約は本文寸法、チップと時刻はジャンル別ニュース側の標準寸法
+     （--fs-chip／--chip-pad）に揃える
+   ・配置の LINE らしさ（左＝チーム／右＝インサイダーの向き、日付ピル、
+     未読区切り、公式の判子、同日内12px間隔、アイコン＋名前の規律）は
+     従来どおり変えない */
+#roomView.room-trial{--room-bg:#E4EDF6;--room-pill:rgba(23,43,66,.55);--room-line:rgba(38,64,96,.32);--room-newtx:#33506E}
+#roomView.room-trial .room-new-sep span{color:var(--room-newtx)}
+#roomView.room-trial .room-bubble{border-radius:4px var(--radius) var(--radius) var(--radius);padding:var(--sp-2) var(--sp-3)}
+#roomView.room-trial .room-msg.is-own .room-bubble{border-radius:var(--radius) 4px var(--radius) var(--radius)}
+#roomView.room-trial .room-text{font-size:var(--fs-headline);font-weight:700;line-height:var(--lh-headline)}
+#roomView.room-trial .room-sum{font-size:var(--fs-sub);line-height:var(--lh-body)}
+#roomView.room-trial .room-sender{font-weight:600}
+#roomView.room-trial .room-time{font-size:var(--fs-chip)}
+#roomView.room-trial .room-chip .status-tabs span,#roomView.room-trial .room-chip .cat-chip,#roomView.room-trial .room-chip .prov-chip,#roomView.room-trial .room-chip .tag{font-size:var(--fs-chip);padding:var(--chip-pad)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) #roomView.room-trial{--room-bg:#24364A;--room-pill:rgba(0,0,0,.38);--room-line:rgba(255,255,255,.25);--room-newtx:#fff}
+}
+:root[data-theme="dark"] #roomView.room-trial{--room-bg:#24364A;--room-pill:rgba(0,0,0,.38);--room-line:rgba(255,255,255,.25);--room-newtx:#fff}
+
 /* 過去記事（詳細内）：最新情報と完全に同一の .news-item 型（pastArticleHTML）で
    描くため、専用スタイルは置かない */
 
@@ -3847,6 +3877,11 @@ function roomDateLabel(y,mo,d){
 }
 function renderRoom(){
   var abbr=roomAbbr||state.selected;
+  /* 試作スタイル（ジャンル別ニュース寄せ）は Warriors の部屋だけに適用
+     する：#roomView へ目印クラスを付け外しし、CSS はその内側だけに閉じる。
+     他29チームの部屋は従来の LINE 様式のまま */
+  var roomViewEl=document.getElementById("roomView");
+  if(roomViewEl)roomViewEl.classList.toggle("room-trial",abbr==="GSW");
   var t=TEAMS.filter(function(x){return x[0]===abbr;})[0];
   if(!t)return;
   var titleEl=document.getElementById("roomTitle");
