@@ -1,6 +1,43 @@
 {
   "articles": [
     {
+      "id": "gh-20261126-gossip-doncic-outburst-redick",
+      "level": "gossip",
+      "teams": [
+        "LAL"
+      ],
+      "headline": "ドンチッチの味方への暴言がバズる　レディック監督が擁護",
+      "date": "2026-11-23",
+      "sourceName": "Heavy",
+      "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-mamu/",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-kuzma-fashion-clapback",
+      "level": "gossip",
+      "teams": [
+        "MIL"
+      ],
+      "headline": "クーズマ、ファッションを笑った元選手らに反撃「もうやめてくれ」",
+      "date": "2026-11-25",
+      "sourceName": "Sportskeeda",
+      "url": "https://opera.sportskeeda.com/basketball/news-hop-d-k-please-kyle-kuzma-fires-no-holds-barred-reply-ex-nba-stars-mocking-fashion-choices",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261126-gossip-iverson-turkey-giveaway",
+      "level": "gossip",
+      "teams": [],
+      "headline": "アイバーソン、地元で七面鳥配布　感謝祭に263羽と食料を寄付",
+      "date": "2026-11-21",
+      "sourceName": "Parade",
+      "url": "https://parade.com/celebrities/allen-iverson-thanksgiving-turkey-giveaway-virginia-hometown",
+      "genre": "ほのぼの",
+      "top": false
+    },
+    {
       "id": "gh-20261125-gossip-kyrie-irving-shoes-fan",
       "level": "gossip",
       "teams": [
@@ -355,6 +392,6 @@
       "top": true
     }
   ],
-  "updatedAt": "2026-11-26T11:30:58+09:00",
+  "updatedAt": "2026-11-26T11:57:27+09:00",
   "version": 1
 }
