@@ -612,7 +612,13 @@ window.NBA_FEED = {
       "time": "09:24",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue",
-      "top": true
+      "top": true,
+      "related": [
+        {
+          "label": "ESPN",
+          "url": "https://www.espn.com/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday"
+        }
+      ]
     },
     {
       "id": "gh-20261126-gossip-brooks-durant-beef",
@@ -729,6 +735,6 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T07:26:54+09:00",
+  "updatedAt": "2026-11-27T07:35:00+09:00",
   "version": 1
 };
