@@ -1,6 +1,23 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261126-porzingis-giddey-fischer",
+      "level": "rumor",
+      "teams": [
+        "GSW",
+        "CHI"
+      ],
+      "headline": "ウォリアーズ、ポルジンギス放出に本腰　ギディの大型契約は敬遠",
+      "headlineEn": "Warriors determined to trade Porzingis, wary of Giddey's big contract",
+      "date": "2026-11-26",
+      "time": "12:16",
+      "sourceName": "BasketballNews",
+      "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-golden-state-warriors-trade-rumor-nba-insider-reveals-gsws-stance-on-one-hundred-million-guard-after-rejecting-dejounte-murray-approach/",
+      "reporter": "Jake Fischer",
+      "category": "トレード",
+      "top": false
+    },
+    {
       "id": "gh-20261127-gossip-barnes-thanksgiving-cook",
       "level": "gossip",
       "teams": [
@@ -712,6 +729,6 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T05:57:00+09:00",
+  "updatedAt": "2026-11-27T07:26:54+09:00",
   "version": 1
 };
