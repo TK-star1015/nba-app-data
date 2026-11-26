@@ -981,7 +981,17 @@ a.room-bubble:active{filter:brightness(.95)}
      従来どおり変えない */
 #roomView.room-trial{--room-bg:#E4EDF6;--room-pill:rgba(23,43,66,.55);--room-line:rgba(38,64,96,.32);--room-newtx:#33506E}
 #roomView.room-trial .room-new-sep span{color:var(--room-newtx)}
+/* 吹き出しの横幅を広げる（TKフィードバック 2026-11-27：狭い分だけ改行が
+   多くなるため、文字サイズは変えず幅で受ける）。左右どちらの吹き出しも
+   最大幅を現行の70%から82%へ広げ、部屋の左右パディングも12px→8pxに
+   わずかに詰める。アバターと名前の位置関係・左右の向きは変えない */
+#roomView.room-trial .room-body{padding-left:8px;padding-right:8px}
 #roomView.room-trial .room-bubble{border-radius:4px var(--radius) var(--radius) var(--radius);padding:var(--sp-2) var(--sp-3)}
+/* 最大幅82%は専用ルールで確実に勝たせる：ベースの .room-bubble（max-width:70%）に
+   詳細度で明確に上回るセレクタ（ID＋クラス3〜4つ）を使い、試作ブロックの
+   この位置に置くことで、左右どちらの吹き出しにも computed で 82% が効くようにする */
+#roomView.room-trial .room-msg .room-bubble,
+#roomView.room-trial .room-msg.is-own .room-bubble{max-width:82%}
 #roomView.room-trial .room-msg.is-own .room-bubble{border-radius:var(--radius) 4px var(--radius) var(--radius)}
 #roomView.room-trial .room-text{font-size:var(--fs-headline);font-weight:700;line-height:var(--lh-headline)}
 #roomView.room-trial .room-sum{font-size:var(--fs-sub);line-height:var(--lh-body)}
