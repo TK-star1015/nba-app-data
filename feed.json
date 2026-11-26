@@ -328,8 +328,22 @@
       "url": "https://www.hoopsrumors.com/2026/11/tyrese-haliburton-nears-return-from-hamstring-injury.html",
       "provisional": true,
       "top": false
+    },
+    {
+      "id": "gh-20261126-rss-brown-exits-heat-hamstring",
+      "level": "reported",
+      "teams": [
+        "PHI"
+      ],
+      "headline": "ブラウン、ハムストリング再発でヒート戦を途中退場",
+      "date": "2026-11-26",
+      "time": "09:24",
+      "sourceName": "ESPN",
+      "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue",
+      "provisional": true,
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-26T09:15:49+09:00",
+  "updatedAt": "2026-11-26T09:35:00+09:00",
   "version": 1
 }
