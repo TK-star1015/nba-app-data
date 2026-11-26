@@ -1,6 +1,48 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261127-gossip-barnes-thanksgiving-cook",
+      "level": "gossip",
+      "teams": [
+        "TOR"
+      ],
+      "headline": "スコッティ・バーンズ、感謝祭ディナーで正直告白「料理はしてない」",
+      "headlineEn": "Scottie Barnes admits he did not cook Thanksgiving dinner: \"The restaurant already had food\"",
+      "date": "2026-11-26",
+      "sourceName": "HoopsHype",
+      "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/26/nah-i-didnt-cook-the-restaurant-already-had-food/92972134007/",
+      "genre": "舞台裏",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-durant-ice-cream-sandwich",
+      "level": "gossip",
+      "teams": [
+        "HOU"
+      ],
+      "headline": "デュラント、感謝祭に「アイスサンド係」を雇うと宣言",
+      "headlineEn": "Durant jokes he will hire an \"ice cream sandwich assistant\" for Thanksgiving",
+      "date": "2026-11-26",
+      "sourceName": "Hoops Wire",
+      "url": "https://hoopswire.com/kevin-durant-pokes-fun-at-steelers-mike-mccarthy-over-ice-cream-sandwiches/",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-doncic-redick-thanksgiving",
+      "level": "gossip",
+      "teams": [
+        "LAL"
+      ],
+      "headline": "ドンチッチ、感謝祭前夜にレディック監督へ心温まるメッセージ",
+      "headlineEn": "Doncic sends a heartfelt Thanksgiving note to coach Redick",
+      "date": "2026-11-26",
+      "sourceName": "Heavy",
+      "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-jj-redick/",
+      "genre": "ほのぼの",
+      "top": false
+    },
+    {
       "id": "gh-20261127-morant-return",
       "level": "reported",
       "teams": [
@@ -670,6 +712,6 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T03:20:32+09:00",
+  "updatedAt": "2026-11-27T05:57:00+09:00",
   "version": 1
 };
