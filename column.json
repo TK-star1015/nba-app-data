@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-26T18:41:59+09:00",
+  "updatedAt": "2026-11-26T18:46:20+09:00",
   "columns": [
     {
       "date": "2026-11-26",
@@ -10,8 +10,9 @@
         {
           "headline": "KPJ、マジックと契約（公式）",
           "headlineEn": "Kevin Porter Jr. signs with the Magic (official)",
-          "take": "才能だけならオールスター級。問題は才能以外の全部。マジックは宝くじを買った。当たればデカい、外れれば「やっぱりね」で終わる安い買い物。",
-          "takeEn": "All-Star talent. Everything else is the problem. Orlando bought a lottery ticket — cheap enough that if it misses, everyone just shrugs."
+          "take": "低迷するマジックの救世主となれるのか…というかマジックをレギュラーシーズン1位にした管理人を救ってください",
+          "takeEn": "Can he be the savior of the slumping Magic... actually, please save the editor who picked the Magic to finish first in the regular season.",
+          "meme": "kpj-savior"
         },
         {
           "headline": "リーブス、練習に復帰",
