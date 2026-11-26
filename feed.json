@@ -260,17 +260,18 @@
     },
     {
       "id": "gh-20261125-kpj-magic-agreement-shams",
-      "level": "reported",
+      "level": "official",
       "teams": [
         "ORL"
       ],
-      "headline": "ケビン・ポーターJr.、マジックと2年契約で合意",
-      "date": "2026-11-25",
+      "headline": "ケビン・ポーターJr.、マジックと正式契約",
+      "date": "2026-11-26",
       "sourceName": "Hoops Rumors",
       "url": "https://www.hoopsrumors.com/2026/11/magic-to-sign-kevin-porter-jr.html",
       "reporter": "Shams Charania",
       "category": "契約",
-      "top": true
+      "top": true,
+      "time": "13:08"
     },
     {
       "id": "gh-20261125-lopez-lakers-fischer",
@@ -420,6 +421,6 @@
       "top": true
     }
   ],
-  "updatedAt": "2026-11-26T12:48:30+09:00",
+  "updatedAt": "2026-11-26T13:11:00+09:00",
   "version": 1
 }
