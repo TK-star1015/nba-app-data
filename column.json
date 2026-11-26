@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-26T18:49:46+09:00",
+  "updatedAt": "2026-11-26T22:02:40+09:00",
   "columns": [
     {
       "date": "2026-11-26",
@@ -8,8 +8,8 @@
       "introEn": "Today's news, with the editor's honest, unfiltered takes.",
       "takes": [
         {
-          "headline": "KPJ、マジックと契約（公式）",
-          "headlineEn": "Kevin Porter Jr. signs with the Magic (official)",
+          "headline": "KPJ、マジックと契約",
+          "headlineEn": "Kevin Porter Jr. signs with the Magic",
           "take": "低迷するマジックの救世主となれるのか…というかマジックをレギュラーシーズン2位に予想した管理人を救ってください",
           "takeEn": "Can he be the savior of the slumping Magic... actually, please save the editor who picked the Magic to finish second in the regular season.",
           "meme": "kpj-savior"
