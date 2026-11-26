@@ -605,7 +605,13 @@
       "time": "09:11",
       "sourceName": "Hoops Rumors",
       "url": "https://www.hoopsrumors.com/2026/11/tyrese-haliburton-nears-return-from-hamstring-injury.html",
-      "top": true
+      "top": true,
+      "related": [
+        {
+          "label": "Indianapolis Star",
+          "url": "https://www.indystar.com/story/sports/nba/pacers/2026/11/26/tyrese-haliburton-injury-report-pacers-point-guard-gets-bad-news-vs-sixers/92973719007/"
+        }
+      ]
     },
     {
       "id": "gh-20261126-rss-brown-exits-heat-hamstring",
@@ -741,6 +747,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T08:09:07+09:00",
+  "updatedAt": "2026-11-27T08:29:35+09:00",
   "version": 1
 }
