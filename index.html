@@ -767,6 +767,10 @@ body.lang-en .team-name{font-size:var(--fs-meta)}
 .fb-bubble{position:relative;background:var(--surface2);border-radius:4px var(--radius) var(--radius) var(--radius);padding:var(--sp-2) var(--sp-3)}
 .fb-bubble::before{content:"";position:absolute;top:1px;left:-5px;width:9px;height:9px;background:var(--surface2);clip-path:polygon(100% 0,0 0,100% 100%)}
 .fb-bubble h4{margin:0}
+/* ジャンル別ニュースの吹き出し本体はタップで記事詳細シートが開く
+   （2026-11-28 本採用：ルームと同じシート）。出典リンクと共有ボタンは
+   吹き出しの中でも従来どおり個別に働く（受け口は JS 側で振り分ける） */
+.fb-bubble[data-feed-sheet-idx]{cursor:pointer}
 /* 吹き出し内の分類チップも最小文字（11px）に揃え、11px未満の極小文字を
    このセクションから無くす（トークルーム側の .room-chip は対象外） */
 .fb-bubble .room-chip .status-tabs span,.fb-bubble .room-chip .cat-chip,.fb-bubble .room-chip .prov-chip,.fb-bubble .room-chip .tag,.fb-bubble .room-chip .genre-chip,.fb-bubble .room-chip .opinion-chip{font-size:var(--fs-chip)}
@@ -3858,11 +3862,37 @@ function bindShareDelegation(el){
     shareArticle(b.getAttribute("data-share-title")||"",b.getAttribute("data-share-url")||"");
   });
 }
+/* ===== ジャンル別ニュースの記事詳細シート（2026-11-28 本採用）=====
+   ルームの吹き出しと同じ詳細シートを、ジャンル別ニュースの吹き出し型
+   カードからも開けるようにする。シートが引く項目は描画のたびに
+   feedSheetItems へ表示順どおり積み直し、吹き出しにはその番号
+   （data-feed-sheet-idx）を埋める。項目の形はルーム側
+   （roomFlowItems が作る項目）と完全に同じにそろえ、シート側は
+   どちらから開かれたかを区別しない */
+var feedSheetItems=[];
+function feedSheetItemFor(n){
+  var p=articleDayParts(n);
+  var timeStr="";
+  if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))timeStr=ampmFromHM(n.time);
+  return {y:p.y,mo:p.mo,d:p.d,
+    chip:cardChipHTML(n),title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
+    detail:roomSummary(n.body,n.title,600),srcName:String(n.media||n.src||""),
+    related:(Array.isArray(n.related)&&n.related.length)?n.related:null};
+}
+function rssSheetItemFor(item){
+  var dt=(item.pubDate&&!isNaN(item.pubDate.getTime()))?item.pubDate:null;
+  return {y:dt?dt.getFullYear():2026,mo:dt?(dt.getMonth()+1):1,d:dt?dt.getDate():1,
+    chip:provChipHTML(item)+(item.provType?'<span class="tag">'+escapeHtml(TYPE_LABEL[state.lang][item.provType]||item.provType)+'</span>':''),
+    title:rssTitleHTML(item),url:String(item.link||""),time:dt?ampmFromDate(dt):"",
+    detail:roomSummary(item.desc,item.title,600),srcName:rssSourceName(item),related:null};
+}
 function feedBubbleHTML(n){
+  var sheetIdx=feedSheetItems.length;
+  feedSheetItems.push(feedSheetItemFor(n));
   return '<div class="news-item fb-item'+(articleIsRead(n)?' is-read':'')+'" id="feed-art-'+n.id+'">'
     +feedAvatarHTML(n)
     +'<div class="fb-main">'+feedSenderHTML(n)
-    +'<div class="fb-bubble"><h4><span class="room-chip">'+cardChipHTML(n)+'</span>'+phraseHTML(n.title)+'</h4>'
+    +'<div class="fb-bubble" data-feed-sheet-idx="'+sheetIdx+'" role="button" tabindex="0" aria-haspopup="dialog"><h4><span class="room-chip">'+cardChipHTML(n)+'</span>'+phraseHTML(n.title)+'</h4>'
     +'<div class="fb-meta"><span class="fb-links">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'</span><span class="fb-time">'+articleNewDotHTML(n)+feedTimeLabel(n)+'</span>'+shareBtnHTML(n.title,articleShareURL(n))+'</div>'
     +'</div></div></div>';
 }
@@ -4629,10 +4659,14 @@ function finishCloseRoom(){
 }
 document.getElementById("roomBackBtn").addEventListener("click",closeRoom);
 document.getElementById("roomBackBtn2").addEventListener("click",closeRoom);
-/* ===== 記事詳細シート（ルームの吹き出しタップ・試作 2026-11-28）=====
-   吹き出しをタップしても外部サイトへは飛ばず、このシートで記事の詳細
-   （分類チップ・見出し・日時・出典・要約・関連リンク）を大きく見せる。
+/* ===== 記事詳細シート（2026-11-28 本採用）=====
+   吹き出し／カードをタップしても外部サイトへは飛ばず、このシートで記事の
+   詳細（分類チップ・見出し・日時・出典・要約・関連リンク）を大きく見せる。
    外部へ進むのは最下部の「記事を読む」リンクを押した時だけ。
+   開く元は2か所：トークルームの吹き出し（roomSheetItems）と、
+   ジャンル別ニュースの吹き出し型カード（feedSheetItems）。項目の形は
+   両者で同一にそろえてあり、シート側（showArticleSheet）は開く元を
+   区別しない。TOP NEWS は対象外（従来どおりタップで直接リンク）。
    開閉は既読・未読（readMark）には一切触れない（既読化は入室時のみ） */
 var roomSheetItems=[];
 var sheetReturnFocus=null;
@@ -4640,6 +4674,13 @@ var sheetPrevOverflow="";
 var sheetHideTimer=null;
 function openArticleSheet(idx,trigger){
   var it=roomSheetItems[idx];
+  if(it)showArticleSheet(it,trigger);
+}
+function openFeedSheet(idx,trigger){
+  var it=feedSheetItems[idx];
+  if(it)showArticleSheet(it,trigger);
+}
+function showArticleSheet(it,trigger){
   if(!it)return;
   var root=document.getElementById("sheetRoot");
   if(!root)return;
@@ -4714,6 +4755,30 @@ if(roomBodyEl)roomBodyEl.addEventListener("click",function(e){
   if(!b||!roomBodyEl.contains(b))return;
   openArticleSheet(parseInt(b.getAttribute("data-sheet-idx"),10),b);
 });
+/* ジャンル別ニュースの吹き出しタップの受け口：#feedCard への委譲なので、
+   差分再描画でカードが差し替わっても付け直しは不要。吹き出しの中にある
+   出典リンク・関連リンク（<a>）と共有ボタン・畳み行ボタン等の <button> は
+   従来の挙動を優先し、シートは開かない（リンク／ボタン上のタップは素通し）。
+   仮分類の畳み行内のカードも同じ吹き出し型なので、この受け口で一緒に開く */
+var feedCardEl=document.getElementById("feedCard");
+if(feedCardEl){
+  feedCardEl.addEventListener("click",function(e){
+    var t=e.target;
+    if(!t||!t.closest)return;
+    if(t.closest("a,button"))return;
+    var b=t.closest("[data-feed-sheet-idx]");
+    if(!b||!feedCardEl.contains(b))return;
+    openFeedSheet(parseInt(b.getAttribute("data-feed-sheet-idx"),10),b);
+  });
+  /* 吹き出しは div のため、キーボード（Enter／Space）でも開けるようにする */
+  feedCardEl.addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ")return;
+    var t=e.target;
+    if(!t||!t.getAttribute||t.getAttribute("data-feed-sheet-idx")===null)return;
+    e.preventDefault();
+    openFeedSheet(parseInt(t.getAttribute("data-feed-sheet-idx"),10),t);
+  });
+}
 document.getElementById("sheetClose").addEventListener("click",closeArticleSheet);
 document.getElementById("sheetBackdrop").addEventListener("click",closeArticleSheet);
 document.addEventListener("keydown",function(e){if(e.key==="Escape")closeArticleSheet();});
@@ -4965,6 +5030,10 @@ function renderFeed(){
      仮分類なので TOPニュースには入れない（TOPは確定分類の掲載記事だけ）。
      段階表示はこの項目列の先頭から feedShown 件だけを描く */
   var entries=[];
+  /* 詳細シート用の項目はこの描画で積み直す（RSS新着→通常記事→仮分類の
+     順に feedBubbleHTML／rssBubbleHTML が push する。吹き出しに埋めた
+     番号と常に一致させるため、項目列の組み立てより前に空にする） */
+  feedSheetItems=[];
   var rssHeadSeg=null;
   if(typeof liveFeedItems!=="undefined"&&liveFeedItems.length&&state.type==="all"){
     /* 描画時点でも掲載済みURL・見出しと一致する生RSSは落とす（取得の到着順に
@@ -6050,10 +6119,14 @@ function rssBubbleHTML(item){
      特定できない場合は送信者行に出典名を出し、リンク側を短いラベル
      （原文を見る）に替える。日付はメタ行の時刻だけに出す */
   var sender=item.reporter?item.reporter:rssSourceName(item);
+  /* RSS新着の吹き出しもタップで同じ詳細シートが開く（要約データが
+     無い記事はシート側で要約欄が出ないだけ。要約の有無で挙動は変えない） */
+  var sheetIdx=feedSheetItems.length;
+  feedSheetItems.push(rssSheetItemFor(item));
   return '<div class="news-item fb-item'+(rssItemIsRead(item)?' is-read':'')+'">'
     +rssAvatarHTML(item)
     +'<div class="fb-main"><div class="fb-sender">'+escapeHtml(sender)+(item.teamAbbr?'<span class="fb-teams">'+escapeHtml(item.teamAbbr)+'</span>':'')+'</div>'
-    +'<div class="fb-bubble"><h4>'+(chips?'<span class="room-chip">'+chips+'</span>':'')+rssTitleHTML(item)+'</h4>'
+    +'<div class="fb-bubble" data-feed-sheet-idx="'+sheetIdx+'" role="button" tabindex="0" aria-haspopup="dialog"><h4>'+(chips?'<span class="room-chip">'+chips+'</span>':'')+rssTitleHTML(item)+'</h4>'
     +'<div class="fb-meta"><span class="fb-links">'+rssItemLinkHTML(item,!item.reporter)+'</span><span class="fb-time">'+rssNewDotHTML(item)+escapeHtml(formatFeedDate(item.pubDate))+'</span>'+shareBtnHTML(item.title,item.link)+'</div>'
     +'</div></div></div>';
 }
