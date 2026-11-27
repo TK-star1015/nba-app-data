@@ -1231,6 +1231,8 @@ window.NBA_FEED = {
  "retracted": [
   "fischer-kings-open",
   "gh-20261126-gossip-stiller-brunson-pumpfake",
-  "mcconnell-recall"
+  "mcconnell-recall",
+  "gh-20261125-gossip-kyrie-irving-shoes-fan",
+  "gh-20261125-gossip-draymond-bench-kerr"
  ]
 };
