@@ -1377,7 +1377,7 @@ window.NBA_FEED = {
    "teams": [
     "BKN"
    ],
-   "headline": "モリッツ・ワーグナー、左膝の故障でラプターズ戦欠場",
+   "headline": "モリッツ・ワグナー、左膝の故障でラプターズ戦欠場",
    "headlineEn": "Moritz Wagner out vs. Raptors with left knee injury",
    "date": "2026-11-27",
    "time": "06:34",
@@ -1391,7 +1391,7 @@ window.NBA_FEED = {
      "url": "https://netswire.usatoday.com/story/sports/nba/nets/2026/11/26/nets-mo-wagner-left-knee-out-for-fridays-nba-cup-game-at-raptors/92975563007/"
     }
    ],
-   "summary": "モリッツ・ワーグナーが左膝の故障でラプターズ戦を欠場する。",
+   "summary": "モリッツ・ワグナーが左膝の故障でラプターズ戦を欠場する。",
    "summaryEn": "Moritz Wagner will miss the Raptors game with a left knee injury."
   },
   {
@@ -1662,5 +1662,4 @@ window.NBA_FEED = {
   "gh-20261126-rss-haliburton-nears-return",
   "gh-20261126-anunoby-calf-strain"
  ]
-}
-;
+};
