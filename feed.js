@@ -547,29 +547,6 @@ window.NBA_FEED = {
    "summaryEn": "Nick Wright gifted courtside seats to a kind fan after a fake post, in a gesture fans loved."
   },
   {
-   "id": "gh-20261126-anunoby-calf-strain",
-   "level": "reported",
-   "teams": [
-    "NYK"
-   ],
-   "headline": "アヌノビー、左ふくらはぎの肉離れ　3戦連続欠場もデイ・トゥ・デイ",
-   "date": "2026-11-26",
-   "time": "12:46",
-   "sourceName": "Hoops Rumors",
-   "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-nba-cup-brown-anunoby-towns-thibodeau-jent.html",
-   "category": "怪我",
-   "top": true,
-   "related": [
-    {
-     "label": "Hoops Rumors",
-     "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
-    }
-   ],
-   "headlineEn": "Anunoby day-to-day with left calf strain, out third straight game",
-   "summary": "ニックスのOG・アヌノビーが左ふくらはぎの肉離れで3試合連続の欠場。土曜のヒート戦もダウトフルとされ、4戦連続欠場の可能性が高い。状態はデイ・トゥ・デイで、長期離脱にはならない見通しとされる。",
-   "summaryEn": "Knicks forward OG Anunoby has missed three straight games with a left calf strain. He is listed as doubtful for Friday's game against the Heat, likely missing a fourth straight. He is considered day-to-day, and a long absence is not expected."
-  },
-  {
    "id": "gh-20261128-lamelo-ball-out-grizzlies",
    "level": "reported",
    "teams": [
@@ -1550,9 +1527,36 @@ window.NBA_FEED = {
    "top": false,
    "summary": "グラミー賞ノミネートのラッパー、グロリラが感謝祭前夜のグリズリーズ対クリッパーズ戦をフェデックスフォーラムで観戦した。地元メンフィス出身のスターの姿がSNSで話題になり、グリズリーズは115-97で勝利した。",
    "summaryEn": "Grammy-nominated rapper GloRilla watched the Grizzlies beat the Clippers at FedExForum on Thanksgiving eve. The Memphis native's appearance lit up social media."
+  },
+  {
+   "id": "gh-20261126-anunoby-calf-strain-fix",
+   "level": "reported",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "アヌノビー、土曜ヒート戦の欠場が確定　ふくらはぎで4戦連続",
+   "date": "2026-11-26",
+   "time": "12:46",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-27/og-anunoby-calf-sidelined-friday-vs-miami",
+   "category": "怪我",
+   "top": true,
+   "related": [
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-nba-cup-brown-anunoby-towns-thibodeau-jent.html"
+    },
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
+    }
+   ],
+   "headlineEn": "Anunoby ruled out for Friday's game vs. Heat with calf strain, fourth straight absence",
+   "summary": "ニックスのOG・アヌノビーが左ふくらはぎの肉離れで、土曜のヒート戦の欠場が確定した。これで4試合連続の欠場となる。ダウトフルとされていたが、土曜の負傷者リストでOUTに格下げされた。状態はデイ・トゥ・デイで、長期離脱にはならない見通しとされる。",
+   "summaryEn": "Knicks forward OG Anunoby has been ruled out for Friday's game against the Heat with a left calf strain, his fourth straight absence. He was listed as doubtful on Thursday before being downgraded to out on Friday's injury report. He is considered day-to-day, and a long absence is not expected."
   }
  ],
- "updatedAt": "2026-11-28T04:36:00+09:00",
+ "updatedAt": "2026-11-28T04:35:35+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
@@ -1566,6 +1570,7 @@ window.NBA_FEED = {
   "gh-20261125-kpj-magic-agreement-shams",
   "gh-20261126-rss-embiid-out-heat-illness",
   "gh-20261126-rss-reaves-full-practice-spurs",
-  "gh-20261126-rss-haliburton-nears-return"
+  "gh-20261126-rss-haliburton-nears-return",
+  "gh-20261126-anunoby-calf-strain"
  ]
 };
