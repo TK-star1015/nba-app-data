@@ -1,6 +1,79 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261128-banchero-out-wizards",
+      "level": "official",
+      "teams": [
+        "ORL"
+      ],
+      "headline": "パオロ・バンケロ、右足首の高位捻挫で土曜ウィザーズ戦を欠場",
+      "headlineEn": "Paolo Banchero out for Friday's game vs. Wizards with right high ankle sprain",
+      "date": "2026-11-28",
+      "time": "06:00",
+      "ts": "2026-11-28T06:00:00+09:00",
+      "sourceName": "NBA公式レポート",
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_04_00PM.pdf",
+      "category": "怪我",
+      "top": false,
+      "summary": "マジックのパオロ・バンケロが右足首の高位捻挫のため、土曜のウィザーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後4時版）にOutとして新たに掲載された。離脱期間についての言及はレポートにない。",
+      "summaryEn": "Magic star Paolo Banchero is out for Friday's game against the Wizards with a right high ankle sprain, per the latest edition of the NBA's official injury report (4:00 p.m. ET, Nov. 27). He is a new addition to the report. No timeline for his absence was given."
+    },
+    {
+      "id": "gh-20261128-black-questionable-wizards",
+      "level": "official",
+      "teams": [
+        "ORL"
+      ],
+      "headline": "アンソニー・ブラック、背部の痛みで土曜ウィザーズ戦はクエスチョナブル",
+      "headlineEn": "Anthony Black questionable for Friday vs. Wizards with back soreness",
+      "date": "2026-11-28",
+      "time": "06:00",
+      "ts": "2026-11-28T06:00:00+09:00",
+      "sourceName": "NBA公式レポート",
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_04_00PM.pdf",
+      "category": "怪我",
+      "top": false,
+      "minor": true,
+      "summary": "マジックのアンソニー・ブラックが背部の痛みのため、土曜のウィザーズ戦はクエスチョナブルとされた。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後4時版）に新たに掲載された。同じ試合ではパオロ・バンケロの欠場も決まっている。",
+      "summaryEn": "Magic guard Anthony Black is listed as questionable for Friday's game against the Wizards with back soreness, per the latest edition of the NBA's official injury report (4:00 p.m. ET, Nov. 27). He is a new addition to the report. Paolo Banchero has already been ruled out for the same game."
+    },
+    {
+      "id": "gh-20261128-isaac-out-wizards",
+      "level": "official",
+      "teams": [
+        "ORL"
+      ],
+      "headline": "ジョナサン・アイザック、左膝の故障管理で土曜ウィザーズ戦を欠場",
+      "headlineEn": "Jonathan Isaac out for Friday's game vs. Wizards for left knee injury management",
+      "date": "2026-11-28",
+      "time": "06:00",
+      "ts": "2026-11-28T06:00:00+09:00",
+      "sourceName": "NBA公式レポート",
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_04_00PM.pdf",
+      "category": "怪我",
+      "top": false,
+      "summary": "マジックのジョナサン・アイザックが左膝の故障管理のため、土曜のウィザーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後4時版）にOutとして新たに掲載された。同じ試合ではパオロ・バンケロの欠場も決まっている。",
+      "summaryEn": "Magic forward Jonathan Isaac is out for Friday's game against the Wizards for left knee injury management, per the latest edition of the NBA's official injury report (4:00 p.m. ET, Nov. 27). He is a new addition to the report. Paolo Banchero has already been ruled out for the same game."
+    },
+    {
+      "id": "gh-20261128-kpj-out-reconditioning",
+      "level": "official",
+      "teams": [
+        "ORL"
+      ],
+      "headline": "ケビン・ポーターJr.、復帰に向けた再調整のため土曜ウィザーズ戦を欠場",
+      "headlineEn": "Kevin Porter Jr. out for Friday's game vs. Wizards for return to competition reconditioning",
+      "date": "2026-11-28",
+      "time": "06:00",
+      "ts": "2026-11-28T06:00:00+09:00",
+      "sourceName": "NBA公式レポート",
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_04_00PM.pdf",
+      "category": "怪我",
+      "top": false,
+      "summary": "マジックのケビン・ポーターJr.が復帰に向けた再調整のため、土曜のウィザーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後4時版）にOutとして新たに掲載された。ポーターJr.は11月25日にマジックと2年契約で合意したばかりで、デビューは持ち越しとなる。",
+      "summaryEn": "Magic guard Kevin Porter Jr. is out for Friday's game against the Wizards for return to competition reconditioning, per the latest edition of the NBA's official injury report (4:00 p.m. ET, Nov. 27). He is a new addition to the report. Porter Jr. agreed to a two-year deal with Orlando on Nov. 25, so his debut will have to wait."
+    },
+    {
       "id": "gh-20261127-bronny-gleague-assignment",
       "level": "reported",
       "teams": [
@@ -1694,7 +1767,7 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-28T06:03:56+09:00",
+  "updatedAt": "2026-11-28T06:28:59+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
@@ -1711,5 +1784,4 @@ window.NBA_FEED = {
     "gh-20261126-rss-haliburton-nears-return",
     "gh-20261126-anunoby-calf-strain"
   ]
-}
-;
+};
