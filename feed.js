@@ -1,6 +1,22 @@
 window.NBA_FEED = {
  "articles": [
   {
+   "id": "gh-20261127-rss-lakers-luka-analysis",
+   "level": "rumor",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ドンチッチ中心に好調のレイカーズは本物か",
+   "headlineEn": "Are the Luka-led Lakers for real?",
+   "date": "2026-11-27",
+   "time": "20:00",
+   "sourceName": "Yahoo Sports",
+   "url": "https://sports.yahoo.com/nba/articles/lights-luka-contagious-chemistry-lakers-110022468.html",
+   "category": "分析",
+   "top": false,
+   "provisional": true
+  },
+  {
    "id": "gh-20261127-martin-questionable-nets",
    "level": "reported",
    "teams": [
@@ -1137,7 +1153,7 @@ window.NBA_FEED = {
    "top": false
   }
  ],
- "updatedAt": "2026-11-27T17:57:37+09:00",
+ "updatedAt": "2026-11-27T20:14:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
