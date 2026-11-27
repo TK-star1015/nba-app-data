@@ -158,8 +158,11 @@
     --red-bg:#3c1418; --orange-bg:#38220e; --blue-bg:#16283f;
     --green-bg:#0e2c22;
     --red-tx:#ff7079; --orange-tx:#ffa25e; --blue-tx:#7fb0f7; --green-tx:#45cf9e;
-    --paper:#292019; --paper-card:#332920; --paper-ink:#f0e8d8;
-    --paper-muted:#b3a58d; --paper-line:#55483a; --paper-rule:#f0e8d8;
+    /* オフコート紙面のダーク調整（2026-11-27）：紙を僅かに明るく温かくし、
+       罫（--paper-line）の紙に対する強さとカードの段差をライト側の
+       関係に寄せて弱め、紙の質感の見え方の差を小さくする（色系統は不変） */
+    --paper:#2c231b; --paper-card:#352a20; --paper-ink:#ede2cc;
+    --paper-muted:#b7a78d; --paper-line:#4c3e30; --paper-rule:#ede2cc;
     --page-ink:#f2f3f5; --page-muted:#a6acb5;
     --on-accent:#101216;
     color-scheme:dark;
@@ -174,8 +177,9 @@
   --red-bg:#3c1418; --orange-bg:#38220e; --blue-bg:#16283f;
   --green-bg:#0e2c22;
   --red-tx:#ff7079; --orange-tx:#ffa25e; --blue-tx:#7fb0f7; --green-tx:#45cf9e;
-  --paper:#292019; --paper-card:#332920; --paper-ink:#f0e8d8;
-  --paper-muted:#b3a58d; --paper-line:#55483a; --paper-rule:#f0e8d8;
+  /* オフコート紙面のダーク調整（2026-11-27）：同上（prefers-color-scheme 側と同値） */
+  --paper:#2c231b; --paper-card:#352a20; --paper-ink:#ede2cc;
+  --paper-muted:#b7a78d; --paper-line:#4c3e30; --paper-rule:#ede2cc;
   --page-ink:#f2f3f5; --page-muted:#a6acb5;
   --on-accent:#101216;
   color-scheme:dark;
@@ -1178,7 +1182,8 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
    通常改行のまま */
 .art-date,.digest-item time,
 .refresh-status,.tab-count,.conf-count,
-.feed-more-count,.unread,.read-check,.p-stat b,.bar em,.last5-head strong,
+.feed-more-count,.gossip-more-count,.unread,.read-check,.p-stat b,.bar em,.last5-head strong,
+.news-meta,.post-meta,.room-date-sep span,.room-time,
 .team-foot .foot-time{font-variant-numeric:tabular-nums}
 .news-item h4,.post-title,.digest h1,.digest-main,#detailTitle{overflow-wrap:break-word;word-break:normal}
 /* TOP NEWS の見出し（.digest-main）だけ文節単位で折る：word-break:keep-all で
@@ -1803,6 +1808,16 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
 @media(max-width:760px){
   .feed-search{max-width:none}
 }
+/* 3b) 検索サジェスト：入力途中の語に合う掲載中の名前（選手名・チーム名）を
+   検索欄の直下に小さなリストで出す。見た目は既存チップと同じ小さい文字と
+   静かな罫だけにし、色・装飾は増やさない。件数は JS 側で最大5件に制限する */
+.feed-suggest{margin:0 0 8px;width:100%;max-width:360px;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.feed-suggest-item{display:flex;align-items:center;width:100%;min-height:32px;padding:6px 12px;background:none;border:0;border-bottom:1px solid var(--line);font:inherit;font-size:var(--fs-small);color:var(--ink);text-align:left;cursor:pointer}
+.feed-suggest-item:last-child{border-bottom:0}
+.feed-suggest-item:active{background:var(--surface2)}
+@media(max-width:760px){
+  .feed-suggest{max-width:none}
+}
 /* 4) 「絞り込み」チップ：ジャンル別ニュース見出し行の右端に置く開閉チップ。
    寸法は切替チップ（.seg button）と同一（12px／高さ30px／ピル型）に揃える。
    畳んだ条件（種類・期間・お気に入り・検索）のうち有効なものがある間は
@@ -2102,6 +2117,8 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
       <div class="toolbar" style="margin-top:0;margin-bottom:8px">
         <label class="feed-search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="text" id="feedSearchInput" data-i18n-ph="feedSearchPh" placeholder="見出し・選手名・チーム名で検索" data-i18n-aria="ariaFeedSearch" aria-label="ニュース検索" autocomplete="off"></label>
       </div>
+      <!-- 検索サジェスト：入力途中の語に合う掲載中の名前を最大5件まで出す（中身は JS が入れる） -->
+      <div class="feed-suggest" id="feedSuggest" hidden></div>
       <div class="toolbar" style="margin-top:0;margin-bottom:8px">
         <div class="seg" id="typeSeg">
           <button class="active" data-type="all" data-i18n="tAll">全種類</button>
@@ -3158,11 +3175,15 @@ function renderGrid(){
     var ra=a.info?a.info.frac:0, rb=b.info?b.info.frac:0;
     return rb-ra;
   });
-  document.getElementById("teamList").innerHTML=rows.map(function(r){return teamRowHTML(r.t,r.info);}).join("");
+  var teamListEl=document.getElementById("teamList");
+  var gridChanged=reconcileList(teamListEl,rows.map(function(r){return {key:"t:"+r.t[0],html:teamRowHTML(r.t,r.info)};}));
   /* PC 2ペイン表示中は、右ペインで開いているチームの行を選択中として
-     示す（地色は CSS の PC ブロック側。モバイルでは何も変わらない） */
+     示す（地色は CSS の PC ブロック側。モバイルでは何も変わらない）。
+     差し替えなかった時も、選択行の付け替えだけは毎回そろえる */
+  var prevAct=teamListEl.querySelector(".trow.is-active");
+  if(prevAct)prevAct.classList.remove("is-active");
   if(roomPane&&roomAbbr){
-    var actRow=document.querySelector('#teamList .trow[data-abbr="'+roomAbbr+'"]');
+    var actRow=teamListEl.querySelector('.trow[data-abbr="'+roomAbbr+'"]');
     if(actRow)actRow.classList.add("is-active");
   }
   /* 空表示：お気に入りタブで1件も無い時だけ専用の短い文言に切り替える
@@ -3174,8 +3195,10 @@ function renderGrid(){
     document.getElementById("teamEmptyMain").textContent=isFav?L().favEmpty:L().gridEmpty;
     document.getElementById("teamEmptySub").textContent=isFav?L().favEmptySub:L().gridEmptySub;
   }
-  document.querySelectorAll("[data-team]").forEach(function(b){b.addEventListener("click",function(){if(Date.now()<swipeSuppressUntil)return;selectTeam(b.getAttribute("data-team"),true,true);});});
-  document.querySelectorAll("[data-fav]").forEach(function(b){b.addEventListener("click",function(e){e.stopPropagation();if(Date.now()<swipeSuppressUntil)return;var k=b.getAttribute("data-fav");favorites[k]=!favorites[k];savePrefs();renderGrid();/* 「お気に入りチームのみ」がONの間はフィードの対象も追随させる */renderFeed();});});
+  /* 行のイベントは未付与の要素にだけ付ける（差分更新で再利用された行は
+     既存のハンドラがそのまま効き、二重付けにもならない） */
+  document.querySelectorAll("[data-team]").forEach(function(b){if(b._clickBound)return;b._clickBound=1;b.addEventListener("click",function(){if(Date.now()<swipeSuppressUntil)return;selectTeam(b.getAttribute("data-team"),true,true);});});
+  document.querySelectorAll("[data-fav]").forEach(function(b){if(b._clickBound)return;b._clickBound=1;b.addEventListener("click",function(e){e.stopPropagation();if(Date.now()<swipeSuppressUntil)return;var k=b.getAttribute("data-fav");favorites[k]=!favorites[k];savePrefs();renderGrid();/* 「お気に入りチームのみ」がONの間はフィードの対象も追随させる */renderFeed();});});
   bindTeamSwipe();
 }
 /* 横スワイプでお気に入りの付け外し（LINEのスワイプ操作の借用）：行を左へ
@@ -3186,8 +3209,10 @@ function renderGrid(){
 var swipeSuppressUntil=0;
 function bindTeamSwipe(){
   document.querySelectorAll("#teamList .trow").forEach(function(row){
+    if(row._swipeBound)return;
     var front=row.querySelector(".trow-front");
     if(!front)return;
+    row._swipeBound=1;
     var sx=0,sy=0,dx=0,engaged=false;
     row.addEventListener("touchstart",function(e){
       var t=e.touches[0]; sx=t.clientX; sy=t.clientY; dx=0; engaged=false;
@@ -3650,6 +3675,68 @@ function compareTopNews(a,b){
 function digestCandidates(){
   return activeArticles().filter(function(n){return n.cat==="important"&&!n.noTop&&!n.provisional&&(!n.past||n.top===true);}).sort(compareTopNews);
 }
+/* 静かな更新（2026-11-27 TK承認）：生成したHTMLが前回と完全に同じなら
+   innerHTML を代入しない。更新ボタンやデータ再取得のたびにリスト全体が
+   組み替わって一瞬ちらつくのを防ぎ、追加・変更があった所だけが差し替わる
+   ようにする（DOMを保つため、スクロール位置や開いている状態もそのまま
+   残る）。戻り値は「実際に差し替えたか」で、呼び出し側は差し替えた時だけ
+   イベント付け直しや切り替えフィードバックを行う */
+function setHTMLQuiet(el,html){
+  if(!el)return false;
+  if(el._qhtml===html)return false;
+  el._qhtml=html;
+  el.innerHTML=html;
+  return true;
+}
+/* 記事単位の差分更新（静かな更新の本体）：コンテナの子要素を「キー付きの
+   断片（{key, html}）」の列としてそろえる。キーが一致し内容も前回と同じ
+   断片は既存ノードをそのまま再利用し（DOMを再構築しない）、追加・変更が
+   あった断片だけを新規作成・置換し、消えた断片だけを取り除く。並び替えは
+   既存ノードの移動だけで行う。seg.base を渡すと生成用HTML（html）と
+   比較用の基準文字列を分けられる（トークルームの入室アニメ用）。
+   seg.keep の断片は既存ノードがあれば中身に触れない（入れ子の差分更新を
+   呼び出し側で行うための受け皿）。戻り値は「何か変わったか」 */
+function reconcileList(container,segments){
+  if(!container)return false;
+  var prev=container._segMap||null;
+  var next={};
+  var changed=false;
+  var existing={};
+  Array.prototype.forEach.call(container.children,function(ch){
+    if(ch._segKey&&!existing[ch._segKey])existing[ch._segKey]=ch;
+  });
+  var desired=[];
+  segments.forEach(function(seg){
+    var base=seg.base||seg.html;
+    next[seg.key]=base;
+    var node=existing[seg.key]||null;
+    if(node&&(seg.keep||(prev&&prev[seg.key]===base))){
+      desired.push(node);
+      return;
+    }
+    var tmp=document.createElement("div");
+    tmp.innerHTML=seg.html;
+    var fresh=tmp.firstElementChild;
+    if(fresh){
+      fresh._segKey=seg.key;
+      desired.push(fresh);
+    }
+    changed=true;
+  });
+  for(var i=0;i<desired.length;i++){
+    var want=desired[i];
+    if(container.children[i]!==want){
+      container.insertBefore(want,container.children[i]||null);
+      changed=true;
+    }
+  }
+  while(container.children.length>desired.length){
+    container.removeChild(container.children[container.children.length-1]);
+    changed=true;
+  }
+  container._segMap=next;
+  return changed;
+}
 /* 切り替えフィードバック（第4弾）：中身を差し替えたコンテナに .swap-in を
    付け直し、180msのフェード＋4pxスライドを1回だけ発火させる。
    モーション抑制設定では CSS 側で無効化される */
@@ -3675,10 +3762,11 @@ function renderDigest(){
      PC＝文節単位／モバイル＝通常改行（右端まで使う。「・」語は割らない）。
      見出しサイズは全件同一（--fs-lead）：先頭1本だけ大きくする強調は
      TK指摘（2026-11-26）で廃止済み */
-  document.getElementById("digestList").innerHTML=list.map(function(n,i){
-    return '<div class="digest-item'+(articleIsRead(n)?' is-read':'')+'"><div class="digest-meta"><time>'+articleNewDotHTML(n)+digestDateTime(n)+'</time><span class="digest-src">'+articleSourceLinksHTML(n,true)+'</span></div><div class="digest-main">'+topDigestTitleHTML(n.title)+'</div></div>';
-  }).join("");
-  swapIn(document.getElementById("digestList"));
+  var digestEl=document.getElementById("digestList");
+  var digestChanged=reconcileList(digestEl,list.map(function(n){
+    return {key:"a:"+n.id,html:'<div class="digest-item'+(articleIsRead(n)?' is-read':'')+'"><div class="digest-meta"><time>'+articleNewDotHTML(n)+digestDateTime(n)+'</time><span class="digest-src">'+articleSourceLinksHTML(n,true)+'</span></div><div class="digest-main">'+topDigestTitleHTML(n.title)+'</div></div>'};
+  }));
+  if(digestChanged)swapIn(digestEl);
 }
 /* ===== v98：過去のTOP NEWS（専用ビュー） =====
    過去にTOP NEWS級だった公式／報道だけを、新しい順に一覧する。
@@ -3705,17 +3793,17 @@ function renderPastTop(){
   var el=document.getElementById("pastTopList");
   if(!el)return;
   var list=pastTopArticles();
-  if(!list.length){el.innerHTML=emptyHTML(L().pastTopEmpty,L().pastTopEmptySub);return;}
+  if(!list.length){reconcileList(el,[{key:"__empty",html:emptyHTML(L().pastTopEmpty,L().pastTopEmptySub)}]);return;}
   /* 日付ごとに見出し行（.past-date-head）で区切る。リストは ord 降順に
      並び済みなので同じ日付は連続する。見出しの表記は記事カードの日付と
      同じ fullDate（M/D（曜）形式）に揃える */
-  var html="",lastKey=null;
+  var segs=[],lastKey=null;
   list.forEach(function(n){
     var key=newsDateKey(n);
-    if(key!==lastKey){lastKey=key;html+='<div class="past-date-head">'+fullDate(n)+'</div>';}
-    html+=articleHTML(n);
+    if(key!==lastKey){lastKey=key;segs.push({key:"h:"+key,html:'<div class="past-date-head">'+fullDate(n)+'</div>'});}
+    segs.push({key:"a:"+n.id,html:articleHTML(n)});
   });
-  el.innerHTML=html;
+  reconcileList(el,segs);
 }
 /* 別ページ風の画面遷移：通常画面（.wrap の他要素）を隠して専用ビューだけを出し、
    先頭へスクロールする。戻るボタンで表示を戻し、元のスクロール位置に復帰する */
@@ -3845,14 +3933,14 @@ function renderEditorColumn(){
   if(!el)return;
   var list=mergedColumnEntries();
   var nav=document.getElementById("editorDateNav");
-  if(!list.length){el.innerHTML=emptyHTML(L().editorEmpty,L().editorEmptySub);if(nav)nav.innerHTML="";return;}
+  if(!list.length){setHTMLQuiet(el,emptyHTML(L().editorEmpty,L().editorEmptySub));if(nav)setHTMLQuiet(nav,"");return;}
   var en=state.lang==="en";
   /* ページ上部の日付チップ一覧：掲載日（新しい順）を並べ、タップでその日の
      エントリー（#editor-entry-<date>）へスクロールする */
-  if(nav)nav.innerHTML=list.map(function(entry){
+  if(nav)setHTMLQuiet(nav,list.map(function(entry){
     return '<button type="button" class="editor-date-chip" data-date="'+entry.date+'">'+columnChipLabel(entry.date)+'</button>';
-  }).join("");
-  el.innerHTML=list.map(function(entry){
+  }).join(""));
+  setHTMLQuiet(el,list.map(function(entry){
     var intro=en?(entry.introEn||entry.intro):entry.intro;
     var html='<article class="editor-entry" id="editor-entry-'+entry.date+'"><div class="editor-date">'+columnDateLabel(entry.date)+'</div>';
     if(intro)html+='<p class="editor-intro">'+intro+'</p>';
@@ -3867,7 +3955,7 @@ function renderEditorColumn(){
     });
     html+='</div></article>';
     return html;
-  }).join("");
+  }).join(""));
 }
 /* column.json の取得→取り込み→再描画。feed.json と同じく失敗時は完全に無音
    （内蔵の初期記事のまま表示し、エラー表示は出さない） */
@@ -4048,7 +4136,7 @@ function renderRoom(){
   var titleEl=document.getElementById("roomTitle");
   if(titleEl)titleEl.textContent=teamName(t);
   var badge=document.getElementById("roomBadge");
-  if(badge){badge.style.background=t[4];badge.innerHTML='<img src="assets/icons/team-'+abbr.toLowerCase()+'.png" alt="" onerror="this.remove()">';}
+  if(badge&&badge._abbr!==abbr){badge._abbr=abbr;badge.style.background=t[4];badge.innerHTML='<img src="assets/icons/team-'+abbr.toLowerCase()+'.png" alt="" onerror="this.remove()">';}
   /* ヘッダー右端の星はこのチームのお気に入りトグル：状態を毎回同期する */
   var favBtn=document.getElementById("roomFavBtn");
   if(favBtn){var isFav=!!favorites[abbr];favBtn.classList.toggle("on",isFav);favBtn.setAttribute("aria-pressed",isFav?"true":"false");}
@@ -4058,20 +4146,21 @@ function renderRoom(){
   if(!items.length){
     /* 記事がないチーム：空白にせず、専用の空表示で分かりやすく伝える */
     roomAnimate=false;
-    body.innerHTML=emptyHTML(L().detailEmpty,L().detailEmptySub);
+    reconcileList(body,[{key:"__empty",html:emptyHTML(L().detailEmpty,L().detailEmptySub)}]);
     return;
   }
   /* 「ここから新しい記事」の境界：入室時点で未読だった件数ぶんを末尾
      （最新側）から数えた位置。全既読で入った時（roomNewCount=0）は出さない */
   var newStart=roomNewCount>0?Math.max(0,items.length-roomNewCount):-1;
   var animate=roomAnimate; roomAnimate=false;
-  var html="",lastDay=null;
+  var segs=[],lastDay=null,usedKeys={};
+  function uniqKey(k){if(!usedKeys[k]){usedKeys[k]=1;return k;}var i=2;while(usedKeys[k+"#"+i])i++;usedKeys[k+"#"+i]=1;return k+"#"+i;}
   items.forEach(function(it,idx){
     if(it.day!==lastDay){
       lastDay=it.day;
-      html+='<div class="room-date-sep"><span>'+roomDateLabel(it.y,it.mo,it.d)+'</span></div>';
+      segs.push({key:uniqKey("d:"+it.day),html:'<div class="room-date-sep"><span>'+roomDateLabel(it.y,it.mo,it.d)+'</span></div>'});
     }
-    if(idx===newStart)html+='<div class="room-new-sep"><span>'+L().roomNewFrom+'</span></div>';
+    if(idx===newStart)segs.push({key:"__newsep",html:'<div class="room-new-sep"><span>'+L().roomNewFrom+'</span></div>'});
     /* 噂は LINE の自分の送信メッセージ様式で右から出す：吹き出しを
        右端に寄せる（並び替えと尻尾は .is-own の CSS 側）。吹き出しの
        右側には、左側の公式・報道に付くチームアバターと対になる位置に、
@@ -4107,9 +4196,14 @@ function renderRoom(){
     if(animate&&idx>=items.length-10){aCls=" msg-in";aStyle=' style="animation-delay:'+Math.min(315,(idx-(items.length-10))*35)+'ms"';}
     /* アイコンの置き場所：左寄せ（公式・報道）は吹き出し列の前、右寄せ（噂）は
        吹き出し列の後ろに置き、吹き出しの右隣に来るようにする */
-    html+='<div class="room-msg'+(own?' is-own':'')+aCls+'"'+aStyle+'>'+(own?'':icon)+'<div class="room-col">'+sender+'<div class="room-line">'+bubble+stamp+(it.time?'<span class="room-time">'+it.time+'</span>':'')+'</div></div>'+(own?icon:'')+'</div>';
+    var msgHtml='<div class="room-msg'+(own?' is-own':'')+aCls+'"'+aStyle+'>'+(own?'':icon)+'<div class="room-col">'+sender+'<div class="room-line">'+bubble+stamp+(it.time?'<span class="room-time">'+it.time+'</span>':'')+'</div></div>'+(own?icon:'')+'</div>';
+    /* 入室アニメ付きの断片は、アニメ用のクラス・遅延を除いた形を比較の
+       基準（base）にする。次回（アニメなし）の再描画で「中身は同じ」と
+       判定でき、読みかけのルームが組み替わらないようにするため */
+    var msgBase=animate?msgHtml.replace(/ msg-in/g,"").replace(/ style="animation-delay:[^"]*"/g,""):msgHtml;
+    segs.push({key:uniqKey("m:"+it.day+":"+(it.url||"")+":"+(it.title||"")),html:msgHtml,base:msgBase});
   });
-  body.innerHTML=html;
+  reconcileList(body,segs);
 }
 /* 入室音：行タップ（ユーザー操作）を起点に、Web Audio で合成した短く小さな
    ポップ音を1回だけ鳴らす。音声ファイルは使わない。2つの正弦波を
@@ -4410,6 +4504,7 @@ function renderFeed(){
      仮分類なので TOPニュースには入れない（TOPは確定分類の掲載記事だけ）。
      段階表示はこの項目列の先頭から feedShown 件だけを描く */
   var entries=[];
+  var rssHeadSeg=null;
   if(typeof liveFeedItems!=="undefined"&&liveFeedItems.length&&state.type==="all"){
     /* 描画時点でも掲載済みURL・見出しと一致する生RSSは落とす（取得の到着順に
        依存せず、英語タイトルの二重表示を最終段階で防ぐ）。あわせて日本語表示
@@ -4424,8 +4519,8 @@ function renderFeed(){
     /* 検索が掛かっている時は、見出し・記者名・チーム名が一致する新着だけを出す */
     if(fqToks.length)visibleLive=visibleLive.filter(function(it){return feedMatchesTokens(feedHaystack(it.title,"",it.reporter||"",it.teamAbbr?[it.teamAbbr]:[]),fqToks);});
     if(visibleLive.length){
-      var rssHead='<div class="feed-group"><span class="cat-chip cat-new">'+L().rssNewChip+'</span><span>'+L().rssNewSection+'</span></div>';
-      visibleLive.map(function(it){return rssBubbleHTML(it);}).forEach(function(h,i){entries.push({head:i===0?rssHead:"",html:h,id:null});});
+      rssHeadSeg={key:"__rsshead",html:'<div class="feed-group"><span class="cat-chip cat-new">'+L().rssNewChip+'</span><span>'+L().rssNewSection+'</span></div>'};
+      visibleLive.forEach(function(it){entries.push({key:"r:"+it.link,html:rssBubbleHTML(it),id:null});});
     }
   }
   /* 通常記事は分類（公式／報道／噂／チーム情報）を混ぜて新しい順（ord 降順）に
@@ -4435,13 +4530,11 @@ function renderFeed(){
      2026-11-26）。分類の区別は各カード末尾の分類チップと分類フィルターが担う。
      分類フィルターで「噂」を選んだ時は s==="rumor" の記事だけがこの一列に残る */
   feedList.slice().sort(function(a,b){return b.ord-a.ord;}).forEach(function(n){
-    entries.push({head:"",html:feedBubbleHTML(n),id:n.id});
+    entries.push({key:"a:"+n.id,html:feedBubbleHTML(n),id:n.id});
   });
   feedOrderIds=entries.map(function(e){return e.id;});
   var total=entries.length;
   var shown=Math.min(feedShown,total);
-  var html="";
-  for(var ei=0;ei<shown;ei++){html+=entries[ei].head+entries[ei].html;}
   var hasMore=total>shown;
   /* ゴシップは通常フィードから完全分離：フィードカードには入れず、カードの外の
      独立ゾーン（#gossipZone：専用背景の帯）にだけ描く（TOP NEWSにも入れない）。
@@ -4453,6 +4546,7 @@ function renderFeed(){
     gList=mergedGossipArticles(all.filter(function(n){return n.cat==="gossip";}).sort(function(a,b){return b.ord-a.ord;}));
   }
   var gz=document.getElementById("gossipZone");
+  var gzChanged=false;
   if(gz){
     if(gList.length){
       var gHead='<div class="gossip-head"><span class="sec-en sec-en-gossip" aria-hidden="true">OFF THE COURT</span><span class="gossip-corner-title">'+L().gossipCorner+'</span></div>';
@@ -4461,54 +4555,78 @@ function renderFeed(){
       /* 記事群は .gossip-cols で包む：PCでは2段組み＋段間の縦罫（CSS側）、
          モバイルは1段のまま。段は前半／後半の明示的な2カラムに分ける
          （CSSマルチカラムのバランス任せだとブラウザによって右段の先頭が
-         下にずれるため、両段の先頭を構造的に揃える。TK指摘 2026-11-26） */
+         下にずれるため、両段の先頭を構造的に揃える。TK指摘 2026-11-26）。
+         ゾーンの骨格（題字・注記・段組みの器・もっと見る）はキー付き断片
+         としてそろえ、段の中身は記事単位で差分更新する */
       var gItems=gList.slice(0,gossipShown);
       var gSplit=Math.ceil(gItems.length/2);
-      var gCols='<div class="gossip-col">'+gItems.slice(0,gSplit).map(feedArticleHTML).join("")+'</div>'
-        +(gItems.length>gSplit?'<div class="gossip-col">'+gItems.slice(gSplit).map(feedArticleHTML).join("")+'</div>':'');
-      gz.innerHTML=gHead+'<p class="gossip-note">'+L().gossipNote+'</p><div class="gossip-cols">'+gCols+'</div>';
+      var gHasMore=gList.length>gItems.length;
+      var gSegs=[
+        {key:"__ghead",html:gHead},
+        {key:"__gnote",html:'<p class="gossip-note">'+L().gossipNote+'</p>'},
+        {key:"__gcols",html:'<div class="gossip-cols"><div class="gossip-col"></div></div>',keep:true}
+      ];
       /* まだ古い記事が残っている時だけ、欄の最下部に「過去の記事を見る」を出す。
          押すと過去記事がその下に続けて開く（ジャンル別ニュースの「もっと見る」と
          同じ感覚・同じ10件刻み）。全件表示で消える */
-      if(gList.length>gItems.length){
-        var gMoreBox=document.createElement("div");
-        gMoreBox.className="gossip-more";
-        gMoreBox.innerHTML='<button type="button" class="gossip-more-btn" id="gossipMoreBtn">'+L().gossipMore+' <span class="gossip-more-count">'+L().feedMoreLeft.replace("{n}",gList.length-gItems.length)+'</span></button>';
-        gz.appendChild(gMoreBox);
-        document.getElementById("gossipMoreBtn").addEventListener("click",function(){gossipShown+=GOSSIP_PAGE;renderFeed();});
+      if(gHasMore){
+        gSegs.push({key:"__gmore",html:'<div class="gossip-more"><button type="button" class="gossip-more-btn" id="gossipMoreBtn">'+L().gossipMore+' <span class="gossip-more-count">'+L().feedMoreLeft.replace("{n}",gList.length-gItems.length)+'</span></button></div>'});
+      }
+      gzChanged=reconcileList(gz,gSegs);
+      var colsEl=gz.querySelector(".gossip-cols");
+      if(colsEl){
+        var needCols=gItems.length>gSplit?2:1;
+        while(colsEl.children.length<needCols){var cd=document.createElement("div");cd.className="gossip-col";colsEl.appendChild(cd);gzChanged=true;}
+        while(colsEl.children.length>needCols){colsEl.removeChild(colsEl.children[colsEl.children.length-1]);gzChanged=true;}
+        if(reconcileList(colsEl.children[0],gItems.slice(0,gSplit).map(function(n){return {key:"g:"+n.id,html:feedArticleHTML(n)};})))gzChanged=true;
+        if(needCols>1&&reconcileList(colsEl.children[1],gItems.slice(gSplit).map(function(n){return {key:"g:"+n.id,html:feedArticleHTML(n)};})))gzChanged=true;
+      }
+      if(gHasMore){
+        var gmb=document.getElementById("gossipMoreBtn");
+        if(gmb&&!gmb._bound){gmb._bound=1;gmb.addEventListener("click",function(){gossipShown+=GOSSIP_PAGE;renderFeed();});}
       }
       gz.hidden=false;
     }else{
-      gz.innerHTML="";
+      gzChanged=reconcileList(gz,[]);
       gz.hidden=true;
     }
   }
   var fc=document.getElementById("feedCard");
-  /* 検索中はヒット0件でも空状態の文言を出す（ゴシップだけ残る表示にしない） */
-  fc.innerHTML=html||(gList.length&&!fqToks.length?'':emptyHTML(L().feedEmpty,L().feedEmptySub));
+  /* 表示分（先頭 shown 件）をキー付き断片としてそろえる：変わっていない
+     記事のノードは再利用し、追加・変更・削除があった断片だけを差し替える */
+  var fcSegs=[];
+  if(rssHeadSeg&&shown>0)fcSegs.push(rssHeadSeg);
+  for(var ei=0;ei<shown;ei++)fcSegs.push(entries[ei]);
   /* まだ未表示の項目が残っている時だけ、末尾に「もっと見る」を出す（全件表示で消える） */
   if(hasMore){
-    var moreBox=document.createElement("div");
-    moreBox.className="feed-more";
-    moreBox.innerHTML='<button type="button" class="btn feed-more-btn" id="feedMoreBtn">'+L().feedMore+' <span class="feed-more-count">'+L().feedMoreLeft.replace("{n}",total-shown)+'</span></button>';
-    fc.appendChild(moreBox);
-    document.getElementById("feedMoreBtn").addEventListener("click",function(){feedShown+=FEED_PAGE;renderFeed();});
+    fcSegs.push({key:"__more",html:'<div class="feed-more"><button type="button" class="btn feed-more-btn" id="feedMoreBtn">'+L().feedMore+' <span class="feed-more-count">'+L().feedMoreLeft.replace("{n}",total-shown)+'</span></button></div>'});
+  }
+  /* 検索中はヒット0件でも空状態の文言を出す（ゴシップだけ残る表示にしない） */
+  if(!fcSegs.length&&!(gList.length&&!fqToks.length)){
+    fcSegs.push({key:"__empty",html:emptyHTML(L().feedEmpty,L().feedEmptySub)});
+  }
+  var fcChanged=reconcileList(fc,fcSegs);
+  if(hasMore){
+    var fmb=document.getElementById("feedMoreBtn");
+    if(fmb&&!fmb._bound){fmb._bound=1;fmb.addEventListener("click",function(){feedShown+=FEED_PAGE;renderFeed();});}
   }
   /* 通常記事が無くゴシップだけが残る絞り込みでは、空のフィードカードを出さず
      ゴシップゾーンだけを見せる */
-  fc.style.display=(html===""&&gList.length&&!fqToks.length)?"none":"";
+  fc.style.display=(total===0&&gList.length&&!fqToks.length)?"none":"";
   if(feedSwapArmed){
     feedSwapArmed=false;
-    if(fc.style.display!=="none")swapIn(fc);
-    if(gz&&!gz.hidden)swapIn(gz);
+    /* 切り替えフィードバックは実際に差し替わったコンテナにだけ出す
+       （内容が同じ再描画では光らせない＝静かな更新） */
+    if(fcChanged&&fc.style.display!=="none")swapIn(fc);
+    if(gzChanged&&gz&&!gz.hidden)swapIn(gz);
   }
 }
 function renderInsiders(){
   var data=state.lang==="en"?INSIDERS_EN:INSIDERS;
   var featuredNames=FEATURED_INSIDERS.map(function(f){return f.name;});
-  document.getElementById("insiderList").innerHTML=data.filter(function(p){return featuredNames.indexOf(p[2])<0;}).map(function(p){
+  setHTMLQuiet(document.getElementById("insiderList"),data.filter(function(p){return featuredNames.indexOf(p[2])<0;}).map(function(p){
     return '<div class="insider"><span class="avatar" style="background:'+p[5]+'"><img src="assets/icons/people-insider-'+(INSIDER_NAME_GENRE[p[2]]||"breaking")+'.png" alt="" loading="lazy" onerror="this.remove()"></span><div style="flex:1"><b>'+p[2]+'</b><p><strong>'+p[3]+'</strong><br>'+p[4]+'</p></div></div>';
-  }).join("");
+  }).join(""));
 }
 /* ===== v16：最新ポストはページ内ネイティブ表示 =====
    widgets.js 方式はサンドボックス内 iframe や未ログイン環境で変換に失敗し続け、
@@ -4539,8 +4657,8 @@ function renderInsiderEmbed(){
   if(!box)return;
   var f=featuredInsider(state.insider);
   var posts=insiderPosts(f);
-  box.innerHTML='<div class="posts-head"><b>'+L().postsH+'</b></div>'
-    +(posts.length?posts.slice(0,2).map(function(n){return postCardHTML(n,f);}).join(""):'<div class="posts-empty">'+emptyInner(L().postsEmpty,L().postsEmptySub)+'</div>');
+  setHTMLQuiet(box,'<div class="posts-head"><b>'+L().postsH+'</b></div>'
+    +(posts.length?posts.slice(0,2).map(function(n){return postCardHTML(n,f);}).join(""):'<div class="posts-empty">'+emptyInner(L().postsEmpty,L().postsEmptySub)+'</div>'));
 }
 /* 選択中のインサイダーのパネル：名前・媒体・説明＋最新ポストカード。
    Xへの導線はヘッダーの「Xで開く」（記者のプロフィール）リンクに一本化する */
@@ -4553,12 +4671,12 @@ function renderInsiderPanel(){
   var desc=en?f.descEn:f.descJa;
   var detail=en?f.detailEn:f.detailJa;
   var sub=(outlet?outlet+" · ":"")+"@"+f.handle;
-  panel.innerHTML=
+  var panelChanged=setHTMLQuiet(panel,
     '<div class="insider-head">'+avatarIconHTML(f,"insider",f.color)+'<div><b>'+f.name+'</b></div><a class="insider-x-link" href="https://x.com/'+f.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
     +'<p class="insider-sub">'+sub+'</p>'
-    +'<div class="insider-embed" id="insiderEmbed"></div>';
-  /* 記者切替のフィードバック（第4弾） */
-  swapIn(panel);
+    +'<div class="insider-embed" id="insiderEmbed"></div>');
+  /* 記者切替のフィードバック（第4弾）：パネルが実際に差し替わった時だけ出す */
+  if(panelChanged)swapIn(panel);
   renderInsiderEmbed();
 }
 function applyLang(lang){
@@ -4606,6 +4724,107 @@ if(feedSearchInput){
     feedShown=FEED_PAGE;
     renderFeed();
     syncFeedFilterToggle();
+    updateFeedSuggest();
+  });
+  feedSearchInput.addEventListener("focus",function(){updateFeedSuggest();});
+  feedSearchInput.addEventListener("blur",function(){setTimeout(hideFeedSuggest,120);});
+  feedSearchInput.addEventListener("keydown",function(e){if(e.key==="Escape")hideFeedSuggest();});
+}
+/* ===== 検索サジェスト（ジャンル別ニュース・2026-11-27 TK承認）=====
+   入力途中の語（空白区切りの最後の語）に合う「掲載記事に登場する名前」を
+   最大5件まで検索欄直下の小さなリストに出し、タップでその語に置き換えて
+   絞り込む。候補の材料は表示中データだけ：チーム名（日英・略称・正式名）と、
+   日本語見出しに現れるカタカナの名前、英語見出しに現れる英字の人名。
+   一般語のカタカナ（デイ・トゥ・デイ、クエスチョナブル等）は名前ではない
+   ので候補から除く。候補は記事の追加に追随できるよう、件数が変わった
+   時だけ作り直す */
+var FEED_SUGGEST_STOP={"デイ・トゥ・デイ":1,"クエスチョナブル":1,"ハムストリング":1,"トレード":1,"シーズン":1,"プレーオフ":1,"ファイナル":1,"カンファレンス":1,"イースタン":1,"ウェスタン":1,"ディビジョン":1,"オールスター":1,"ドラフト":1,"ルーキー":1,"ベテラン":1,"バスケットボール":1,"スリーポイント":1,"フリースロー":1,"ダブルダブル":1,"トリプルダブル":1,"リバウンド":1,"アシスト":1,"スティール":1,"ブロック":1,"ダンク":1,"レイアップ":1,"タイムアウト":1,"オーバータイム":1,"シリーズ":1,"ゲーム":1,"チーム":1,"コーチ":1,"ヘッドコーチ":1,"ファン":1,"メディア":1,"リーグ":1,"スタッツ":1,"ホーム":1,"カップ":1,"キャンプ":1,"ガード":1,"フォワード":1,"センター":1,"ポイントガード":1,"シューティングガード":1,"スモールフォワード":1,"パワーフォワード":1,"エース":1,"キャプテン":1,"ベンチ":1,"スターター":1,"ロスター":1,"サラリー":1,"キャップ":1,"オプション":1,"エージェント":1,"ワークアウト":1,"インタビュー":1,"ランキング":1,"バズ":1,"チャンピオン":1,"タイトル":1,"キャリア":1,"アリーナ":1,"コート":1,"ジャージー":1,"ハイライト":1,"オーナー":1,"マネージャー":1,"フル":1,"ファッション":1,"シューズ":1};
+var feedSuggestCache=null;
+function feedSuggestCandidates(){
+  if(feedSuggestCache&&feedSuggestCache.jaLen===ARTICLES_JA.length&&feedSuggestCache.enLen===ARTICLES_EN.length)return feedSuggestCache.list;
+  var freq={},order=[];
+  function add(name,count){
+    name=String(name||"").trim();
+    if(name.length<2)return;
+    var key=name.toLowerCase();
+    if(!freq[key]){freq[key]={name:name,count:0};order.push(key);}
+    freq[key].count+=(count||1);
+  }
+  /* チーム名：そのチームの記事数ぶん重みを付ける */
+  TEAMS.forEach(function(t){
+    var cnt=1;
+    try{cnt=Math.max(1,teamArticles(t[0]).length);}catch(e){}
+    add(t[1],cnt); add(t[2],cnt); add(t[0],cnt);
+    if(TEAM_FULL_EN[t[0]])add(TEAM_FULL_EN[t[0]],cnt);
+  });
+  /* 日本語見出しのカタカナ（選手名・チーム名の表記）：「・」でつながる
+     フルネームと、姓・名それぞれの部分の両方を候補にする */
+  ARTICLES_JA.forEach(function(n){
+    var toks=String(n.title||"").match(/[ァ-ヶー・]{2,}/g)||[];
+    toks.forEach(function(tok){
+      tok=tok.replace(/^・+|・+$/g,"");
+      if(tok.length<2||FEED_SUGGEST_STOP[tok])return;
+      add(tok);
+      if(tok.indexOf("・")>=0)tok.split("・").forEach(function(part){
+        if(part.length>=2&&!FEED_SUGGEST_STOP[part])add(part);
+      });
+    });
+  });
+  /* 英語見出しの人名（2語以上の大文字始まりの並び） */
+  ARTICLES_EN.forEach(function(n){
+    var seqs=String(n.title||"").match(/[A-Z][a-z]+(?: [A-Z][a-z]+)+/g)||[];
+    seqs.forEach(function(s){add(s);});
+  });
+  var list=order.map(function(k){return freq[k];});
+  feedSuggestCache={jaLen:ARTICLES_JA.length,enLen:ARTICLES_EN.length,list:list};
+  return list;
+}
+var feedSuggestEl=document.getElementById("feedSuggest");
+function hideFeedSuggest(){if(feedSuggestEl)feedSuggestEl.hidden=true;}
+function updateFeedSuggest(){
+  if(!feedSuggestEl||!feedSearchInput)return;
+  var toks=feedSearchInput.value.split(/\s+/);
+  var partial=(toks[toks.length-1]||"").trim();
+  if(partial.length<1){hideFeedSuggest();return;}
+  var q=partial.toLowerCase();
+  var scored=[];
+  feedSuggestCandidates().forEach(function(c){
+    var lc=c.name.toLowerCase();
+    if(lc===q)return;
+    var idx=lc.indexOf(q);
+    if(idx<0)return;
+    scored.push({name:c.name,count:c.count,prefix:idx===0?0:1});
+  });
+  /* 先頭一致を優先し、同順位では登場回数の多い名前から出す。最大5件 */
+  scored.sort(function(a,b){return (a.prefix-b.prefix)||(b.count-a.count)||(a.name<b.name?-1:(a.name>b.name?1:0));});
+  var top=scored.slice(0,5);
+  if(!top.length){hideFeedSuggest();return;}
+  feedSuggestEl.innerHTML=top.map(function(c){
+    return '<button type="button" class="feed-suggest-item" data-suggest="'+escapeHtml(c.name)+'">'+escapeHtml(c.name)+'</button>';
+  }).join("");
+  feedSuggestEl.hidden=false;
+}
+function applyFeedSuggest(name){
+  if(!feedSearchInput)return;
+  var toks=feedSearchInput.value.split(/\s+/);
+  toks[toks.length-1]=name;
+  var nv=toks.filter(function(t){return !!t;}).join(" ");
+  feedSearchInput.value=nv;
+  feedQuery=nv;
+  feedShown=FEED_PAGE;
+  renderFeed();
+  syncFeedFilterToggle();
+  hideFeedSuggest();
+  feedSearchInput.focus();
+}
+if(feedSuggestEl){
+  /* タップ確定は blur より先に拾う（mousedown で先取りし、入力欄の
+     フォーカスは保つ） */
+  feedSuggestEl.addEventListener("mousedown",function(e){
+    var b=e.target.closest("button[data-suggest]");
+    if(!b)return;
+    e.preventDefault();
+    applyFeedSuggest(b.getAttribute("data-suggest"));
   });
 }
 /* チーム検索（TEAMS見出し下のグレー欄）：入力のたびに state.q へ反映し、
