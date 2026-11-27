@@ -994,9 +994,30 @@ window.NBA_FEED = {
       "url": "https://www.skechers.com/stories/og-basketball/og-anunoby-basketball-championship-skechers.html",
       "genre": "キラキラ",
       "top": false
+    },
+    {
+      "id": "gh-20261127-wagner-out-raptors",
+      "level": "reported",
+      "teams": [
+        "BKN"
+      ],
+      "headline": "モリッツ・ワーグナー、左膝の故障でラプターズ戦欠場",
+      "headlineEn": "Moritz Wagner out vs. Raptors with left knee injury",
+      "date": "2026-11-27",
+      "time": "06:34",
+      "sourceName": "NBC Sports",
+      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/moritz-wagner-knee-ruled-out-friday-vs-toronto",
+      "category": "怪我",
+      "top": false,
+      "related": [
+        {
+          "label": "USA Today",
+          "url": "https://netswire.usatoday.com/story/sports/nba/nets/2026/11/26/nets-mo-wagner-left-knee-out-for-fridays-nba-cup-game-at-raptors/92975563007/"
+        }
+      ]
     }
   ],
-  "updatedAt": "2026-11-27T14:58:00+09:00",
+  "updatedAt": "2026-11-27T15:28:00+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open"
