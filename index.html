@@ -103,8 +103,7 @@
   --fs-h1:25px;       /* ページ大見出し */
   --fs-sec:15px;      /* セクション見出し（日本語） */
   --fs-headline:15px; /* 記事見出し */
-  --fs-lead:15.5px;   /* TOP NEWSの見出し（洗練 2026-11-27：PCは控えめに拡大、モバイルは16px） */
-  --fs-tmeta:11.5px;  /* TOP NEWSのメタ行（日付・時刻・出典リンク）：小さく静かに */
+  --fs-lead:14.5px;   /* TOP NEWSの見出し */
   --fs-h3:16px;       /* カード内見出し */
   --fs-body:14px;     /* 本文 */
   --fs-sub:13px;      /* 紹介文・本文の補助 */
@@ -116,7 +115,6 @@
   --fs-newsmeta:12px; /* 記事メタ行（モバイルで一段落とす） */
   --fs-teams:11.5px;  /* 日付行のチーム略称（モバイルで一段落とす） */
   --lh-display:1.05; --lh-headline:1.55; --lh-body:1.7; --lh-meta:1.4;
-  --lh-lead:1.6;      /* TOP NEWSの見出し行間（洗練 2026-11-27：ゆったり取る） */
   /* 操作部品の寸法：切替タブは --tab-h、ボタンは --btn-h、
      チップの内余白は --chip-pad で全セクション統一する */
   --tab-h:30px; --btn-h:36px; --chip-pad:3px 9px;
@@ -516,18 +514,15 @@ button:disabled{opacity:.55;cursor:not-allowed}
 /* 全件共通の行形式（TK指示 2026-11-26）：通し番号（01〜）と先頭1件の強調カードは
    廃止し、全件を「1行目＝小さいメタ行（左：日付／右端：出典リンク）、
    2行目＝見出し（全幅）」に統一する。並び順は新しい順のまま */
-.digest-item{padding:var(--sp-4) 10px;margin:0 -10px;border-top:1px solid var(--line);border-radius:6px;color:var(--ink);transition:background .15s ease}
+.digest-item{padding:var(--sp-3) 10px;margin:0 -10px;border-top:1px solid var(--line);border-radius:6px;color:var(--ink);transition:background .15s ease}
 .digest-item:hover{background:var(--surface)}
-.digest-meta{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-3);margin-bottom:var(--sp-2)}
-.digest-meta time{font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif;font-size:var(--fs-tmeta);font-weight:600;letter-spacing:.01em;color:var(--muted);white-space:nowrap;flex:none;font-variant-numeric:tabular-nums}
-.digest-src{flex:none;font-size:var(--fs-tmeta);line-height:var(--lh-meta);text-align:right}
-/* 出典リンクもメタ行の一部として静かに（洗練 2026-11-27）：サブ文字色に落とし、
-   リンク色は使わない。下線はホバー時のみ従来どおり */
-.digest-item .digest-src a{color:var(--muted);font-weight:500}
+.digest-meta{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-3);margin-bottom:var(--sp-1)}
+.digest-meta time{font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif;font-size:var(--fs-date);font-weight:600;letter-spacing:.01em;color:var(--muted);white-space:nowrap;flex:none;font-variant-numeric:tabular-nums}
+.digest-src{flex:none;font-size:var(--fs-meta);line-height:var(--lh-meta);text-align:right}
 .digest-item strong{color:var(--ink)}
 .digest-item a{font-weight:700;color:var(--link);text-decoration:none;white-space:nowrap;letter-spacing:0}
 .digest-item a:hover{text-decoration:underline;text-underline-offset:3px}
-.digest-main{font-size:var(--fs-lead);font-weight:700;line-height:var(--lh-lead)}
+.digest-main{font-size:var(--fs-lead);font-weight:700;line-height:var(--lh-headline)}
 .digest-foot{margin-top:var(--sp-2);padding-top:var(--sp-3);border-top:1px solid var(--line);text-align:right}
 .past-top-link{background:none;border:0;color:var(--ink);font-size:var(--fs-meta);font-weight:700;padding:6px 4px;min-height:32px}
 .past-top-link:hover{text-decoration:underline;text-underline-offset:3px}
@@ -1318,7 +1313,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   .bg-swatch{width:30px;height:30px;min-height:30px}
   .bg-swatch::before{inset:-7px}
   .digest{padding:var(--sp-6) var(--sp-4) var(--sp-3);margin-top:var(--sp-5)}
-  .digest-item{padding:var(--sp-5) var(--sp-2);margin:0 calc(var(--sp-2) * -1)}
+  .digest-item{padding:var(--sp-3) var(--sp-2);margin:0 calc(var(--sp-2) * -1)}
   .gossip-zone{padding:var(--sp-5) var(--sp-4) var(--sp-3)}
   .section-head{margin:40px 0 14px;padding-bottom:10px}
   /* チーム名の題字はモバイルでも大きく保つ */
@@ -1673,8 +1668,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     --fs-display:33px;
     --ls-en:.05em;
     --fs-headline:14px;
-    --fs-lead:16px;
-    --fs-tmeta:11px;
+    --fs-lead:14px;
     --fs-date:12.5px;
     --fs-newsmeta:11.5px;
     --fs-teams:10.5px;
