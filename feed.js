@@ -254,6 +254,10 @@ window.NBA_FEED = {
     {
      "label": "RealGM",
      "url": "https://basketball.realgm.com/wiretap/288242/Raptors-Warriors-Hawks-Seen-As-Teams-To-Watch-If-Wizards-Make-Anthony-Davis-Available"
+    },
+    {
+     "label": "Basketball News",
+     "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-insider-reveals-worrying-news-to-washington-wizards-over-anthony-davis-trade/"
     }
    ]
   },
@@ -1181,11 +1185,10 @@ window.NBA_FEED = {
    "top": false
   }
  ],
- "updatedAt": "2026-11-27T20:59:00+09:00",
+ "updatedAt": "2026-11-27T21:17:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
   "gh-20261126-gossip-stiller-brunson-pumpfake"
  ]
-}
-;
+};
