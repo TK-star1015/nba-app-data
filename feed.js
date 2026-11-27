@@ -14,13 +14,7 @@ window.NBA_FEED = {
       "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html",
       "reporter": "Marc Stein",
       "category": "怪我",
-      "top": true,
-      "related": [
-        {
-          "label": "ClutchPoints",
-          "url": "https://clutchpoints.com/nba/san-antonio-spurs/spurs-news-dylan-harper-deaaron-fox-questionable-blockbuster-lakers-game"
-        }
-      ]
+      "top": true
     },
     {
       "id": "gh-20261127-pistons-trio-out-bucks",
@@ -228,8 +222,8 @@ window.NBA_FEED = {
       "headline": "ウェストブルック、雨の中 感謝祭の食事を配布",
       "headlineEn": "Westbrook hands out Thanksgiving meals in the rain",
       "date": "2026-11-20",
-      "sourceName": "ClutchPoints",
-      "url": "https://clutchpoints.com/nba/nba-stories/nba-news-russell-westbrook-charity-gesture-thanksgiving-day",
+      "sourceName": "Sports Illustrated",
+      "url": "https://www.si.com/onsi/athlete-lifestyle/russell-westbrook-powerful-statement-record-breaking-thanksgiving-charity-effort-los-angeles",
       "genre": "ほのぼの",
       "top": false
     },
@@ -365,8 +359,8 @@ window.NBA_FEED = {
       ],
       "headline": "カイリー・アービング、カップ戦勝利後に少年ファンへシューズを贈る",
       "date": "2026-11-25",
-      "sourceName": "ClutchPoints",
-      "url": "https://clutchpoints.com/nba/dallas-mavericks/mavericks-news-kyrie-irving-fan-gift-nba-cup-win-nuggets",
+      "sourceName": "NBA Kicks",
+      "url": "https://www.instagram.com/p/DgLKkY9H-iB/",
       "top": false,
       "genre": "ほのぼの",
       "headlineEn": "Kyrie gives his shoes to a young fan after NBA Cup win"
@@ -699,8 +693,8 @@ window.NBA_FEED = {
       ],
       "headline": "ドレイモンド、カリー不在の苦境を吐露「ベンチでもいい」",
       "date": "2026-11-25",
-      "sourceName": "ClutchPoints",
-      "url": "https://clutchpoints.com/nba/golden-state-warriors/warriors-news-draymond-green-tells-steve-kerr-open-bench-role-without-stephen-curry",
+      "sourceName": "USA Today",
+      "url": "https://warriorswire.usatoday.com/story/sports/nba/warriors/2026/11/26/draymond-green-reveals-role-change-talks-with-steve-kerr/92969546007/",
       "top": false,
       "genre": "舞台裏",
       "headlineEn": "Draymond on Curry-less slump: \"Start me off the bench\""
@@ -904,8 +898,8 @@ window.NBA_FEED = {
       "headline": "ヤニス・アデトクンボ、休養欠場の選手にチクリ「俺は休まない」",
       "headlineEn": "Giannis takes a jab at players who sit out for rest: 'Not me'",
       "date": "2026-11-26",
-      "sourceName": "ClutchPoints",
-      "url": "https://clutchpoints.com/nba/miami-heat/heat-news-giannis-antetokounmpo-takes-jab-who-take-rest-games-after-play-vs-76ers",
+      "sourceName": "TalkBasket",
+      "url": "https://www.talkbasket.net/230353-giannis-antetokounmpo-explains-why-he-refuses-to-sit-out-games",
       "genre": "ドロドロ",
       "top": false
     },
@@ -1017,9 +1011,10 @@ window.NBA_FEED = {
       ]
     }
   ],
-  "updatedAt": "2026-11-27T15:28:00+09:00",
+  "updatedAt": "2026-11-27T15:38:30+09:00",
   "version": 1,
   "retracted": [
-    "fischer-kings-open"
+    "fischer-kings-open",
+    "gh-20261126-gossip-stiller-brunson-pumpfake"
   ]
 };
