@@ -1820,7 +1820,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     <!-- 更新ステータスは行の先頭（左端）に置く（2026-11-27 TK指示）。
          表示は短形式のみ・小さく1行・折り返しなし（更新中…／✓更新／たった今／12:34更新） -->
     <div class="refresh-status" id="refreshStatus" aria-live="polite"><span id="refreshStatusText"></span></div>
-    <button class="refresh-btn" id="refreshBtn" type="button" aria-label="Refresh / 更新">
+    <button class="refresh-btn" id="refreshBtn" type="button" data-i18n-aria="refreshBtn" aria-label="更新">
       <span class="refresh-icon" id="refreshIcon" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
       <span id="refreshBtnLabel">更新</span>
     </button>
@@ -1828,7 +1828,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     <button class="settings-toggle" id="settingsToggle" type="button" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4h-7"/><path d="M10 4H3"/><path d="M21 12h-9"/><path d="M8 12H3"/><path d="M21 20h-5"/><path d="M12 20H3"/><path d="M14 2v4"/><path d="M8 10v4"/><path d="M16 18v4"/></svg><span data-i18n="settingsBtn">設定</span><span class="settings-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
     <div class="theme-bar">
       <span class="lang-label" data-i18n="themeLabel">テーマ</span>
-      <div class="seg" id="themeSeg" role="group" aria-label="Theme / テーマ">
+      <div class="seg" id="themeSeg" role="group" data-i18n-aria="themeLabel" aria-label="テーマ">
         <button data-theme-mode="auto" data-i18n="themeAuto">自動</button>
         <button class="active" data-theme-mode="light" data-i18n="themeLight">ライト</button>
         <button data-theme-mode="dark" data-i18n="themeDark">ダーク</button>
@@ -1836,7 +1836,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     </div>
     <div class="theme-bar">
       <span class="lang-label" data-i18n="langLabel">言語 / Language</span>
-      <div class="seg" id="langSeg" role="group" aria-label="Language / 言語">
+      <div class="seg" id="langSeg" role="group" data-i18n-aria="ariaLang" aria-label="言語">
         <button class="active" data-lang="ja">日本語</button>
         <button data-lang="en">English</button>
       </div>
@@ -1847,7 +1847,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
        選択は端末に保存され、次回も維持される -->
   <div class="bg-bar" id="bgBar">
     <span class="lang-label" data-i18n="bgLabel">背景</span>
-    <div class="bg-swatches" role="group" aria-label="Background color / 背景色">
+    <div class="bg-swatches" role="group" data-i18n-aria="ariaBg" aria-label="背景色">
       <button type="button" class="bg-swatch bg-swatch-default active" data-bg="" data-i18n-title="bgDefault" title="デフォルト（テーマ連動）" aria-label="デフォルト（テーマ連動）"></button>
       <button type="button" class="bg-swatch" data-bg="#ffffff" style="background:#ffffff" data-i18n-title="bgWhite" title="ホワイト" aria-label="ホワイト"></button>
       <button type="button" class="bg-swatch" data-bg="#e9ebee" style="background:#e9ebee" data-i18n-title="bgLgray" title="ライトグレー" aria-label="ライトグレー"></button>
@@ -1858,7 +1858,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   <!-- 入室音：トークルーム入室時のポップ音の ON／OFF。デフォルトON、端末に保存される -->
   <div class="bg-bar sound-bar">
     <span class="lang-label" data-i18n="soundLabel">入室音</span>
-    <div class="seg" id="soundSeg" role="group" aria-label="Room sound / 入室音">
+    <div class="seg" id="soundSeg" role="group" data-i18n-aria="soundLabel" aria-label="入室音">
       <button class="active" data-sound="on">ON</button>
       <button data-sound="off">OFF</button>
     </div>
@@ -1890,14 +1890,14 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
 
   <!-- チーム検索：LINEのトーク一覧風のグレー検索欄。チーム名（日英・略称）で
        一覧を絞り込む（照合は renderGrid 側の state.q） -->
-  <label class="team-search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="text" id="teamSearchInput" data-i18n-ph="teamSearchPh" placeholder="チーム名で検索" aria-label="チーム検索 / Search teams" autocomplete="off"></label>
+  <label class="team-search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="text" id="teamSearchInput" data-i18n-ph="teamSearchPh" placeholder="チーム名で検索" data-i18n-aria="ariaTeamSearch" aria-label="チーム検索" autocomplete="off"></label>
 
   <!-- 選択タブ：TEAMSの絞り込みはこの4つだけに整理する（2026-11-26 TK指示）。
        分類（公式／報道／噂）での絞り込みはジャンル別ニュース側に一本化し、
        チーム側には残さない。並び規則は全タブ共通：お気に入りを上に
        ピン留め＋残りは最新記事の新しい順（お気に入りタブはお気に入りのみ更新順） -->
   <div class="toolbar filter-toolbar filter-above-map">
-    <div class="seg" id="teamTabSeg" role="group" aria-label="Team filter">
+    <div class="seg" id="teamTabSeg" role="group" data-i18n-aria="ariaTeamFilter" aria-label="チーム絞り込み">
       <button class="active" data-teamtab="all" data-i18n="fAllTeams">全チーム</button>
       <button data-teamtab="EAST">EAST</button>
       <button data-teamtab="WEST">WEST</button>
@@ -1917,7 +1917,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   </div>
 
   <!-- 凡例（最小構成）：分類3種の定義＋未読バッジ＋行の時刻の読み方だけを短く示す -->
-  <div class="legend legend-below-map" aria-label="Legend">
+  <div class="legend legend-below-map" data-i18n-aria="ariaLegend" aria-label="凡例">
     <span class="pill"><span class="status-chip static lvl-red" data-i18n="chipRed">公式</span><span data-i18n="legendRed">公式の発表</span></span>
     <span class="pill"><span class="status-chip static lvl-orange" data-i18n="chipOrange">報道</span><span data-i18n="legendOrange">記者の速報</span></span>
     <span class="pill"><span class="status-chip static lvl-blue" data-i18n="chipBlue">噂</span><span data-i18n="legendBlue">インサイダー発の未確認情報</span></span>
@@ -1944,7 +1944,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
       <div id="feedFilterPanel" hidden>
       <!-- 検索：見出し・選手名・チーム名で絞る（種類・分類・期間フィルターと併用可。空欄に戻すと通常表示に戻る） -->
       <div class="toolbar" style="margin-top:0;margin-bottom:8px">
-        <label class="feed-search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="text" id="feedSearchInput" data-i18n-ph="feedSearchPh" placeholder="見出し・選手名・チーム名で検索" aria-label="ニュース検索 / Search news" autocomplete="off"></label>
+        <label class="feed-search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="text" id="feedSearchInput" data-i18n-ph="feedSearchPh" placeholder="見出し・選手名・チーム名で検索" data-i18n-aria="ariaFeedSearch" aria-label="ニュース検索" autocomplete="off"></label>
       </div>
       <div class="toolbar" style="margin-top:0;margin-bottom:8px">
         <div class="seg" id="typeSeg">
@@ -1975,7 +1975,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
       <section class="card" id="feedCard"></section>
 
       <!-- ゴシップコーナー：フィードカードの外に置く完全分離ゾーン（中身は renderFeed が入れる） -->
-      <section class="gossip-zone" id="gossipZone" hidden aria-label="OFF THE COURT"></section>
+      <section class="gossip-zone" id="gossipZone" hidden data-i18n-aria="gossipCorner" aria-label="オフコート"></section>
     </div>
 
     <!-- インサイダー -->
@@ -2118,6 +2118,7 @@ var UI={
   detailSeeAll:"すべて見る", inFeed:"フィードで見る",
   roomNewFrom:"ここから新しい記事", yesterdayLabel:"昨日",
   teamSearchPh:"チーム名で検索", soundLabel:"入室音", swipeFav:"お気に入り",
+  ariaLang:"言語", ariaBg:"背景色", ariaTeamSearch:"チーム検索", ariaFeedSearch:"ニュース検索", ariaTeamFilter:"チーム絞り込み", ariaLegend:"凡例",
   rssLinked:"詳細にも追加"
  },
  en:{
@@ -2189,6 +2190,7 @@ var UI={
   detailSeeAll:"See all", inFeed:"View in feed",
   roomNewFrom:"New articles from here", yesterdayLabel:"Yesterday",
   teamSearchPh:"Search teams", soundLabel:"Room sound", swipeFav:"Favorite",
+  ariaLang:"Language", ariaBg:"Background color", ariaTeamSearch:"Search teams", ariaFeedSearch:"Search news", ariaTeamFilter:"Team filter", ariaLegend:"Legend",
   rssLinked:"Also in team page"
  }
 };
@@ -4307,6 +4309,8 @@ function applyLang(lang){
   document.querySelectorAll("[data-i18n]").forEach(function(el){var k=el.getAttribute("data-i18n"); if(L()[k]!=null)el.innerHTML=L()[k];});
   document.querySelectorAll("[data-i18n-html]").forEach(function(el){var k=el.getAttribute("data-i18n-html"); if(L()[k]!=null)el.innerHTML=L()[k];});
   document.querySelectorAll("[data-i18n-ph]").forEach(function(el){var k=el.getAttribute("data-i18n-ph"); if(L()[k]!=null)el.setAttribute("placeholder",L()[k]);});
+  /* aria-label も表示言語だけにする（日英併記にしない） */
+  document.querySelectorAll("[data-i18n-aria]").forEach(function(el){var k=el.getAttribute("data-i18n-aria"); if(L()[k]!=null)el.setAttribute("aria-label",L()[k]);});
   /* 属性側の文言（背景スウォッチの title／aria-label）も言語に追随させる */
   document.querySelectorAll("[data-i18n-title]").forEach(function(el){var k=el.getAttribute("data-i18n-title"); if(L()[k]!=null){el.setAttribute("title",L()[k]); el.setAttribute("aria-label",L()[k]);}});
   renderGrid(); renderDigest(); renderPastTop(); renderEditorColumn(); renderFeed(); renderInsiders(); renderInsiderPanel(); renderInsiderPicker(); renderVoices(); selectTeam(state.selected,false);
