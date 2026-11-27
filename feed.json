@@ -1,1587 +1,1632 @@
 {
-  "articles": [
-    {
-      "id": "gh-20261127-bronny-gleague-assignment",
-      "level": "reported",
-      "teams": [
-        "LAL"
-      ],
-      "headline": "ブロニー・ジェームズ、Gリーグのコーチェラ・バレーへアサイン　スパーズ戦は欠場",
-      "headlineEn": "Bronny James assigned to G League's Coachella Valley Lakers, out vs. Spurs",
-      "date": "2026-11-28",
-      "sourceName": "Athlon Sports",
-      "url": "https://athlonsports.com/nba/los-angeles-lakers/lakers-announce-bronny-james-g-league-move-before-spurs-game",
-      "category": "話題",
-      "top": false,
-      "summary": "レイカーズがガードのブロニー・ジェームズをGリーグ傘下のコーチェラ・バレー・レイカーズへアサインしたと発表した。土曜のスパーズ戦には帯同せず、育成目的の再アサインとなる。コーチェラ・バレーの次の試合は11月29日と12月3日。",
-      "summaryEn": "The Lakers assigned guard Bronny James to their G League affiliate, the Coachella Valley Lakers, the team announced. He will miss Friday's game against the Spurs on the developmental assignment. Coachella Valley's next games are Nov. 29 and Dec. 3.",
-      "time": "02:42",
-      "ts": "2026-11-28T02:42:00+09:00"
-    },
-    {
-      "id": "gh-20261127-wiggins-probable-knicks",
-      "level": "reported",
-      "teams": [
-        "MIA"
-      ],
-      "headline": "アンドリュー・ウィギンズ、右足首捻挫もニックス戦に出場可能へ格上げ",
-      "headlineEn": "Andrew Wiggins upgraded to available vs. Knicks despite sprained right ankle",
-      "date": "2026-11-27",
-      "sourceName": "theScore",
-      "url": "https://www.thescore.com/news/3667383/heats-andrew-wiggins-probable-to-play-friday",
-      "reporter": "Ira Winderman",
-      "category": "怪我",
-      "top": false,
-      "summary": "ヒートのアンドリュー・ウィギンズが右足首の捻挫で土曜のニックス戦はプロバブルとされたが、その後チームの負傷者リストで出場可能へ格上げされた。今季初めて負傷者リストに載ったが、シクサーズ戦では24分プレーしており、まだ今季の欠場はない。",
-      "summaryEn": "Heat forward Andrew Wiggins was initially listed as probable for Friday's game against the Knicks with a sprained right ankle, then upgraded to available on the team's injury report. It is his first appearance on the injury report this season; he played 24 minutes off the bench against the 76ers and has yet to miss a game.",
-      "related": [
-        {
-          "label": "HoopsHype",
-          "url": "https://www.hoopshype.com/rumors/"
-        }
-      ],
-      "time": "06:10",
-      "ts": "2026-11-27T06:10:03+09:00"
-    },
-    {
-      "id": "gh-20261127-towns-questionable-heat",
-      "level": "reported",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "カール＝アンソニー・タウンズ、右腹部打撲でヒート戦はクエスチョナブル",
-      "headlineEn": "Karl-Anthony Towns questionable vs. Heat with right abdominal contusion",
-      "date": "2026-11-27",
-      "sourceName": "Heavy",
-      "url": "https://heavy.com/sports/nba/new-york-knicks/knicks-karl-anthony-towns-injury-heat/",
-      "category": "怪我",
-      "top": false,
-      "summary": "ニックスのカール＝アンソニー・タウンズが右腹部の打撲で土曜のヒート戦はクエスチョナブルとされた。午前7時半時点の負傷者リストには載っておらず、午前11時半の更新で追加された。NBAカップの大事な一戦を前に、主力の出場可否は直前の判断になる。",
-      "summaryEn": "Knicks center Karl-Anthony Towns was listed as questionable for Friday's game against the Heat with a right abdominal contusion. He was not on the injury report in the morning update and was added in the 11:30 a.m. ET update. His availability for the key NBA Cup matchup will be a game-time decision."
-    },
-    {
-      "id": "gh-20261128-drummond-out",
-      "level": "reported",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "ドラモンドが脳震盪プロトコル入りでヒート戦を欠場へ",
-      "headlineEn": "Drummond out vs. Heat after entering concussion protocol",
-      "date": "2026-11-28",
-      "time": "01:53",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-dadiet-nickel-clarkson-drummond-alvarado.html",
-      "reporter": "James L. Edwards III",
-      "category": "怪我",
-      "summary": "ニックスの控えセンター、アンドレ・ドラモンドが脳震盪プロトコルに入り、土曜のヒート戦（NBAカップ）を欠場することになった。当初はクエスチョナブルとされていたが、OUTに格下げされた。The Athleticのジェームズ・L・エドワーズ3世が伝えた。",
-      "top": false,
-      "summaryEn": "Knicks backup center Andre Drummond entered the concussion protocol and will miss Friday's NBA Cup game against the Heat. He was initially listed as questionable before being downgraded to out, per James L. Edwards III of The Athletic."
-    },
-    {
-      "id": "gh-20261127-gossip-kenny-smith-hand-checking",
-      "level": "gossip",
-      "teams": [
-        "PHI"
-      ],
-      "headline": "ケニー・スミス、レブロンの長寿は「ハンドチェック廃止のおかげ」　ファン猛反発",
-      "headlineEn": "Kenny Smith credits LeBron's longevity to end of hand-checking, fans hit back",
-      "date": "2026-11-26",
-      "sourceName": "Pro Football Network",
-      "url": "https://www.profootballnetwork.com/nba/kenny-smith-lebron-james-hand-checking/",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "ケニー・スミスが、レブロンの長寿はハンドチェック廃止で守備が緩くなったおかげだと発言し、ファンの反発を招いた。SNSで議論が広がっている。",
-      "summaryEn": "Kenny Smith claimed LeBron's longevity owes to the end of hand-checking, drawing pushback from fans and sparking debate online."
-    },
-    {
-      "id": "gh-20261127-gossip-teague-sneakers-debate",
-      "level": "gossip",
-      "teams": [],
-      "headline": "ジェフ・ティーグ「最高のシューズはレブロンとMJ」　ファン「コービーこそ」と反論",
-      "headlineEn": "Jeff Teague calls LeBron and MJ shoes the best, fans say Kobe's are better",
-      "date": "2026-11-27",
-      "sourceName": "Sportskeeda",
-      "url": "https://www.sportskeeda.com/basketball/news-nobody-likes-lebron-s-shoe-lol-nba-world-disagrees-with-jeff-teague-his-podcast-crew-for-claiming-lebron-mj-shoes-are-best",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "ジェフ・ティーグが「最高のバッシュはレブロンとMJのモデル」と語り、ファンからは「コービーこそ」と反論が相次いだ。歴代シューズ談義が盛り上がっている。",
-      "summaryEn": "Jeff Teague named LeBron's and MJ's shoes as the best ever, prompting fans to argue Kobe's line deserves the crown."
-    },
-    {
-      "id": "gh-20261127-gossip-durant-brooks-warning",
-      "level": "gossip",
-      "teams": [
-        "HOU",
-        "PHX"
-      ],
-      "headline": "デュラント、ブルックスに警告「先に進むなら俺も準備はできている」",
-      "headlineEn": "Durant warns Brooks: 'If it goes further, I'll be ready for that too'",
-      "date": "2026-11-26",
-      "sourceName": "Sports Illustrated",
-      "url": "https://www.si.com/nba/rockets/onsi/kevin-durant-discusses-heated-confrontation-with-dillon-brooks-01m8c7sj79v0",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "デュラントが因縁のブルックスに「先に進むなら俺も準備はできている」と警告。両者のビーフはまだ続いているようだ。",
-      "summaryEn": "Durant warned Dillon Brooks that he's ready if Brooks wants to take things further, keeping their feud alive."
-    },
-    {
-      "id": "gh-20261127-rss-lakers-luka-analysis",
-      "level": "rumor",
-      "teams": [
-        "LAL"
-      ],
-      "headline": "ドンチッチ中心に好調のレイカーズは本物か",
-      "headlineEn": "Are the Luka-led Lakers for real?",
-      "date": "2026-11-27",
-      "time": "20:00",
-      "sourceName": "Yahoo Sports",
-      "url": "https://sports.yahoo.com/nba/articles/lights-luka-contagious-chemistry-lakers-110022468.html",
-      "category": "分析",
-      "top": false,
-      "summary": "ドンチッチを中心に好調を維持するレイカーズの強さが本物かどうかを検証する分析記事。序盤戦の手応えと残る課題を整理し、今後の戦いぶりを展望している。",
-      "summaryEn": "An analysis piece examining whether the Lakers' strong start built around Doncic is for real, reviewing the early returns, the remaining questions, and what lies ahead."
-    },
-    {
-      "id": "gh-20261127-martin-questionable-nets",
-      "level": "reported",
-      "teams": [
-        "TOR"
-      ],
-      "headline": "アリジャ・マーティン、左膝の痛みでネッツ戦はクエスチョナブル",
-      "headlineEn": "Alijah Martin questionable vs. Nets with left knee soreness",
-      "date": "2026-11-27",
-      "sourceName": "NBC Sports",
-      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/alijah-martin-knee-questionable-friday-vs-nets",
-      "category": "怪我",
-      "top": false,
-      "related": [
-        {
-          "label": "theScore",
-          "url": "https://www.thescore.com/news/3667386/raptors-alijah-martin-listed-as-questionable"
-        }
-      ],
-      "summary": "ラプターズのアリジャ・マーティンが左膝の痛みのため、ネッツ戦の出場がクエスチョナブル（直前まで未定）となった。最終判断は試合直前の状態を見て下される。",
-      "summaryEn": "Raptors guard Alijah Martin is questionable for the Nets game with left knee soreness. A final decision will be made based on how he feels right before tip-off."
-    },
-    {
-      "id": "gh-20261127-lavine-out-warriors-knee",
-      "level": "reported",
-      "teams": [
-        "SAC"
-      ],
-      "headline": "ザック・ラビーン、右膝の痛みでウォリアーズ戦欠場　月曜復帰の見通し",
-      "headlineEn": "Zach LaVine out vs. Warriors with right knee soreness, could return Sunday",
-      "date": "2026-11-26",
-      "time": "09:52",
-      "sourceName": "NBC Sports",
-      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-25/zach-lavine-knee-downgraded-to-out-wednesday",
-      "category": "怪我",
-      "top": false,
-      "related": [
-        {
-          "label": "FantasyPros",
-          "url": "https://www.fantasypros.com/nba/news/622601/zach-lavine-knee-ruled-out-wednesday.php"
-        }
-      ],
-      "summary": "キングスのザック・ラビーンが右膝の痛みでウォリアーズ戦を欠場する。離脱は短期間の見込みで、月曜の試合での復帰が見通されている。",
-      "summaryEn": "Kings guard Zach LaVine will miss the Warriors game with right knee soreness. The absence is expected to be short, with a return possible as soon as Sunday."
-    },
-    {
-      "id": "gh-20261127-robinson-questionable-hawks",
-      "level": "reported",
-      "teams": [
-        "BOS"
-      ],
-      "headline": "ミッチェル・ロビンソン、体調不良でホークス戦欠場　4戦連続",
-      "headlineEn": "Mitchell Robinson out vs. Hawks with illness, fourth straight absence",
-      "date": "2026-11-27",
-      "time": "03:57",
-      "sourceName": "CelticsBlog",
-      "url": "https://www.celticsblog.com/boston-celtics-news/151088/celtics-injury-report-atlanta-hawks-nba-cup",
-      "category": "怪我",
-      "top": false,
-      "summary": "ミッチェル・ロビンソンが体調不良のためホークス戦を欠場することになった。クエスチョナブルから格下げされ、4試合連続の欠場となる。代役は引き続きニーミアス・ケタが務める。",
-      "summaryEn": "Mitchell Robinson was downgraded from questionable to out against the Hawks due to illness. He will miss a fourth straight game, with Neemias Queta continuing to start in his place.",
-      "related": [
-        {
-          "label": "Sports Illustrated",
-          "url": "https://www.si.com/nba/celtics/onsi/tatum-celtics-can-clinch-nba-cup-group-vs-rested-hawks-3-keys-injury-report-prediction-01m8eyxzq74b"
-        }
-      ]
-    },
-    {
-      "id": "gh-20261127-hayes-questionable-nuggets",
-      "level": "reported",
-      "teams": [
-        "UTA"
-      ],
-      "headline": "ジャクソン・ヘイズ、左膝の故障でナゲッツ戦はクエスチョナブル",
-      "headlineEn": "Jaxson Hayes questionable for Friday vs. Nuggets with left knee strain",
-      "date": "2026-11-27",
-      "sourceName": "NBC Sports",
-      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/jaxson-hayes-knee-questionable-friday-vs-denver",
-      "category": "怪我",
-      "top": false,
-      "summary": "ジャクソン・ヘイズが左膝の故障でナゲッツ戦はクエスチョナブル。出場の可否は試合直前まで未定となっている。",
-      "summaryEn": "Jaxson Hayes is questionable for the Nuggets game with a left knee issue. His status will remain undecided until close to tip-off."
-    },
-    {
-      "id": "gh-20261127-stewart-questionable-wolves",
-      "level": "reported",
-      "teams": [
-        "MEM"
-      ],
-      "headline": "アイザイア・スチュワート、右股関節の痛みでウルブズ戦はクエスチョナブル",
-      "headlineEn": "Isaiah Stewart questionable for Friday vs. Timberwolves with right hip soreness",
-      "date": "2026-11-27",
-      "sourceName": "NBC Sports",
-      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/isaiah-stewart-hip-questionable-friday-vs-min",
-      "category": "怪我",
-      "top": false,
-      "summary": "グリズリーズのアイザイア・スチュワートが右股関節の痛みでウルブズ戦はクエスチョナブル。出場判断は直前まで持ち越される。",
-      "summaryEn": "Grizzlies big man Isaiah Stewart is questionable against the Timberwolves with right hip soreness. His availability will be decided at game time."
-    },
-    {
-      "id": "gh-20261127-spurs-harper-fox-questionable",
-      "level": "reported",
-      "teams": [
-        "SAS"
-      ],
-      "headline": "ディラン・ハーパーとディアロン・フォックス、レイカーズ戦はクエスチョナブルに格上げ",
-      "headlineEn": "Harper and Fox upgraded to questionable for Friday vs. Lakers",
-      "date": "2026-11-27",
-      "time": "10:00",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html",
-      "reporter": "Marc Stein",
-      "category": "怪我",
-      "top": true,
-      "summary": "スパーズのディラン・ハーパーとディアロン・フォックスが、レイカーズ戦に向けてクエスチョナブルに格上げされた。欠場見込みから、出場の可能性が残るステータスへ前進している。",
-      "summaryEn": "Spurs guards Dylan Harper and De'Aaron Fox were upgraded to questionable for the Lakers game, moving up from expected absences to having a chance to play."
-    },
-    {
-      "id": "gh-20261127-pistons-trio-out-bucks",
-      "level": "reported",
-      "teams": [
-        "DET"
-      ],
-      "headline": "カニングハム、右膝でバックス戦欠場　デューレン、ダンカン・ロビンソンも欠場",
-      "headlineEn": "Cunningham, Duren, Duncan Robinson ruled out for Friday vs. Bucks",
-      "date": "2026-11-27",
-      "sourceName": "Detroit Free Press",
-      "url": "https://www.freep.com/story/sports/nba/pistons/2026/11/26/cade-cunningham-injury-detroit-pistons/92973776007/",
-      "reporter": "Omari Sankofa",
-      "category": "怪我",
-      "top": true,
-      "summary": "ピストンズはケイド・カニングハムが右膝の故障でバックス戦を欠場。ジェイレン・デューレンとダンカン・ロビンソンも欠場し、主力3人を欠いて臨むことになる。",
-      "summaryEn": "The Pistons will be without Cade Cunningham (right knee) against the Bucks, and Jalen Duren and Duncan Robinson are also out, leaving Detroit missing three key players."
-    },
-    {
-      "id": "gh-20261127-edey-ankle-soreness",
-      "level": "reported",
-      "teams": [
-        "MEM"
-      ],
-      "headline": "ザック・イーディー、左足首の痛みで前半のみ出場　土曜は出場未定",
-      "headlineEn": "Zach Edey exits with left ankle soreness, questionable for Friday",
-      "date": "2026-11-27",
-      "time": "08:31",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html",
-      "reporter": "Rory Maher",
-      "category": "怪我",
-      "top": false,
-      "summary": "グリズリーズのザック・イーディーが左足首の痛みのため前半のみの出場にとどまった。土曜の試合に出場できるかは未定で、状態を見ながらの判断になる。",
-      "summaryEn": "Grizzlies center Zach Edey played only the first half due to left ankle soreness. His availability for Friday's game is undecided and will depend on how the ankle responds."
-    },
-    {
-      "id": "gh-20261126-porzingis-giddey-fischer",
-      "level": "rumor",
-      "teams": [
-        "GSW",
-        "CHI"
-      ],
-      "headline": "ウォリアーズ、ポルジンギス放出に本腰　ギディの大型契約は敬遠",
-      "headlineEn": "Warriors determined to trade Porzingis, wary of Giddey's big contract",
-      "date": "2026-11-26",
-      "time": "12:16",
-      "sourceName": "BasketballNews",
-      "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-golden-state-warriors-trade-rumor-nba-insider-reveals-gsws-stance-on-one-hundred-million-guard-after-rejecting-dejounte-murray-approach/",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false,
-      "summary": "ウォリアーズがクリスタプス・ポルジンギスの放出に本腰を入れていると、ジェイク・フィッシャーが報じた。一方でジョシュ・ギディへの大型契約には慎重な姿勢とされる。いずれも正式に決まった話ではない。",
-      "summaryEn": "Jake Fischer reports the Warriors are making a real push to move Kristaps Porzingis, while remaining cautious about a large contract for Josh Giddey. Nothing is finalized on either front."
-    },
-    {
-      "id": "gh-20261127-gossip-barnes-thanksgiving-cook",
-      "level": "gossip",
-      "teams": [
-        "TOR"
-      ],
-      "headline": "スコッティ・バーンズ、感謝祭ディナーで正直告白「料理はしてない」",
-      "headlineEn": "Scottie Barnes admits he didn't cook Thanksgiving dinner",
-      "date": "2026-11-26",
-      "sourceName": "HoopsHype",
-      "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/26/nah-i-didnt-cook-the-restaurant-already-had-food/92972134007/",
-      "genre": "舞台裏",
-      "top": false,
-      "summary": "スコッティ・バーンズが感謝祭ディナーについて「料理はしてない」と正直に告白。素直すぎる一言が笑いを誘った。",
-      "summaryEn": "Scottie Barnes honestly admitted he didn't cook any of his Thanksgiving dinner, to fans' amusement."
-    },
-    {
-      "id": "gh-20261127-gossip-durant-ice-cream-sandwich",
-      "level": "gossip",
-      "teams": [
-        "HOU"
-      ],
-      "headline": "デュラント、感謝祭に「アイスサンド係」を雇うと宣言",
-      "headlineEn": "Durant jokes he will hire an \"ice cream sandwich assistant\" for Thanksgiving",
-      "date": "2026-11-26",
-      "sourceName": "Hoops Wire",
-      "url": "https://hoopswire.com/kevin-durant-pokes-fun-at-steelers-mike-mccarthy-over-ice-cream-sandwiches/",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "デュラントが感謝祭に「アイスサンド係」を雇うと宣言。独特のユーモアが話題になった。",
-      "summaryEn": "Durant joked he would hire an 'ice cream sandwich guy' for Thanksgiving, in his own unique style."
-    },
-    {
-      "id": "gh-20261127-gossip-doncic-redick-thanksgiving",
-      "level": "gossip",
-      "teams": [
-        "LAL"
-      ],
-      "headline": "ドンチッチ、感謝祭前夜にレディック監督へ心温まるメッセージ",
-      "headlineEn": "Doncic sends a heartfelt Thanksgiving note to coach Redick",
-      "date": "2026-11-26",
-      "sourceName": "Heavy",
-      "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-jj-redick/",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "ドンチッチが感謝祭前夜にレディック監督へ心温まるメッセージを送った。師弟の良好な関係がうかがえる。",
-      "summaryEn": "Doncic sent a heartwarming message to coach JJ Redick on Thanksgiving eve, showing their close bond."
-    },
-    {
-      "id": "gh-20261127-morant-return",
-      "level": "reported",
-      "teams": [
-        "POR"
-      ],
-      "headline": "ジャ・モラント、来週にも復帰の見通し",
-      "headlineEn": "Ja Morant could return within the next week",
-      "date": "2026-11-27",
-      "time": "03:00",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/northwest-notes-morant-holiday-filipowski-mitchell.html",
-      "category": "怪我",
-      "top": true,
-      "summary": "ジャ・モラントが来週にも復帰できる見通しとなった。離脱が続いていた主砲の復帰が近づいている。",
-      "summaryEn": "Ja Morant is on track to return as early as next week, with the star guard's comeback from his absence drawing closer."
-    },
-    {
-      "id": "gh-20261126-gossip-williams-thanksgiving-giving",
-      "level": "gossip",
-      "teams": [
-        "LAL"
-      ],
-      "headline": "ザイア・ウィリアムズ、感謝祭の食事支援は6年目　子ども150人と交流",
-      "headlineEn": "Ziaire Williams marks sixth year of Thanksgiving meals for 150 kids",
-      "date": "2026-11-26",
-      "sourceName": "Yahoo Sports",
-      "url": "https://sports.yahoo.com/nba/articles/giving-why-lakers-ziaire-williams-120000392.html",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "ザイア・ウィリアムズの感謝祭の食事支援は今年で6年目。子ども150人と交流し、地域への恩返しを続けている。",
-      "summaryEn": "Ziaire Williams held his Thanksgiving meal giveaway for a sixth year, spending time with 150 kids."
-    },
-    {
-      "id": "gh-20261125-fischer-davis-no-rush",
-      "level": "rumor",
-      "teams": [
-        "WAS"
-      ],
-      "headline": "ウィザーズ、デイビス放出を急がず　本人も移籍要求せず",
-      "headlineEn": "Wizards in no rush to trade Davis; Davis not asking out",
-      "date": "2026-11-25",
-      "time": "21:00",
-      "sourceName": "Hoops Wire",
-      "url": "https://hoopswire.com/wizards-reportedly-in-no-rush-to-trade-anthony-davis-who-isnt-asking-out/",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false,
-      "related": [
-        {
-          "label": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/288242/Raptors-Warriors-Hawks-Seen-As-Teams-To-Watch-If-Wizards-Make-Anthony-Davis-Available"
-        }
-      ],
-      "summary": "ウィザーズはアンソニー・デイビスの放出を急いでおらず、本人も移籍を要求していないとジェイク・フィッシャーが伝えた。当面は現体制を維持する方向とみられる。",
-      "summaryEn": "The Wizards are in no rush to move Anthony Davis, and Davis himself has not requested a trade, per Jake Fischer. Washington is expected to stay the course for now."
-    },
-    {
-      "id": "gh-20261126-gossip-sga-slawson-lipreader",
-      "level": "gossip",
-      "teams": [
-        "OKC",
-        "IND"
-      ],
-      "headline": "シェイとスローソンが舌戦　リップリーダーが会話を解読",
-      "headlineEn": "SGA trades trash talk with Slawson as lipreader decodes exchange",
-      "date": "2026-11-26",
-      "sourceName": "Basketball Network",
-      "url": "https://www.basketballnetwork.net/latest-news/lipreader-breaks-down-verbal-exchange-between-shai-gilgeous-alexander-and-jalen-slawson",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "シェイとスローソンの舌戦をリップリーダーが解読して話題に。コート上の言い合いの中身に注目が集まった。",
-      "summaryEn": "A lip reader decoded the heated exchange between SGA and Slawson, drawing attention to what was said."
-    },
-    {
-      "id": "gh-20261126-gossip-arenas-eddie-johnson",
-      "level": "gossip",
-      "teams": [
-        "GSW",
-        "PHX"
-      ],
-      "headline": "アリーナス、ドレイモンド巡る舌戦に参戦　エディ・ジョンソンを一蹴",
-      "headlineEn": "Arenas jumps into Draymond beef, shuts down Eddie Johnson",
-      "date": "2026-11-26",
-      "sourceName": "EssentiallySports",
-      "url": "https://www.essentiallysports.com/nba-legends-basketball-news-its-an-illusion-gilbert-arenas-shuts-down-eddie-johnson-over-his-latest-jab-at-draymond-green/",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "ドレイモンドを巡る舌戦にアリーナスが参戦し、エディ・ジョンソンを一蹴。解説者同士の言い合いが拡大している。",
-      "summaryEn": "Gilbert Arenas jumped into the Draymond debate and fired back at Eddie Johnson, escalating the war of words."
-    },
-    {
-      "id": "gh-20261125-gossip-lebron-binocular-celly",
-      "level": "gossip",
-      "teams": [
-        "PHI"
-      ],
-      "headline": "レブロン・ジェームズ、ハーフコートからのロブで双眼鏡ポーズ",
-      "headlineEn": "LeBron James caps half-court lob with binocular celebration",
-      "date": "2026-11-25",
-      "sourceName": "Yardbarker",
-      "url": "https://www.yardbarker.com/nba/articles/dust_it_off_then_tyrese_maxey_challenges_lebron_james_as_historic_milestone_headlines_76ers_win_over_heat/s1_17730_44621766",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "レブロンがハーフコートからのロブを決め、双眼鏡ポーズでセレブレーション。会場とSNSが沸いた。",
-      "summaryEn": "LeBron threw down a lob from half court and celebrated with a binoculars pose, delighting fans."
-    },
-    {
-      "id": "gh-20261122-gossip-curry-chair-fall",
-      "level": "gossip",
-      "teams": [
-        "GSW"
-      ],
-      "headline": "ステフィン・カリー、ドレイモンド・グリーンの3Pに歓喜し椅子から転落",
-      "headlineEn": "Curry falls off his chair celebrating Draymond's three-point barrage",
-      "date": "2026-11-22",
-      "sourceName": "theScore",
-      "url": "https://www.thescore.com/nba/news/3666518",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "ステフィン・カリーがドレイモンドの3Pに歓喜し、椅子から転落。ベンチの盛り上がりを切り取った映像が話題になった。",
-      "summaryEn": "Stephen Curry was so thrilled by Draymond's three that he fell off his chair, in a clip that went viral."
-    },
-    {
-      "id": "gh-20261126-gossip-westbrook-thanksgiving",
-      "level": "gossip",
-      "teams": [],
-      "headline": "ウェストブルック、雨の中 感謝祭の食事を配布",
-      "headlineEn": "Westbrook hands out Thanksgiving meals in the rain",
-      "date": "2026-11-20",
-      "sourceName": "Sports Illustrated",
-      "url": "https://www.si.com/onsi/athlete-lifestyle/russell-westbrook-powerful-statement-record-breaking-thanksgiving-charity-effort-los-angeles",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "ウェストブルックが雨の中、感謝祭の食事を配布。長年続ける地域支援の姿が伝えられた。",
-      "summaryEn": "Westbrook handed out Thanksgiving meals in the rain, continuing his long-running community work."
-    },
-    {
-      "id": "gh-20261126-gossip-booker-hotel-prank",
-      "level": "gossip",
-      "teams": [
-        "WAS"
-      ],
-      "headline": "トレバー・ブッカー、ホテルで縛られた仰天イタズラを告白",
-      "headlineEn": "Booker recalls being tied up in wild hotel-room prank",
-      "date": "2026-11-25",
-      "sourceName": "OpenCourt Basketball",
-      "url": "https://www.opencourt-basketball.com/2026/11/25/trevor-booker-reveals-crazy-story-of-how-he-was-tied-up-beaten-in-his-hotel-room-by-gilbert-arenas-nick-young-2/",
-      "genre": "舞台裏",
-      "top": false,
-      "summary": "トレバー・ブッカーが現役時代にホテルで縛られたという仰天イタズラを告白。チーム内のイタズラ文化の一端が明かされた。",
-      "summaryEn": "Trevor Booker revealed a wild hotel prank from his playing days in which he was tied up by teammates."
-    },
-    {
-      "id": "gh-20261126-gossip-yabusele-ring",
-      "level": "gossip",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "ヤブセレ、移籍済みでも優勝リング「もらえるはず」",
-      "headlineEn": "Yabusele expects a championship ring despite Knicks exit",
-      "date": "2026-11-25",
-      "sourceName": "OpenCourt Basketball",
-      "url": "https://www.opencourt-basketball.com/2026/11/25/guerschon-yabusele-expects-nba-championship-ring-from-knicks-despite-frustrating-exit/",
-      "genre": "舞台裏",
-      "top": false,
-      "summary": "ヤブセレが、移籍した今でも優勝リングは「もらえるはず」と語った。古巣のタイトルへの貢献がどう扱われるかが注目される。",
-      "summaryEn": "Yabusele said he still expects to receive a championship ring despite changing teams."
-    },
-    {
-      "id": "gh-20261126-gossip-nick-wright-tickets",
-      "level": "gossip",
-      "teams": [
-        "PHI"
-      ],
-      "headline": "ニック・ライト、嘘の投稿で親切なファンにコートサイド席を贈る",
-      "headlineEn": "Nick Wright gifts courtside seats to kind fans after fake SOS post",
-      "date": "2026-11-24",
-      "sourceName": "OpenCourt Basketball",
-      "url": "https://www.opencourt-basketball.com/2026/11/24/nick-wright-pulls-off-surprise-by-giving-courtside-76ers-tickets-to-two-complete-strangers/",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "解説者のニック・ライトが、嘘の投稿をきっかけに親切なファンへコートサイド席を贈った。粋な計らいが話題になった。",
-      "summaryEn": "Nick Wright gifted courtside seats to a kind fan after a fake post, in a gesture fans loved."
-    },
-    {
-      "id": "gh-20261128-lamelo-ball-out-grizzlies",
-      "level": "reported",
-      "teams": [
-        "MIN"
-      ],
-      "headline": "ラメロ・ボール、左足首捻挫で土曜グリズリーズ戦を欠場",
-      "date": "2026-11-28",
-      "time": "03:55",
-      "sourceName": "FantasyPros",
-      "url": "https://www.fantasypros.com/nba/news/622908/lamelo-ball-ankle-ruled-out-friday.php",
-      "category": "怪我",
-      "top": true,
-      "related": [
-        {
-          "label": "Hoops Rumors",
-          "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
-        },
-        {
-          "label": "RotoWire",
-          "url": "https://www.rotowire.com/basketball/headlines/lamelo-ball-injury-not-present-at-shootaround-541161"
-        },
-        {
-          "label": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/breaking-news/article/timberwolves-g-lamelo-ball-leaves-win-vs-thunder-early-due-to-apparent-ankle-injury-031210964.html"
-        }
-      ],
-      "headlineEn": "LaMelo Ball ruled out vs. Grizzlies with sprained left ankle",
-      "summary": "ラメロ・ボールが木曜のサンダー戦で左足首を捻挫して途中退場し、土曜のグリズリーズ戦は欠場が決まった。マーク・スタインの報道によるもの。土曜のシュートアラウンドにも姿を見せず、アヨ・ドスンムとボーンズ・ハイランドの出場時間が増える見通し。",
-      "summaryEn": "LaMelo Ball was ruled out for Friday's game against the Grizzlies with a sprained left ankle, Marc Stein reports. Ball exited Wednesday's win over the Thunder early after rolling his ankle and was not present at Friday's shootaround. Ayo Dosunmu and Bones Hyland are expected to see increased minutes.",
-      "ts": "2026-11-28T03:55:34+09:00",
-      "reporter": "Marc Stein"
-    },
-    {
-      "id": "gh-20261126-gossip-doncic-outburst-redick",
-      "level": "gossip",
-      "teams": [
-        "LAL"
-      ],
-      "headline": "ドンチッチの味方への暴言がバズる　レディック監督が擁護",
-      "date": "2026-11-23",
-      "sourceName": "Heavy",
-      "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-mamu/",
-      "genre": "ドロドロ",
-      "top": false,
-      "headlineEn": "Doncic's heated words to a teammate go viral; Redick defends him",
-      "summary": "ドンチッチの味方への暴言シーンがバズり、レディック監督が擁護に回った。熱量の高さが賛否を呼んでいる。",
-      "summaryEn": "A clip of Doncic's outburst at a teammate went viral, with coach Redick defending his star."
-    },
-    {
-      "id": "gh-20261126-gossip-kuzma-fashion-clapback",
-      "level": "gossip",
-      "teams": [
-        "MIL"
-      ],
-      "headline": "クーズマ、ファッションを笑った元選手らに反撃「もうやめてくれ」",
-      "date": "2026-11-25",
-      "sourceName": "Sportskeeda",
-      "url": "https://opera.sportskeeda.com/basketball/news-hop-d-k-please-kyle-kuzma-fires-no-holds-barred-reply-ex-nba-stars-mocking-fashion-choices",
-      "genre": "ドロドロ",
-      "top": false,
-      "headlineEn": "Kuzma fires back at ex-players mocking his fashion",
-      "summary": "クーズマが、自分のファッションを笑った元選手らに「もうやめてくれ」と反撃。個性的な服装を巡る応酬が続いている。",
-      "summaryEn": "Kuzma clapped back at former players who mocked his fashion, telling them to stop."
-    },
-    {
-      "id": "gh-20261126-gossip-iverson-turkey-giveaway",
-      "level": "gossip",
-      "teams": [],
-      "headline": "アイバーソン、地元で七面鳥配布　感謝祭に263羽と食料を寄付",
-      "date": "2026-11-21",
-      "sourceName": "Parade",
-      "url": "https://parade.com/celebrities/allen-iverson-thanksgiving-turkey-giveaway-virginia-hometown",
-      "genre": "ほのぼの",
-      "top": false,
-      "headlineEn": "Iverson donates 263 turkeys in hometown Thanksgiving giveaway",
-      "summary": "アイバーソンが地元で七面鳥263羽と食料を寄付。感謝祭の恒例行事として地域に恩返しした。",
-      "summaryEn": "Allen Iverson donated 263 turkeys and food in his hometown for Thanksgiving."
-    },
-    {
-      "id": "gh-20261125-gossip-kyrie-irving-shoes-fan",
-      "level": "gossip",
-      "teams": [
-        "DAL"
-      ],
-      "headline": "カイリー・アービング、カップ戦勝利後に少年ファンへシューズを贈る",
-      "date": "2026-11-25",
-      "sourceName": "NBA Kicks",
-      "url": "https://www.instagram.com/p/DgLKkY9H-iB/",
-      "top": false,
-      "genre": "ほのぼの",
-      "headlineEn": "Kyrie gives his shoes to a young fan after NBA Cup win",
-      "summary": "カイリー・アービングがカップ戦勝利後、少年ファンに自分のシューズを贈った。心温まる場面が話題になった。",
-      "summaryEn": "Kyrie Irving gave his shoes to a young fan after a Cup win, in a heartwarming moment."
-    },
-    {
-      "id": "gh-20261125-gossip-clingan-poster-lebron",
-      "level": "gossip",
-      "teams": [
-        "POR",
-        "PHI"
-      ],
-      "headline": "クリンガン、レブロンをポスター化 「LeWashed」がバズる",
-      "date": "2026-11-25",
-      "sourceName": "Sportsnaut",
-      "url": "https://sportsnaut.com/nba/donovan-clingan-posterized-lebron-james",
-      "top": false,
-      "genre": "ドロドロ",
-      "headlineEn": "Clingan posterizes LeBron as \"LeWashed\" trends",
-      "summary": "クリンガンがレブロンをポスター化するダンクを決め、「LeWashed」の言葉がバズった。若手の勢いを象徴する場面になった。",
-      "summaryEn": "Clingan posterized LeBron with a dunk that had 'LeWashed' trending online."
-    },
-    {
-      "id": "gh-20261123-gossip-butler-tatum-friday-spoof",
-      "level": "gossip",
-      "teams": [
-        "GSW",
-        "BOS"
-      ],
-      "headline": "バトラー、テイタムをAI動画「フライデー」でからかう",
-      "date": "2026-11-23",
-      "sourceName": "NY Post",
-      "url": "https://nypost.com/2026/11/23/sports/jimmy-butler-trolls-jayson-tatum-after-warriors-beat-celtics/",
-      "top": false,
-      "genre": "ドロドロ",
-      "headlineEn": "Butler trolls Tatum with AI \"Friday\" video",
-      "summary": "バトラーがテイタムをAI動画「フライデー」でからかった。オフコートの冗談がファンの笑いを誘っている。",
-      "summaryEn": "Butler trolled Tatum with an AI 'Friday' spoof video, entertaining fans."
-    },
-    {
-      "id": "gh-20261125-gossip-paul-george-ankle-breaker",
-      "level": "gossip",
-      "teams": [
-        "BOS",
-        "WAS"
-      ],
-      "headline": "ポール・ジョージ、相手を転倒させるステップバックでバズる",
-      "date": "2026-11-25",
-      "sourceName": "ProFootballNetwork",
-      "url": "https://www.profootballnetwork.com/nba/ankle-breaker-paul-george-stepback-stare-down/",
-      "top": false,
-      "genre": "キラキラ",
-      "headlineEn": "Paul George's step-back sends defender to the floor",
-      "summary": "ポール・ジョージが相手を転倒させるステップバックを披露し、バズった。衰え知らずのスキルが光った。",
-      "summaryEn": "Paul George's ankle-breaking stepback had the internet buzzing."
-    },
-    {
-      "id": "gh-20261122-gossip-draymond-eddie-johnson",
-      "level": "gossip",
-      "teams": [
-        "GSW",
-        "PHX"
-      ],
-      "headline": "ドレイモンドと解説者エディ・ジョンソン、Xで舌戦が白熱",
-      "date": "2026-11-22",
-      "sourceName": "azcentral",
-      "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
-      "top": false,
-      "genre": "ドロドロ",
-      "headlineEn": "Draymond, analyst Eddie Johnson spar on X",
-      "summary": "ドレイモンドと解説者エディ・ジョンソンがXで舌戦。選手とメディアの言い合いが白熱している。",
-      "summaryEn": "Draymond Green and analyst Eddie Johnson traded barbs on X in a heated exchange."
-    },
-    {
-      "id": "gh-20261123-gossip-gg-jackson-community-assist",
-      "level": "gossip",
-      "teams": [
-        "MEM"
-      ],
-      "headline": "GGジャクソン、10月のNBAコミュニティ賞を受賞",
-      "date": "2026-11-23",
-      "sourceName": "EIN Presswire",
-      "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
-      "top": false,
-      "genre": "ほのぼの",
-      "headlineEn": "GG Jackson wins October NBA Community Assist Award",
-      "summary": "GGジャクソンが10月のNBAコミュニティ賞を受賞。地域活動への取り組みが評価された。",
-      "summaryEn": "GG Jackson won the NBA Community Assist Award for October for his community work."
-    },
-    {
-      "id": "gh-20261125-gossip-rivers-giannis",
-      "level": "gossip",
-      "teams": [
-        "MIL",
-        "MIA"
-      ],
-      "headline": "リバース、ヤニスとの関係は「問題なし」と明かす",
-      "date": "2026-11-25",
-      "sourceName": "Yardbarker",
-      "url": "https://www.yardbarker.com/nba/articles/be_honest_doc_rivers_gives_update_on_giannis_antetokounmpo_relationship_after_iq_comments/s1_17664_44616054",
-      "top": false,
-      "genre": "舞台裏",
-      "headlineEn": "Rivers says relationship with Giannis is \"all good\"",
-      "summary": "リバース監督がヤニスとの関係について「問題なし」と明かした。不仲説を否定し、チームの結束を強調した形だ。",
-      "summaryEn": "Doc Rivers said his relationship with Giannis is fine, pushing back on friction rumors."
-    },
-    {
-      "id": "gh-20261125-gossip-brunson-swift",
-      "level": "gossip",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "ブランソン、テイラー・スウィフトを擁護「立派なニックスファン」",
-      "date": "2026-11-25",
-      "sourceName": "EssentiallySports",
-      "url": "https://www.essentiallysports.com/nba-active-basketball-news-jalen-brunson-breaks-silence-on-taylor-swift-after-tyler-kolek-called-her-the-fakest-celebrity-of-knicks-fandom/",
-      "top": false,
-      "genre": "キラキラ",
-      "headlineEn": "Brunson defends Taylor Swift as \"a great Knicks fan\"",
-      "summary": "ブランソンがテイラー・スウィフトを「立派なニックスファン」と擁護。意外な組み合わせが話題になった。",
-      "summaryEn": "Brunson defended Taylor Swift as a legit Knicks fan, in a crossover moment fans enjoyed."
-    },
-    {
-      "id": "gh-20261125-gossip-shelton-navarrette",
-      "level": "gossip",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "シェルトン、ニックス戦で女優ナヴァレットと談笑し話題に",
-      "date": "2026-11-25",
-      "sourceName": "Yardbarker",
-      "url": "https://www.yardbarker.com/general_sports/articles/ben_sheltons_nba_courtside_moment_with_inde_navarrette_sparks_rumours_after_trinity_rodman_split/s1_17664_44615395",
-      "top": false,
-      "genre": "キラキラ",
-      "headlineEn": "Ben Shelton chats with actress Madelyn Navarrette at Knicks game",
-      "summary": "テニスのシェルトンがニックス戦で女優ナヴァレットと談笑し、話題に。コートサイドの顔ぶれが注目を集めた。",
-      "summaryEn": "Tennis star Ben Shelton was spotted chatting with actress Navarrette at a Knicks game."
-    },
-    {
-      "category": "トレード",
-      "date": "2026-11-25",
-      "headline": "ジャズ、トレード補強へ市場を積極調査",
-      "id": "gh-20261125-jazz-trade-search-fischer",
-      "level": "rumor",
-      "reporter": "Jake Fischer",
-      "sourceName": "SLC Dunk",
-      "teams": [
-        "UTA"
-      ],
-      "top": false,
-      "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz",
-      "headlineEn": "Jazz actively exploring the trade market",
-      "summary": "ジャズがトレードによる補強に向けて市場を積極的に調査していると、ジェイク・フィッシャーが報じた。具体的な合意や成立には至っていない。",
-      "summaryEn": "The Jazz are actively surveying the trade market for reinforcements, per Jake Fischer. No agreement or completed deal has been reached."
-    },
-    {
-      "id": "gh-20261125-nnaji-trade-fischer",
-      "level": "rumor",
-      "teams": [
-        "DEN"
-      ],
-      "headline": "ナゲッツ、ジーク・ナジのトレード先を模索　2031年1巡目は温存方針",
-      "date": "2026-11-25",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/nuggets-notes-nnaji-jones-porter-nembhard-jokic.html",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false,
-      "headlineEn": "Nuggets exploring Zeke Nnaji trade, keeping 2031 first-rounder",
-      "summary": "ナゲッツがジーク・ナジのトレード先を模索しているとの報道。一方で2031年の1巡目指名権は温存する方針とされ、将来の資産は手放さない姿勢も見える。",
-      "summaryEn": "The Nuggets are exploring trade options for Zeke Nnaji, while reportedly planning to hold onto their 2031 first-round pick rather than deal away future assets."
-    },
-    {
-      "id": "gh-20261124-kawhi-workouts-scotto-fix",
-      "level": "reported",
-      "teams": [
-        "TOR"
-      ],
-      "headline": "カワイ、個人練習を開始　少なくともあと1週間は離脱",
-      "date": "2026-11-24",
-      "sourceName": "Basketball News",
-      "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
-      "reporter": "Michael Scotto",
-      "category": "怪我",
-      "top": false,
-      "headlineEn": "Kawhi begins individual workouts, out at least one more week",
-      "summary": "カワイ・レナードが個人練習を開始した。ただし復帰はまだ先で、少なくともあと1週間は離脱が続く見通しとされる。",
-      "summaryEn": "Kawhi Leonard has begun individual workouts, but his return is still a while away, with at least another week of absence expected."
-    },
-    {
-      "id": "gh-20261125-clippers-sellers-fischer",
-      "level": "rumor",
-      "teams": [
-        "LAC",
-        "TOR"
-      ],
-      "headline": "クリッパーズは売り手濃厚、ラプターズはセンター補強を模索",
-      "date": "2026-11-25",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false,
-      "related": [
-        {
-          "label": "NY Post",
-          "url": "https://sports.yahoo.com/nba/articles/clippers-interim-gm-given-full-130000542.html"
-        }
-      ],
-      "headlineEn": "Clippers lean sellers; Raptors eyeing center help",
-      "summary": "クリッパーズはトレード市場で売り手に回る可能性が高く、ラプターズはセンターの補強を模索しているとジェイク・フィッシャーが報じた。いずれも交渉段階の話で、成立した取引はない。",
-      "summaryEn": "The Clippers are increasingly likely to be sellers on the trade market, while the Raptors are searching for a center, per Jake Fischer. Both items are at the discussion stage, with no deal completed."
-    },
-    {
-      "id": "gh-20261125-fultz-raptors905-scotto-fix",
-      "level": "reported",
-      "teams": [
-        "TOR"
-      ],
-      "headline": "フルツ、ラプターズ傘下Gリーグ「Raptors 905」に加入へ",
-      "date": "2026-11-25",
-      "sourceName": "HoopsHype",
-      "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/25/markelle-fultz-to-join-raptors-g-league-affiliate/92958550007/",
-      "reporter": "Michael Scotto",
-      "category": "契約",
-      "top": false,
-      "headlineEn": "Fultz set to join Raptors 905 in the G League",
-      "summary": "マーケル・フルツがラプターズ傘下のGリーグチーム「Raptors 905」に加入する見通し。NBA復帰に向けた新たな一歩となる。",
-      "summaryEn": "Markelle Fultz is set to join Raptors 905, Toronto's G League affiliate, taking a new step toward an NBA comeback."
-    },
-    {
-      "id": "gh-20261126-kpj-magic-agreement-official",
-      "level": "official",
-      "teams": [
-        "ORL"
-      ],
-      "headline": "ケビン・ポーターJr.、マジックと正式契約",
-      "date": "2026-11-26",
-      "sourceName": "Orlando Magic",
-      "url": "https://www.nba.com/magic/news/orlando-magic-sign-free-agent-kevin-porter-jr-20261125",
-      "reporter": "Shams Charania",
-      "category": "契約",
-      "top": false,
-      "time": "13:08",
-      "headlineEn": "Kevin Porter Jr. officially signs with Magic",
-      "related": [
-        {
-          "label": "Hoops Rumors",
-          "url": "https://www.hoopsrumors.com/2026/11/magic-to-sign-kevin-porter-jr.html"
-        }
-      ],
-      "summary": "ケビン・ポーターJr.がマジックと正式に契約した。公式発表に基づく確定情報で、バックコートに新たな戦力が加わる。",
-      "summaryEn": "Kevin Porter Jr. has officially signed with the Magic, adding a new piece to Orlando's backcourt, per the official announcement."
-    },
-    {
-      "id": "gh-20261125-lopez-lakers-fischer",
-      "level": "rumor",
-      "teams": [
-        "LAL",
-        "LAC"
-      ],
-      "headline": "Fischer、ロペスはレイカーズにとって「魅力的なターゲット」と見解",
-      "date": "2026-11-25",
-      "sourceName": "Heavy",
-      "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-elite-shooter-trade-news-doncic/",
-      "reporter": "Jake Fischer",
-      "category": "トレード",
-      "top": false,
-      "headlineEn": "Fischer: Brook Lopez an \"appealing target\" for Lakers",
-      "summary": "ジェイク・フィッシャーは、ブルック・ロペスがレイカーズにとって魅力的な補強ターゲットになり得るとの見解を示した。現時点で交渉や合意の報道はない。",
-      "summaryEn": "Jake Fischer suggested Brook Lopez could be an attractive target for the Lakers. There are no reports of negotiations or an agreement at this point."
-    },
-    {
-      "id": "gh-20261126-rss-embiid-out-heat-illness-fix",
-      "level": "reported",
-      "teams": [
-        "PHI"
-      ],
-      "headline": "エンビード、体調不良でヒート戦欠場　2戦連続",
-      "date": "2026-11-26",
-      "time": "05:44",
-      "sourceName": "ESPN",
-      "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
-      "top": false,
-      "related": [
-        {
-          "label": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/76ers-rule-out-jaylen-brown-hamstring-list-joel-embiid-illness-as-questionable-for-fridays-game-vs-pacers-225906822.html"
-        }
-      ],
-      "headlineEn": "Embiid (illness) out vs. Heat, second straight game",
-      "summary": "ジョエル・エンビードが体調不良のためヒート戦を欠場する。これで2試合連続の欠場となる。",
-      "summaryEn": "Joel Embiid will miss the Heat game due to illness, his second straight absence."
-    },
-    {
-      "id": "gh-20261125-gossip-wembanyama-mr-morality",
-      "level": "gossip",
-      "teams": [
-        "SAS"
-      ],
-      "headline": "ウェンバンヤマ、「Mr. Morality」と呼ばれる　ファンが擁護",
-      "date": "2026-11-25",
-      "sourceName": "ProFootballNetwork",
-      "url": "https://www.profootballnetwork.com/nba/fans-defend-victor-wembanyama-mr-morality/",
-      "top": false,
-      "genre": "舞台裏",
-      "headlineEn": "Fans defend Wembanyama amid \"Mr. Morality\" talk",
-      "summary": "ウェンバンヤマが「Mr. Morality」と呼ばれ、ファンが擁護に回った。言動の端正さが逆に話題になる現象が起きている。",
-      "summaryEn": "Wembanyama being dubbed 'Mr. Morality' sparked fans to defend him online."
-    },
-    {
-      "id": "gh-20261125-gossip-davis-kyshawn-trip",
-      "level": "gossip",
-      "teams": [
-        "BOS",
-        "WAS"
-      ],
-      "headline": "デイビス、キショーン転倒の真相告白「俺がつまずかせた」",
-      "date": "2026-11-25",
-      "sourceName": "Sports Illustrated",
-      "url": "https://www.si.com/nba/wizards/onsi/anthony-davis-clears-wizards-teammate-s-name-regarding-viral-blunder-01m887kymefc",
-      "top": false,
-      "genre": "舞台裏",
-      "headlineEn": "Davis admits he tripped Kyshawn George",
-      "summary": "デイビスがキショーン転倒の真相について「俺がつまずかせた」と告白。正直な申告が話題になった。",
-      "summaryEn": "Davis admitted he was the one who tripped Kyshawn, owning up to the play."
-    },
-    {
-      "id": "gh-20261125-gossip-selena-gomez-spurs",
-      "level": "gossip",
-      "teams": [
-        "SAS"
-      ],
-      "headline": "セレーナ・ゴメスがスパーズ戦を観戦　ウェンバンヤマ「見せつけた」",
-      "date": "2026-11-25",
-      "sourceName": "Sports Illustrated",
-      "url": "https://www.si.com/onsi/athlete-lifestyle/victor-wembanyama-makes-playful-admission-at-selena-gomezs-spurs-courtside-appearance",
-      "top": false,
-      "genre": "キラキラ",
-      "headlineEn": "Selena Gomez watches Spurs; Wembanyama says he showed off for her",
-      "summary": "セレーナ・ゴメスがスパーズ戦を観戦し、ウェンバンヤマが「見せつけた」とコメント。スター同士の共演が注目された。",
-      "summaryEn": "Selena Gomez attended a Spurs game, and Wembanyama said the team put on a show."
-    },
-    {
-      "id": "gh-20261126-rss-reaves-full-practice-spurs-fix",
-      "level": "reported",
-      "teams": [
-        "LAL"
-      ],
-      "headline": "リーブス、5試合ぶりに復帰　スパーズ戦に出場可能",
-      "date": "2026-11-28",
-      "time": "04:20",
-      "sourceName": "FantasyPros",
-      "url": "https://www.fantasypros.com/nba/news/622921/austin-reaves-heel-returns-to-lineup-friday.php",
-      "top": true,
-      "related": [
-        {
-          "label": "NBC Sports",
-          "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/austin-reaves-heel-questionable-friday-vs-spurs"
-        },
-        {
-          "label": "theScore",
-          "url": "https://www.thescore.com/nba/news/3668046"
-        },
-        {
-          "label": "Lakers Nation",
-          "url": "https://lakersnation.com/lakers-injury-update-austin-reaves-upgraded-to-available-vs-spurs/"
-        }
-      ],
-      "headlineEn": "Reaves available vs. Spurs, set to return after five-game absence",
-      "summary": "左かかとの打撲で5試合を欠場していたオースティン・リーブスが、土曜のスパーズ戦で出場可能となった。レイカーズの発表をESPNのデイブ・マクメナミンが伝えた。練習にフル参加し、クエスチョナブルを経ての復帰になる。",
-      "summaryEn": "Austin Reaves will return to the lineup for Friday's game against the Spurs after missing five games with a left heel bruise, per the Lakers via ESPN's Dave McMenamin. He was a full participant in practice and had been listed as questionable.",
-      "ts": "2026-11-28T04:20:00+09:00",
-      "reporter": "Dave McMenamin",
-      "category": "怪我"
-    },
-    {
-      "id": "gh-20261125-gossip-draymond-bench-kerr",
-      "level": "gossip",
-      "teams": [
-        "GSW"
-      ],
-      "headline": "ドレイモンド、カリー不在の苦境を吐露「ベンチでもいい」",
-      "date": "2026-11-25",
-      "sourceName": "USA Today",
-      "url": "https://warriorswire.usatoday.com/story/sports/nba/warriors/2026/11/26/draymond-green-reveals-role-change-talks-with-steve-kerr/92969546007/",
-      "top": false,
-      "genre": "舞台裏",
-      "headlineEn": "Draymond on Curry-less slump: \"Start me off the bench\"",
-      "summary": "ドレイモンドがカリー不在の苦境を吐露し、「ベンチでもいい」と発言。チーム優先の姿勢を示した。",
-      "summaryEn": "Draymond opened up about the team's struggles without Curry, saying he'd accept a bench role."
-    },
-    {
-      "id": "gh-20261125-gossip-giannis-herro-handshake",
-      "level": "gossip",
-      "teams": [
-        "MIA",
-        "MIL"
-      ],
-      "headline": "ヤニスとヒーロー、古巣相手に握手なし　ドレイモンド「衝撃」",
-      "date": "2026-11-25",
-      "sourceName": "Yardbarker",
-      "url": "https://www.yardbarker.com/nba/articles/even_warriors_draymond_green_is_shocked_by_giannis_stiffing_ex_bucks_teammates_bam_adebayo_vs_tyler_herro_beef/s1_17113_44618521",
-      "top": false,
-      "genre": "ドロドロ",
-      "headlineEn": "No handshake between Giannis and Herro vs. former teams",
-      "summary": "ヤニスとヒーローが古巣対決で握手なしに終わり、ドレイモンドが「衝撃」と反応。両者の関係に注目が集まった。",
-      "summaryEn": "Giannis and Herro skipped the handshake in their reunion game, with Draymond calling it shocking."
-    },
-    {
-      "id": "gh-20261123-gossip-randle-turkey-drive",
-      "level": "gossip",
-      "teams": [
-        "BKN"
-      ],
-      "headline": "ランドル、感謝祭に七面鳥400羽を配布　地元ブルックリンへ恩返し",
-      "date": "2026-11-23",
-      "sourceName": "Athlon Sports",
-      "url": "https://athlonsports.com/nba/brooklyn-nets/nets-julius-randle-sends-powerful-message-ahead-of-thanksgiving",
-      "top": false,
-      "genre": "ほのぼの",
-      "headlineEn": "Randle gives away 400 turkeys in Brooklyn",
-      "summary": "ランドルが感謝祭に七面鳥400羽を配布。地元ブルックリンへの恩返しを続けた。",
-      "summaryEn": "Randle handed out 400 turkeys in Brooklyn for Thanksgiving, giving back to his hometown."
-    },
-    {
-      "id": "gh-20261126-rss-haliburton-nears-return-fix",
-      "level": "reported",
-      "teams": [
-        "IND"
-      ],
-      "headline": "ハリバートンが全体練習にフル参加、復帰が近づく",
-      "date": "2026-11-26",
-      "time": "09:11",
-      "sourceName": "Hoops Rumors",
-      "url": "https://www.hoopsrumors.com/2026/11/tyrese-haliburton-nears-return-from-hamstring-injury.html",
-      "top": false,
-      "related": [
-        {
-          "label": "Indianapolis Star",
-          "url": "https://www.indystar.com/story/sports/nba/pacers/2026/11/26/tyrese-haliburton-injury-report-pacers-point-guard-gets-bad-news-vs-sixers/92973719007/"
-        },
-        {
-          "label": "Hoops Rumors",
-          "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
-        }
-      ],
-      "headlineEn": "Haliburton goes full practice, nearing return",
-      "summary": "タイリース・ハリバートンが全体練習にフル参加し、復帰が近づいている。離脱していた司令塔の戦列復帰が見えてきた。",
-      "summaryEn": "Tyrese Haliburton fully participated in team practice and is nearing his return, with the Pacers' floor general close to rejoining the lineup."
-    },
-    {
-      "id": "gh-20261126-rss-brown-exits-heat-hamstring",
-      "level": "reported",
-      "teams": [
-        "PHI"
-      ],
-      "headline": "ジェイレン・ブラウン、ハムストリング再発でヒート戦を途中退場",
-      "date": "2026-11-26",
-      "time": "09:24",
-      "sourceName": "ESPN",
-      "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue",
-      "top": true,
-      "related": [
-        {
-          "label": "ESPN",
-          "url": "https://www.espn.com/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday"
-        }
-      ],
-      "headlineEn": "Jaylen Brown exits vs. Heat with hamstring issue",
-      "summary": "ジェイレン・ブラウンがハムストリングの再発でヒート戦の途中に退場した。今後の状態は経過を見て判断される。",
-      "summaryEn": "Jaylen Brown exited the Heat game midway after his hamstring flared up again. His status will be monitored going forward."
-    },
-    {
-      "id": "gh-20261126-gossip-brooks-durant-beef",
-      "level": "gossip",
-      "teams": [
-        "PHX",
-        "HOU"
-      ],
-      "headline": "ブルックス、デュラントとの口論で退場　因縁のサンズ対ロケッツ",
-      "date": "2026-11-26",
-      "sourceName": "Sports Illustrated",
-      "url": "https://www.si.com/nba/suns/onsi/dillon-brooks-ejected-kevin-durant-beef-boils-over-phoenix-suns-houston-rockets-clash",
-      "genre": "ドロドロ",
-      "top": false,
-      "headlineEn": "Brooks ejected after spat with Durant in Suns-Rockets clash",
-      "summary": "ブルックスがデュラントとの口論で退場。因縁のサンズ対ロケッツ戦が荒れた展開になった。",
-      "summaryEn": "Brooks was ejected after a heated exchange with Durant in a chippy Suns-Rockets game."
-    },
-    {
-      "id": "gh-20261126-gossip-draymond-praises-eddie-johnson",
-      "level": "gossip",
-      "teams": [
-        "GSW",
-        "PHX"
-      ],
-      "headline": "ドレイモンド、舌戦のエディ・ジョンソンを称賛「素晴らしいキャリア」",
-      "date": "2026-11-26",
-      "sourceName": "Heavy",
-      "url": "https://heavy.com/sports/nba/golden-state-warriors/draymond-green-eddie-johnson-online-beef/",
-      "genre": "ドロドロ",
-      "top": false,
-      "headlineEn": "Draymond praises Eddie Johnson after their X feud",
-      "summary": "ドレイモンドが舌戦相手のエディ・ジョンソンを「素晴らしいキャリア」と称賛。言い合いの末の敬意表明が話題になった。",
-      "summaryEn": "Draymond praised Eddie Johnson's career after their war of words, showing respect."
-    },
-    {
-      "id": "gh-20261126-gossip-holmgren-fur-coat-roast",
-      "level": "gossip",
-      "teams": [
-        "OKC",
-        "MIN"
-      ],
-      "headline": "ホルムグレン、ベンチの毛皮コートでシャック＆バークリーにいじられる",
-      "date": "2026-11-26",
-      "sourceName": "Heavy",
-      "url": "https://heavy.com/sports/nba/oklahoma-city-thunder/chet-holmgren-roasted-by-shaq-barkley/",
-      "genre": "キラキラ",
-      "top": false,
-      "headlineEn": "Holmgren roasted by Shaq and Barkley for fur coat on bench",
-      "summary": "ホルムグレンがベンチで毛皮コート姿を見せ、シャックとバークリーにいじられた。ファッションが思わぬ注目を集めた。",
-      "summaryEn": "Holmgren's fur coat on the bench got roasted by Shaq and Barkley on air."
-    },
-    {
-      "id": "gh-20261126-gossip-stiller-brunson-pumpfake",
-      "level": "gossip",
-      "teams": [
-        "NYK",
-        "CLE"
-      ],
-      "headline": "ベン・スティラー、ブランソンのフェイク動画を投稿　ミッチェルが宙に浮く",
-      "headlineEn": "Ben Stiller posts slow-mo of Brunson's pump fake that sent Mitchell airborne",
-      "date": "2026-11-26",
-      "sourceName": "ClutchPoints",
-      "url": "https://clutchpoints.com/nba/new-york-knicks/knicks-news-ben-stiller-video-jalen-brunson-pump-fake-donovan-mitchell",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "ベン・スティラーがブランソンのフェイク動画を投稿し、ミッチェルが宙に浮くシーンが話題に。熱心なニックスファンぶりを見せた。",
-      "summaryEn": "Ben Stiller posted a clip of Brunson's pump fake sending Mitchell flying."
-    },
-    {
-      "id": "gh-20261125-gossip-gloria-james-bow",
-      "level": "gossip",
-      "teams": [
-        "PHI",
-        "MIA"
-      ],
-      "headline": "レブロンのロゴ3Pに母グロリアもお辞儀　ファン沸く",
-      "headlineEn": "Even mom Gloria bows as LeBron drills logo three",
-      "date": "2026-11-25",
-      "sourceName": "Sportskeeda",
-      "url": "https://www.sportskeeda.com/basketball/news-even-momma-james-bowing-nba-fans-can-t-get-enough-as-gloria-james-bows-down-76ers-star-lighting-up-in-2nd-qtr",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "レブロンのロゴ3Pに母グロリアがお辞儀で反応し、ファンが沸いた。親子の微笑ましい場面だった。",
-      "summaryEn": "LeBron's logo three had his mother Gloria bowing in celebration, delighting fans."
-    },
-    {
-      "id": "gh-20261127-gossip-lillard-thanksgiving-morant",
-      "level": "gossip",
-      "teams": [
-        "POR"
-      ],
-      "headline": "デイミアン・リラード、感謝祭の料理はジャ・モラントに任せる",
-      "headlineEn": "Lillard trusts Morant with the Thanksgiving dish",
-      "date": "2026-11-26",
-      "sourceName": "Basketball Network",
-      "url": "https://www.basketballnetwork.net/off-the-court/damian-lillard-on-which-teammate-hed-trust-to-bring-a-dish-to-thanksgiving",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "デイミアン・リラードが感謝祭の料理はジャ・モラントに任せると発言。意外な人選が笑いを誘った。",
-      "summaryEn": "Damian Lillard joked he'd let Ja Morant handle his Thanksgiving cooking."
-    },
-    {
-      "id": "gh-20261127-gossip-dakota-johnson-og-anunoby",
-      "level": "gossip",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "ダコタ・ジョンソン、OG・アヌノビーを「実在しない」と発言し炎上",
-      "headlineEn": "Dakota Johnson didn't believe OG Anunoby was real, sparking backlash",
-      "date": "2026-11-26",
-      "sourceName": "BuzzFeed",
-      "url": "https://www.buzzfeed.com/leylamohammed/dakota-johnson-og-anunoby-backlash-anne-hathaway",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "ダコタ・ジョンソンがOG・アヌノビーを「実在しない」と発言し炎上。思わぬ形で名前が拡散した。",
-      "summaryEn": "Dakota Johnson's claim that OG Anunoby 'isn't real' sparked backlash online."
-    },
-    {
-      "id": "gh-20261127-gossip-jerami-grant-thanksgiving",
-      "level": "gossip",
-      "teams": [
-        "MEM"
-      ],
-      "headline": "ジェラミ・グラント、感謝祭に212世帯へ食事を配布　メンフィスで恩返し",
-      "headlineEn": "Jerami Grant hands out Thanksgiving meals to 212 Memphis families",
-      "date": "2026-11-25",
-      "sourceName": "Commercial Appeal",
-      "url": "https://www.commercialappeal.com/story/sports/nba/grizzlies/2026/11/25/memphis-grizzlies-thanksgiving-jerami-grant-gg-jackson/92760304007/",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "ジェラミ・グラントが感謝祭に212世帯へ食事を配布。メンフィスで恩返しを行った。",
-      "summaryEn": "Jerami Grant provided Thanksgiving meals to 212 families in Memphis."
-    },
-    {
-      "id": "gh-20261127-gossip-giannis-rest-jab",
-      "level": "gossip",
-      "teams": [
-        "MIA"
-      ],
-      "headline": "ヤニス・アデトクンボ、休養欠場の選手にチクリ「俺は休まない」",
-      "headlineEn": "Giannis takes a jab at players who sit out for rest: 'Not me'",
-      "date": "2026-11-26",
-      "sourceName": "TalkBasket",
-      "url": "https://www.talkbasket.net/230353-giannis-antetokounmpo-explains-why-he-refuses-to-sit-out-games",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "ヤニスが休養欠場する選手たちに「俺は休まない」とチクリ。ロードマネジメントへの持論が話題になった。",
-      "summaryEn": "Giannis took a jab at players who sit out, saying he doesn't rest."
-    },
-    {
-      "id": "gh-20261127-gossip-draymond-baron-davis-winner",
-      "level": "gossip",
-      "teams": [
-        "GSW"
-      ],
-      "headline": "ドレイモンド、バロン・デイビスの「全員勝者」論に反論",
-      "headlineEn": "Draymond fires back at Baron Davis over 'everyone's a winner' claim",
-      "date": "2026-11-26",
-      "sourceName": "Basketball Network",
-      "url": "https://www.basketballnetwork.net/off-the-court/draymond-green-fires-back-at-baron-davis-for-saying-every-nba-player-is-winner",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "ドレイモンドがバロン・デイビスの「全員勝者」論に反論。勝敗への考え方の違いが浮き彫りになった。",
-      "summaryEn": "Draymond pushed back on Baron Davis's 'everyone's a winner' take."
-    },
-    {
-      "id": "gh-20261127-gossip-cunningham-courtside-outfits",
-      "level": "gossip",
-      "teams": [
-        "LAC"
-      ],
-      "headline": "ソフィー・カニンガム、露出コーデの観客を一喝「服を着なさい」",
-      "headlineEn": "Sophie Cunningham blasts influencers' revealing courtside outfits",
-      "date": "2026-11-20",
-      "sourceName": "Basketball Network",
-      "url": "https://www.basketballnetwork.net/off-the-court/sophie-cunningham-blasts-two-influencers-over-revealing-outfits-at-clippers-game",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "WNBAのソフィー・カニンガムが、露出の多いコーデの観客に「服を着なさい」と一喝。率直な物言いが話題になった。",
-      "summaryEn": "Sophie Cunningham called out fans' revealing courtside outfits, telling them to put clothes on."
-    },
-    {
-      "id": "gh-20261127-nurkic-questionable-nuggets",
-      "level": "reported",
-      "teams": [
-        "UTA"
-      ],
-      "headline": "ユスフ・ヌルキッチ、ナゲッツ戦はクエスチョナブル　今季初出場の可能性も",
-      "headlineEn": "Nurkic questionable vs. Nuggets on Friday, could make season debut",
-      "date": "2026-11-27",
-      "time": "10:56",
-      "sourceName": "Yahoo Sports",
-      "url": "https://sports.yahoo.com/nba/articles/important-jusuf-nurkic-injury-015629072.html",
-      "category": "怪我",
-      "top": false,
-      "summary": "ユスフ・ヌルキッチがナゲッツ戦はクエスチョナブル。状態が整えば、今季初出場となる可能性もある。",
-      "summaryEn": "Jusuf Nurkic is questionable for the Nuggets game. If he is cleared, it could mark his season debut."
-    },
-    {
-      "id": "gh-20261127-gossip-murray-sabotage-post",
-      "level": "gossip",
-      "teams": [
-        "NOP"
-      ],
-      "headline": "デジョンテ・マレー、削除した投稿で「妨害工作は本当」とペリカンズに不満",
-      "headlineEn": "Dejounte Murray deletes 'sabotage is real' post venting at Pelicans",
-      "date": "2026-11-26",
-      "sourceName": "Daily Fox News",
-      "url": "https://dailyfoxnews.com/news/42993/deleted-dejounte-murray-post-raises-eyebrows-as-pelicans-struggles-continue",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "デジョンテ・マレーが削除済みの投稿で「妨害工作は本当」とペリカンズへの不満を漏らした。チームとの関係に注目が集まっている。",
-      "summaryEn": "Dejounte Murray aired frustration with the Pelicans in a since-deleted post claiming sabotage."
-    },
-    {
-      "id": "gh-20261127-gossip-lebron-spoelstra-praise",
-      "level": "gossip",
-      "teams": [
-        "PHI",
-        "MIA"
-      ],
-      "headline": "レブロン・ジェームズ、古巣のスポールストラ監督を「最高のコーチ」と絶賛　ファンざわつく",
-      "headlineEn": "LeBron calls ex-coach Spoelstra the best he's had, fans react",
-      "date": "2026-11-26",
-      "sourceName": "Pro Football Network",
-      "url": "https://www.profootballnetwork.com/nba/shouldve-just-went-to-miami-disrespectful-to-his-current-coach-nba-fans-react-to-lebron-james-praising-erik-spoelstra-after-76ers-heat/",
-      "genre": "舞台裏",
-      "top": false,
-      "summary": "レブロンが古巣のスポールストラ監督を「最高のコーチ」と絶賛し、ファンがざわついた。ヒート時代への敬意を示した形だ。",
-      "summaryEn": "LeBron praised his former coach Erik Spoelstra as the best, stirring up fans."
-    },
-    {
-      "id": "gh-20261127-gossip-og-anunoby-skechers",
-      "level": "gossip",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "OG・アヌノビー、優勝の立役者となったスケッチャーズ「NYCブルー」が再販",
-      "headlineEn": "OG Anunoby's title-winning Skechers 'NYC Blue' returns to sale",
-      "date": "2026-11-20",
-      "sourceName": "Skechers",
-      "url": "https://www.skechers.com/stories/og-basketball/og-anunoby-basketball-championship-skechers.html",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "OG・アヌノビーのスケッチャーズ「NYCブルー」が再販。優勝の立役者となった一足が再び注目されている。",
-      "summaryEn": "OG Anunoby's Skechers 'NYC Blue,' worn during the title run, is being re-released."
-    },
-    {
-      "id": "gh-20261127-wagner-out-raptors",
-      "level": "reported",
-      "teams": [
-        "BKN"
-      ],
-      "headline": "モリッツ・ワーグナー、左膝の故障でラプターズ戦欠場",
-      "headlineEn": "Moritz Wagner out vs. Raptors with left knee injury",
-      "date": "2026-11-27",
-      "time": "06:34",
-      "sourceName": "NBC Sports",
-      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/moritz-wagner-knee-ruled-out-friday-vs-toronto",
-      "category": "怪我",
-      "top": false,
-      "related": [
-        {
-          "label": "USA Today",
-          "url": "https://netswire.usatoday.com/story/sports/nba/nets/2026/11/26/nets-mo-wagner-left-knee-out-for-fridays-nba-cup-game-at-raptors/92975563007/"
-        }
-      ],
-      "summary": "モリッツ・ワーグナーが左膝の故障でラプターズ戦を欠場する。",
-      "summaryEn": "Moritz Wagner will miss the Raptors game with a left knee injury."
-    },
-    {
-      "id": "gh-20261127-gossip-vassell-thanksgiving-dinner",
-      "level": "gossip",
-      "teams": [
-        "SAS"
-      ],
-      "headline": "デビン・バッセル、感謝祭に子ども約200人へ夕食と七面鳥券を贈る",
-      "headlineEn": "Devin Vassell treats about 200 kids to Thanksgiving dinner and turkey vouchers",
-      "date": "2026-11-26",
-      "sourceName": "Sports Illustrated",
-      "url": "https://www.si.com/nba/spurs/onsi/devin-vassell-raised-to-give-back-now-setting-example-san-antonio-spurs",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "デビン・バッセルが感謝祭に子ども約200人へ夕食と七面鳥券を贈った。地域の子どもたちへの支援を続けた。",
-      "summaryEn": "Devin Vassell gave Thanksgiving dinner and turkey vouchers to about 200 kids."
-    },
-    {
-      "id": "gh-20261127-gossip-doncic-thankful-message",
-      "level": "gossip",
-      "teams": [
-        "LAL"
-      ],
-      "headline": "ルカ・ドンチッチ、スパーズ戦前に一言「感謝」　感謝祭の投稿が話題に",
-      "headlineEn": "Luka Doncic posts one-word Thanksgiving message \"Thankful\" ahead of Spurs clash",
-      "date": "2026-11-26",
-      "sourceName": "Heavy",
-      "url": "https://heavy.com/sports/nba/los-angeles-lakers/luka-doncic-thankful-message-lakers-spurs/",
-      "genre": "ほのぼの",
-      "top": false,
-      "summary": "ルカ・ドンチッチがスパーズ戦前に「感謝」と一言投稿し、感謝祭ムードの投稿が話題になった。",
-      "summaryEn": "Doncic's simple 'thankful' post before the Spurs game drew warm reactions on Thanksgiving."
-    },
-    {
-      "id": "gh-20261127-gossip-maxey-lebron-dust-off",
-      "level": "gossip",
-      "teams": [
-        "PHI"
-      ],
-      "headline": "タイリース・マクシー、レブロン・ジェームズに「疲れてる暇はない」　初トリプルダブルを後押し",
-      "headlineEn": "Tyrese Maxey to LeBron James: \"No time to be tired\" before his first 76ers triple-double",
-      "date": "2026-11-26",
-      "sourceName": "EssentiallySports",
-      "url": "https://www.essentiallysports.com/nba-active-basketball-news-dust-it-off-then-tyrese-maxey-challenges-lebron-james-as-historic-milestone-headlines-76ers-win-over-heat/",
-      "genre": "舞台裏",
-      "top": false,
-      "summary": "タイリース・マクシーがレブロンに「疲れてる暇はない」と声をかけ、自身初のトリプルダブルを後押ししたエピソードが明かされた。",
-      "summaryEn": "Maxey revealed he told LeBron there's no time to be tired, a moment that fueled his first triple-double."
-    },
-    {
-      "id": "gh-20261127-rss-nba-cup-bracket-watch",
-      "level": "rumor",
-      "teams": [],
-      "headline": "NBAカップ、進出・敗退の行方：土曜全試合の意味",
-      "headlineEn": "NBA Cup bracket watch: Friday's games decide who's in and out",
-      "date": "2026-11-27",
-      "time": "20:08",
-      "sourceName": "Yahoo Sports",
-      "url": "https://sports.yahoo.com/nba/articles/nba-cup-bracket-watch-whos-110816968.html",
-      "category": "分析",
-      "top": false,
-      "provisional": true,
-      "related": [
-        {
-          "label": "Hoops Rumors",
-          "url": "https://www.hoopsrumors.com/2026/11/nba-cup-clinching-scenarios-for-fridays-games.html"
-        }
-      ],
-      "summary": "NBAカップのグループ突破と敗退の条件を整理した展望記事。土曜の全試合の結果が、各チームの行方を左右する。",
-      "summaryEn": "A breakdown of the NBA Cup group advancement and elimination scenarios, with Friday's full slate of results set to decide each team's fate."
-    },
-    {
-      "id": "gh-20261124-mcconnell-recall-fix",
-      "level": "reported",
-      "teams": [
-        "IND"
-      ],
-      "headline": "マコネル、Gリーグから復帰",
-      "headlineEn": "McConnell recalled from the G League",
-      "date": "2026-11-24",
-      "sourceName": "RotoWire",
-      "url": "https://www.rotowire.com/basketball/headlines/tj-mcconnell-injury-recalled-to-nba-540855",
-      "reporter": "Shams Charania",
-      "category": "怪我",
-      "top": false,
-      "summary": "T.J.マコネルがGリーグから復帰した。戦列に戻ることで、ペイサーズのローテーションに厚みが加わる。",
-      "summaryEn": "T.J. McConnell has been recalled from the G League, adding depth back to the Pacers' rotation."
-    },
-    {
-      "id": "gh-20261128-lovering-grizzlies-10day",
-      "level": "reported",
-      "teams": [
-        "MEM"
-      ],
-      "headline": "グリズリーズ、ローソン・ラブリングと10日間契約へ",
-      "headlineEn": "Grizzlies to sign Lawson Lovering to a 10-day hardship deal",
-      "date": "2026-11-28",
-      "sourceName": "Threads",
-      "url": "https://www.threads.com/@shams/post/DgP9FCfBzPt",
-      "reporter": "Shams Charania",
-      "category": "契約",
-      "top": false,
-      "related": [
-        {
-          "label": "Hoops Rumors",
-          "url": "https://www.hoopsrumors.com/2026/11/grizzlies-sign-lawson-lovering-to-10-day-hardship-deal.html"
-        }
-      ],
-      "summary": "グリズリーズがセンターのローソン・ラブリングと、負傷者特例による10日間契約を結ぶ見通しだとシャムズ・カラニアが報じた。ラブリングにとっては、2月に続いて今季2度目のメンフィスとの10日間契約になる。",
-      "summaryEn": "The Grizzlies are set to sign center Lawson Lovering to a 10-day contract via the hardship exception, per Shams Charania. It would be Lovering's second 10-day deal with Memphis this season, following one in February."
-    },
-    {
-      "id": "gh-20261128-gossip-clingan-wembanyama-soft",
-      "level": "gossip",
-      "teams": [
-        "POR",
-        "SAS"
-      ],
-      "headline": "クリンガン、ウェンバンヤマを「ソフト」呼ばわり　フロッピングと叫んで退場",
-      "headlineEn": "Clingan calls Wembanyama 'soft,' yells 'flopping' before fouling out",
-      "date": "2026-11-26",
-      "sourceName": "Yardbarker",
-      "url": "https://www.yardbarker.com/nba/articles/donovan_clingan_caught_calling_victor_wembanyama_soft_and_accusing_him_of_flopping/s1_16751_44625754",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "ブレイザーズ対スパーズのNBAカップで、ドノバン・クリンガンはウェンバンヤマとの攻防で6つ目のファウルを取られると、退場直前に「ソフトだ」「フロッピングだ」と叫んだ。試合はブレイザーズが116-111で勝ったが、映像がSNSで拡散され話題になっている。",
-      "summaryEn": "In the Blazers-Spurs NBA Cup game, Donovan Clingan fouled out against Wembanyama and yelled that he was soft and flopping. Portland won 116-111, but the clip went viral."
-    },
-    {
-      "id": "gh-20261128-gossip-arenas-lendeborg-imposter",
-      "level": "gossip",
-      "teams": [
-        "GSW"
-      ],
-      "headline": "アリーナス、レンデボーグを「ニセモノ」と酷評　カリー不在で成績急落",
-      "headlineEn": "Arenas calls Lendeborg an 'imposter' as rookie slumps without Curry",
-      "date": "2026-11-27",
-      "sourceName": "BasketballNews",
-      "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-imposter-gilbert-arenas-takes-brutal-shot-at-yaxel-lendeborg-after-stephen-currys-absence-exposes-his-struggles/",
-      "genre": "ドロドロ",
-      "top": false,
-      "summary": "元NBAスターのギルバート・アリーナスがポッドキャストで、ウォリアーズの新人ヤクセル・レンデボーグを「ニセモノ」と酷評した。カリー不在で成績が落ちたことを挙げ、「カリーがいるから輝けるだけ」と指摘し、ウォリアーズは「高値で売るべき」とまで言い切った。",
-      "summaryEn": "Former NBA star Gilbert Arenas called Warriors rookie Yaxel Lendeborg an 'imposter' on his podcast, arguing he only shines next to Curry and suggesting Golden State should sell high on him."
-    },
-    {
-      "id": "gh-20261128-gossip-glorilla-grizzlies-courtside",
-      "level": "gossip",
-      "teams": [
-        "MEM",
-        "LAC"
-      ],
-      "headline": "グロリラ、地元メンフィスに凱旋　感謝祭前夜にグリズリーズを観戦",
-      "headlineEn": "GloRilla returns home to Memphis, cheers on Grizzlies on Thanksgiving eve",
-      "date": "2026-11-25",
-      "sourceName": "Lindy's Sports",
-      "url": "https://lindyssports.com/nba/memphis-grizzlies/glorilla-grizzlies-clippers-thanksgiving-eve",
-      "genre": "キラキラ",
-      "top": false,
-      "summary": "グラミー賞ノミネートのラッパー、グロリラが感謝祭前夜のグリズリーズ対クリッパーズ戦をフェデックスフォーラムで観戦した。地元メンフィス出身のスターの姿がSNSで話題になり、グリズリーズは115-97で勝利した。",
-      "summaryEn": "Grammy-nominated rapper GloRilla watched the Grizzlies beat the Clippers at FedExForum on Thanksgiving eve. The Memphis native's appearance lit up social media."
-    },
-    {
-      "id": "gh-20261126-anunoby-calf-strain-fix",
-      "level": "reported",
-      "teams": [
-        "NYK"
-      ],
-      "headline": "アヌノビー、土曜ヒート戦の欠場が確定　ふくらはぎで4戦連続",
-      "date": "2026-11-26",
-      "time": "12:46",
-      "sourceName": "NBC Sports",
-      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-27/og-anunoby-calf-sidelined-friday-vs-miami",
-      "category": "怪我",
-      "top": true,
-      "related": [
-        {
-          "label": "Hoops Rumors",
-          "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-nba-cup-brown-anunoby-towns-thibodeau-jent.html"
-        },
-        {
-          "label": "Hoops Rumors",
-          "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
-        }
-      ],
-      "headlineEn": "Anunoby ruled out for Friday's game vs. Heat with calf strain, fourth straight absence",
-      "summary": "ニックスのOG・アヌノビーが左ふくらはぎの肉離れで、土曜のヒート戦の欠場が確定した。これで4試合連続の欠場となる。ダウトフルとされていたが、土曜の負傷者リストでOUTに格下げされた。状態はデイ・トゥ・デイで、長期離脱にはならない見通しとされる。",
-      "summaryEn": "Knicks forward OG Anunoby has been ruled out for Friday's game against the Heat with a left calf strain, his fourth straight absence. He was listed as doubtful on Thursday before being downgraded to out on Friday's injury report. He is considered day-to-day, and a long absence is not expected."
+ "articles": [
+  {
+   "id": "gh-20261127-bronny-gleague-assignment",
+   "level": "reported",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ブロニー・ジェームズ、Gリーグのコーチェラ・バレーへアサイン　スパーズ戦は欠場",
+   "headlineEn": "Bronny James assigned to G League's Coachella Valley Lakers, out vs. Spurs",
+   "date": "2026-11-28",
+   "sourceName": "Athlon Sports",
+   "url": "https://athlonsports.com/nba/los-angeles-lakers/lakers-announce-bronny-james-g-league-move-before-spurs-game",
+   "category": "話題",
+   "top": false,
+   "summary": "レイカーズがガードのブロニー・ジェームズをGリーグ傘下のコーチェラ・バレー・レイカーズへアサインしたと発表した。土曜のスパーズ戦には帯同せず、育成目的の再アサインとなる。コーチェラ・バレーの次の試合は11月29日と12月3日。",
+   "summaryEn": "The Lakers assigned guard Bronny James to their G League affiliate, the Coachella Valley Lakers, the team announced. He will miss Friday's game against the Spurs on the developmental assignment. Coachella Valley's next games are Nov. 29 and Dec. 3.",
+   "time": "02:42",
+   "ts": "2026-11-28T02:42:00+09:00"
+  },
+  {
+   "id": "gh-20261127-wiggins-probable-knicks",
+   "level": "reported",
+   "teams": [
+    "MIA"
+   ],
+   "headline": "アンドリュー・ウィギンズ、右足首捻挫もニックス戦に出場可能へ格上げ",
+   "headlineEn": "Andrew Wiggins upgraded to available vs. Knicks despite sprained right ankle",
+   "date": "2026-11-27",
+   "sourceName": "theScore",
+   "url": "https://www.thescore.com/news/3667383/heats-andrew-wiggins-probable-to-play-friday",
+   "reporter": "Ira Winderman",
+   "category": "怪我",
+   "top": false,
+   "summary": "ヒートのアンドリュー・ウィギンズが右足首の捻挫で土曜のニックス戦はプロバブルとされたが、その後チームの負傷者リストで出場可能へ格上げされた。今季初めて負傷者リストに載ったが、シクサーズ戦では24分プレーしており、まだ今季の欠場はない。",
+   "summaryEn": "Heat forward Andrew Wiggins was initially listed as probable for Friday's game against the Knicks with a sprained right ankle, then upgraded to available on the team's injury report. It is his first appearance on the injury report this season; he played 24 minutes off the bench against the 76ers and has yet to miss a game.",
+   "related": [
+    {
+     "label": "HoopsHype",
+     "url": "https://www.hoopshype.com/rumors/"
     }
-  ],
-  "updatedAt": "2026-11-28T04:53:48+09:00",
-  "version": 1,
-  "retracted": [
-    "fischer-kings-open",
-    "gh-20261126-gossip-stiller-brunson-pumpfake",
-    "mcconnell-recall",
-    "gh-20261125-gossip-kyrie-irving-shoes-fan",
-    "gh-20261125-gossip-draymond-bench-kerr",
-    "gh-20261126-rss-lamelo-ball-ankle-injury",
-    "gh-20261124-kawhi-workouts-scotto",
-    "gh-20261125-fultz-raptors905-scotto",
-    "gh-20261125-kpj-magic-agreement-shams",
-    "gh-20261126-rss-embiid-out-heat-illness",
-    "gh-20261126-rss-reaves-full-practice-spurs",
-    "gh-20261126-rss-haliburton-nears-return",
-    "gh-20261126-anunoby-calf-strain"
-  ]
+   ],
+   "time": "06:10",
+   "ts": "2026-11-27T06:10:03+09:00"
+  },
+  {
+   "id": "gh-20261127-towns-questionable-heat",
+   "level": "reported",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "カール＝アンソニー・タウンズ、右腹部打撲でヒート戦はクエスチョナブル",
+   "headlineEn": "Karl-Anthony Towns questionable vs. Heat with right abdominal contusion",
+   "date": "2026-11-27",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/new-york-knicks/knicks-karl-anthony-towns-injury-heat/",
+   "category": "怪我",
+   "top": false,
+   "summary": "ニックスのカール＝アンソニー・タウンズが右腹部の打撲で土曜のヒート戦はクエスチョナブルとされた。午前7時半時点の負傷者リストには載っておらず、午前11時半の更新で追加された。NBAカップの大事な一戦を前に、主力の出場可否は直前の判断になる。",
+   "summaryEn": "Knicks center Karl-Anthony Towns was listed as questionable for Friday's game against the Heat with a right abdominal contusion. He was not on the injury report in the morning update and was added in the 11:30 a.m. ET update. His availability for the key NBA Cup matchup will be a game-time decision."
+  },
+  {
+   "id": "gh-20261128-drummond-out",
+   "level": "reported",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "ドラモンドが脳震盪プロトコル入りでヒート戦を欠場へ",
+   "headlineEn": "Drummond out vs. Heat after entering concussion protocol",
+   "date": "2026-11-28",
+   "time": "01:53",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-dadiet-nickel-clarkson-drummond-alvarado.html",
+   "reporter": "James L. Edwards III",
+   "category": "怪我",
+   "summary": "ニックスの控えセンター、アンドレ・ドラモンドが脳震盪プロトコルに入り、土曜のヒート戦（NBAカップ）を欠場することになった。当初はクエスチョナブルとされていたが、OUTに格下げされた。The Athleticのジェームズ・L・エドワーズ3世が伝えた。",
+   "top": false,
+   "summaryEn": "Knicks backup center Andre Drummond entered the concussion protocol and will miss Friday's NBA Cup game against the Heat. He was initially listed as questionable before being downgraded to out, per James L. Edwards III of The Athletic."
+  },
+  {
+   "id": "gh-20261127-gossip-kenny-smith-hand-checking",
+   "level": "gossip",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "ケニー・スミス、レブロンの長寿は「ハンドチェック廃止のおかげ」　ファン猛反発",
+   "headlineEn": "Kenny Smith credits LeBron's longevity to end of hand-checking, fans hit back",
+   "date": "2026-11-26",
+   "sourceName": "Pro Football Network",
+   "url": "https://www.profootballnetwork.com/nba/kenny-smith-lebron-james-hand-checking/",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "ケニー・スミスが、レブロンの長寿はハンドチェック廃止で守備が緩くなったおかげだと発言し、ファンの反発を招いた。SNSで議論が広がっている。",
+   "summaryEn": "Kenny Smith claimed LeBron's longevity owes to the end of hand-checking, drawing pushback from fans and sparking debate online."
+  },
+  {
+   "id": "gh-20261127-gossip-teague-sneakers-debate",
+   "level": "gossip",
+   "teams": [],
+   "headline": "ジェフ・ティーグ「最高のシューズはレブロンとMJ」　ファン「コービーこそ」と反論",
+   "headlineEn": "Jeff Teague calls LeBron and MJ shoes the best, fans say Kobe's are better",
+   "date": "2026-11-27",
+   "sourceName": "Sportskeeda",
+   "url": "https://www.sportskeeda.com/basketball/news-nobody-likes-lebron-s-shoe-lol-nba-world-disagrees-with-jeff-teague-his-podcast-crew-for-claiming-lebron-mj-shoes-are-best",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "ジェフ・ティーグが「最高のバッシュはレブロンとMJのモデル」と語り、ファンからは「コービーこそ」と反論が相次いだ。歴代シューズ談義が盛り上がっている。",
+   "summaryEn": "Jeff Teague named LeBron's and MJ's shoes as the best ever, prompting fans to argue Kobe's line deserves the crown."
+  },
+  {
+   "id": "gh-20261127-gossip-durant-brooks-warning",
+   "level": "gossip",
+   "teams": [
+    "HOU",
+    "PHX"
+   ],
+   "headline": "デュラント、ブルックスに警告「先に進むなら俺も準備はできている」",
+   "headlineEn": "Durant warns Brooks: 'If it goes further, I'll be ready for that too'",
+   "date": "2026-11-26",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/nba/rockets/onsi/kevin-durant-discusses-heated-confrontation-with-dillon-brooks-01m8c7sj79v0",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "デュラントが因縁のブルックスに「先に進むなら俺も準備はできている」と警告。両者のビーフはまだ続いているようだ。",
+   "summaryEn": "Durant warned Dillon Brooks that he's ready if Brooks wants to take things further, keeping their feud alive."
+  },
+  {
+   "id": "gh-20261127-rss-lakers-luka-analysis",
+   "level": "rumor",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ドンチッチ中心に好調のレイカーズは本物か",
+   "headlineEn": "Are the Luka-led Lakers for real?",
+   "date": "2026-11-27",
+   "time": "20:00",
+   "sourceName": "Yahoo Sports",
+   "url": "https://sports.yahoo.com/nba/articles/lights-luka-contagious-chemistry-lakers-110022468.html",
+   "category": "分析",
+   "top": false,
+   "summary": "ドンチッチを中心に好調を維持するレイカーズの強さが本物かどうかを検証する分析記事。序盤戦の手応えと残る課題を整理し、今後の戦いぶりを展望している。",
+   "summaryEn": "An analysis piece examining whether the Lakers' strong start built around Doncic is for real, reviewing the early returns, the remaining questions, and what lies ahead."
+  },
+  {
+   "id": "gh-20261127-martin-questionable-nets",
+   "level": "reported",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "アリジャ・マーティン、左膝の痛みでネッツ戦はクエスチョナブル",
+   "headlineEn": "Alijah Martin questionable vs. Nets with left knee soreness",
+   "date": "2026-11-27",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/alijah-martin-knee-questionable-friday-vs-nets",
+   "category": "怪我",
+   "top": false,
+   "related": [
+    {
+     "label": "theScore",
+     "url": "https://www.thescore.com/news/3667386/raptors-alijah-martin-listed-as-questionable"
+    }
+   ],
+   "summary": "ラプターズのアリジャ・マーティンが左膝の痛みのため、ネッツ戦の出場がクエスチョナブル（直前まで未定）となった。最終判断は試合直前の状態を見て下される。",
+   "summaryEn": "Raptors guard Alijah Martin is questionable for the Nets game with left knee soreness. A final decision will be made based on how he feels right before tip-off."
+  },
+  {
+   "id": "gh-20261127-lavine-out-warriors-knee",
+   "level": "reported",
+   "teams": [
+    "SAC"
+   ],
+   "headline": "ザック・ラビーン、右膝の痛みでウォリアーズ戦欠場　月曜復帰の見通し",
+   "headlineEn": "Zach LaVine out vs. Warriors with right knee soreness, could return Sunday",
+   "date": "2026-11-26",
+   "time": "09:52",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-25/zach-lavine-knee-downgraded-to-out-wednesday",
+   "category": "怪我",
+   "top": false,
+   "related": [
+    {
+     "label": "FantasyPros",
+     "url": "https://www.fantasypros.com/nba/news/622601/zach-lavine-knee-ruled-out-wednesday.php"
+    }
+   ],
+   "summary": "キングスのザック・ラビーンが右膝の痛みでウォリアーズ戦を欠場する。離脱は短期間の見込みで、月曜の試合での復帰が見通されている。",
+   "summaryEn": "Kings guard Zach LaVine will miss the Warriors game with right knee soreness. The absence is expected to be short, with a return possible as soon as Sunday."
+  },
+  {
+   "id": "gh-20261127-robinson-questionable-hawks",
+   "level": "reported",
+   "teams": [
+    "BOS"
+   ],
+   "headline": "ミッチェル・ロビンソン、体調不良でホークス戦欠場　4戦連続",
+   "headlineEn": "Mitchell Robinson out vs. Hawks with illness, fourth straight absence",
+   "date": "2026-11-27",
+   "time": "03:57",
+   "sourceName": "CelticsBlog",
+   "url": "https://www.celticsblog.com/boston-celtics-news/151088/celtics-injury-report-atlanta-hawks-nba-cup",
+   "category": "怪我",
+   "top": false,
+   "summary": "ミッチェル・ロビンソンが体調不良のためホークス戦を欠場することになった。クエスチョナブルから格下げされ、4試合連続の欠場となる。代役は引き続きニーミアス・ケタが務める。",
+   "summaryEn": "Mitchell Robinson was downgraded from questionable to out against the Hawks due to illness. He will miss a fourth straight game, with Neemias Queta continuing to start in his place.",
+   "related": [
+    {
+     "label": "Sports Illustrated",
+     "url": "https://www.si.com/nba/celtics/onsi/tatum-celtics-can-clinch-nba-cup-group-vs-rested-hawks-3-keys-injury-report-prediction-01m8eyxzq74b"
+    }
+   ]
+  },
+  {
+   "id": "gh-20261127-hayes-questionable-nuggets",
+   "level": "reported",
+   "teams": [
+    "UTA"
+   ],
+   "headline": "ジャクソン・ヘイズ、左膝の故障でナゲッツ戦はクエスチョナブル",
+   "headlineEn": "Jaxson Hayes questionable for Friday vs. Nuggets with left knee strain",
+   "date": "2026-11-27",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/jaxson-hayes-knee-questionable-friday-vs-denver",
+   "category": "怪我",
+   "top": false,
+   "summary": "ジャクソン・ヘイズが左膝の故障でナゲッツ戦はクエスチョナブル。出場の可否は試合直前まで未定となっている。",
+   "summaryEn": "Jaxson Hayes is questionable for the Nuggets game with a left knee issue. His status will remain undecided until close to tip-off."
+  },
+  {
+   "id": "gh-20261127-stewart-questionable-wolves",
+   "level": "reported",
+   "teams": [
+    "MEM"
+   ],
+   "headline": "アイザイア・スチュワート、右股関節の痛みでウルブズ戦はクエスチョナブル",
+   "headlineEn": "Isaiah Stewart questionable for Friday vs. Timberwolves with right hip soreness",
+   "date": "2026-11-27",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/isaiah-stewart-hip-questionable-friday-vs-min",
+   "category": "怪我",
+   "top": false,
+   "summary": "グリズリーズのアイザイア・スチュワートが右股関節の痛みでウルブズ戦はクエスチョナブル。出場判断は直前まで持ち越される。",
+   "summaryEn": "Grizzlies big man Isaiah Stewart is questionable against the Timberwolves with right hip soreness. His availability will be decided at game time."
+  },
+  {
+   "id": "gh-20261127-spurs-harper-fox-questionable",
+   "level": "reported",
+   "teams": [
+    "SAS"
+   ],
+   "headline": "ディラン・ハーパーとディアロン・フォックス、レイカーズ戦はクエスチョナブルに格上げ",
+   "headlineEn": "Harper and Fox upgraded to questionable for Friday vs. Lakers",
+   "date": "2026-11-27",
+   "time": "10:00",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html",
+   "reporter": "Marc Stein",
+   "category": "怪我",
+   "top": true,
+   "summary": "スパーズのディラン・ハーパーとディアロン・フォックスが、レイカーズ戦に向けてクエスチョナブルに格上げされた。欠場見込みから、出場の可能性が残るステータスへ前進している。",
+   "summaryEn": "Spurs guards Dylan Harper and De'Aaron Fox were upgraded to questionable for the Lakers game, moving up from expected absences to having a chance to play."
+  },
+  {
+   "id": "gh-20261127-pistons-trio-out-bucks",
+   "level": "reported",
+   "teams": [
+    "DET"
+   ],
+   "headline": "カニングハム、右膝でバックス戦欠場　デューレン、ダンカン・ロビンソンも欠場",
+   "headlineEn": "Cunningham, Duren, Duncan Robinson ruled out for Friday vs. Bucks",
+   "date": "2026-11-27",
+   "sourceName": "Detroit Free Press",
+   "url": "https://www.freep.com/story/sports/nba/pistons/2026/11/26/cade-cunningham-injury-detroit-pistons/92973776007/",
+   "reporter": "Omari Sankofa",
+   "category": "怪我",
+   "top": true,
+   "summary": "ピストンズはケイド・カニングハムが右膝の故障でバックス戦を欠場。ジェイレン・デューレンとダンカン・ロビンソンも欠場し、主力3人を欠いて臨むことになる。",
+   "summaryEn": "The Pistons will be without Cade Cunningham (right knee) against the Bucks, and Jalen Duren and Duncan Robinson are also out, leaving Detroit missing three key players."
+  },
+  {
+   "id": "gh-20261127-edey-ankle-soreness",
+   "level": "reported",
+   "teams": [
+    "MEM"
+   ],
+   "headline": "ザック・イーディー、左足首の痛みで前半のみ出場　土曜は出場未定",
+   "headlineEn": "Zach Edey exits with left ankle soreness, questionable for Friday",
+   "date": "2026-11-27",
+   "time": "08:31",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html",
+   "reporter": "Rory Maher",
+   "category": "怪我",
+   "top": false,
+   "summary": "グリズリーズのザック・イーディーが左足首の痛みのため前半のみの出場にとどまった。土曜の試合に出場できるかは未定で、状態を見ながらの判断になる。",
+   "summaryEn": "Grizzlies center Zach Edey played only the first half due to left ankle soreness. His availability for Friday's game is undecided and will depend on how the ankle responds."
+  },
+  {
+   "id": "gh-20261126-porzingis-giddey-fischer",
+   "level": "rumor",
+   "teams": [
+    "GSW",
+    "CHI"
+   ],
+   "headline": "ウォリアーズ、ポルジンギス放出に本腰　ギディの大型契約は敬遠",
+   "headlineEn": "Warriors determined to trade Porzingis, wary of Giddey's big contract",
+   "date": "2026-11-26",
+   "time": "12:16",
+   "sourceName": "BasketballNews",
+   "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-golden-state-warriors-trade-rumor-nba-insider-reveals-gsws-stance-on-one-hundred-million-guard-after-rejecting-dejounte-murray-approach/",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false,
+   "summary": "ウォリアーズがクリスタプス・ポルジンギスの放出に本腰を入れていると、ジェイク・フィッシャーが報じた。一方でジョシュ・ギディへの大型契約には慎重な姿勢とされる。いずれも正式に決まった話ではない。",
+   "summaryEn": "Jake Fischer reports the Warriors are making a real push to move Kristaps Porzingis, while remaining cautious about a large contract for Josh Giddey. Nothing is finalized on either front."
+  },
+  {
+   "id": "gh-20261127-gossip-barnes-thanksgiving-cook",
+   "level": "gossip",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "スコッティ・バーンズ、感謝祭ディナーで正直告白「料理はしてない」",
+   "headlineEn": "Scottie Barnes admits he didn't cook Thanksgiving dinner",
+   "date": "2026-11-26",
+   "sourceName": "HoopsHype",
+   "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/26/nah-i-didnt-cook-the-restaurant-already-had-food/92972134007/",
+   "genre": "舞台裏",
+   "top": false,
+   "summary": "スコッティ・バーンズが感謝祭ディナーについて「料理はしてない」と正直に告白。素直すぎる一言が笑いを誘った。",
+   "summaryEn": "Scottie Barnes honestly admitted he didn't cook any of his Thanksgiving dinner, to fans' amusement."
+  },
+  {
+   "id": "gh-20261127-gossip-durant-ice-cream-sandwich",
+   "level": "gossip",
+   "teams": [
+    "HOU"
+   ],
+   "headline": "デュラント、感謝祭に「アイスサンド係」を雇うと宣言",
+   "headlineEn": "Durant jokes he will hire an \"ice cream sandwich assistant\" for Thanksgiving",
+   "date": "2026-11-26",
+   "sourceName": "Hoops Wire",
+   "url": "https://hoopswire.com/kevin-durant-pokes-fun-at-steelers-mike-mccarthy-over-ice-cream-sandwiches/",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "デュラントが感謝祭に「アイスサンド係」を雇うと宣言。独特のユーモアが話題になった。",
+   "summaryEn": "Durant joked he would hire an 'ice cream sandwich guy' for Thanksgiving, in his own unique style."
+  },
+  {
+   "id": "gh-20261127-gossip-doncic-redick-thanksgiving",
+   "level": "gossip",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ドンチッチ、感謝祭前夜にレディック監督へ心温まるメッセージ",
+   "headlineEn": "Doncic sends a heartfelt Thanksgiving note to coach Redick",
+   "date": "2026-11-26",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-jj-redick/",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "ドンチッチが感謝祭前夜にレディック監督へ心温まるメッセージを送った。師弟の良好な関係がうかがえる。",
+   "summaryEn": "Doncic sent a heartwarming message to coach JJ Redick on Thanksgiving eve, showing their close bond."
+  },
+  {
+   "id": "gh-20261127-morant-return",
+   "level": "reported",
+   "teams": [
+    "POR"
+   ],
+   "headline": "ジャ・モラント、来週にも復帰の見通し",
+   "headlineEn": "Ja Morant could return within the next week",
+   "date": "2026-11-27",
+   "time": "03:00",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/northwest-notes-morant-holiday-filipowski-mitchell.html",
+   "category": "怪我",
+   "top": true,
+   "summary": "ジャ・モラントが来週にも復帰できる見通しとなった。離脱が続いていた主砲の復帰が近づいている。",
+   "summaryEn": "Ja Morant is on track to return as early as next week, with the star guard's comeback from his absence drawing closer."
+  },
+  {
+   "id": "gh-20261126-gossip-williams-thanksgiving-giving",
+   "level": "gossip",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ザイア・ウィリアムズ、感謝祭の食事支援は6年目　子ども150人と交流",
+   "headlineEn": "Ziaire Williams marks sixth year of Thanksgiving meals for 150 kids",
+   "date": "2026-11-26",
+   "sourceName": "Yahoo Sports",
+   "url": "https://sports.yahoo.com/nba/articles/giving-why-lakers-ziaire-williams-120000392.html",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "ザイア・ウィリアムズの感謝祭の食事支援は今年で6年目。子ども150人と交流し、地域への恩返しを続けている。",
+   "summaryEn": "Ziaire Williams held his Thanksgiving meal giveaway for a sixth year, spending time with 150 kids."
+  },
+  {
+   "id": "gh-20261125-fischer-davis-no-rush",
+   "level": "rumor",
+   "teams": [
+    "WAS"
+   ],
+   "headline": "ウィザーズ、デイビス放出を急がず　本人も移籍要求せず",
+   "headlineEn": "Wizards in no rush to trade Davis; Davis not asking out",
+   "date": "2026-11-25",
+   "time": "21:00",
+   "sourceName": "Hoops Wire",
+   "url": "https://hoopswire.com/wizards-reportedly-in-no-rush-to-trade-anthony-davis-who-isnt-asking-out/",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false,
+   "related": [
+    {
+     "label": "RealGM",
+     "url": "https://basketball.realgm.com/wiretap/288242/Raptors-Warriors-Hawks-Seen-As-Teams-To-Watch-If-Wizards-Make-Anthony-Davis-Available"
+    }
+   ],
+   "summary": "ウィザーズはアンソニー・デイビスの放出を急いでおらず、本人も移籍を要求していないとジェイク・フィッシャーが伝えた。当面は現体制を維持する方向とみられる。",
+   "summaryEn": "The Wizards are in no rush to move Anthony Davis, and Davis himself has not requested a trade, per Jake Fischer. Washington is expected to stay the course for now."
+  },
+  {
+   "id": "gh-20261126-gossip-sga-slawson-lipreader",
+   "level": "gossip",
+   "teams": [
+    "OKC",
+    "IND"
+   ],
+   "headline": "シェイとスローソンが舌戦　リップリーダーが会話を解読",
+   "headlineEn": "SGA trades trash talk with Slawson as lipreader decodes exchange",
+   "date": "2026-11-26",
+   "sourceName": "Basketball Network",
+   "url": "https://www.basketballnetwork.net/latest-news/lipreader-breaks-down-verbal-exchange-between-shai-gilgeous-alexander-and-jalen-slawson",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "シェイとスローソンの舌戦をリップリーダーが解読して話題に。コート上の言い合いの中身に注目が集まった。",
+   "summaryEn": "A lip reader decoded the heated exchange between SGA and Slawson, drawing attention to what was said."
+  },
+  {
+   "id": "gh-20261126-gossip-arenas-eddie-johnson",
+   "level": "gossip",
+   "teams": [
+    "GSW",
+    "PHX"
+   ],
+   "headline": "アリーナス、ドレイモンド巡る舌戦に参戦　エディ・ジョンソンを一蹴",
+   "headlineEn": "Arenas jumps into Draymond beef, shuts down Eddie Johnson",
+   "date": "2026-11-26",
+   "sourceName": "EssentiallySports",
+   "url": "https://www.essentiallysports.com/nba-legends-basketball-news-its-an-illusion-gilbert-arenas-shuts-down-eddie-johnson-over-his-latest-jab-at-draymond-green/",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "ドレイモンドを巡る舌戦にアリーナスが参戦し、エディ・ジョンソンを一蹴。解説者同士の言い合いが拡大している。",
+   "summaryEn": "Gilbert Arenas jumped into the Draymond debate and fired back at Eddie Johnson, escalating the war of words."
+  },
+  {
+   "id": "gh-20261125-gossip-lebron-binocular-celly",
+   "level": "gossip",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "レブロン・ジェームズ、ハーフコートからのロブで双眼鏡ポーズ",
+   "headlineEn": "LeBron James caps half-court lob with binocular celebration",
+   "date": "2026-11-25",
+   "sourceName": "Yardbarker",
+   "url": "https://www.yardbarker.com/nba/articles/dust_it_off_then_tyrese_maxey_challenges_lebron_james_as_historic_milestone_headlines_76ers_win_over_heat/s1_17730_44621766",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "レブロンがハーフコートからのロブを決め、双眼鏡ポーズでセレブレーション。会場とSNSが沸いた。",
+   "summaryEn": "LeBron threw down a lob from half court and celebrated with a binoculars pose, delighting fans."
+  },
+  {
+   "id": "gh-20261122-gossip-curry-chair-fall",
+   "level": "gossip",
+   "teams": [
+    "GSW"
+   ],
+   "headline": "ステフィン・カリー、ドレイモンド・グリーンの3Pに歓喜し椅子から転落",
+   "headlineEn": "Curry falls off his chair celebrating Draymond's three-point barrage",
+   "date": "2026-11-22",
+   "sourceName": "theScore",
+   "url": "https://www.thescore.com/nba/news/3666518",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "ステフィン・カリーがドレイモンドの3Pに歓喜し、椅子から転落。ベンチの盛り上がりを切り取った映像が話題になった。",
+   "summaryEn": "Stephen Curry was so thrilled by Draymond's three that he fell off his chair, in a clip that went viral."
+  },
+  {
+   "id": "gh-20261126-gossip-westbrook-thanksgiving",
+   "level": "gossip",
+   "teams": [],
+   "headline": "ウェストブルック、雨の中 感謝祭の食事を配布",
+   "headlineEn": "Westbrook hands out Thanksgiving meals in the rain",
+   "date": "2026-11-20",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/onsi/athlete-lifestyle/russell-westbrook-powerful-statement-record-breaking-thanksgiving-charity-effort-los-angeles",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "ウェストブルックが雨の中、感謝祭の食事を配布。長年続ける地域支援の姿が伝えられた。",
+   "summaryEn": "Westbrook handed out Thanksgiving meals in the rain, continuing his long-running community work."
+  },
+  {
+   "id": "gh-20261126-gossip-booker-hotel-prank",
+   "level": "gossip",
+   "teams": [
+    "WAS"
+   ],
+   "headline": "トレバー・ブッカー、ホテルで縛られた仰天イタズラを告白",
+   "headlineEn": "Booker recalls being tied up in wild hotel-room prank",
+   "date": "2026-11-25",
+   "sourceName": "OpenCourt Basketball",
+   "url": "https://www.opencourt-basketball.com/2026/11/25/trevor-booker-reveals-crazy-story-of-how-he-was-tied-up-beaten-in-his-hotel-room-by-gilbert-arenas-nick-young-2/",
+   "genre": "舞台裏",
+   "top": false,
+   "summary": "トレバー・ブッカーが現役時代にホテルで縛られたという仰天イタズラを告白。チーム内のイタズラ文化の一端が明かされた。",
+   "summaryEn": "Trevor Booker revealed a wild hotel prank from his playing days in which he was tied up by teammates."
+  },
+  {
+   "id": "gh-20261126-gossip-yabusele-ring",
+   "level": "gossip",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "ヤブセレ、移籍済みでも優勝リング「もらえるはず」",
+   "headlineEn": "Yabusele expects a championship ring despite Knicks exit",
+   "date": "2026-11-25",
+   "sourceName": "OpenCourt Basketball",
+   "url": "https://www.opencourt-basketball.com/2026/11/25/guerschon-yabusele-expects-nba-championship-ring-from-knicks-despite-frustrating-exit/",
+   "genre": "舞台裏",
+   "top": false,
+   "summary": "ヤブセレが、移籍した今でも優勝リングは「もらえるはず」と語った。古巣のタイトルへの貢献がどう扱われるかが注目される。",
+   "summaryEn": "Yabusele said he still expects to receive a championship ring despite changing teams."
+  },
+  {
+   "id": "gh-20261126-gossip-nick-wright-tickets",
+   "level": "gossip",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "ニック・ライト、嘘の投稿で親切なファンにコートサイド席を贈る",
+   "headlineEn": "Nick Wright gifts courtside seats to kind fans after fake SOS post",
+   "date": "2026-11-24",
+   "sourceName": "OpenCourt Basketball",
+   "url": "https://www.opencourt-basketball.com/2026/11/24/nick-wright-pulls-off-surprise-by-giving-courtside-76ers-tickets-to-two-complete-strangers/",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "解説者のニック・ライトが、嘘の投稿をきっかけに親切なファンへコートサイド席を贈った。粋な計らいが話題になった。",
+   "summaryEn": "Nick Wright gifted courtside seats to a kind fan after a fake post, in a gesture fans loved."
+  },
+  {
+   "id": "gh-20261128-lamelo-ball-out-grizzlies",
+   "level": "reported",
+   "teams": [
+    "MIN"
+   ],
+   "headline": "ラメロ・ボール、左足首捻挫で土曜グリズリーズ戦を欠場",
+   "date": "2026-11-28",
+   "time": "03:55",
+   "sourceName": "FantasyPros",
+   "url": "https://www.fantasypros.com/nba/news/622908/lamelo-ball-ankle-ruled-out-friday.php",
+   "category": "怪我",
+   "top": true,
+   "related": [
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
+    },
+    {
+     "label": "RotoWire",
+     "url": "https://www.rotowire.com/basketball/headlines/lamelo-ball-injury-not-present-at-shootaround-541161"
+    },
+    {
+     "label": "Yahoo Sports",
+     "url": "https://sports.yahoo.com/nba/breaking-news/article/timberwolves-g-lamelo-ball-leaves-win-vs-thunder-early-due-to-apparent-ankle-injury-031210964.html"
+    },
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/injury-notes-ball-lillard-m-wagner-kat-kyrie-more.html"
+    }
+   ],
+   "headlineEn": "LaMelo Ball ruled out vs. Grizzlies with sprained left ankle",
+   "summary": "ラメロ・ボールが木曜のサンダー戦で左足首を捻挫して途中退場し、土曜のグリズリーズ戦は欠場が決まった。マーク・スタインの報道によるもの。土曜のシュートアラウンドにも姿を見せず、アヨ・ドスンムとボーンズ・ハイランドの出場時間が増える見通し。Hoops Rumorsによると、この捻挫で土曜以降の欠場が長引く可能性は低く、次の出場機会は月曜のキングス戦とされている。",
+   "summaryEn": "LaMelo Ball was ruled out for Friday's game against the Grizzlies with a sprained left ankle, Marc Stein reports. Ball exited Wednesday's win over the Thunder early after rolling his ankle and was not present at Friday's shootaround. Ayo Dosunmu and Bones Hyland are expected to see increased minutes. Hoops Rumors notes the sprain is not expected to linger beyond Friday, with Sunday's game against the Kings as the next opportunity to play.",
+   "ts": "2026-11-28T03:55:34+09:00",
+   "reporter": "Marc Stein"
+  },
+  {
+   "id": "gh-20261126-gossip-doncic-outburst-redick",
+   "level": "gossip",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ドンチッチの味方への暴言がバズる　レディック監督が擁護",
+   "date": "2026-11-23",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-mamu/",
+   "genre": "ドロドロ",
+   "top": false,
+   "headlineEn": "Doncic's heated words to a teammate go viral; Redick defends him",
+   "summary": "ドンチッチの味方への暴言シーンがバズり、レディック監督が擁護に回った。熱量の高さが賛否を呼んでいる。",
+   "summaryEn": "A clip of Doncic's outburst at a teammate went viral, with coach Redick defending his star."
+  },
+  {
+   "id": "gh-20261126-gossip-kuzma-fashion-clapback",
+   "level": "gossip",
+   "teams": [
+    "MIL"
+   ],
+   "headline": "クーズマ、ファッションを笑った元選手らに反撃「もうやめてくれ」",
+   "date": "2026-11-25",
+   "sourceName": "Sportskeeda",
+   "url": "https://opera.sportskeeda.com/basketball/news-hop-d-k-please-kyle-kuzma-fires-no-holds-barred-reply-ex-nba-stars-mocking-fashion-choices",
+   "genre": "ドロドロ",
+   "top": false,
+   "headlineEn": "Kuzma fires back at ex-players mocking his fashion",
+   "summary": "クーズマが、自分のファッションを笑った元選手らに「もうやめてくれ」と反撃。個性的な服装を巡る応酬が続いている。",
+   "summaryEn": "Kuzma clapped back at former players who mocked his fashion, telling them to stop."
+  },
+  {
+   "id": "gh-20261126-gossip-iverson-turkey-giveaway",
+   "level": "gossip",
+   "teams": [],
+   "headline": "アイバーソン、地元で七面鳥配布　感謝祭に263羽と食料を寄付",
+   "date": "2026-11-21",
+   "sourceName": "Parade",
+   "url": "https://parade.com/celebrities/allen-iverson-thanksgiving-turkey-giveaway-virginia-hometown",
+   "genre": "ほのぼの",
+   "top": false,
+   "headlineEn": "Iverson donates 263 turkeys in hometown Thanksgiving giveaway",
+   "summary": "アイバーソンが地元で七面鳥263羽と食料を寄付。感謝祭の恒例行事として地域に恩返しした。",
+   "summaryEn": "Allen Iverson donated 263 turkeys and food in his hometown for Thanksgiving."
+  },
+  {
+   "id": "gh-20261125-gossip-kyrie-irving-shoes-fan",
+   "level": "gossip",
+   "teams": [
+    "DAL"
+   ],
+   "headline": "カイリー・アービング、カップ戦勝利後に少年ファンへシューズを贈る",
+   "date": "2026-11-25",
+   "sourceName": "NBA Kicks",
+   "url": "https://www.instagram.com/p/DgLKkY9H-iB/",
+   "top": false,
+   "genre": "ほのぼの",
+   "headlineEn": "Kyrie gives his shoes to a young fan after NBA Cup win",
+   "summary": "カイリー・アービングがカップ戦勝利後、少年ファンに自分のシューズを贈った。心温まる場面が話題になった。",
+   "summaryEn": "Kyrie Irving gave his shoes to a young fan after a Cup win, in a heartwarming moment."
+  },
+  {
+   "id": "gh-20261125-gossip-clingan-poster-lebron",
+   "level": "gossip",
+   "teams": [
+    "POR",
+    "PHI"
+   ],
+   "headline": "クリンガン、レブロンをポスター化 「LeWashed」がバズる",
+   "date": "2026-11-25",
+   "sourceName": "Sportsnaut",
+   "url": "https://sportsnaut.com/nba/donovan-clingan-posterized-lebron-james",
+   "top": false,
+   "genre": "ドロドロ",
+   "headlineEn": "Clingan posterizes LeBron as \"LeWashed\" trends",
+   "summary": "クリンガンがレブロンをポスター化するダンクを決め、「LeWashed」の言葉がバズった。若手の勢いを象徴する場面になった。",
+   "summaryEn": "Clingan posterized LeBron with a dunk that had 'LeWashed' trending online."
+  },
+  {
+   "id": "gh-20261123-gossip-butler-tatum-friday-spoof",
+   "level": "gossip",
+   "teams": [
+    "GSW",
+    "BOS"
+   ],
+   "headline": "バトラー、テイタムをAI動画「フライデー」でからかう",
+   "date": "2026-11-23",
+   "sourceName": "NY Post",
+   "url": "https://nypost.com/2026/11/23/sports/jimmy-butler-trolls-jayson-tatum-after-warriors-beat-celtics/",
+   "top": false,
+   "genre": "ドロドロ",
+   "headlineEn": "Butler trolls Tatum with AI \"Friday\" video",
+   "summary": "バトラーがテイタムをAI動画「フライデー」でからかった。オフコートの冗談がファンの笑いを誘っている。",
+   "summaryEn": "Butler trolled Tatum with an AI 'Friday' spoof video, entertaining fans."
+  },
+  {
+   "id": "gh-20261125-gossip-paul-george-ankle-breaker",
+   "level": "gossip",
+   "teams": [
+    "BOS",
+    "WAS"
+   ],
+   "headline": "ポール・ジョージ、相手を転倒させるステップバックでバズる",
+   "date": "2026-11-25",
+   "sourceName": "ProFootballNetwork",
+   "url": "https://www.profootballnetwork.com/nba/ankle-breaker-paul-george-stepback-stare-down/",
+   "top": false,
+   "genre": "キラキラ",
+   "headlineEn": "Paul George's step-back sends defender to the floor",
+   "summary": "ポール・ジョージが相手を転倒させるステップバックを披露し、バズった。衰え知らずのスキルが光った。",
+   "summaryEn": "Paul George's ankle-breaking stepback had the internet buzzing."
+  },
+  {
+   "id": "gh-20261122-gossip-draymond-eddie-johnson",
+   "level": "gossip",
+   "teams": [
+    "GSW",
+    "PHX"
+   ],
+   "headline": "ドレイモンドと解説者エディ・ジョンソン、Xで舌戦が白熱",
+   "date": "2026-11-22",
+   "sourceName": "azcentral",
+   "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
+   "top": false,
+   "genre": "ドロドロ",
+   "headlineEn": "Draymond, analyst Eddie Johnson spar on X",
+   "summary": "ドレイモンドと解説者エディ・ジョンソンがXで舌戦。選手とメディアの言い合いが白熱している。",
+   "summaryEn": "Draymond Green and analyst Eddie Johnson traded barbs on X in a heated exchange."
+  },
+  {
+   "id": "gh-20261123-gossip-gg-jackson-community-assist",
+   "level": "gossip",
+   "teams": [
+    "MEM"
+   ],
+   "headline": "GGジャクソン、10月のNBAコミュニティ賞を受賞",
+   "date": "2026-11-23",
+   "sourceName": "EIN Presswire",
+   "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
+   "top": false,
+   "genre": "ほのぼの",
+   "headlineEn": "GG Jackson wins October NBA Community Assist Award",
+   "summary": "GGジャクソンが10月のNBAコミュニティ賞を受賞。地域活動への取り組みが評価された。",
+   "summaryEn": "GG Jackson won the NBA Community Assist Award for October for his community work."
+  },
+  {
+   "id": "gh-20261125-gossip-rivers-giannis",
+   "level": "gossip",
+   "teams": [
+    "MIL",
+    "MIA"
+   ],
+   "headline": "リバース、ヤニスとの関係は「問題なし」と明かす",
+   "date": "2026-11-25",
+   "sourceName": "Yardbarker",
+   "url": "https://www.yardbarker.com/nba/articles/be_honest_doc_rivers_gives_update_on_giannis_antetokounmpo_relationship_after_iq_comments/s1_17664_44616054",
+   "top": false,
+   "genre": "舞台裏",
+   "headlineEn": "Rivers says relationship with Giannis is \"all good\"",
+   "summary": "リバース監督がヤニスとの関係について「問題なし」と明かした。不仲説を否定し、チームの結束を強調した形だ。",
+   "summaryEn": "Doc Rivers said his relationship with Giannis is fine, pushing back on friction rumors."
+  },
+  {
+   "id": "gh-20261125-gossip-brunson-swift",
+   "level": "gossip",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "ブランソン、テイラー・スウィフトを擁護「立派なニックスファン」",
+   "date": "2026-11-25",
+   "sourceName": "EssentiallySports",
+   "url": "https://www.essentiallysports.com/nba-active-basketball-news-jalen-brunson-breaks-silence-on-taylor-swift-after-tyler-kolek-called-her-the-fakest-celebrity-of-knicks-fandom/",
+   "top": false,
+   "genre": "キラキラ",
+   "headlineEn": "Brunson defends Taylor Swift as \"a great Knicks fan\"",
+   "summary": "ブランソンがテイラー・スウィフトを「立派なニックスファン」と擁護。意外な組み合わせが話題になった。",
+   "summaryEn": "Brunson defended Taylor Swift as a legit Knicks fan, in a crossover moment fans enjoyed."
+  },
+  {
+   "id": "gh-20261125-gossip-shelton-navarrette",
+   "level": "gossip",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "シェルトン、ニックス戦で女優ナヴァレットと談笑し話題に",
+   "date": "2026-11-25",
+   "sourceName": "Yardbarker",
+   "url": "https://www.yardbarker.com/general_sports/articles/ben_sheltons_nba_courtside_moment_with_inde_navarrette_sparks_rumours_after_trinity_rodman_split/s1_17664_44615395",
+   "top": false,
+   "genre": "キラキラ",
+   "headlineEn": "Ben Shelton chats with actress Madelyn Navarrette at Knicks game",
+   "summary": "テニスのシェルトンがニックス戦で女優ナヴァレットと談笑し、話題に。コートサイドの顔ぶれが注目を集めた。",
+   "summaryEn": "Tennis star Ben Shelton was spotted chatting with actress Navarrette at a Knicks game."
+  },
+  {
+   "category": "トレード",
+   "date": "2026-11-25",
+   "headline": "ジャズ、トレード補強へ市場を積極調査",
+   "id": "gh-20261125-jazz-trade-search-fischer",
+   "level": "rumor",
+   "reporter": "Jake Fischer",
+   "sourceName": "SLC Dunk",
+   "teams": [
+    "UTA"
+   ],
+   "top": false,
+   "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz",
+   "headlineEn": "Jazz actively exploring the trade market",
+   "summary": "ジャズがトレードによる補強に向けて市場を積極的に調査していると、ジェイク・フィッシャーが報じた。具体的な合意や成立には至っていない。",
+   "summaryEn": "The Jazz are actively surveying the trade market for reinforcements, per Jake Fischer. No agreement or completed deal has been reached."
+  },
+  {
+   "id": "gh-20261125-nnaji-trade-fischer",
+   "level": "rumor",
+   "teams": [
+    "DEN"
+   ],
+   "headline": "ナゲッツ、ジーク・ナジのトレード先を模索　2031年1巡目は温存方針",
+   "date": "2026-11-25",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/nuggets-notes-nnaji-jones-porter-nembhard-jokic.html",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false,
+   "headlineEn": "Nuggets exploring Zeke Nnaji trade, keeping 2031 first-rounder",
+   "summary": "ナゲッツがジーク・ナジのトレード先を模索しているとの報道。一方で2031年の1巡目指名権は温存する方針とされ、将来の資産は手放さない姿勢も見える。",
+   "summaryEn": "The Nuggets are exploring trade options for Zeke Nnaji, while reportedly planning to hold onto their 2031 first-round pick rather than deal away future assets."
+  },
+  {
+   "id": "gh-20261124-kawhi-workouts-scotto-fix",
+   "level": "reported",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "カワイ、個人練習を開始　少なくともあと1週間は離脱",
+   "date": "2026-11-24",
+   "sourceName": "Basketball News",
+   "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
+   "reporter": "Michael Scotto",
+   "category": "怪我",
+   "top": false,
+   "headlineEn": "Kawhi begins individual workouts, out at least one more week",
+   "summary": "カワイ・レナードが個人練習を開始した。ただし復帰はまだ先で、少なくともあと1週間は離脱が続く見通しとされる。",
+   "summaryEn": "Kawhi Leonard has begun individual workouts, but his return is still a while away, with at least another week of absence expected."
+  },
+  {
+   "id": "gh-20261125-clippers-sellers-fischer",
+   "level": "rumor",
+   "teams": [
+    "LAC",
+    "TOR"
+   ],
+   "headline": "クリッパーズは売り手濃厚、ラプターズはセンター補強を模索",
+   "date": "2026-11-25",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/fischers-latest-clippers-raptors-davis-jazz.html",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false,
+   "related": [
+    {
+     "label": "NY Post",
+     "url": "https://sports.yahoo.com/nba/articles/clippers-interim-gm-given-full-130000542.html"
+    },
+    {
+     "label": "RealGM",
+     "url": "https://basketball.realgm.com/wiretap/288219/Clippers-Expecting-Trade-Interest-For-Veteran-Players"
+    }
+   ],
+   "headlineEn": "Clippers lean sellers; Raptors eyeing center help",
+   "summary": "クリッパーズはトレード市場で売り手に回る可能性が高く、ラプターズはセンターの補強を模索しているとジェイク・フィッシャーが報じた。いずれも交渉段階の話で、成立した取引はない。",
+   "summaryEn": "The Clippers are increasingly likely to be sellers on the trade market, while the Raptors are searching for a center, per Jake Fischer. Both items are at the discussion stage, with no deal completed."
+  },
+  {
+   "id": "gh-20261125-fultz-raptors905-scotto-fix",
+   "level": "reported",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "フルツ、ラプターズ傘下Gリーグ「Raptors 905」に加入へ",
+   "date": "2026-11-25",
+   "sourceName": "HoopsHype",
+   "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/25/markelle-fultz-to-join-raptors-g-league-affiliate/92958550007/",
+   "reporter": "Michael Scotto",
+   "category": "契約",
+   "top": false,
+   "headlineEn": "Fultz set to join Raptors 905 in the G League",
+   "summary": "マーケル・フルツがラプターズ傘下のGリーグチーム「Raptors 905」に加入する見通し。NBA復帰に向けた新たな一歩となる。",
+   "summaryEn": "Markelle Fultz is set to join Raptors 905, Toronto's G League affiliate, taking a new step toward an NBA comeback."
+  },
+  {
+   "id": "gh-20261126-kpj-magic-agreement-official",
+   "level": "official",
+   "teams": [
+    "ORL"
+   ],
+   "headline": "ケビン・ポーターJr.、マジックと正式契約",
+   "date": "2026-11-26",
+   "sourceName": "Orlando Magic",
+   "url": "https://www.nba.com/magic/news/orlando-magic-sign-free-agent-kevin-porter-jr-20261125",
+   "reporter": "Shams Charania",
+   "category": "契約",
+   "top": false,
+   "time": "13:08",
+   "headlineEn": "Kevin Porter Jr. officially signs with Magic",
+   "related": [
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/magic-to-sign-kevin-porter-jr.html"
+    }
+   ],
+   "summary": "ケビン・ポーターJr.がマジックと正式に契約した。公式発表に基づく確定情報で、バックコートに新たな戦力が加わる。",
+   "summaryEn": "Kevin Porter Jr. has officially signed with the Magic, adding a new piece to Orlando's backcourt, per the official announcement."
+  },
+  {
+   "id": "gh-20261125-lopez-lakers-fischer",
+   "level": "rumor",
+   "teams": [
+    "LAL",
+    "LAC"
+   ],
+   "headline": "Fischer、ロペスはレイカーズにとって「魅力的なターゲット」と見解",
+   "date": "2026-11-25",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-elite-shooter-trade-news-doncic/",
+   "reporter": "Jake Fischer",
+   "category": "トレード",
+   "top": false,
+   "headlineEn": "Fischer: Brook Lopez an \"appealing target\" for Lakers",
+   "summary": "ジェイク・フィッシャーは、ブルック・ロペスがレイカーズにとって魅力的な補強ターゲットになり得るとの見解を示した。現時点で交渉や合意の報道はない。",
+   "summaryEn": "Jake Fischer suggested Brook Lopez could be an attractive target for the Lakers. There are no reports of negotiations or an agreement at this point."
+  },
+  {
+   "id": "gh-20261126-rss-embiid-out-heat-illness-fix",
+   "level": "reported",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "エンビード、体調不良でヒート戦欠場　2戦連続",
+   "date": "2026-11-26",
+   "time": "05:44",
+   "sourceName": "ESPN",
+   "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
+   "top": false,
+   "related": [
+    {
+     "label": "Yahoo Sports",
+     "url": "https://sports.yahoo.com/nba/article/76ers-rule-out-jaylen-brown-hamstring-list-joel-embiid-illness-as-questionable-for-fridays-game-vs-pacers-225906822.html"
+    }
+   ],
+   "headlineEn": "Embiid (illness) out vs. Heat, second straight game",
+   "summary": "ジョエル・エンビードが体調不良のためヒート戦を欠場する。これで2試合連続の欠場となる。",
+   "summaryEn": "Joel Embiid will miss the Heat game due to illness, his second straight absence."
+  },
+  {
+   "id": "gh-20261125-gossip-wembanyama-mr-morality",
+   "level": "gossip",
+   "teams": [
+    "SAS"
+   ],
+   "headline": "ウェンバンヤマ、「Mr. Morality」と呼ばれる　ファンが擁護",
+   "date": "2026-11-25",
+   "sourceName": "ProFootballNetwork",
+   "url": "https://www.profootballnetwork.com/nba/fans-defend-victor-wembanyama-mr-morality/",
+   "top": false,
+   "genre": "舞台裏",
+   "headlineEn": "Fans defend Wembanyama amid \"Mr. Morality\" talk",
+   "summary": "ウェンバンヤマが「Mr. Morality」と呼ばれ、ファンが擁護に回った。言動の端正さが逆に話題になる現象が起きている。",
+   "summaryEn": "Wembanyama being dubbed 'Mr. Morality' sparked fans to defend him online."
+  },
+  {
+   "id": "gh-20261125-gossip-davis-kyshawn-trip",
+   "level": "gossip",
+   "teams": [
+    "BOS",
+    "WAS"
+   ],
+   "headline": "デイビス、キショーン転倒の真相告白「俺がつまずかせた」",
+   "date": "2026-11-25",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/nba/wizards/onsi/anthony-davis-clears-wizards-teammate-s-name-regarding-viral-blunder-01m887kymefc",
+   "top": false,
+   "genre": "舞台裏",
+   "headlineEn": "Davis admits he tripped Kyshawn George",
+   "summary": "デイビスがキショーン転倒の真相について「俺がつまずかせた」と告白。正直な申告が話題になった。",
+   "summaryEn": "Davis admitted he was the one who tripped Kyshawn, owning up to the play."
+  },
+  {
+   "id": "gh-20261125-gossip-selena-gomez-spurs",
+   "level": "gossip",
+   "teams": [
+    "SAS"
+   ],
+   "headline": "セレーナ・ゴメスがスパーズ戦を観戦　ウェンバンヤマ「見せつけた」",
+   "date": "2026-11-25",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/onsi/athlete-lifestyle/victor-wembanyama-makes-playful-admission-at-selena-gomezs-spurs-courtside-appearance",
+   "top": false,
+   "genre": "キラキラ",
+   "headlineEn": "Selena Gomez watches Spurs; Wembanyama says he showed off for her",
+   "summary": "セレーナ・ゴメスがスパーズ戦を観戦し、ウェンバンヤマが「見せつけた」とコメント。スター同士の共演が注目された。",
+   "summaryEn": "Selena Gomez attended a Spurs game, and Wembanyama said the team put on a show."
+  },
+  {
+   "id": "gh-20261126-rss-reaves-full-practice-spurs-fix",
+   "level": "reported",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "リーブス、5試合ぶりに復帰　スパーズ戦に出場可能",
+   "date": "2026-11-28",
+   "time": "04:20",
+   "sourceName": "FantasyPros",
+   "url": "https://www.fantasypros.com/nba/news/622921/austin-reaves-heel-returns-to-lineup-friday.php",
+   "top": true,
+   "related": [
+    {
+     "label": "NBC Sports",
+     "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/austin-reaves-heel-questionable-friday-vs-spurs"
+    },
+    {
+     "label": "theScore",
+     "url": "https://www.thescore.com/nba/news/3668046"
+    },
+    {
+     "label": "Lakers Nation",
+     "url": "https://lakersnation.com/lakers-injury-update-austin-reaves-upgraded-to-available-vs-spurs/"
+    }
+   ],
+   "headlineEn": "Reaves available vs. Spurs, set to return after five-game absence",
+   "summary": "左かかとの打撲で5試合を欠場していたオースティン・リーブスが、土曜のスパーズ戦で出場可能となった。レイカーズの発表をESPNのデイブ・マクメナミンが伝えた。練習にフル参加し、クエスチョナブルを経ての復帰になる。",
+   "summaryEn": "Austin Reaves will return to the lineup for Friday's game against the Spurs after missing five games with a left heel bruise, per the Lakers via ESPN's Dave McMenamin. He was a full participant in practice and had been listed as questionable.",
+   "ts": "2026-11-28T04:20:00+09:00",
+   "reporter": "Dave McMenamin",
+   "category": "怪我"
+  },
+  {
+   "id": "gh-20261125-gossip-draymond-bench-kerr",
+   "level": "gossip",
+   "teams": [
+    "GSW"
+   ],
+   "headline": "ドレイモンド、カリー不在の苦境を吐露「ベンチでもいい」",
+   "date": "2026-11-25",
+   "sourceName": "USA Today",
+   "url": "https://warriorswire.usatoday.com/story/sports/nba/warriors/2026/11/26/draymond-green-reveals-role-change-talks-with-steve-kerr/92969546007/",
+   "top": false,
+   "genre": "舞台裏",
+   "headlineEn": "Draymond on Curry-less slump: \"Start me off the bench\"",
+   "summary": "ドレイモンドがカリー不在の苦境を吐露し、「ベンチでもいい」と発言。チーム優先の姿勢を示した。",
+   "summaryEn": "Draymond opened up about the team's struggles without Curry, saying he'd accept a bench role."
+  },
+  {
+   "id": "gh-20261125-gossip-giannis-herro-handshake",
+   "level": "gossip",
+   "teams": [
+    "MIA",
+    "MIL"
+   ],
+   "headline": "ヤニスとヒーロー、古巣相手に握手なし　ドレイモンド「衝撃」",
+   "date": "2026-11-25",
+   "sourceName": "Yardbarker",
+   "url": "https://www.yardbarker.com/nba/articles/even_warriors_draymond_green_is_shocked_by_giannis_stiffing_ex_bucks_teammates_bam_adebayo_vs_tyler_herro_beef/s1_17113_44618521",
+   "top": false,
+   "genre": "ドロドロ",
+   "headlineEn": "No handshake between Giannis and Herro vs. former teams",
+   "summary": "ヤニスとヒーローが古巣対決で握手なしに終わり、ドレイモンドが「衝撃」と反応。両者の関係に注目が集まった。",
+   "summaryEn": "Giannis and Herro skipped the handshake in their reunion game, with Draymond calling it shocking."
+  },
+  {
+   "id": "gh-20261123-gossip-randle-turkey-drive",
+   "level": "gossip",
+   "teams": [
+    "BKN"
+   ],
+   "headline": "ランドル、感謝祭に七面鳥400羽を配布　地元ブルックリンへ恩返し",
+   "date": "2026-11-23",
+   "sourceName": "Athlon Sports",
+   "url": "https://athlonsports.com/nba/brooklyn-nets/nets-julius-randle-sends-powerful-message-ahead-of-thanksgiving",
+   "top": false,
+   "genre": "ほのぼの",
+   "headlineEn": "Randle gives away 400 turkeys in Brooklyn",
+   "summary": "ランドルが感謝祭に七面鳥400羽を配布。地元ブルックリンへの恩返しを続けた。",
+   "summaryEn": "Randle handed out 400 turkeys in Brooklyn for Thanksgiving, giving back to his hometown."
+  },
+  {
+   "id": "gh-20261126-rss-haliburton-nears-return-fix",
+   "level": "reported",
+   "teams": [
+    "IND"
+   ],
+   "headline": "ハリバートンが全体練習にフル参加、復帰が近づく",
+   "date": "2026-11-26",
+   "time": "09:11",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/tyrese-haliburton-nears-return-from-hamstring-injury.html",
+   "top": false,
+   "related": [
+    {
+     "label": "Indianapolis Star",
+     "url": "https://www.indystar.com/story/sports/nba/pacers/2026/11/26/tyrese-haliburton-injury-report-pacers-point-guard-gets-bad-news-vs-sixers/92973719007/"
+    },
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
+    }
+   ],
+   "headlineEn": "Haliburton goes full practice, nearing return",
+   "summary": "タイリース・ハリバートンが全体練習にフル参加し、復帰が近づいている。離脱していた司令塔の戦列復帰が見えてきた。今週2度目となるGリーグでの練習参加を経てNBAに復帰登録されており、復帰は近いとみられている。",
+   "summaryEn": "Tyrese Haliburton fully participated in team practice and is nearing his return, with the Pacers' floor general close to rejoining the lineup. After a second practice assignment with the G League's Noblesville Boom this week, he has been recalled to the NBA and is expected back soon."
+  },
+  {
+   "id": "gh-20261126-rss-brown-exits-heat-hamstring",
+   "level": "reported",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "ジェイレン・ブラウン、ハムストリング再発でヒート戦を途中退場",
+   "date": "2026-11-26",
+   "time": "09:24",
+   "sourceName": "ESPN",
+   "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue",
+   "top": true,
+   "related": [
+    {
+     "label": "ESPN",
+     "url": "https://www.espn.com/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday"
+    }
+   ],
+   "headlineEn": "Jaylen Brown exits vs. Heat with hamstring issue",
+   "summary": "ジェイレン・ブラウンがハムストリングの再発でヒート戦の途中に退場した。今後の状態は経過を見て判断される。",
+   "summaryEn": "Jaylen Brown exited the Heat game midway after his hamstring flared up again. His status will be monitored going forward."
+  },
+  {
+   "id": "gh-20261126-gossip-brooks-durant-beef",
+   "level": "gossip",
+   "teams": [
+    "PHX",
+    "HOU"
+   ],
+   "headline": "ブルックス、デュラントとの口論で退場　因縁のサンズ対ロケッツ",
+   "date": "2026-11-26",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/nba/suns/onsi/dillon-brooks-ejected-kevin-durant-beef-boils-over-phoenix-suns-houston-rockets-clash",
+   "genre": "ドロドロ",
+   "top": false,
+   "headlineEn": "Brooks ejected after spat with Durant in Suns-Rockets clash",
+   "summary": "ブルックスがデュラントとの口論で退場。因縁のサンズ対ロケッツ戦が荒れた展開になった。",
+   "summaryEn": "Brooks was ejected after a heated exchange with Durant in a chippy Suns-Rockets game."
+  },
+  {
+   "id": "gh-20261126-gossip-draymond-praises-eddie-johnson",
+   "level": "gossip",
+   "teams": [
+    "GSW",
+    "PHX"
+   ],
+   "headline": "ドレイモンド、舌戦のエディ・ジョンソンを称賛「素晴らしいキャリア」",
+   "date": "2026-11-26",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/golden-state-warriors/draymond-green-eddie-johnson-online-beef/",
+   "genre": "ドロドロ",
+   "top": false,
+   "headlineEn": "Draymond praises Eddie Johnson after their X feud",
+   "summary": "ドレイモンドが舌戦相手のエディ・ジョンソンを「素晴らしいキャリア」と称賛。言い合いの末の敬意表明が話題になった。",
+   "summaryEn": "Draymond praised Eddie Johnson's career after their war of words, showing respect."
+  },
+  {
+   "id": "gh-20261126-gossip-holmgren-fur-coat-roast",
+   "level": "gossip",
+   "teams": [
+    "OKC",
+    "MIN"
+   ],
+   "headline": "ホルムグレン、ベンチの毛皮コートでシャック＆バークリーにいじられる",
+   "date": "2026-11-26",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/oklahoma-city-thunder/chet-holmgren-roasted-by-shaq-barkley/",
+   "genre": "キラキラ",
+   "top": false,
+   "headlineEn": "Holmgren roasted by Shaq and Barkley for fur coat on bench",
+   "summary": "ホルムグレンがベンチで毛皮コート姿を見せ、シャックとバークリーにいじられた。ファッションが思わぬ注目を集めた。",
+   "summaryEn": "Holmgren's fur coat on the bench got roasted by Shaq and Barkley on air."
+  },
+  {
+   "id": "gh-20261126-gossip-stiller-brunson-pumpfake",
+   "level": "gossip",
+   "teams": [
+    "NYK",
+    "CLE"
+   ],
+   "headline": "ベン・スティラー、ブランソンのフェイク動画を投稿　ミッチェルが宙に浮く",
+   "headlineEn": "Ben Stiller posts slow-mo of Brunson's pump fake that sent Mitchell airborne",
+   "date": "2026-11-26",
+   "sourceName": "ClutchPoints",
+   "url": "https://clutchpoints.com/nba/new-york-knicks/knicks-news-ben-stiller-video-jalen-brunson-pump-fake-donovan-mitchell",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "ベン・スティラーがブランソンのフェイク動画を投稿し、ミッチェルが宙に浮くシーンが話題に。熱心なニックスファンぶりを見せた。",
+   "summaryEn": "Ben Stiller posted a clip of Brunson's pump fake sending Mitchell flying."
+  },
+  {
+   "id": "gh-20261125-gossip-gloria-james-bow",
+   "level": "gossip",
+   "teams": [
+    "PHI",
+    "MIA"
+   ],
+   "headline": "レブロンのロゴ3Pに母グロリアもお辞儀　ファン沸く",
+   "headlineEn": "Even mom Gloria bows as LeBron drills logo three",
+   "date": "2026-11-25",
+   "sourceName": "Sportskeeda",
+   "url": "https://www.sportskeeda.com/basketball/news-even-momma-james-bowing-nba-fans-can-t-get-enough-as-gloria-james-bows-down-76ers-star-lighting-up-in-2nd-qtr",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "レブロンのロゴ3Pに母グロリアがお辞儀で反応し、ファンが沸いた。親子の微笑ましい場面だった。",
+   "summaryEn": "LeBron's logo three had his mother Gloria bowing in celebration, delighting fans."
+  },
+  {
+   "id": "gh-20261127-gossip-lillard-thanksgiving-morant",
+   "level": "gossip",
+   "teams": [
+    "POR"
+   ],
+   "headline": "デイミアン・リラード、感謝祭の料理はジャ・モラントに任せる",
+   "headlineEn": "Lillard trusts Morant with the Thanksgiving dish",
+   "date": "2026-11-26",
+   "sourceName": "Basketball Network",
+   "url": "https://www.basketballnetwork.net/off-the-court/damian-lillard-on-which-teammate-hed-trust-to-bring-a-dish-to-thanksgiving",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "デイミアン・リラードが感謝祭の料理はジャ・モラントに任せると発言。意外な人選が笑いを誘った。",
+   "summaryEn": "Damian Lillard joked he'd let Ja Morant handle his Thanksgiving cooking."
+  },
+  {
+   "id": "gh-20261127-gossip-dakota-johnson-og-anunoby",
+   "level": "gossip",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "ダコタ・ジョンソン、OG・アヌノビーを「実在しない」と発言し炎上",
+   "headlineEn": "Dakota Johnson didn't believe OG Anunoby was real, sparking backlash",
+   "date": "2026-11-26",
+   "sourceName": "BuzzFeed",
+   "url": "https://www.buzzfeed.com/leylamohammed/dakota-johnson-og-anunoby-backlash-anne-hathaway",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "ダコタ・ジョンソンがOG・アヌノビーを「実在しない」と発言し炎上。思わぬ形で名前が拡散した。",
+   "summaryEn": "Dakota Johnson's claim that OG Anunoby 'isn't real' sparked backlash online."
+  },
+  {
+   "id": "gh-20261127-gossip-jerami-grant-thanksgiving",
+   "level": "gossip",
+   "teams": [
+    "MEM"
+   ],
+   "headline": "ジェラミ・グラント、感謝祭に212世帯へ食事を配布　メンフィスで恩返し",
+   "headlineEn": "Jerami Grant hands out Thanksgiving meals to 212 Memphis families",
+   "date": "2026-11-25",
+   "sourceName": "Commercial Appeal",
+   "url": "https://www.commercialappeal.com/story/sports/nba/grizzlies/2026/11/25/memphis-grizzlies-thanksgiving-jerami-grant-gg-jackson/92760304007/",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "ジェラミ・グラントが感謝祭に212世帯へ食事を配布。メンフィスで恩返しを行った。",
+   "summaryEn": "Jerami Grant provided Thanksgiving meals to 212 families in Memphis."
+  },
+  {
+   "id": "gh-20261127-gossip-giannis-rest-jab",
+   "level": "gossip",
+   "teams": [
+    "MIA"
+   ],
+   "headline": "ヤニス・アデトクンボ、休養欠場の選手にチクリ「俺は休まない」",
+   "headlineEn": "Giannis takes a jab at players who sit out for rest: 'Not me'",
+   "date": "2026-11-26",
+   "sourceName": "TalkBasket",
+   "url": "https://www.talkbasket.net/230353-giannis-antetokounmpo-explains-why-he-refuses-to-sit-out-games",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "ヤニスが休養欠場する選手たちに「俺は休まない」とチクリ。ロードマネジメントへの持論が話題になった。",
+   "summaryEn": "Giannis took a jab at players who sit out, saying he doesn't rest."
+  },
+  {
+   "id": "gh-20261127-gossip-draymond-baron-davis-winner",
+   "level": "gossip",
+   "teams": [
+    "GSW"
+   ],
+   "headline": "ドレイモンド、バロン・デイビスの「全員勝者」論に反論",
+   "headlineEn": "Draymond fires back at Baron Davis over 'everyone's a winner' claim",
+   "date": "2026-11-26",
+   "sourceName": "Basketball Network",
+   "url": "https://www.basketballnetwork.net/off-the-court/draymond-green-fires-back-at-baron-davis-for-saying-every-nba-player-is-winner",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "ドレイモンドがバロン・デイビスの「全員勝者」論に反論。勝敗への考え方の違いが浮き彫りになった。",
+   "summaryEn": "Draymond pushed back on Baron Davis's 'everyone's a winner' take."
+  },
+  {
+   "id": "gh-20261127-gossip-cunningham-courtside-outfits",
+   "level": "gossip",
+   "teams": [
+    "LAC"
+   ],
+   "headline": "ソフィー・カニンガム、露出コーデの観客を一喝「服を着なさい」",
+   "headlineEn": "Sophie Cunningham blasts influencers' revealing courtside outfits",
+   "date": "2026-11-20",
+   "sourceName": "Basketball Network",
+   "url": "https://www.basketballnetwork.net/off-the-court/sophie-cunningham-blasts-two-influencers-over-revealing-outfits-at-clippers-game",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "WNBAのソフィー・カニンガムが、露出の多いコーデの観客に「服を着なさい」と一喝。率直な物言いが話題になった。",
+   "summaryEn": "Sophie Cunningham called out fans' revealing courtside outfits, telling them to put clothes on."
+  },
+  {
+   "id": "gh-20261127-nurkic-questionable-nuggets",
+   "level": "reported",
+   "teams": [
+    "UTA"
+   ],
+   "headline": "ユスフ・ヌルキッチ、ナゲッツ戦はクエスチョナブル　今季初出場の可能性も",
+   "headlineEn": "Nurkic questionable vs. Nuggets on Friday, could make season debut",
+   "date": "2026-11-27",
+   "time": "10:56",
+   "sourceName": "Yahoo Sports",
+   "url": "https://sports.yahoo.com/nba/articles/important-jusuf-nurkic-injury-015629072.html",
+   "category": "怪我",
+   "top": false,
+   "summary": "ユスフ・ヌルキッチがナゲッツ戦はクエスチョナブル。状態が整えば、今季初出場となる可能性もある。",
+   "summaryEn": "Jusuf Nurkic is questionable for the Nuggets game. If he is cleared, it could mark his season debut."
+  },
+  {
+   "id": "gh-20261127-gossip-murray-sabotage-post",
+   "level": "gossip",
+   "teams": [
+    "NOP"
+   ],
+   "headline": "デジョンテ・マレー、削除した投稿で「妨害工作は本当」とペリカンズに不満",
+   "headlineEn": "Dejounte Murray deletes 'sabotage is real' post venting at Pelicans",
+   "date": "2026-11-26",
+   "sourceName": "Daily Fox News",
+   "url": "https://dailyfoxnews.com/news/42993/deleted-dejounte-murray-post-raises-eyebrows-as-pelicans-struggles-continue",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "デジョンテ・マレーが削除済みの投稿で「妨害工作は本当」とペリカンズへの不満を漏らした。チームとの関係に注目が集まっている。",
+   "summaryEn": "Dejounte Murray aired frustration with the Pelicans in a since-deleted post claiming sabotage."
+  },
+  {
+   "id": "gh-20261127-gossip-lebron-spoelstra-praise",
+   "level": "gossip",
+   "teams": [
+    "PHI",
+    "MIA"
+   ],
+   "headline": "レブロン・ジェームズ、古巣のスポールストラ監督を「最高のコーチ」と絶賛　ファンざわつく",
+   "headlineEn": "LeBron calls ex-coach Spoelstra the best he's had, fans react",
+   "date": "2026-11-26",
+   "sourceName": "Pro Football Network",
+   "url": "https://www.profootballnetwork.com/nba/shouldve-just-went-to-miami-disrespectful-to-his-current-coach-nba-fans-react-to-lebron-james-praising-erik-spoelstra-after-76ers-heat/",
+   "genre": "舞台裏",
+   "top": false,
+   "summary": "レブロンが古巣のスポールストラ監督を「最高のコーチ」と絶賛し、ファンがざわついた。ヒート時代への敬意を示した形だ。",
+   "summaryEn": "LeBron praised his former coach Erik Spoelstra as the best, stirring up fans."
+  },
+  {
+   "id": "gh-20261127-gossip-og-anunoby-skechers",
+   "level": "gossip",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "OG・アヌノビー、優勝の立役者となったスケッチャーズ「NYCブルー」が再販",
+   "headlineEn": "OG Anunoby's title-winning Skechers 'NYC Blue' returns to sale",
+   "date": "2026-11-20",
+   "sourceName": "Skechers",
+   "url": "https://www.skechers.com/stories/og-basketball/og-anunoby-basketball-championship-skechers.html",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "OG・アヌノビーのスケッチャーズ「NYCブルー」が再販。優勝の立役者となった一足が再び注目されている。",
+   "summaryEn": "OG Anunoby's Skechers 'NYC Blue,' worn during the title run, is being re-released."
+  },
+  {
+   "id": "gh-20261127-wagner-out-raptors",
+   "level": "reported",
+   "teams": [
+    "BKN"
+   ],
+   "headline": "モリッツ・ワーグナー、左膝の故障でラプターズ戦欠場",
+   "headlineEn": "Moritz Wagner out vs. Raptors with left knee injury",
+   "date": "2026-11-27",
+   "time": "06:34",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/moritz-wagner-knee-ruled-out-friday-vs-toronto",
+   "category": "怪我",
+   "top": false,
+   "related": [
+    {
+     "label": "USA Today",
+     "url": "https://netswire.usatoday.com/story/sports/nba/nets/2026/11/26/nets-mo-wagner-left-knee-out-for-fridays-nba-cup-game-at-raptors/92975563007/"
+    }
+   ],
+   "summary": "モリッツ・ワーグナーが左膝の故障でラプターズ戦を欠場する。",
+   "summaryEn": "Moritz Wagner will miss the Raptors game with a left knee injury."
+  },
+  {
+   "id": "gh-20261127-gossip-vassell-thanksgiving-dinner",
+   "level": "gossip",
+   "teams": [
+    "SAS"
+   ],
+   "headline": "デビン・バッセル、感謝祭に子ども約200人へ夕食と七面鳥券を贈る",
+   "headlineEn": "Devin Vassell treats about 200 kids to Thanksgiving dinner and turkey vouchers",
+   "date": "2026-11-26",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/nba/spurs/onsi/devin-vassell-raised-to-give-back-now-setting-example-san-antonio-spurs",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "デビン・バッセルが感謝祭に子ども約200人へ夕食と七面鳥券を贈った。地域の子どもたちへの支援を続けた。",
+   "summaryEn": "Devin Vassell gave Thanksgiving dinner and turkey vouchers to about 200 kids."
+  },
+  {
+   "id": "gh-20261127-gossip-doncic-thankful-message",
+   "level": "gossip",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ルカ・ドンチッチ、スパーズ戦前に一言「感謝」　感謝祭の投稿が話題に",
+   "headlineEn": "Luka Doncic posts one-word Thanksgiving message \"Thankful\" ahead of Spurs clash",
+   "date": "2026-11-26",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/los-angeles-lakers/luka-doncic-thankful-message-lakers-spurs/",
+   "genre": "ほのぼの",
+   "top": false,
+   "summary": "ルカ・ドンチッチがスパーズ戦前に「感謝」と一言投稿し、感謝祭ムードの投稿が話題になった。",
+   "summaryEn": "Doncic's simple 'thankful' post before the Spurs game drew warm reactions on Thanksgiving."
+  },
+  {
+   "id": "gh-20261127-gossip-maxey-lebron-dust-off",
+   "level": "gossip",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "タイリース・マクシー、レブロン・ジェームズに「疲れてる暇はない」　初トリプルダブルを後押し",
+   "headlineEn": "Tyrese Maxey to LeBron James: \"No time to be tired\" before his first 76ers triple-double",
+   "date": "2026-11-26",
+   "sourceName": "EssentiallySports",
+   "url": "https://www.essentiallysports.com/nba-active-basketball-news-dust-it-off-then-tyrese-maxey-challenges-lebron-james-as-historic-milestone-headlines-76ers-win-over-heat/",
+   "genre": "舞台裏",
+   "top": false,
+   "summary": "タイリース・マクシーがレブロンに「疲れてる暇はない」と声をかけ、自身初のトリプルダブルを後押ししたエピソードが明かされた。",
+   "summaryEn": "Maxey revealed he told LeBron there's no time to be tired, a moment that fueled his first triple-double."
+  },
+  {
+   "id": "gh-20261127-rss-nba-cup-bracket-watch",
+   "level": "rumor",
+   "teams": [],
+   "headline": "NBAカップ、進出・敗退の行方：土曜全試合の意味",
+   "headlineEn": "NBA Cup bracket watch: Friday's games decide who's in and out",
+   "date": "2026-11-27",
+   "time": "20:08",
+   "sourceName": "Yahoo Sports",
+   "url": "https://sports.yahoo.com/nba/articles/nba-cup-bracket-watch-whos-110816968.html",
+   "category": "分析",
+   "top": false,
+   "provisional": true,
+   "related": [
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/nba-cup-clinching-scenarios-for-fridays-games.html"
+    }
+   ],
+   "summary": "NBAカップのグループ突破と敗退の条件を整理した展望記事。土曜の全試合の結果が、各チームの行方を左右する。",
+   "summaryEn": "A breakdown of the NBA Cup group advancement and elimination scenarios, with Friday's full slate of results set to decide each team's fate."
+  },
+  {
+   "id": "gh-20261124-mcconnell-recall-fix",
+   "level": "reported",
+   "teams": [
+    "IND"
+   ],
+   "headline": "マコネル、Gリーグから復帰",
+   "headlineEn": "McConnell recalled from the G League",
+   "date": "2026-11-24",
+   "sourceName": "RotoWire",
+   "url": "https://www.rotowire.com/basketball/headlines/tj-mcconnell-injury-recalled-to-nba-540855",
+   "reporter": "Shams Charania",
+   "category": "怪我",
+   "top": false,
+   "summary": "T.J.マコネルがGリーグから復帰した。戦列に戻ることで、ペイサーズのローテーションに厚みが加わる。",
+   "summaryEn": "T.J. McConnell has been recalled from the G League, adding depth back to the Pacers' rotation."
+  },
+  {
+   "id": "gh-20261128-lovering-grizzlies-10day",
+   "level": "reported",
+   "teams": [
+    "MEM"
+   ],
+   "headline": "グリズリーズ、ローソン・ラブリングと10日間契約へ",
+   "headlineEn": "Grizzlies to sign Lawson Lovering to a 10-day hardship deal",
+   "date": "2026-11-28",
+   "sourceName": "Threads",
+   "url": "https://www.threads.com/@shams/post/DgP9FCfBzPt",
+   "reporter": "Shams Charania",
+   "category": "契約",
+   "top": false,
+   "related": [
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/grizzlies-sign-lawson-lovering-to-10-day-hardship-deal.html"
+    }
+   ],
+   "summary": "グリズリーズがセンターのローソン・ラブリングと、負傷者特例による10日間契約を結ぶ見通しだとシャムズ・カラニアが報じた。ラブリングにとっては、2月に続いて今季2度目のメンフィスとの10日間契約になる。",
+   "summaryEn": "The Grizzlies are set to sign center Lawson Lovering to a 10-day contract via the hardship exception, per Shams Charania. It would be Lovering's second 10-day deal with Memphis this season, following one in February."
+  },
+  {
+   "id": "gh-20261128-gossip-clingan-wembanyama-soft",
+   "level": "gossip",
+   "teams": [
+    "POR",
+    "SAS"
+   ],
+   "headline": "クリンガン、ウェンバンヤマを「ソフト」呼ばわり　フロッピングと叫んで退場",
+   "headlineEn": "Clingan calls Wembanyama 'soft,' yells 'flopping' before fouling out",
+   "date": "2026-11-26",
+   "sourceName": "Yardbarker",
+   "url": "https://www.yardbarker.com/nba/articles/donovan_clingan_caught_calling_victor_wembanyama_soft_and_accusing_him_of_flopping/s1_16751_44625754",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "ブレイザーズ対スパーズのNBAカップで、ドノバン・クリンガンはウェンバンヤマとの攻防で6つ目のファウルを取られると、退場直前に「ソフトだ」「フロッピングだ」と叫んだ。試合はブレイザーズが116-111で勝ったが、映像がSNSで拡散され話題になっている。",
+   "summaryEn": "In the Blazers-Spurs NBA Cup game, Donovan Clingan fouled out against Wembanyama and yelled that he was soft and flopping. Portland won 116-111, but the clip went viral."
+  },
+  {
+   "id": "gh-20261128-gossip-arenas-lendeborg-imposter",
+   "level": "gossip",
+   "teams": [
+    "GSW"
+   ],
+   "headline": "アリーナス、レンデボーグを「ニセモノ」と酷評　カリー不在で成績急落",
+   "headlineEn": "Arenas calls Lendeborg an 'imposter' as rookie slumps without Curry",
+   "date": "2026-11-27",
+   "sourceName": "BasketballNews",
+   "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-imposter-gilbert-arenas-takes-brutal-shot-at-yaxel-lendeborg-after-stephen-currys-absence-exposes-his-struggles/",
+   "genre": "ドロドロ",
+   "top": false,
+   "summary": "元NBAスターのギルバート・アリーナスがポッドキャストで、ウォリアーズの新人ヤクセル・レンデボーグを「ニセモノ」と酷評した。カリー不在で成績が落ちたことを挙げ、「カリーがいるから輝けるだけ」と指摘し、ウォリアーズは「高値で売るべき」とまで言い切った。",
+   "summaryEn": "Former NBA star Gilbert Arenas called Warriors rookie Yaxel Lendeborg an 'imposter' on his podcast, arguing he only shines next to Curry and suggesting Golden State should sell high on him."
+  },
+  {
+   "id": "gh-20261128-gossip-glorilla-grizzlies-courtside",
+   "level": "gossip",
+   "teams": [
+    "MEM",
+    "LAC"
+   ],
+   "headline": "グロリラ、地元メンフィスに凱旋　感謝祭前夜にグリズリーズを観戦",
+   "headlineEn": "GloRilla returns home to Memphis, cheers on Grizzlies on Thanksgiving eve",
+   "date": "2026-11-25",
+   "sourceName": "Lindy's Sports",
+   "url": "https://lindyssports.com/nba/memphis-grizzlies/glorilla-grizzlies-clippers-thanksgiving-eve",
+   "genre": "キラキラ",
+   "top": false,
+   "summary": "グラミー賞ノミネートのラッパー、グロリラが感謝祭前夜のグリズリーズ対クリッパーズ戦をフェデックスフォーラムで観戦した。地元メンフィス出身のスターの姿がSNSで話題になり、グリズリーズは115-97で勝利した。",
+   "summaryEn": "Grammy-nominated rapper GloRilla watched the Grizzlies beat the Clippers at FedExForum on Thanksgiving eve. The Memphis native's appearance lit up social media."
+  },
+  {
+   "id": "gh-20261126-anunoby-calf-strain-fix",
+   "level": "reported",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "アヌノビー、土曜ヒート戦の欠場が確定　ふくらはぎで4戦連続",
+   "date": "2026-11-26",
+   "time": "12:46",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-27/og-anunoby-calf-sidelined-friday-vs-miami",
+   "category": "怪我",
+   "top": true,
+   "related": [
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/knicks-notes-nba-cup-brown-anunoby-towns-thibodeau-jent.html"
+    },
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
+    }
+   ],
+   "headlineEn": "Anunoby ruled out for Friday's game vs. Heat with calf strain, fourth straight absence",
+   "summary": "ニックスのOG・アヌノビーが左ふくらはぎの肉離れで、土曜のヒート戦の欠場が確定した。これで4試合連続の欠場となる。ダウトフルとされていたが、土曜の負傷者リストでOUTに格下げされた。状態はデイ・トゥ・デイで、長期離脱にはならない見通しとされる。",
+   "summaryEn": "Knicks forward OG Anunoby has been ruled out for Friday's game against the Heat with a left calf strain, his fourth straight absence. He was listed as doubtful on Thursday before being downgraded to out on Friday's injury report. He is considered day-to-day, and a long absence is not expected."
+  },
+  {
+   "id": "gh-20261128-lillard-calf-out-warriors",
+   "level": "reported",
+   "teams": [
+    "POR"
+   ],
+   "headline": "デイミアン・リラード、右ふくらはぎの張りで土曜ウォリアーズ戦を欠場",
+   "headlineEn": "Damian Lillard out vs. Warriors on Friday with right calf tightness",
+   "date": "2026-11-28",
+   "time": "04:44",
+   "ts": "2026-11-28T04:44:54+09:00",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/injury-notes-ball-lillard-m-wagner-kat-kyrie-more.html",
+   "category": "怪我",
+   "top": false,
+   "summary": "デイミアン・リラードが右ふくらはぎの張りのため、土曜のウォリアーズ戦を欠場する。Hoops Rumorsが金曜の怪我情報として伝えた。",
+   "summaryEn": "Damian Lillard will miss Friday's game against the Warriors with right calf tightness. Hoops Rumors reported the absence in its Friday injury notes."
+  },
+  {
+   "id": "gh-20261128-kyrie-knee-questionable-suns",
+   "level": "reported",
+   "teams": [
+    "DAL"
+   ],
+   "headline": "カイリー・アービング、左膝の故障管理で土曜サンズ戦はクエスチョナブル",
+   "headlineEn": "Kyrie Irving questionable vs. Suns on Friday with left knee injury management",
+   "date": "2026-11-28",
+   "time": "04:44",
+   "ts": "2026-11-28T04:44:54+09:00",
+   "sourceName": "Hoops Rumors",
+   "url": "https://www.hoopsrumors.com/2026/11/injury-notes-ball-lillard-m-wagner-kat-kyrie-more.html",
+   "reporter": "Marc Stein",
+   "category": "怪我",
+   "top": false,
+   "summary": "カイリー・アービングが左膝の故障管理のため、土曜のサンズ戦はクエスチョナブルとされた。マーク・スタインの報道によるもの。",
+   "summaryEn": "Kyrie Irving is questionable for Friday's game against the Suns due to left knee injury management, Marc Stein reports. The Mavericks guard was a late addition to Friday's injury report."
+  }
+ ],
+ "updatedAt": "2026-11-28T05:16:27+09:00",
+ "version": 1,
+ "retracted": [
+  "fischer-kings-open",
+  "gh-20261126-gossip-stiller-brunson-pumpfake",
+  "mcconnell-recall",
+  "gh-20261125-gossip-kyrie-irving-shoes-fan",
+  "gh-20261125-gossip-draymond-bench-kerr",
+  "gh-20261126-rss-lamelo-ball-ankle-injury",
+  "gh-20261124-kawhi-workouts-scotto",
+  "gh-20261125-fultz-raptors905-scotto",
+  "gh-20261125-kpj-magic-agreement-shams",
+  "gh-20261126-rss-embiid-out-heat-illness",
+  "gh-20261126-rss-reaves-full-practice-spurs",
+  "gh-20261126-rss-haliburton-nears-return",
+  "gh-20261126-anunoby-calf-strain"
+ ]
 }
