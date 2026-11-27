@@ -1058,7 +1058,12 @@ body.room-open{overflow-x:clip}
 .sheet-chiprow .room-chip{margin-right:0}
 .sheet-title{margin:0 0 8px;font-size:20px;font-weight:700;line-height:1.5;overflow-wrap:break-word}
 .sheet-meta{margin:0 0 12px;font-size:var(--fs-meta);line-height:var(--lh-meta);color:var(--muted);font-variant-numeric:tabular-nums}
-.sheet-summary{margin:0;font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink)}
+/* シートの要約文：以前ルームの吹き出し内にあった旧 .room-sum と同じ様式にする
+   （TK指示 2026-11-28）。薄いグレー（--muted）で見出し（20px）より一段小さく、
+   行間は本文と同じ 1.7 で読みやすく。要約は多少長くなってよい前提なので
+   行数クランプは付けず、4〜5行を超えても切り捨てない（本文側の上限は
+   roomSummary のシート用 600 字）。ライト／ダークとも --muted が追従する */
+.sheet-summary{margin:0;font-size:var(--fs-sub);line-height:var(--lh-body);color:var(--muted);overflow-wrap:break-word}
 .sheet-related{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
 .sheet-related h4{margin:0 0 4px;font-size:var(--fs-small);font-weight:700;color:var(--muted)}
 .sheet-related ul{list-style:none;margin:0;padding:0}
@@ -6422,6 +6427,12 @@ function ghConvertArticle(a,idx){
       related.push({label:escapeHtml(rl),url:ru});
     });
   }
+  /* 要約：feed.json に summary（日本語の短い要約文）があれば body として保持する。
+     詳細シートの要約欄（roomSummary 経由）は body を読むため、これでフィード記事も
+     要約が表示される。無い場合は従来どおり空で、シート側は要約ブロックを出さない。
+     ルームの吹き出しには要約を出さない（v30の決定どおり見出しのみ）。
+     body は表示時に roomSummary が escapeHtml するため、生テキストのまま保持する */
+  var summary=(typeof a.summary==="string")?a.summary.trim():"";
   var base={
     id:String(a.id||("gh-"+dm[1]+dm[2]+dm[3]+"-"+idx)),
     cat:lv.cat,s:lv.s,teams:teams,type:type,
@@ -6437,7 +6448,7 @@ function ghConvertArticle(a,idx){
     ord:(y-2026)*10000+mo*100+d+Math.max(0.5,0.99-idx*0.001),
     dateShort:mo+"/"+d,
     title:escapeHtml(headline),
-    body:"",
+    body:summary,
     url:url,
     /* TOP NEWS は top:true かつ official／reported のみ。rumor と gossip は
        top:true でも絶対に入れない（gossip はそもそも通常記事に入らない）。
