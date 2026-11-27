@@ -1,6 +1,47 @@
 {
   "articles": [
     {
+      "id": "gh-20261127-martin-questionable-nets",
+      "level": "reported",
+      "teams": [
+        "TOR"
+      ],
+      "headline": "アリジャ・マーティン、左膝の痛みでネッツ戦はクエスチョナブル",
+      "headlineEn": "Alijah Martin questionable vs. Nets with left knee soreness",
+      "date": "2026-11-27",
+      "sourceName": "NBC Sports",
+      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/alijah-martin-knee-questionable-friday-vs-nets",
+      "category": "怪我",
+      "top": false,
+      "related": [
+        {
+          "label": "theScore",
+          "url": "https://www.thescore.com/news/3667386/raptors-alijah-martin-listed-as-questionable"
+        }
+      ]
+    },
+    {
+      "id": "gh-20261127-lavine-out-warriors-knee",
+      "level": "reported",
+      "teams": [
+        "SAC"
+      ],
+      "headline": "ザック・ラビーン、右膝の痛みでウォリアーズ戦欠場　日曜復帰の見通し",
+      "headlineEn": "Zach LaVine out vs. Warriors with right knee soreness, could return Sunday",
+      "date": "2026-11-26",
+      "time": "09:52",
+      "sourceName": "NBC Sports",
+      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-25/zach-lavine-knee-downgraded-to-out-wednesday",
+      "category": "怪我",
+      "top": false,
+      "related": [
+        {
+          "label": "FantasyPros",
+          "url": "https://www.fantasypros.com/nba/news/622601/zach-lavine-knee-ruled-out-wednesday.php"
+        }
+      ]
+    },
+    {
       "id": "gh-20261127-robinson-questionable-hawks",
       "level": "reported",
       "teams": [
@@ -395,7 +436,7 @@
       "headlineEn": "Iverson donates 263 turkeys in hometown Thanksgiving giveaway"
     },
     {
-      "id": "gh-20261125-gossip-kyrie-irving-shoes-fan-r",
+      "id": "gh-20261125-gossip-kyrie-irving-shoes-fan",
       "level": "gossip",
       "teams": [
         "DAL"
@@ -729,7 +770,7 @@
       "headlineEn": "Reaves back to full practice; status vs. Spurs TBD"
     },
     {
-      "id": "gh-20261125-gossip-draymond-bench-kerr-r",
+      "id": "gh-20261125-gossip-draymond-bench-kerr",
       "level": "gossip",
       "teams": [
         "GSW"
@@ -1054,12 +1095,10 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-27T17:03:59+09:00",
+  "updatedAt": "2026-11-27T17:06:20+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
-    "gh-20261126-gossip-stiller-brunson-pumpfake",
-    "gh-20261125-gossip-kyrie-irving-shoes-fan",
-    "gh-20261125-gossip-draymond-bench-kerr"
+    "gh-20261126-gossip-stiller-brunson-pumpfake"
   ]
 }
