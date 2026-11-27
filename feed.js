@@ -1,6 +1,42 @@
 window.NBA_FEED = {
  "articles": [
   {
+   "id": "gh-20261128-towns-available-heat",
+   "level": "official",
+   "teams": [
+    "NYK"
+   ],
+   "headline": "タウンズ、右腹部打撲も土曜ヒート戦に出場可能へ格上げ",
+   "headlineEn": "Karl-Anthony Towns upgraded to available vs. Heat on Friday despite right abdominal contusion",
+   "date": "2026-11-28",
+   "time": "08:30",
+   "ts": "2026-11-28T08:30:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_06_30PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "ニックスのカール＝アンソニー・タウンズが右腹部の打撲のため、土曜のヒート戦はクエスチョナブルとされていたが、NBA公式インジャリーレポートの最新版（米東部時間11月27日午後6時30分版）で出場可能へ格上げされた。離脱期間についての言及はレポートにない。",
+   "summaryEn": "Knicks center Karl-Anthony Towns has been upgraded to available for Friday's game against the Heat despite a right abdominal contusion, per the latest edition of the NBA's official injury report (6:30 p.m. ET, Nov. 27). He had previously been listed as questionable. No timeline was given in the report."
+  },
+  {
+   "id": "gh-20261128-wade-out-pacers",
+   "level": "official",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "ディーン・ウェイド、左ハムストリングで土曜ペイサーズ戦を欠場",
+   "headlineEn": "Dean Wade out vs. Pacers on Friday with left hamstring injury management",
+   "date": "2026-11-28",
+   "time": "08:30",
+   "ts": "2026-11-28T08:30:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_06_30PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "シクサーズのディーン・ウェイドが左ハムストリングの故障管理のため、土曜のペイサーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後6時30分版）でクエスチョナブルから欠場へ変更された。離脱期間についての言及はレポートにない。",
+   "summaryEn": "76ers forward Dean Wade will miss Friday's game against the Pacers due to left hamstring injury management. The latest edition of the NBA's official injury report (6:30 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report."
+  },
+  {
    "id": "gh-20261128-mcconnell-out-76ers",
    "level": "official",
    "teams": [
@@ -454,12 +490,16 @@ window.NBA_FEED = {
    "url": "https://www.celticsblog.com/boston-celtics-news/151088/celtics-injury-report-atlanta-hawks-nba-cup",
    "category": "怪我",
    "top": false,
-   "summary": "ミッチェル・ロビンソンが体調不良のためホークス戦を欠場することになった。クエスチョナブルから格下げされ、4試合連続の欠場となる。代役は引き続きニーミアス・ケタが務める。",
-   "summaryEn": "Mitchell Robinson was downgraded from questionable to out against the Hawks due to illness. He will miss a fourth straight game, with Neemias Queta continuing to start in his place.",
+   "summary": "ミッチェル・ロビンソンが体調不良のためホークス戦を欠場することになった。クエスチョナブルから格下げされ、4試合連続の欠場となる。ジョー・マズーラHCによれば、欠場の理由は新型コロナウイルスへの感染だという。代役は引き続きニーミアス・ケタが務める。",
+   "summaryEn": "Mitchell Robinson was downgraded from questionable to out against the Hawks due to illness. He will miss a fourth straight game, with Neemias Queta continuing to start in his place. Head coach Joe Mazzulla said Robinson caught COVID, which is what has kept him out.",
    "related": [
     {
      "label": "Sports Illustrated",
      "url": "https://www.si.com/nba/celtics/onsi/tatum-celtics-can-clinch-nba-cup-group-vs-rested-hawks-3-keys-injury-report-prediction-01m8eyxzq74b"
+    },
+    {
+     "label": "Bluesky",
+     "url": "https://bsky.app/profile/johnkaralis.com/post/3n3ddpxq4es2q"
     }
    ]
   },
@@ -660,6 +700,38 @@ window.NBA_FEED = {
    "top": false,
    "summary": "ザイア・ウィリアムズの感謝祭の食事支援は今年で6年目。子ども150人と交流し、地域への恩返しを続けている。",
    "summaryEn": "Ziaire Williams held his Thanksgiving meal giveaway for a sixth year, spending time with 150 kids."
+  },
+  {
+   "id": "gh-20261126-brown-hamstring-out-2games-fix",
+   "level": "reported",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "ジェイレン・ブラウン、ハムストリングで2試合欠場へ　長期化の見通し",
+   "headlineEn": "Jaylen Brown out two games with hamstring injury, likely longer",
+   "date": "2026-11-26",
+   "time": "09:24",
+   "sourceName": "HoopsHype",
+   "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/27/jaylen-brown-out-for-next-two-games-due-to-hamstring-injury/92985735007/",
+   "reporter": "Chris Hine",
+   "category": "怪我",
+   "top": true,
+   "summary": "ジェイレン・ブラウンがハムストリングの再発でヒート戦の途中に退場した。MRIでは新たな損傷や再発は認められなかったが、今夜のペイサーズ戦と月曜のキャバリアーズ戦を欠場し、さらに長期化する見通し。",
+   "summaryEn": "Jaylen Brown exited the Heat game midway after his hamstring flared up again. An MRI showed no new injury or reaggravation, but he will miss Friday's game against the Pacers and Monday's game at Cleveland, and a longer absence is expected.",
+   "related": [
+    {
+     "label": "ESPN",
+     "url": "https://www.espn.com/nba/story/_/id/50599296/76ers-jaylen-brown-exits-recurrence-hamstring-issue"
+    },
+    {
+     "label": "ESPN",
+     "url": "https://www.espn.com/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday"
+    },
+    {
+     "label": "Bluesky",
+     "url": "https://bsky.app/profile/ginamizell.bsky.social/post/3n3dcabby7c2m"
+    }
+   ]
   },
   {
    "id": "gh-20261125-fischer-davis-no-rush",
@@ -2015,7 +2087,7 @@ window.NBA_FEED = {
    "summaryEn": "Amick said on a radio show that the Warriors are not telling rival GMs to keep Draymond Green out of trade conversations. Green picked up his player option for this season and was not offered an extension, and Amick noted expiring contracts are the easiest to move for salary matching. He added Green can still defend at a high level and help another team as a veteran short-term piece."
   }
  ],
- "updatedAt": "2026-11-28T08:35:37+09:00",
+ "updatedAt": "2026-11-28T08:42:24+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
@@ -2030,6 +2102,8 @@ window.NBA_FEED = {
   "gh-20261126-rss-embiid-out-heat-illness",
   "gh-20261126-rss-reaves-full-practice-spurs",
   "gh-20261126-rss-haliburton-nears-return",
-  "gh-20261126-anunoby-calf-strain"
+  "gh-20261126-anunoby-calf-strain",
+  "gh-20261126-rss-brown-exits-heat-hamstring"
  ]
-};
+}
+;
