@@ -1016,9 +1016,10 @@ body.room-open{overflow-x:clip}
 .room-line{display:flex;align-items:flex-end;gap:5px}
 /* 尻尾：左上の角だけ小さく立て、角の外側に小さな三角のフィンを付けて
    LINE の受信吹き出しの輪郭にする（影・枠は付けない） */
-.room-bubble{position:relative;display:block;flex:0 1 auto;min-width:0;max-width:100%;background:var(--room-bubble);border:0;border-radius:4px var(--radius) var(--radius) var(--radius);padding:var(--sp-2) var(--sp-3);color:var(--ink);text-decoration:none}
+.room-bubble{position:relative;display:block;flex:0 1 auto;min-width:0;max-width:100%;background:var(--room-bubble);border:0;border-radius:4px var(--radius) var(--radius) var(--radius);padding:var(--sp-2) var(--sp-3);color:var(--ink);text-decoration:none;font:inherit;text-align:left;cursor:pointer;-webkit-appearance:none;appearance:none}
 .room-bubble::before{content:"";position:absolute;top:1px;left:-5px;width:9px;height:9px;background:var(--room-bubble);clip-path:polygon(100% 0,0 0,100% 100%)}
-a.room-bubble:active{filter:brightness(.95)}
+.room-bubble:active{filter:brightness(.95)}
+.room-bubble:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 /* 噂の吹き出し（.is-own）：LINE の自分の送信メッセージ様式で右から出す。
    行の並びを反転して吹き出しを右端に寄せ、時刻は吹き出しの左下に回す。
    尻尾は右上に付け替え、立てる角も右上に移す。色は受信吹き出しと同じ白で、
@@ -1035,6 +1036,48 @@ a.room-bubble:active{filter:brightness(.95)}
 .room-stamp{flex:none;align-self:center;width:66px;height:66px;margin-left:-14px;position:relative;z-index:1;border:3.5px solid var(--red);border-radius:50%;box-shadow:inset 0 0 0 2px var(--room-bg),inset 0 0 0 5px var(--red);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:800;letter-spacing:.08em;transform:rotate(-10deg);opacity:.92;user-select:none}
 .room-stamp-en{font-size:9.5px;letter-spacing:.03em}
 .room-foot{display:flex;justify-content:center;padding:10px 14px 22px}
+
+/* ---------- 記事詳細シート（ルームの吹き出しタップ・試作 2026-11-28） ----------
+   吹き出しをタップしても外部へ飛ばず、記事の詳細を下から大きく出す。
+   モバイル＝ボトムシート（角丸は上だけ大きめ）、PC（1025px以上）＝
+   中央寄せダイアログ（最大幅560px）。地はテーマ追従の --surface で
+   ダークモードにもそのまま乗る。グラデーション・影の多用はしない */
+.sheet-root{position:fixed;inset:0;z-index:200}
+.sheet-root[hidden]{display:none}
+.sheet-backdrop{position:absolute;inset:0;background:rgba(10,14,20,.48);opacity:0;transition:opacity .22s ease}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:88vh;display:flex;flex-direction:column;background:var(--surface);color:var(--ink);border-radius:16px 16px 0 0;transform:translateY(103%);transition:transform .26s ease}
+.sheet-root.open .sheet-backdrop{opacity:1}
+.sheet-root.open .sheet{transform:translateY(0)}
+.sheet-root.dragging .sheet,.sheet-root.dragging .sheet-backdrop{transition:none}
+.sheet-grab{flex:none;padding:10px 0 2px;display:flex;justify-content:center;touch-action:none;cursor:grab}
+.sheet-grab span{display:block;width:38px;height:4px;border-radius:2px;background:var(--faint);opacity:.55}
+.sheet-close{position:absolute;top:10px;right:12px;width:34px;height:34px;min-height:34px;border:0;border-radius:50%;background:var(--surface2);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.sheet-close:active{filter:brightness(.94)}
+.sheet-body{overflow-y:auto;padding:6px 20px 14px;-webkit-overflow-scrolling:touch}
+.sheet-chiprow{margin:2px 40px 8px 0}
+.sheet-chiprow .room-chip{margin-right:0}
+.sheet-title{margin:0 0 8px;font-size:20px;font-weight:700;line-height:1.5;overflow-wrap:break-word}
+.sheet-meta{margin:0 0 12px;font-size:var(--fs-meta);line-height:var(--lh-meta);color:var(--muted);font-variant-numeric:tabular-nums}
+.sheet-summary{margin:0;font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink)}
+.sheet-related{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+.sheet-related h4{margin:0 0 4px;font-size:var(--fs-small);font-weight:700;color:var(--muted)}
+.sheet-related ul{list-style:none;margin:0;padding:0}
+.sheet-related li{border-bottom:1px solid var(--line)}
+.sheet-related li:last-child{border-bottom:0}
+.sheet-related a{display:flex;align-items:center;gap:6px;padding:10px 2px;color:var(--link);font-size:var(--fs-sub);font-weight:600;text-decoration:none}
+.sheet-foot{flex:none;border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.sheet-read{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;padding:10px 16px;border-radius:var(--radius);background:var(--ink);color:var(--on-accent);font-size:var(--fs-headline);font-weight:700;text-decoration:none}
+.sheet-read:active{filter:brightness(1.25)}
+@media(min-width:1025px){
+  .sheet-root{display:flex;align-items:center;justify-content:center}
+  .sheet{position:relative;left:auto;right:auto;bottom:auto;width:calc(100% - 48px);max-width:560px;max-height:82vh;border-radius:16px;transform:translateY(14px);opacity:0;transition:transform .22s ease,opacity .22s ease}
+  .sheet-root.open .sheet{transform:translateY(0);opacity:1}
+  .sheet-grab{display:none}
+  .sheet-foot{padding-bottom:16px}
+}
+@media (prefers-reduced-motion: reduce){
+  .sheet,.sheet-backdrop{transition:none}
+}
 
 /* 過去記事（詳細内）：最新情報と完全に同一の .news-item 型（pastArticleHTML）で
    描くため、専用スタイルは置かない */
@@ -2159,12 +2202,34 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
       <span class="room-badge" id="roomBadge"></span>
       <h2 class="room-title" id="roomTitle"></h2>
       <button class="room-fav" id="roomFavBtn" type="button" data-i18n-title="favTitle" title="お気に入り" aria-label="お気に入り"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
-      <div class="room-hint"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m10 14 11-11"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span data-i18n="roomTapHint">吹き出しをタップで記事へ</span></div>
+      <div class="room-hint"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m10 14 11-11"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span data-i18n="roomTapHint">吹き出しをタップで詳細を表示</span></div>
     </div>
     <div class="room-body" id="roomBody"></div>
     <div class="room-foot"><button class="btn" id="roomBackBtn2" type="button"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span data-i18n="pastTopBack">戻る</span></button></div>
   </div>
   </div><!-- /.teams-panes -->
+
+  <!-- 記事詳細シート（ルームの吹き出しタップで開く・試作 2026-11-28）：
+       中身は openArticleSheet がタップされた記事で埋める。要約・関連リンクは
+       データがある時だけ行ごと出す（空欄・プレースホルダは出さない）。
+       外部サイトへ進むのは最下部の「記事を読む」リンクを押した時だけ -->
+  <div class="sheet-root" id="sheetRoot" hidden>
+    <div class="sheet-backdrop" id="sheetBackdrop"></div>
+    <div class="sheet" id="articleSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-grab" id="sheetGrab" aria-hidden="true"><span></span></div>
+      <button class="sheet-close" id="sheetClose" type="button" data-i18n-aria="ariaSheetClose" aria-label="閉じる"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      <div class="sheet-body" id="sheetBody">
+        <div class="sheet-chiprow" id="sheetChip"></div>
+        <h3 class="sheet-title" id="sheetTitle"></h3>
+        <p class="sheet-meta" id="sheetMeta"></p>
+        <p class="sheet-summary" id="sheetSummary" hidden></p>
+        <div class="sheet-related" id="sheetRelated" hidden></div>
+      </div>
+      <div class="sheet-foot" id="sheetFoot" hidden>
+        <a class="sheet-read" id="sheetRead" href="#" target="_blank" rel="noopener"><span id="sheetReadLabel">記事を読む</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m10 14 11-11"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+      </div>
+    </div>
+  </div>
 
   <!-- チーム詳細 + 速報 -->
   <div class="cols">
@@ -2349,7 +2414,8 @@ var UI={
   detailEmptySub:"新しい報道が出たらここに追加されます。",
   detailLatestEmpty:"いま表示できる最新情報はありません。", detailLatestEmptySub:"「すべて」タブで過去の記事が見られます。",
   detailSeeAll:"すべて見る", inFeed:"フィードで見る",
-  roomNewFrom:"ここから新しい記事", roomTapHint:"吹き出しをタップで記事へ", yesterdayLabel:"昨日",
+  roomNewFrom:"ここから新しい記事", roomTapHint:"吹き出しをタップで詳細を表示", yesterdayLabel:"昨日",
+  readArticle:"記事を読む", sheetRelated:"関連リンク", ariaSheetClose:"閉じる",
   teamSearchPh:"チーム名で検索", soundLabel:"入室音", swipeFav:"お気に入り",
   transferLabel:"設定の移行", prefsExport:"書き出し", prefsImport:"読み込み", prefsCopy:"コピー", prefsApply:"このコードで復元", prefsCodePh:"設定コード",
   transferNote:"ホーム画面アプリとSafariでは設定が別々に保存されます。片方でコードを書き出し、もう片方で読み込むと、お気に入り・既読・テーマなどを引き継げます。",
@@ -2425,7 +2491,8 @@ var UI={
   detailEmptySub:"New reporting will appear here.",
   detailLatestEmpty:"No latest updates to show right now.", detailLatestEmptySub:"See past stories in the All tab.",
   detailSeeAll:"See all", inFeed:"View in feed",
-  roomNewFrom:"New articles from here", roomTapHint:"Tap a bubble to open the article", yesterdayLabel:"Yesterday",
+  roomNewFrom:"New articles from here", roomTapHint:"Tap a bubble for details", yesterdayLabel:"Yesterday",
+  readArticle:"Read article", sheetRelated:"Related links", ariaSheetClose:"Close",
   teamSearchPh:"Search teams", soundLabel:"Room sound", swipeFav:"Favorite",
   transferLabel:"Transfer settings", prefsExport:"Export", prefsImport:"Import", prefsCopy:"Copy", prefsApply:"Restore from this code", prefsCodePh:"Settings code",
   transferNote:"The home-screen app and Safari store settings separately. Export a code in one and import it in the other to carry over favorites, read state, theme and more.",
@@ -4282,13 +4349,14 @@ function roomItemCmp(a,b){
 /* 吹き出しの要約1行：データに既にある要約だけを使う（掲載記事の body／
    RSS新着の desc）。無い記事には付けない・作らない。見出しと同一、または
    見出しで始まる要約は、重複する見出し部分を落としてから使う */
-function roomSummary(raw,titleText){
+function roomSummary(raw,titleText,limit){
   var s=String(raw||"").replace(/\s+/g," ").trim();
   if(!s)return "";
   var tt=String(titleText||"").replace(/\s+/g," ").trim();
   if(tt&&s.indexOf(tt)===0)s=s.slice(tt.length).replace(/^[\s:：・―-]+/,"").trim();
   if(!s||s===tt)return "";
-  if(s.length>140)s=s.slice(0,140)+"…";
+  var lim=limit||140;
+  if(s.length>lim)s=s.slice(0,lim)+"…";
   return escapeHtml(s);
 }
 /* ルームに流す全アイテム（掲載記事＋紐づけRSS新着）を時系列の配列にする */
@@ -4309,7 +4377,12 @@ function roomFlowItems(abbr){
     items.push({day:p.y*10000+p.mo*100+p.d,y:p.y,mo:p.mo,d:p.d,mins:mins,ord:n.ord,
       chip:cardChipHTML(n),title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
       summary:roomSummary(n.body,n.title),official:official,rumor:rumor,
-      sender:String(n.src||n.media||"")});
+      sender:String(n.src||n.media||""),
+      /* 詳細シート用（試作 2026-11-28）：要約はシート向けに長めに取り、
+         出典名は media（sourceName）を優先。関連リンクは生データを渡し、
+         シート側で有効なものだけ一覧化する */
+      detail:roomSummary(n.body,n.title,600),srcName:String(n.media||n.src||""),
+      related:(Array.isArray(n.related)&&n.related.length)?n.related:null});
   });
   rssItemsForTeam(abbr).forEach(function(it){
     var dt=(it.pubDate&&!isNaN(it.pubDate.getTime()))?it.pubDate:null;
@@ -4319,7 +4392,9 @@ function roomFlowItems(abbr){
     items.push({day:y*10000+mo*100+d,y:y,mo:mo,d:d,mins:mins,ord:mins,
       chip:chip,title:rssTitleHTML(it),url:String(it.link||""),time:dt?ampmFromDate(dt):"",
       summary:roomSummary(it.desc,it.title),official:false,rumor:it.provLevel==="rumor",
-      sender:String(it.reporter||rssSourceName(it)||"")});
+      sender:String(it.reporter||rssSourceName(it)||""),
+      /* 詳細シート用（試作 2026-11-28）：RSS新着に関連リンクは無い */
+      detail:roomSummary(it.desc,it.title,600),srcName:rssSourceName(it),related:null});
   });
   items.sort(roomItemCmp);
   return items;
@@ -4343,6 +4418,9 @@ function renderRoom(){
   var body=document.getElementById("roomBody");
   if(!body)return;
   var items=roomFlowItems(abbr);
+  /* 詳細シート（試作 2026-11-28）が吹き出しの data-sheet-idx から引く用に、
+     いま描いた並びをそのまま保持する（再描画のたびに差し替える） */
+  roomSheetItems=items;
   if(!items.length){
     /* 記事がないチーム：空白にせず、専用の空表示で分かりやすく伝える */
     roomAnimate=false;
@@ -4386,9 +4464,11 @@ function renderRoom(){
     /* 吹き出しは見出しだけにする（TK承認 2026-11-27）：グレーの要約文は
        出さない。ジャンル別ニュースのカード側の要約表示は対象外 */
     var inner=(it.chip?'<span class="room-chip">'+it.chip+'</span>':'')+'<span class="room-text">'+it.title+'</span>';
-    var bubble=it.url
-      ?'<a class="room-bubble" href="'+escapeHtml(it.url)+'" target="_blank" rel="noopener">'+inner+'</a>'
-      :'<span class="room-bubble">'+inner+'</span>';
+    /* 吹き出しはリンクではなくボタンにする（試作 2026-11-28）：タップで
+       詳細シートを開き、外部サイトへの遷移はシート最下部の「記事を読む」
+       からだけにする。URL が無い記事もシートは開ける（その場合はシート側で
+       読むボタンを出さない）。既読・未読の印（readMark）はここでは触らない */
+    var bubble='<button type="button" class="room-bubble" data-sheet-idx="'+idx+'" aria-haspopup="dialog">'+inner+'</button>';
     /* 公式発表には吹き出しの右端に重ねて大きな「公式」判子を押す（円形・二重リングの印影風、少し傾ける） */
     var stamp=it.official?'<span class="room-stamp'+(state.lang==="en"?" room-stamp-en":"")+'" aria-hidden="true">'+(state.lang==="en"?"OFFICIAL":"公式")+'</span>':'';
     /* 入室直後のみ、末尾10件に出現アニメ（下から軽くスライド＋フェード、
@@ -4544,6 +4624,117 @@ function finishCloseRoom(){
 }
 document.getElementById("roomBackBtn").addEventListener("click",closeRoom);
 document.getElementById("roomBackBtn2").addEventListener("click",closeRoom);
+/* ===== 記事詳細シート（ルームの吹き出しタップ・試作 2026-11-28）=====
+   吹き出しをタップしても外部サイトへは飛ばず、このシートで記事の詳細
+   （分類チップ・見出し・日時・出典・要約・関連リンク）を大きく見せる。
+   外部へ進むのは最下部の「記事を読む」リンクを押した時だけ。
+   開閉は既読・未読（readMark）には一切触れない（既読化は入室時のみ） */
+var roomSheetItems=[];
+var sheetReturnFocus=null;
+var sheetPrevOverflow="";
+var sheetHideTimer=null;
+function openArticleSheet(idx,trigger){
+  var it=roomSheetItems[idx];
+  if(!it)return;
+  var root=document.getElementById("sheetRoot");
+  if(!root)return;
+  if(sheetHideTimer){clearTimeout(sheetHideTimer);sheetHideTimer=null;}
+  document.getElementById("sheetChip").innerHTML=it.chip?'<span class="room-chip">'+it.chip+'</span>':'';
+  document.getElementById("sheetTitle").innerHTML=it.title||"";
+  var meta=roomDateLabel(it.y,it.mo,it.d)+(it.time?" "+it.time:"");
+  if(it.srcName)meta+=" · "+escapeHtml(it.srcName);
+  document.getElementById("sheetMeta").innerHTML=meta;
+  /* 要約はデータにある時だけ出す（無い記事ではブロック自体を隠す） */
+  var sumEl=document.getElementById("sheetSummary");
+  if(it.detail){sumEl.innerHTML=it.detail;sumEl.hidden=false;}
+  else{sumEl.innerHTML="";sumEl.hidden=true;}
+  /* 関連リンクも有効なものが1件以上ある時だけ一覧で出す */
+  var relEl=document.getElementById("sheetRelated"),relHtml="";
+  if(it.related){
+    var lis=[];
+    it.related.forEach(function(r){
+      if(!r||typeof r!=="object")return;
+      var u=String(r.url||"").trim();
+      if(!/^https?:\/\//i.test(u))return;
+      var nm=String(r.label||"").trim()||siteNameFromUrl(u);
+      lis.push('<li><a href="'+escapeHtml(u)+'" target="_blank" rel="noopener">'+escapeHtml(nm)+ic('ext',1)+'</a></li>');
+    });
+    if(lis.length)relHtml='<h4>'+escapeHtml(L().sheetRelated)+'</h4><ul>'+lis.join("")+'</ul>';
+  }
+  if(relHtml){relEl.innerHTML=relHtml;relEl.hidden=false;}
+  else{relEl.innerHTML="";relEl.hidden=true;}
+  /* 出典URLがある記事だけ「記事を読む」を出す */
+  var foot=document.getElementById("sheetFoot"),read=document.getElementById("sheetRead");
+  if(it.url){
+    read.setAttribute("href",it.url);
+    document.getElementById("sheetReadLabel").textContent=L().readArticle;
+    foot.hidden=false;
+  }else{foot.hidden=true;read.removeAttribute("href");}
+  document.getElementById("sheetBody").scrollTop=0;
+  sheetReturnFocus=trigger||null;
+  sheetPrevOverflow=document.body.style.overflow;
+  document.body.style.overflow="hidden";
+  root.hidden=false;
+  /* いったん表示してから .open を付け、下からせり上がる動きにする */
+  requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add("open");});});
+  var closeBtn=document.getElementById("sheetClose");
+  if(closeBtn){try{closeBtn.focus({preventScroll:true});}catch(e){}}
+}
+function closeArticleSheet(){
+  var root=document.getElementById("sheetRoot");
+  if(!root||root.hidden)return;
+  var sheet=document.getElementById("articleSheet");
+  /* ドラッグ中のインライン transform を外してから閉じると、クラス側の
+     トランジションで下へ戻る動きになる */
+  if(sheet&&sheet.style.transform){sheet.style.transform="";void sheet.offsetWidth;}
+  root.classList.remove("dragging");
+  root.classList.remove("open");
+  document.body.style.overflow=sheetPrevOverflow;
+  if(sheetHideTimer)clearTimeout(sheetHideTimer);
+  sheetHideTimer=setTimeout(function(){root.hidden=true;sheetHideTimer=null;},240);
+  if(sheetReturnFocus&&sheetReturnFocus.focus){try{sheetReturnFocus.focus({preventScroll:true});}catch(e){}}
+  sheetReturnFocus=null;
+}
+/* 吹き出し（ボタン）タップの受け口：roomBody への委譲なので、再描画で
+   吹き出しが差し替わっても付け直しは不要 */
+var roomBodyEl=document.getElementById("roomBody");
+if(roomBodyEl)roomBodyEl.addEventListener("click",function(e){
+  var t=e.target;
+  var b=(t&&t.closest)?t.closest("[data-sheet-idx]"):null;
+  if(!b||!roomBodyEl.contains(b))return;
+  openArticleSheet(parseInt(b.getAttribute("data-sheet-idx"),10),b);
+});
+document.getElementById("sheetClose").addEventListener("click",closeArticleSheet);
+document.getElementById("sheetBackdrop").addEventListener("click",closeArticleSheet);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeArticleSheet();});
+/* 下スワイプで閉じる：つまみ（グラブバー）を下へ引いた量がしきい値を
+   超えたら閉じ、届かなければ元の位置へ戻す */
+(function(){
+  var grab=document.getElementById("sheetGrab"),sheet=document.getElementById("articleSheet"),root=document.getElementById("sheetRoot");
+  if(!grab||!sheet||!root)return;
+  var startY=null,dy=0;
+  grab.addEventListener("touchstart",function(e){
+    if(e.touches.length!==1)return;
+    startY=e.touches[0].clientY; dy=0; root.classList.add("dragging");
+  },{passive:true});
+  grab.addEventListener("touchmove",function(e){
+    if(startY===null)return;
+    dy=e.touches[0].clientY-startY;
+    if(dy<0)dy=0;
+    sheet.style.transform="translateY("+dy+"px)";
+    if(e.cancelable)e.preventDefault();
+  },{passive:false});
+  function endDrag(){
+    if(startY===null)return;
+    startY=null;
+    root.classList.remove("dragging");
+    if(dy>80)closeArticleSheet();
+    else sheet.style.transform="";
+    dy=0;
+  }
+  grab.addEventListener("touchend",endDrag);
+  grab.addEventListener("touchcancel",endDrag);
+})();
 /* ヘッダー右端の星：開いているチームのお気に入りをその場で付け外しする。
    一覧の星・フィードのお気に入り絞り込みとも同じ保存先で連動する */
 document.getElementById("roomFavBtn").addEventListener("click",function(){
