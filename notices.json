@@ -1,0 +1,13 @@
+{
+ "updatedAt": "2026-11-28T03:45:00+09:00",
+ "notices": [
+  {
+   "id": "n20261128-start",
+   "date": "2026-11-28",
+   "title": "お知らせ機能ができました",
+   "titleEn": "Announcements are here",
+   "body": "アプリからのお知らせは、ここに表示されます。更新情報や大切なお知らせがあると、「お知らせ」ボタンの色が変わります。表示の調子が悪いときは、アプリを一度閉じて開き直す（再起動する）と直ることがあります。",
+   "bodyEn": "Announcements from the app will appear here. When there is news, the Notices button changes color. If the app looks wrong, closing and reopening it (restarting) often fixes it."
+  }
+ ]
+}
