@@ -8,13 +8,14 @@ window.NBA_FEED = {
    ],
    "headline": "ブロニー・ジェームズ、Gリーグのコーチェラ・バレーへアサイン　スパーズ戦は欠場",
    "headlineEn": "Bronny James assigned to G League's Coachella Valley Lakers, out vs. Spurs",
-   "date": "2026-11-27",
+   "date": "2026-11-28",
    "sourceName": "Athlon Sports",
    "url": "https://athlonsports.com/nba/los-angeles-lakers/lakers-announce-bronny-james-g-league-move-before-spurs-game",
    "category": "話題",
    "top": false,
    "summary": "レイカーズがガードのブロニー・ジェームズをGリーグ傘下のコーチェラ・バレー・レイカーズへアサインしたと発表した。金曜のスパーズ戦には帯同せず、育成目的の再アサインとなる。コーチェラ・バレーの次の試合は11月29日と12月3日。",
-   "summaryEn": "The Lakers assigned guard Bronny James to their G League affiliate, the Coachella Valley Lakers, the team announced. He will miss Friday's game against the Spurs on the developmental assignment. Coachella Valley's next games are Nov. 29 and Dec. 3."
+   "summaryEn": "The Lakers assigned guard Bronny James to their G League affiliate, the Coachella Valley Lakers, the team announced. He will miss Friday's game against the Spurs on the developmental assignment. Coachella Valley's next games are Nov. 29 and Dec. 3.",
+   "time": "02:42"
   },
   {
    "id": "gh-20261127-wiggins-probable-knicks",
