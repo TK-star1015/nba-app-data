@@ -3754,16 +3754,6 @@ function refreshGithubColumn(){
       });
     });
   });
-  /* 2026-11-27：fetch が届かない環境向けに、JSONP（<script> 経路）も最後に試す。
-     コラムは失敗しても無音の設計は変えない（内蔵の初期記事のまま） */
-  chain=chain.catch(function(){
-    return loadJsonpContents(GH_COLUMN_URLS[0],JSONP_TIMEOUT_MS).then(function(text){
-      var data=JSON.parse(text);
-      var arr=Array.isArray(data)?data:(data&&(data.articles||data.columns));
-      if(!Array.isArray(arr))throw new Error("github column(jsonp): unexpected format");
-      return arr;
-    });
-  });
   chain.then(function(arr){
     var converted=[];
     arr.forEach(function(raw){var e=ghConvertColumnEntry(raw); if(e)converted.push(e);});
@@ -4718,10 +4708,6 @@ var liveFeedItems=[];
 var RSS_ROUTE_TIMEOUT_MS=9000;
 var RSS_ROUTES=[
  {id:"corsdev",kind:"xml",build:function(u){return "https://proxy.cors.dev/"+u;}},
- /* 2026-11-27：<script> 経路（JSONP）を2番目に繰り上げた。fetch が届かない環境
-    （Safari プライベートブラウズでの全滅報告あり）では fetch 系ルートが順に失敗して
-    到達が遅くなるため、CORS判定を受けない経路を早めに試す */
- {id:"script-jsonp",kind:"jsonp",build:function(u){return u;}},
  {id:"allorigins",kind:"xml",build:function(u){return "https://api.allorigins.win/raw?url="+encodeURIComponent(u);}},
  {id:"codetabs",kind:"xml",build:function(u){return "https://api.codetabs.com/v1/proxy?quest="+encodeURIComponent(u);}},
  {id:"rss2json",kind:"json",build:function(u){return "https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(u);}}
@@ -4841,60 +4827,13 @@ function fetchTextWithTimeout(url,ms){
 }
 /* ===== <script> 経由の本文取得（CORS判定を受けない経路） =====
    2026-11-27（TK報告：Safari・プライベートブラウズで「更新できませんでした」が残る件）。
-   切り分けメモ（原因は断定しない）：配信先（raw.githubusercontent.com）は
-   Access-Control-Allow-Origin: * を返しリダイレクトも無いことを実測で確認済み。
-   fetch 側は credentials:"omit" 等を明示済み（fetchTextWithTimeout 参照）。
-   それでも fetch が全滅する環境がありうるため、CORS判定の対象にならない
-   <script> 読み込みの経路を複数用意し、fetch 系の予備として使う：
-   (1) feed.js 方式（データ置き場の feed.js を classic script として読む）
-   (2) JSONP（中継サービスの callback 応答。提供元は複数持ち、1社の不調で
-       全滅しないようにする。前回は AllOrigins 単独で、その不調時に詰んだ）
-   どの経路も、応答の形式検証を通らなければ失敗扱いにして次の経路へ進む
-   （壊れても従来の失敗表示フローに合流するだけで、現状より悪くならない） */
-var JSONP_TIMEOUT_MS=12000;
-var jsonpSeq=0;
-/* JSONP提供元：対象URLと callback 名を受けて完全なURLを作る関数の列。
-   応答形式は提供元ごとに違うため、コールバック側で吸収する
-   （文字列そのもの／{contents:"本文"}／JSONオブジェクト→文字列化） */
-var JSONP_PROVIDERS=[
- function(u,name){return "https://api.allorigins.win/get?url="+encodeURIComponent(u)+"&callback="+name;},
- function(u,name){return "https://corsproxy.io/?url="+encodeURIComponent(u)+"&callback="+name;}
-];
-function loadJsonpVia(buildUrl,ms){
-  return new Promise(function(resolve,reject){
-    var name="__nbaBeatJsonp"+(++jsonpSeq)+"_"+Date.now();
-    var script=document.createElement("script");
-    var settled=false;
-    var timer=setTimeout(function(){settle(new Error("jsonp timeout"));},ms||JSONP_TIMEOUT_MS);
-    function settle(err,contents){
-      if(settled)return; settled=true;
-      clearTimeout(timer);
-      try{delete window[name];}catch(e){window[name]=undefined;}
-      if(script.parentNode)script.parentNode.removeChild(script);
-      if(err)reject(err); else resolve(contents);
-    }
-    window[name]=function(payload){
-      var contents="";
-      if(typeof payload==="string")contents=payload;
-      else if(payload&&typeof payload.contents==="string")contents=payload.contents;
-      else if(payload&&typeof payload==="object"){try{contents=JSON.stringify(payload);}catch(e){contents="";}}
-      if(!contents)settle(new Error("jsonp: empty contents"));
-      else settle(null,contents);
-    };
-    script.onerror=function(){settle(new Error("jsonp load error"));};
-    script.src=buildUrl(name);
-    document.head.appendChild(script);
-  });
-}
-function loadJsonpContents(targetUrl,ms){
-  var chain=Promise.reject(new Error("jsonp: no provider tried"));
-  JSONP_PROVIDERS.forEach(function(build){
-    chain=chain.catch(function(){
-      return loadJsonpVia(function(name){return build(targetUrl,name);},ms);
-    });
-  });
-  return chain;
-}
+   fetch が全滅する環境がありうるため、CORS判定の対象にならない
+   <script> 読み込みの経路として feed.js 方式（データ置き場の feed.js を
+   classic script として読む）を fetch 系の予備として使う。
+   応答の形式検証を通らなければ失敗扱いにして次の経路へ進む
+   （壊れても従来の失敗表示フローに合流するだけで、現状より悪くならない）。
+   ※ 中継サービスの応答を script として実行する JSONP 方式は、
+   2026-11-27 に TK の承認で撤去した（対象は自リポジトリのファイルのみに限定） */
 /* ===== feed.js 方式：データ置き場の feed.js を classic script として読む =====
    feed.js は feed.json と同じ内容を window.NBA_FEED = {updatedAt, articles} の
    代入形式で置いたファイル（データ側で feed.json と同時に書き出す）。
@@ -4947,7 +4886,7 @@ function fetchFeed(feed){
   var chain=Promise.reject(new Error("no route tried"));
   RSS_ROUTES.forEach(function(route){
     chain=chain.catch(function(){
-      var load=(route.kind==="jsonp")?loadJsonpContents(route.build(feed.url),JSONP_TIMEOUT_MS):fetchTextWithTimeout(route.build(feed.url),RSS_ROUTE_TIMEOUT_MS);
+      var load=fetchTextWithTimeout(route.build(feed.url),RSS_ROUTE_TIMEOUT_MS);
       return load.then(function(text){
         var items=(route.kind==="json")?parseFeedJSON(text,feed):parseFeedXML(text,feed);
         if(!items||!items.length)throw new Error("Unparseable feed response via "+route.id);
@@ -5522,20 +5461,12 @@ function fetchGithubFeedJSON(){
       });
     });
   });
-  /* 2026-11-27：fetch 系が全滅する環境向けに、CORS判定を受けない <script> 経路を
-     2段構えで用意する。まず feed.js 方式（loadFeedJs：データ置き場の feed.js を
-     classic script として読み、window.NBA_FEED を検証する）、次に JSONP
-     （loadJsonpContents：複数の中継提供元を順に試す）。
+  /* 2026-11-27：fetch 系が全滅する環境向けに、CORS判定を受けない <script> 経路として
+     feed.js 方式（loadFeedJs：データ置き場の feed.js を classic script として読み、
+     window.NBA_FEED を検証する）を予備に用意する。
      feed.json はアプリの主データ経路なので、ここだけは手段を尽くす */
   chain=chain.catch(function(){
     return loadFeedJs();
-  });
-  chain=chain.catch(function(){
-    return loadJsonpContents(GH_FEED_URLS[0],JSONP_TIMEOUT_MS).then(function(text){
-      var data=JSON.parse(text);
-      if(!data||!Array.isArray(data.articles))throw new Error("github feed(jsonp): unexpected format");
-      return data;
-    });
   });
   return chain;
 }
