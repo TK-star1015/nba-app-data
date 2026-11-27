@@ -1919,6 +1919,25 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   #feedCard .news-item,
   #feedCard .news-item:first-of-type{border-top:1px solid var(--line);padding-top:var(--sp-4)}
 }
+
+/* ============================================================
+   TOP NEWSブラッシュアップ A案（TK決定 2026-11-27）
+   ・対象はモバイル表示（1024px以下）のみ。PCは変更しない
+   ・変更は次の4点のみ。見出し（.digest-main）のフォントサイズ・
+     行間・太さ・折り返し方式には一切触らない
+     1) .digest-item の上下パディングを 17px（左右は現行のまま）
+     2) .digest-item の区切り線を 1px solid #cfd4da に強める
+        （先頭行は従来どおり .digest-item:first-child の border-top:0
+          が詳細度で優先され、下罫と二重にならない）
+     3) .digest-meta の時刻を var(--ink)・太さ700にする
+     4) .digest-meta の下マージンを 5px にする
+   【戻し方】このブロックを丸ごと削除すれば変更前に戻る
+   ============================================================ */
+@media(max-width:1024px){
+  .digest-item{padding-top:17px;padding-bottom:17px;border-top:1px solid #cfd4da}
+  .digest-meta{margin-bottom:5px}
+  .digest-meta time{color:var(--ink);font-weight:700}
+}
 </style>
 <!-- 背景色の自由色専用の上書きスタイル：プリセット色は data-bg 属性＋静的ルールで
      切り替え、ここはカラーピッカーの自由色のときだけ applyBg() が書き込む
