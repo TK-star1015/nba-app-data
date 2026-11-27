@@ -774,11 +774,11 @@ body.lang-en .team-name{font-size:var(--fs-meta)}
 .fb-meta a{font-weight:700;text-decoration:none;color:var(--link);letter-spacing:0}
 .fb-meta a:hover{text-decoration:underline;text-underline-offset:3px}
 .fb-time{margin-left:auto;font-size:var(--fs-chip);color:var(--faint);white-space:nowrap;font-variant-numeric:tabular-nums}
-/* 新着ドット（TK決定 2026-11-27）：公開から3時間以内の記事だけ、日付・時刻の
-   直前に出す。文字チップにはせず、分類色（赤／オレンジ／青／緑）と混同しない
-   ようアクセント（墨色）1色・7px の丸だけにする。対象は TOP NEWS と
-   ジャンル別ニュースのみ（判定は newDotHTML 側） */
-.new-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:5px;vertical-align:middle;flex:none}
+/* 新着表示（TK決定 2026-11-27・T1）：記事の日付が端末の今日と一致する記事に、日付・時刻の
+   直前に「NEW」の文字だけを出す。背景・枠・チップ形状は付けず、Barlow Condensed
+   太字・公式カラー（var(--c-official)）・時刻と同じくらいの大きさにする。
+   対象は TOP NEWS とジャンル別ニュースのみ（判定は newDotHTML 側） */
+.new-tag{display:inline-block;font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif;font-size:var(--fs-date);font-weight:700;color:var(--c-official);letter-spacing:.1em;margin-right:5px;vertical-align:baseline;flex:none}
 /* 関連リンク（同一出来事を報じた他媒体）：出典リンクの隣に小さく同居させる。
    リンク自体の見え方は .news-meta a の既存様式にそのまま従い、ラベルだけを
    ミュート色の通常の太さにして「関連：」と分かるようにする */
@@ -3565,37 +3565,28 @@ function feedTimeLabel(n){
   if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))return d+" "+ampmFromHM(n.time);
   return d;
 }
-/* ===== 新着ドット（TK決定 2026-11-27）=====
-   対象は TOP NEWS と ジャンル別ニュースだけ。記事の公開日時（日付＋時刻。
-   時刻が無い記事は日付のみ＝その日の0時として扱う）から3時間以内なら、
-   日付・時刻の直前にアクセント色の小さいドットを出す。文字チップにはしない。
-   記事の日付・時刻は JST 基準のデータなので、epoch は UTC+9 で組み立てて
-   閲覧者のタイムゾーンに依存させない。未来日時の記事には付けない */
-var NEW_DOT_WINDOW_MS=3*60*60*1000;
-function articlePostedMs(n){
-  if(!n||typeof n.ord!=="number"||!isFinite(n.ord))return null;
+/* ===== 新着表示（TK決定 2026-11-27・T1＋当日判定）=====
+   対象は TOP NEWS と ジャンル別ニュースだけ。記事の日付が閲覧者の端末の
+   「今日」の日付と一致する記事すべてに、日付・時刻の直前に「NEW」の文字
+   だけを出す（背景・枠なし、公式カラー）。時刻は問わない */
+function isTodayYMD(y,mo,dy){
+  var now=new Date();
+  return now.getFullYear()===y&&(now.getMonth()+1)===mo&&now.getDate()===dy;
+}
+function articleIsToday(n){
+  if(!n||typeof n.ord!=="number"||!isFinite(n.ord))return false;
   var o=Math.floor(n.ord);
   var y=2026+Math.floor(o/10000),mo=Math.floor(o/100)%100,dy=o%100;
-  if(mo<1||mo>12||dy<1||dy>31)return null;
-  var hh=0,mm=0;
-  if(typeof n.time==="string"){
-    var m=n.time.match(/^([01]\d|2[0-3]):([0-5]\d)$/);
-    if(m){hh=+m[1];mm=+m[2];}
-  }
-  return Date.UTC(y,mo-1,dy,hh-9,mm);
-}
-function isFreshMs(ms){
-  if(ms==null)return false;
-  var age=Date.now()-ms;
-  return age>=0&&age<=NEW_DOT_WINDOW_MS;
+  if(mo<1||mo>12||dy<1||dy>31)return false;
+  return isTodayYMD(y,mo,dy);
 }
 function newDotHTML(fresh){
-  return fresh?'<span class="new-dot" role="img" aria-label="'+(state.lang==="en"?"New":"新着")+'"></span>':"";
+  return fresh?'<span class="new-tag">NEW</span>':"";
 }
-function articleNewDotHTML(n){return newDotHTML(isFreshMs(articlePostedMs(n)));}
+function articleNewDotHTML(n){return newDotHTML(articleIsToday(n));}
 function rssNewDotHTML(item){
-  var t=(item&&item.pubDate&&!isNaN(item.pubDate.getTime()))?item.pubDate.getTime():null;
-  return newDotHTML(isFreshMs(t));
+  var d=(item&&item.pubDate&&!isNaN(item.pubDate.getTime()))?item.pubDate:null;
+  return newDotHTML(!!d&&isTodayYMD(d.getFullYear(),d.getMonth()+1,d.getDate()));
 }
 /* 吹き出し型カードのメタ行に出る出典リンクの表示名（articleSourceLinksHTML と
    同一ルールで名前だけを返す。送信者行との重複判定に使う） */
