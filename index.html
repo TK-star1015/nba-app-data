@@ -103,7 +103,8 @@
   --fs-h1:25px;       /* ページ大見出し */
   --fs-sec:15px;      /* セクション見出し（日本語） */
   --fs-headline:15px; /* 記事見出し */
-  --fs-lead:14.5px;   /* TOP NEWSの見出し */
+  --fs-lead:15.5px;   /* TOP NEWSの見出し（洗練 2026-11-27：PCは控えめに拡大、モバイルは16px） */
+  --fs-tmeta:11.5px;  /* TOP NEWSのメタ行（日付・時刻・出典リンク）：小さく静かに */
   --fs-h3:16px;       /* カード内見出し */
   --fs-body:14px;     /* 本文 */
   --fs-sub:13px;      /* 紹介文・本文の補助 */
@@ -115,6 +116,7 @@
   --fs-newsmeta:12px; /* 記事メタ行（モバイルで一段落とす） */
   --fs-teams:11.5px;  /* 日付行のチーム略称（モバイルで一段落とす） */
   --lh-display:1.05; --lh-headline:1.55; --lh-body:1.7; --lh-meta:1.4;
+  --lh-lead:1.6;      /* TOP NEWSの見出し行間（洗練 2026-11-27：ゆったり取る） */
   /* 操作部品の寸法：切替タブは --tab-h、ボタンは --btn-h、
      チップの内余白は --chip-pad で全セクション統一する */
   --tab-h:30px; --btn-h:36px; --chip-pad:3px 9px;
@@ -514,15 +516,18 @@ button:disabled{opacity:.55;cursor:not-allowed}
 /* 全件共通の行形式（TK指示 2026-11-26）：通し番号（01〜）と先頭1件の強調カードは
    廃止し、全件を「1行目＝小さいメタ行（左：日付／右端：出典リンク）、
    2行目＝見出し（全幅）」に統一する。並び順は新しい順のまま */
-.digest-item{padding:var(--sp-3) 10px;margin:0 -10px;border-top:1px solid var(--line);border-radius:6px;color:var(--ink);transition:background .15s ease}
+.digest-item{padding:var(--sp-4) 10px;margin:0 -10px;border-top:1px solid var(--line);border-radius:6px;color:var(--ink);transition:background .15s ease}
 .digest-item:hover{background:var(--surface)}
-.digest-meta{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-3);margin-bottom:var(--sp-1)}
-.digest-meta time{font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif;font-size:var(--fs-date);font-weight:600;letter-spacing:.01em;color:var(--muted);white-space:nowrap;flex:none;font-variant-numeric:tabular-nums}
-.digest-src{flex:none;font-size:var(--fs-meta);line-height:var(--lh-meta);text-align:right}
+.digest-meta{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-3);margin-bottom:var(--sp-2)}
+.digest-meta time{font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif;font-size:var(--fs-tmeta);font-weight:600;letter-spacing:.01em;color:var(--muted);white-space:nowrap;flex:none;font-variant-numeric:tabular-nums}
+.digest-src{flex:none;font-size:var(--fs-tmeta);line-height:var(--lh-meta);text-align:right}
+/* 出典リンクもメタ行の一部として静かに（洗練 2026-11-27）：サブ文字色に落とし、
+   リンク色は使わない。下線はホバー時のみ従来どおり */
+.digest-item .digest-src a{color:var(--muted);font-weight:500}
 .digest-item strong{color:var(--ink)}
 .digest-item a{font-weight:700;color:var(--link);text-decoration:none;white-space:nowrap;letter-spacing:0}
 .digest-item a:hover{text-decoration:underline;text-underline-offset:3px}
-.digest-main{font-size:var(--fs-lead);font-weight:700;line-height:var(--lh-headline)}
+.digest-main{font-size:var(--fs-lead);font-weight:700;line-height:var(--lh-lead)}
 .digest-foot{margin-top:var(--sp-2);padding-top:var(--sp-3);border-top:1px solid var(--line);text-align:right}
 .past-top-link{background:none;border:0;color:var(--ink);font-size:var(--fs-meta);font-weight:700;padding:6px 4px;min-height:32px}
 .past-top-link:hover{text-decoration:underline;text-underline-offset:3px}
@@ -1313,7 +1318,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   .bg-swatch{width:30px;height:30px;min-height:30px}
   .bg-swatch::before{inset:-7px}
   .digest{padding:var(--sp-6) var(--sp-4) var(--sp-3);margin-top:var(--sp-5)}
-  .digest-item{padding:var(--sp-3) var(--sp-2);margin:0 calc(var(--sp-2) * -1)}
+  .digest-item{padding:var(--sp-5) var(--sp-2);margin:0 calc(var(--sp-2) * -1)}
   .gossip-zone{padding:var(--sp-5) var(--sp-4) var(--sp-3)}
   .section-head{margin:40px 0 14px;padding-bottom:10px}
   /* チーム名の題字はモバイルでも大きく保つ */
@@ -1668,7 +1673,8 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     --fs-display:33px;
     --ls-en:.05em;
     --fs-headline:14px;
-    --fs-lead:14px;
+    --fs-lead:16px;
+    --fs-tmeta:11px;
     --fs-date:12.5px;
     --fs-newsmeta:11.5px;
     --fs-teams:10.5px;
@@ -3559,7 +3565,7 @@ function fullDate(n){
 /* TOPニュース＝公式＋報道の主要記事だけ（cat:important）。ゴシップはここには絶対に入れない。
    RSS新着（仮分類）もここには絶対に入れない：対象は確定分類の掲載記事だけ。
    選定ルール（v97）：公式／報道は原則すべて候補。過去記事（past:true）も候補に含め、
-   全候補から新しい順を基本に10件を選び、スター優先は同程度の場合のみとする。
+   全候補から新しい順を基本に7件を選び、スター優先は同程度の場合のみとする。
    選ばれた過去記事には top:true、候補から外れた掲載記事には noTop:true を付けて調整する。
    v77：表示はシンプルに「日付＋見出し＋原文リンク」だけにする。分類ラベル（公式／報道）は
    TOP NEWS 内では出さない（フィード・チーム詳細など他の場所では従来どおり出す）。
@@ -3609,7 +3615,7 @@ function compareTopNews(a,b){
   return b.ord-a.ord;
 }
 /* TOP NEWS の掲載対象（公式／報道の確定情報のみ）を新しい順に並べた全件リスト。
-   表示は先頭10件まで（TK決定：上限10件）。11件目以降は pastTopArticles 側で
+   表示は先頭7件まで（TK決定 2026-11-27：上限7件）。8件目以降は pastTopArticles 側で
    過去のTOP NEWSへ回す */
 function digestCandidates(){
   return activeArticles().filter(function(n){return n.cat==="important"&&!n.noTop&&!n.provisional&&(!n.past||n.top===true);}).sort(compareTopNews);
@@ -3632,7 +3638,7 @@ function renderDigest(){
      過去のTOP NEWSへ回した（記事自体はフィード・チーム詳細に残る）
      2026-11-26（TK指摘）：feed.json のマージで対象が17〜18件に膨らみ上限が効いて
      いなかったため、表示側で先頭10件に切り、溢れた分は過去のTOP NEWSへ回すよう変更 */
-  var list=digestCandidates().slice(0,10);
+  var list=digestCandidates().slice(0,7);
   /* 並びは日付＋時刻の新しい順（時間順）。行形式は全件共通（TK指示 2026-11-26）：
      通し番号（01〜）と先頭1件の強調カードは廃止し、1行目を小さいメタ行
      （左に日付、右端に出典リンク）、2行目を見出し（全幅・文節単位の改行）にする。
@@ -3652,15 +3658,15 @@ function renderDigest(){
    ARTICLES に入らないため対象外。カードの型はフィード／チーム詳細／ゴシップと
    完全に同一（articleHTML の3行構成：日付＋チーム略称／見出し／出典＋分類チップ）に統一する */
 function pastTopArticles(){
-  /* 現在TOP NEWSに表示中の先頭10件は「過去」ではないので除く */
-  var shown=digestCandidates().slice(0,10);
+  /* 現在TOP NEWSに表示中の先頭7件は「過去」ではないので除く */
+  var shown=digestCandidates().slice(0,7);
   return activeArticles().filter(function(n){
     if(n.provisional)return false;
     if(n.cat!=="important")return false;
     if(n.s!=="confirmed"&&n.s!=="almost")return false;
     if(n.past)return n.top!==true;
     if(n.noTop===true)return true;
-    /* 上限10件から溢れた掲載対象（11件目以降）も過去のTOP NEWSへ回す */
+    /* 上限7件から溢れた掲載対象（8件目以降）も過去のTOP NEWSへ回す */
     return shown.indexOf(n)===-1;
   }).sort(function(a,b){return b.ord-a.ord;});
 }
