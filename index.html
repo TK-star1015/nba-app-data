@@ -1587,12 +1587,12 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   #feedCard{background:var(--surface)}
   /* 右カラム：速報ソース＝グレー／記者一覧＝白（既定のまま）／地元ライター＝グレー。
      グレー地のカードでは内側の空状態の面を白にして塊が読めるようにする */
-  .cols>div:last-child>section.card:nth-of-type(1),
-  .cols>div:last-child>section.card:nth-of-type(3){background:var(--surface2)}
-  .cols>div:last-child>section.card:nth-of-type(1) .empty,
-  .cols>div:last-child>section.card:nth-of-type(3) .empty,
-  .cols>div:last-child>section.card:nth-of-type(1) .posts-empty,
-  .cols>div:last-child>section.card:nth-of-type(3) .posts-empty{background:var(--surface)}
+  .side-col>section.card:nth-of-type(1),
+  .side-col>section.card:nth-of-type(3){background:var(--surface2)}
+  .side-col>section.card:nth-of-type(1) .empty,
+  .side-col>section.card:nth-of-type(3) .empty,
+  .side-col>section.card:nth-of-type(1) .posts-empty,
+  .side-col>section.card:nth-of-type(3) .posts-empty{background:var(--surface)}
 }
 @media(max-width:520px){
   .section-head{padding:var(--sp-4) var(--gutter) var(--sp-3)}
@@ -1793,9 +1793,9 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   .conf-head{margin-bottom:10px}
   .conf-block+.conf-block{margin-top:var(--sp-5)}
   /* --- 静かなパネル（右カラム＝速報ソース列）：一段静かに --- */
-  .cols>div:last-child .section-head{padding-top:14px;padding-bottom:10px}
-  .cols>div:last-child .side-stack-head{margin-top:48px}
-  .cols>div:last-child .card{padding-top:var(--sp-4);padding-bottom:var(--sp-4)}
+  .side-col .section-head{padding-top:14px;padding-bottom:10px}
+  .side-col .side-stack-head{margin-top:48px}
+  .side-col .card{padding-top:var(--sp-4);padding-bottom:var(--sp-4)}
 }
 
 /* ============================================================
@@ -1965,38 +1965,27 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
 }
 
 /* ============================================================
-   モバイル：速報ソースの格下げ（TK承認 2026-11-27）
+   モバイル：セクション並び順（TK承認 2026-11-27／DOM移動方式）
    ・対象はモバイル表示（1024px以下）のみ。PC（1025px以上）の
      レイアウト（速報ソースの右サイドバー配置）は一切変えない
-   ・ブロック順を TOP NEWS → ジャンル別ニュース → TEAMS →
-     オフコート → 速報ソース にし、速報ソース（記者一覧・地元
-     ライターを含む列）を最下部へ移す。中身は変更しない
-   ・実装：.wrap を縦フレックスにし、.cols とその2カラムには
-     display:contents を使って中身を .wrap の並びに溶かし、
-     order で並べ替える。DOM は変えないため、.cols>div:first-child
-     等の既存セレクタや再描画系の仕組みはそのまま効く
-   【戻し方】このブロックを丸ごと削除すれば変更前の並びに戻る
+   ・ブロック順は TOP NEWS → ジャンル別ニュース → TEAMS →
+     オフコート → 速報ソース。中身は変更しない
+   ・並べ替え自体は JS（applySectionOrder）が実際の DOM ノードを
+     移動して行う。旧方式（display:contents ＋ CSS order）は
+     iOS Safari で効かず、ジャンル別ニュースが TEAMS の後ろに
+     回る不具合が出たため廃止した
+   ・このブロックの役割は積み方の指定だけ：.wrap を縦積みにし、
+     .cols を1カラム化する（移動後の .cols にはジャンル別
+     ニュース列だけが残るため、2カラムグリッドのままだと
+     901〜1024px で列が画面幅いっぱいに広がらない）
+   ・速報ソース列のモバイル用スタイル（地色の交互・見出し帯の
+     余白など）は、列の div に付けた .side-col クラスで受ける。
+     .cols の中でも外（.wrap 直下）でも同じ見た目になるよう、
+     旧 .cols>div:last-child セレクタを .side-col に置き換えた
    ============================================================ */
 @media(max-width:1024px){
   .wrap{display:flex;flex-direction:column}
-  .cols,.cols>div{display:contents}
-  .masthead{order:1}
-  .utility{order:2}
-  .digest{order:3}
-  /* ジャンル別ニュース（見出し・絞り込み・フィードカード） */
-  .cols>div:first-child>*{order:4}
-  /* TEAMS（見出し・検索・タブ・トーク一覧） */
-  #mapHead{order:5}
-  .team-search{order:5}
-  .filter-above-map{order:5}
-  .teams-panes{order:5}
-  /* オフコート（フィード列の中にあるが TEAMS より後へ回す） */
-  #gossipZone{order:6}
-  /* 速報ソース列（速報ソース／記者一覧／地元ライター）＝最下部 */
-  .cols>div:last-child>*{order:7}
-  #pastTopView{order:8}
-  #editorView{order:8}
-  .foot{order:9}
+  .cols{display:block}
 }
 </style>
 <!-- 背景色の自由色専用の上書きスタイル：プリセット色は data-bg 属性＋静的ルールで
@@ -2230,8 +2219,10 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
       <section class="gossip-zone" id="gossipZone" hidden data-i18n-aria="gossipCorner" aria-label="オフコート"></section>
     </div>
 
-    <!-- インサイダー -->
-    <div>
+    <!-- インサイダー：.side-col はモバイル並べ替え（JS の DOM 移動）で
+         この列が .cols の外へ出ても、列向けのモバイル用スタイルを
+         そのまま効かせるための目印クラス -->
+    <div class="side-col">
       <div class="section-head" id="secSources"><div><h2 data-i18n="insH">速報ソース</h2></div></div>
       <section class="card">
         <button type="button" class="picker-toggle" id="insiderPickerBtn" aria-expanded="false" aria-controls="insiderPickerList"><span data-i18n="pickerBtn">記者リスト</span><span class="picker-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
@@ -4530,6 +4521,58 @@ function syncRoomPane(){
 if(DESKTOP_MQ){
   if(DESKTOP_MQ.addEventListener)DESKTOP_MQ.addEventListener("change",syncRoomPane);
   else if(DESKTOP_MQ.addListener)DESKTOP_MQ.addListener(syncRoomPane);
+}
+/* ===== モバイル：セクション並び順（DOM移動方式）=====
+   モバイル（1024px以下）のブロック順を TOP NEWS → ジャンル別
+   ニュース → TEAMS → オフコート → 速報ソース にするため、実際の
+   DOM ノードを移動して並べ替える。旧方式（display:contents ＋
+   CSS order）は iOS Safari で効かず、ジャンル別ニュースが TEAMS
+   の後ろに表示される不具合が出たため廃止した（CSS 側の order／
+   display:contents 指定も撤去済み）。
+   ・.cols（ジャンル別ニュース列）ごと TOP NEWS の直後へ
+   ・オフコート（#gossipZone）を TEAMS（.teams-panes）の直後へ
+   ・速報ソース列（.side-col）をオフコートの直後へ
+   PC（1025px以上）では元の配置にそのまま戻し、右サイドバーの
+   2カラム表示を維持する。元の親と次の兄弟は初回の移動時に記録し、
+   復元はその記録どおりに行う（記録した兄弟要素自体は移動しない
+   ため、参照は常に有効）。画面幅が境界をまたぐたびに再判定する */
+var SECTION_MQ=(window.matchMedia?window.matchMedia("(max-width:1024px)"):null);
+var sectionMoved=false;
+var sectionHome=null;
+function applySectionOrder(){
+  if(!SECTION_MQ)return;
+  var wrap=document.querySelector(".wrap");
+  var cols=document.querySelector(".cols");
+  var gossip=document.getElementById("gossipZone");
+  var side=document.querySelector(".side-col");
+  var panes=document.querySelector(".teams-panes");
+  var mapHead=document.getElementById("mapHead");
+  if(!wrap||!cols||!gossip||!side||!panes||!mapHead)return;
+  if(SECTION_MQ.matches){
+    if(sectionMoved)return;
+    if(!sectionHome){
+      sectionHome={
+        cols:{p:cols.parentNode,n:cols.nextSibling},
+        gossip:{p:gossip.parentNode,n:gossip.nextSibling},
+        side:{p:side.parentNode,n:side.nextSibling}
+      };
+    }
+    wrap.insertBefore(cols,mapHead);
+    wrap.insertBefore(gossip,panes.nextSibling);
+    wrap.insertBefore(side,gossip.nextSibling);
+    sectionMoved=true;
+  }else{
+    if(!sectionMoved||!sectionHome)return;
+    sectionHome.cols.p.insertBefore(cols,sectionHome.cols.n);
+    sectionHome.side.p.insertBefore(side,sectionHome.side.n);
+    sectionHome.gossip.p.insertBefore(gossip,sectionHome.gossip.n);
+    sectionMoved=false;
+  }
+}
+applySectionOrder();
+if(SECTION_MQ){
+  if(SECTION_MQ.addEventListener)SECTION_MQ.addEventListener("change",applySectionOrder);
+  else if(SECTION_MQ.addListener)SECTION_MQ.addListener(applySectionOrder);
 }
 /* ===== フィード段階表示 =====
    初期表示は最新10件まで。末尾の「もっと見る」を押すごとに10件ずつ追加し、
