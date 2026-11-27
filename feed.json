@@ -1151,9 +1151,23 @@
    "url": "https://www.essentiallysports.com/nba-active-basketball-news-dust-it-off-then-tyrese-maxey-challenges-lebron-james-as-historic-milestone-headlines-76ers-win-over-heat/",
    "genre": "舞台裏",
    "top": false
+  },
+  {
+   "id": "gh-20261127-rss-nba-cup-bracket-watch",
+   "level": "rumor",
+   "teams": [],
+   "headline": "NBAカップ、進出・敗退の行方：金曜全試合の意味",
+   "headlineEn": "NBA Cup bracket watch: Friday's games decide who's in and out",
+   "date": "2026-11-27",
+   "time": "20:08",
+   "sourceName": "Yahoo Sports",
+   "url": "https://sports.yahoo.com/nba/articles/nba-cup-bracket-watch-whos-110816968.html",
+   "category": "分析",
+   "top": false,
+   "provisional": true
   }
  ],
- "updatedAt": "2026-11-27T20:14:00+09:00",
+ "updatedAt": "2026-11-27T20:50:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
