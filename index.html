@@ -401,7 +401,13 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .utility:not(.settings-open) .transfer-panel{display:none}
 .transfer-panel{margin:var(--sp-2) 0 0;text-align:left}
 .transfer-note{margin:0 0 var(--sp-2);font-size:var(--fs-meta);color:var(--muted);line-height:1.6}
-.transfer-panel textarea{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1.5;resize:vertical;word-break:break-all}
+.transfer-panel textarea{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface2);color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1.5;resize:vertical;word-break:break-all}
+/* コード欄の見た目（TK指示 2026-11-27）：地は一段落とした明るい面（ライト＝
+   薄グレー／ダーク＝持ち上げたグレー）＋濃い文字＋細い枠で静かに見せる。
+   あわせて、書き出し直後はコード全選択になるため、全体の選択色（墨色ベタ）
+   のままだとライトテーマで真っ黒な箱に見えた。選択色はこの欄だけ淡い
+   分類色の地（--blue-bg）に替え、ダークテーマでも文字が読めるままにする */
+.transfer-panel textarea::selection{background:var(--blue-bg);color:var(--ink)}
 .transfer-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:var(--sp-2)}
 .transfer-btn{border:1px solid var(--line);background:var(--surface);padding:6px var(--sp-3);border-radius:999px;font-size:var(--fs-small);font-weight:700;color:var(--muted);white-space:nowrap;min-height:var(--tab-h)}
 .transfer-btn:hover{color:var(--ink);border-color:var(--muted)}
@@ -550,6 +556,13 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .editor-take-row{display:flex;gap:12px;align-items:flex-start;margin-top:2px}
 .editor-take-row .editor-take-body{flex:1;min-width:0;margin:0}
 .editor-take-stamp{flex:none;width:92px;height:92px;object-fit:cover;border-radius:14px;transform:rotate(-2deg)}
+/* モバイルだけ本文とスタンプの間隔を広げる（TK指示 2026-11-27）：横の間隔
+   （12px→20px）と見出し→本文行の間（2px→8px）を一段開け、特に英語表示で
+   本文とスタンプが窮屈にならないようにする。スタンプの置き方（本文の右脇・
+   小ささ・傾き）と PC 表示は変えない */
+@media(max-width:760px){
+  .editor-take-row{gap:var(--sp-5);margin-top:var(--sp-2)}
+}
 
 /* ---------- 30チーム：クラブ一覧グリッド ---------- */
 .map-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--sp-6)}
@@ -1577,6 +1590,12 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
      margin-top 12px＋先頭行の padding-top 12px）になっていた分を解消し、
      罫→先頭行の間隔を見出し側の下余白（14px）と同リズムに揃える */
   .digest{margin-top:var(--sp-3)}
+  /* 背景プリセット使用時の帯対策（TK指示 2026-11-27）：プリセット（自由色
+     含む）を選ぶと、ユーティリティ帯と TOP NEWS パネルの間の余白（12px）に
+     ページ地＝プリセット色が横帯として見え、浮いて見えた。プリセット使用中
+     だけその余白をなくし、パネルをユーティリティ帯に接して1つの塊として
+     読ませる。デフォルト（プリセットなし）の表示は従来どおり変えない */
+  :root[data-bg] .digest,:root[data-bg-custom] .digest{margin-top:0}
   .digest-list{margin-top:0}
   /* 4) ジャンル別ニュースの2段フィルター（種類／分類）の段間詰め：
      セクション分離ブロックで両段とも上下 padding 12px が付き、段間が
@@ -3485,10 +3504,13 @@ function digestDate(n){
    時刻は記事データに確認済みの公開時刻（time フィールド、JST・24時間表記の
    "HH:MM"）がある場合だけ併記する。取得時刻・巡回時刻では絶対に代用せず、
    time が無い／形式が不正な記事は日付のみ表示する。時刻の有無で行の高さや
-   位置は変わらない（メタ行は1行・ベースライン揃えのまま） */
+   位置は変わらない（メタ行は1行・ベースライン揃えのまま）
+   表示の時刻表記は言語ごとに統一する（TK指示 2026-11-27）：日本語＝
+   24時間表記のまま、英語＝ジャンル別ニュース等と同じ12時間表記（AM/PM）
+   に変換して出す。データの time 自体（24時間表記）は変えない */
 function digestDateTime(n){
   var d=digestDate(n);
-  if(n&&typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))return d+" "+n.time;
+  if(n&&typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))return d+" "+(state.lang==="en"?ampmFromHM(n.time):n.time);
   return d;
 }
 /* TOP NEWS の並び（TK指示 2026-11-26）：日付の新しい順を基本に、同じ日の中では
@@ -4942,15 +4964,16 @@ function allSettled(promises){
   }));
 }
 /* 日時の表記形式は全箇所で統一する（タイポグラフィ部②）：日付は
-   日本語＝M/D、英語＝Mon D。時刻は24時間表記の HH:MM（ゼロ埋め）。
-   日付と時刻の区切りは半角スペース1つに統一する */
+   日本語＝M/D、英語＝Mon D。日付と時刻の区切りは半角スペース1つに統一する。
+   時刻は日本語＝24時間表記の HH:MM（ゼロ埋め）、英語＝12時間表記
+   （AM/PM）で全セクション統一する（TK指示 2026-11-27） */
 function formatFeedDate(d){
   if(!d||isNaN(d.getTime()))return "";
   var hh=d.getHours(),mm=d.getMinutes();
   var hm=(hh<10?"0":"")+hh+":"+(mm<10?"0":"")+mm;
   if(state.lang==="en"){
     var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    return months[d.getMonth()]+" "+d.getDate()+" "+hm;
+    return months[d.getMonth()]+" "+d.getDate()+" "+ampmLabel(hh,mm);
   }
   return (d.getMonth()+1)+"/"+d.getDate()+" "+hm;
 }
@@ -5220,8 +5243,22 @@ function relShortFromLast(){
   if(diffSec>=3600)return "";
   return relFromLast();
 }
-/* 短形式の時刻表記：JSTで今日なら「HH:MM」のみ、それ以外は「M/D HH:MM」 */
+/* 短形式の時刻表記：JSTで今日なら時刻のみ、それ以外は日付＋時刻。
+   日本語＝24時間表記（「HH:MM」／「M/D HH:MM」）、英語＝12時間表記
+   （AM/PM）で他セクションと統一する（TK指示 2026-11-27） */
 function fmtUpdatedWhen(d){
+  if(state.lang==="en"){
+    try{
+      var nowP={},thenP={},pi;
+      var np=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Tokyo",month:"numeric",day:"numeric"}).formatToParts(new Date());
+      for(pi=0;pi<np.length;pi++)nowP[np[pi].type]=np[pi].value;
+      var tp2=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Tokyo",month:"numeric",day:"numeric",hour:"numeric",minute:"2-digit",hour12:true}).formatToParts(d);
+      for(pi=0;pi<tp2.length;pi++)thenP[tp2[pi].type]=tp2[pi].value;
+      var tstr=thenP.hour+":"+thenP.minute+" "+thenP.dayPeriod;
+      if(nowP.month===thenP.month&&nowP.day===thenP.day)return tstr;
+      return thenP.month+"/"+thenP.day+" "+tstr;
+    }catch(e){}
+  }
   var full=formatMDHM_JST(d);
   try{
     var tp=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Tokyo",month:"numeric",day:"numeric"}).formatToParts(new Date());
