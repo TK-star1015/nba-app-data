@@ -1,6 +1,28 @@
 {
   "articles": [
     {
+      "id": "gh-20261127-spurs-harper-fox-questionable",
+      "level": "reported",
+      "teams": [
+        "SAS"
+      ],
+      "headline": "ディラン・ハーパーとディアロン・フォックス、レイカーズ戦出場は未定に格上げ",
+      "headlineEn": "Harper and Fox upgraded to questionable for Friday vs. Lakers",
+      "date": "2026-11-27",
+      "time": "10:00",
+      "sourceName": "Hoops Rumors",
+      "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html",
+      "reporter": "Marc Stein",
+      "category": "怪我",
+      "top": true,
+      "related": [
+        {
+          "label": "ClutchPoints",
+          "url": "https://clutchpoints.com/nba/san-antonio-spurs/spurs-news-dylan-harper-deaaron-fox-questionable-blockbuster-lakers-game"
+        }
+      ]
+    },
+    {
       "id": "gh-20261127-pistons-trio-out-bucks",
       "level": "reported",
       "teams": [
@@ -451,7 +473,7 @@
       "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
       "reporter": "Michael Scotto",
       "category": "怪我",
-      "top": true
+      "top": false
     },
     {
       "id": "gh-20261125-clippers-sellers-fischer",
@@ -842,6 +864,6 @@
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T09:07:39+09:00",
+  "updatedAt": "2026-11-27T10:04:46+09:00",
   "version": 1
 }
