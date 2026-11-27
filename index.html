@@ -272,6 +272,9 @@ a .ic-s,.detail-see-all .ic-s,.past-top-link .ic-s{margin-left:3px}
 /* 「お気に入りチームのみ」トグルは選択中だけ星を塗り、チームBOXの星
    （.fav.on）と状態表現を揃える */
 #favOnlyBtn.active .ic{fill:currentColor}
+/* 「保存」チップ（ジャンル別ニュースの常時表示フィルター行）も選択中は
+   しおりを塗り、お気に入りトグルの星と状態表現を揃える */
+#savedOnlyBtn.active .ic{fill:currentColor}
 
 /* ---------- ヘッダー（企業公式型：左にブランド、細いラインで締める） ---------- */
 .masthead{
@@ -1080,6 +1083,15 @@ body.room-open{overflow-x:clip}
 .sheet-foot{flex:none;border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
 .sheet-read{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;padding:10px 16px;border-radius:var(--radius);background:var(--ink);color:var(--on-accent);font-size:var(--fs-headline);font-weight:700;text-decoration:none}
 .sheet-read:active{filter:brightness(1.25)}
+/* フッタ1段目：「記事を読む」の右隣に保存トグルを小さく置く行。
+   保存ボタンはアプリの小さいチップ規律（12px・高さ約30px・ピル型）に
+   揃え、保存済みの時だけ塗って状態が分かるようにする */
+.sheet-actions{display:flex;align-items:center;gap:10px}
+.sheet-actions .sheet-read{flex:1 1 auto;width:auto;min-width:0}
+.sheet-save{flex:none;display:inline-flex;align-items:center;gap:5px;min-height:30px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font:inherit;font-size:var(--fs-small);font-weight:700;white-space:nowrap;cursor:pointer}
+.sheet-save.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.sheet-save.on .ic{fill:currentColor}
+.sheet-save:active{filter:brightness(.94)}
 /* シート内「前の記事／次の記事」ナビ（2026-11-28）：開いた元の一覧の並びで
    連続読みするための行。「記事を読む」の下に置き、ボタンはアプリの小さい
    チップ規律（12px・フラット）に合わせる。移動先の見出しは muted で1行だけ
@@ -2250,7 +2262,10 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
         <div class="sheet-related" id="sheetRelated" hidden></div>
       </div>
       <div class="sheet-foot" id="sheetFoot" hidden>
-        <a class="sheet-read" id="sheetRead" href="#" target="_blank" rel="noopener"><span id="sheetReadLabel">記事を読む</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m10 14 11-11"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <div class="sheet-actions">
+          <a class="sheet-read" id="sheetRead" href="#" target="_blank" rel="noopener"><span id="sheetReadLabel">記事を読む</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m10 14 11-11"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+          <button type="button" class="sheet-save" id="sheetSaveBtn" aria-pressed="false" hidden><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><span id="sheetSaveLabel">保存</span></button>
+        </div>
         <div class="sheet-nav" id="sheetNav" hidden>
           <button type="button" class="sheet-nav-btn" id="sheetPrevBtn"><span class="sheet-nav-label" id="sheetPrevLabel">← 前の記事</span><span class="sheet-nav-title" id="sheetPrevTitle"></span></button>
           <button type="button" class="sheet-nav-btn sheet-nav-next" id="sheetNextBtn"><span class="sheet-nav-label" id="sheetNextLabel">次の記事 →</span><span class="sheet-nav-title" id="sheetNextTitle"></span></button>
@@ -2271,6 +2286,12 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
           <button data-level="confirmed" data-i18n="chipRed">公式</button>
           <button data-level="almost" data-i18n="chipOrange">報道</button>
           <button data-level="rumor" data-i18n="chipBlue">噂</button>
+        </div>
+        <!-- 保存フィルター：詳細シートで保存した記事だけを通常のカード一覧に
+             出すトグル。分類チップとは独立に ON／OFF する（状態は保存しない：
+             お気に入りフィルターと同じく開くたびに OFF から始める） -->
+        <div class="seg" id="savedSeg">
+          <button type="button" id="savedOnlyBtn" aria-pressed="false"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><span data-i18n="savedChip">保存</span></button>
         </div>
       </div>
       <!-- 絞り込みパネル：種類・期間・お気に入り・検索は普段は畳み、見出し行の
@@ -2445,6 +2466,7 @@ var UI={
   roomNewFrom:"ここから新しい記事", roomTapHint:"吹き出しをタップで詳細を表示", yesterdayLabel:"昨日",
   readArticle:"記事を読む", sheetRelated:"関連リンク", ariaSheetClose:"閉じる",
   sheetPrev:"前の記事", sheetNext:"次の記事",
+  saveArticle:"保存", savedArticle:"保存済み", savedChip:"保存", savedEmpty:"保存した記事はまだありません",
   teamSearchPh:"チーム名で検索", soundLabel:"入室音", swipeFav:"お気に入り",
   transferLabel:"設定の移行", prefsExport:"書き出し", prefsImport:"読み込み", prefsCopy:"コピー", prefsApply:"このコードで復元", prefsCodePh:"設定コード",
   transferNote:"ホーム画面アプリとSafariでは設定が別々に保存されます。片方でコードを書き出し、もう片方で読み込むと、お気に入り・既読・テーマなどを引き継げます。",
@@ -2523,6 +2545,7 @@ var UI={
   roomNewFrom:"New articles from here", roomTapHint:"Tap a bubble for details", yesterdayLabel:"Yesterday",
   readArticle:"Read article", sheetRelated:"Related links", ariaSheetClose:"Close",
   sheetPrev:"Previous article", sheetNext:"Next article",
+  saveArticle:"Save", savedArticle:"Saved", savedChip:"Saved", savedEmpty:"No saved articles yet",
   teamSearchPh:"Search teams", soundLabel:"Room sound", swipeFav:"Favorite",
   transferLabel:"Transfer settings", prefsExport:"Export", prefsImport:"Import", prefsCopy:"Copy", prefsApply:"Restore from this code", prefsCodePh:"Settings code",
   transferNote:"The home-screen app and Safari store settings separately. Export a code in one and import it in the other to carry over favorites, read state, theme and more.",
@@ -3063,10 +3086,13 @@ var bgChoice=""; /* 背景色：""＝デフォルト（テーマ連動）、そ�
 var roomSoundOn=true; /* 入室音（トークルーム入室時のポップ音）：デフォルトON */
 var readSet={};
 var readMark={};
+/* 保存した記事の id 集合（詳細シートの保存ボタンで付け外しする。
+   prefs の saved 配列として端末に保持し、設定コードにも含める） */
+var savedSet={};
 /* お気に入り・フィルター・言語・テーマ・既読を端末に保存して次回も引き継ぐ */
 var STORE_KEY="nbaHubV1Prefs";
 function savePrefs(){
-  try{localStorage.setItem(STORE_KEY,JSON.stringify({fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet),readMark:readMark}));}catch(e){}
+  try{localStorage.setItem(STORE_KEY,JSON.stringify({fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet),readMark:readMark,saved:Object.keys(savedSet)}));}catch(e){}
 }
 function loadPrefs(){
   try{
@@ -3096,6 +3122,9 @@ function loadPrefs(){
         if(m&&typeof m.d==="number"&&isFinite(m.d))readMark[a]={d:m.d,ids:(Array.isArray(m.ids)?m.ids.map(function(x){return String(x);}):[])};
       });
     }
+    /* 保存した記事：この項目が無い旧データでは空のまま（初期値）として
+       読み込む。文字列の id だけを取り込む */
+    if(Array.isArray(p.saved))p.saved.forEach(function(id){if(typeof id==="string"&&id)savedSet[id]=1;});
     /* 旧形式（チーム単位の既読フラグのみで、読んだ時点の印が無い）からの
        移行：既読フラグのあるチームには「現時点で取り込み済みの記事まで
        読んだ」という印を付ける。この後に届く記事（起動後の feed.json
@@ -3902,7 +3931,7 @@ function feedSheetItemFor(n){
   var p=articleDayParts(n);
   var timeStr="";
   if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))timeStr=ampmFromHM(n.time);
-  return {y:p.y,mo:p.mo,d:p.d,
+  return {id:String(n.id||""),y:p.y,mo:p.mo,d:p.d,
     chip:cardChipHTML(n),title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
     detail:roomSummary(n.body,n.title,600),srcName:String(n.media||n.src||""),
     related:(Array.isArray(n.related)&&n.related.length)?n.related:null};
@@ -3927,7 +3956,7 @@ function gossipSheetItemFor(n){
   var timeStr="";
   if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))timeStr=ampmFromHM(n.time);
   var gg=gossipGenreOf(n);
-  return {y:p.y,mo:p.mo,d:p.d,
+  return {id:String(n.id||""),y:p.y,mo:p.mo,d:p.d,
     chip:'<span class="cat-chip cat-gossip">'+CAT_LABEL[state.lang].gossip+'</span>',
     genreChip:gg?'<span class="genre-chip">'+GOSSIP_GENRE_LABEL[state.lang][gg]+'</span>':'',
     title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
@@ -4457,7 +4486,7 @@ function roomFlowItems(abbr){
     /* 噂（仮分類の噂を含む）はルームでは「自分の送信」として右から出す。
        ゴシップ（ジャンルチップ表示）とチーム情報は分類が噂ではないため対象外 */
     var rumor=n.cat!=="gossip"&&n.cat!=="teaminfo"&&n.s==="rumor";
-    items.push({day:p.y*10000+p.mo*100+p.d,y:p.y,mo:p.mo,d:p.d,mins:mins,ord:n.ord,
+    items.push({id:String(n.id||""),day:p.y*10000+p.mo*100+p.d,y:p.y,mo:p.mo,d:p.d,mins:mins,ord:n.ord,
       chip:cardChipHTML(n),title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
       summary:roomSummary(n.body,n.title),official:official,rumor:rumor,
       sender:String(n.src||n.media||""),
@@ -4728,6 +4757,9 @@ var sheetPrevOverflow="";
 var sheetHideTimer=null;
 var sheetNavList=null;
 var sheetNavIdx=-1;
+/* シートに表示中の記事 id（保存ボタンの対象）。id を持たない項目
+   （RSS新着など）では空にし、保存ボタン自体を出さない */
+var sheetSaveId="";
 function openArticleSheet(idx,trigger){
   var it=roomSheetItems[idx];
   if(it)showArticleSheet(it,trigger,roomSheetItems,idx);
@@ -4767,6 +4799,17 @@ function renderSheetNav(){
   document.getElementById("sheetNextTitle").textContent=hasNext?sheetPlainTitle(sheetNavList[sheetNavIdx+1].title):"";
   return true;
 }
+/* 保存ボタンの表示を現在の対象（sheetSaveId）と保存状態に同期する：
+   未保存は「保存」、保存済みは塗り＋「保存済み」にする */
+function syncSheetSaveBtn(){
+  var btn=document.getElementById("sheetSaveBtn");
+  if(!btn)return;
+  var on=!!(sheetSaveId&&savedSet[sheetSaveId]);
+  btn.classList.toggle("on",on);
+  btn.setAttribute("aria-pressed",on?"true":"false");
+  var lb=document.getElementById("sheetSaveLabel");
+  if(lb)lb.textContent=on?L().savedArticle:L().saveArticle;
+}
 /* シートの中身だけを項目で差し替える（開閉の動きは付けない）。
    初回の表示（showArticleSheet）と前後ナビの移動（sheetMove）で共用する */
 function fillSheet(it){
@@ -4797,8 +4840,16 @@ function fillSheet(it){
   }
   if(relHtml){relEl.innerHTML=relHtml;relEl.hidden=false;}
   else{relEl.innerHTML="";relEl.hidden=true;}
-  /* 前後ナビを先に更新し、フッタは「記事を読む」かナビのどちらかが
-     ある時だけ出す（URL が無い記事でもナビだけでフッタを出す） */
+  /* 保存ボタンは記事 id を持つ項目（掲載記事）だけに出す。RSS新着など
+     id の無い項目では隠し、フッタの表示判定にも含めない */
+  sheetSaveId=(it&&it.id)?String(it.id):"";
+  var saveBtn=document.getElementById("sheetSaveBtn");
+  if(saveBtn){
+    if(sheetSaveId){saveBtn.hidden=false;syncSheetSaveBtn();}
+    else saveBtn.hidden=true;
+  }
+  /* 前後ナビを先に更新し、フッタは「記事を読む」かナビか保存ボタンの
+     どれかがある時だけ出す（URL が無い記事でもナビ／保存だけでフッタを出す） */
   var navShown=renderSheetNav();
   var foot=document.getElementById("sheetFoot"),read=document.getElementById("sheetRead");
   if(it.url){
@@ -4809,7 +4860,7 @@ function fillSheet(it){
   }else{
     read.removeAttribute("href");
     read.style.display="none";
-    foot.hidden=!navShown;
+    foot.hidden=!(navShown||sheetSaveId);
   }
   document.getElementById("sheetBody").scrollTop=0;
 }
@@ -4921,6 +4972,18 @@ if(gossipZoneEl){
    一覧と位置を確認し、端では何もしない） */
 document.getElementById("sheetPrevBtn").addEventListener("click",function(){sheetMove(-1);});
 document.getElementById("sheetNextBtn").addEventListener("click",function(){sheetMove(1);});
+/* 保存トグル：表示中の記事（sheetSaveId）の保存状態を付け外しし、端末へ
+   保存する。ジャンル別ニュースの「保存」フィルター表示中なら、一覧側も
+   その場で追随させる（シートは開いたまま） */
+var sheetSaveBtnEl=document.getElementById("sheetSaveBtn");
+if(sheetSaveBtnEl)sheetSaveBtnEl.addEventListener("click",function(){
+  if(!sheetSaveId)return;
+  if(savedSet[sheetSaveId])delete savedSet[sheetSaveId];
+  else savedSet[sheetSaveId]=1;
+  savePrefs();
+  syncSheetSaveBtn();
+  renderFeed();
+});
 document.getElementById("sheetClose").addEventListener("click",closeArticleSheet);
 document.getElementById("sheetBackdrop").addEventListener("click",closeArticleSheet);
 document.addEventListener("keydown",function(e){
@@ -5101,6 +5164,11 @@ var feedQuery="";
    分類・期間と同じく通常フィード側（掲載記事＋RSS新着）にだけ効かせ、
    オフコートには効かせない */
 var feedFavOnly=false;
+/* 保存フィルター（ジャンル別ニュース）：ONの間は詳細シートで保存した
+   記事だけを通常のカード一覧に出す。お気に入りフィルターと同じ追加の
+   絞り込みで、ON／OFF の状態自体は保存しない（開くたびに OFF から始める）。
+   保存した記事の id 集合（savedSet）の方は prefs に保存される */
+var feedSavedOnly=false;
 var FEED_TEAM_BY_ABBR=null, FEED_ARTICLE_PAIR=null;
 function feedSearchEnsure(){
   if(FEED_TEAM_BY_ABBR&&FEED_ARTICLE_PAIR&&FEED_ARTICLE_PAIR._jaLen===ARTICLES_JA.length&&FEED_ARTICLE_PAIR._enLen===ARTICLES_EN.length)return;
@@ -5177,7 +5245,7 @@ function renderFeed(){
      オフコート（ゴシップ）は独立ゾーンなので、分類で絞っても消えないよう all から作る */
   /* 期間フィルターも通常フィード側（この feedList と RSS新着）にだけ効かせる。
      ゴシップは all から別に作るため、期間で絞ってもオフコートは消えない */
-  var feedList=all.filter(function(n){return (state.level==="all"||n.s===state.level)&&inPeriod(articleDayNumber(n))&&(!feedFavOnly||(n.teams||[]).some(function(t){return !!favorites[t];}))&&(!fqToks.length||feedMatchesTokens(feedArticleHaystack(n),fqToks));});
+  var feedList=all.filter(function(n){return (state.level==="all"||n.s===state.level)&&inPeriod(articleDayNumber(n))&&(!feedFavOnly||(n.teams||[]).some(function(t){return !!favorites[t];}))&&(!feedSavedOnly||!!savedSet[n.id])&&(!fqToks.length||feedMatchesTokens(feedArticleHaystack(n),fqToks));});
   /* 表示順どおりに「記事HTML＋記事id」をフラットな項目列へ組み立てる。
      RSSで取得できた新着は、仮分類チップ付きでフィード先頭へ「新着（仮分類）」として出す。
      仮分類なので TOPニュースには入れない（TOPは確定分類の掲載記事だけ）。
@@ -5188,7 +5256,8 @@ function renderFeed(){
      番号と常に一致させるため、項目列の組み立てより前に空にする） */
   feedSheetItems=[];
   var rssHeadSeg=null;
-  if(typeof liveFeedItems!=="undefined"&&liveFeedItems.length&&state.type==="all"){
+  /* 保存フィルター中は RSS新着（保存対象ではない）を出さない */
+  if(typeof liveFeedItems!=="undefined"&&liveFeedItems.length&&state.type==="all"&&!feedSavedOnly){
     /* 描画時点でも掲載済みURL・見出しと一致する生RSSは落とす（取得の到着順に
        依存せず、英語タイトルの二重表示を最終段階で防ぐ）。あわせて日本語表示
        では英語原文の生RSS自体を出さない（FEEDの言語回帰の修理） */
@@ -5305,9 +5374,14 @@ function renderFeed(){
       provList.forEach(function(n){fcSegs.push({key:"a:"+n.id,html:feedBubbleHTML(n),id:n.id});});
     }
   }
-  /* 検索中はヒット0件でも空状態の文言を出す（ゴシップだけ残る表示にしない） */
-  if(!fcSegs.length&&!(gList.length&&!fqToks.length)){
-    fcSegs.push({key:"__empty",html:emptyHTML(L().feedEmpty,L().feedEmptySub)});
+  /* 検索中はヒット0件でも空状態の文言を出す（ゴシップだけ残る表示にしない）。
+     保存フィルター中で保存が0件の時は、専用の空表示を出す */
+  if(!fcSegs.length){
+    if(feedSavedOnly&&!Object.keys(savedSet).length){
+      fcSegs.push({key:"__empty",html:emptyHTML(L().savedEmpty,"")});
+    }else if(!(gList.length&&!fqToks.length)){
+      fcSegs.push({key:"__empty",html:emptyHTML(L().feedEmpty,L().feedEmptySub)});
+    }
   }
   var fcChanged=reconcileList(fc,fcSegs);
   if(hasMore){
@@ -5319,8 +5393,10 @@ function renderFeed(){
     if(pfb&&!pfb._bound){pfb._bound=1;pfb.addEventListener("click",function(){provOpen=!provOpen;renderFeed();});}
   }
   /* 通常記事が無くゴシップだけが残る絞り込みでは、空のフィードカードを出さず
-     ゴシップゾーンだけを見せる（仮分類の畳み行がある時はカードを残す） */
-  fc.style.display=(total===0&&!provList.length&&gList.length&&!fqToks.length)?"none":"";
+     ゴシップゾーンだけを見せる（仮分類の畳み行がある時はカードを残す）。
+     例外：保存フィルター中で保存が0件の時は、専用の空表示
+     （「保存した記事はまだありません」）を出すためカードを残す */
+  fc.style.display=(total===0&&!provList.length&&gList.length&&!fqToks.length&&!(feedSavedOnly&&!Object.keys(savedSet).length))?"none":"";
   if(feedSwapArmed){
     feedSwapArmed=false;
     /* 切り替えフィードバックは実際に差し替わったコンテナにだけ出す
@@ -5564,6 +5640,20 @@ if(favOnlyBtn){
     renderFeed();
   });
 }
+/* 保存フィルターのトグル（分類チップと同じ常時表示の行）：押すたびに
+   ON／OFF を切り替え、選択中は他のチップと同じ塗り＋しおりの塗りで
+   状態を示す。状態は保存しない（開くたびに OFF から始める） */
+var savedOnlyBtn=document.getElementById("savedOnlyBtn");
+if(savedOnlyBtn){
+  savedOnlyBtn.addEventListener("click",function(){
+    feedSavedOnly=!feedSavedOnly;
+    savedOnlyBtn.classList.toggle("active",feedSavedOnly);
+    savedOnlyBtn.setAttribute("aria-pressed",feedSavedOnly?"true":"false");
+    feedShown=FEED_PAGE;
+    feedSwapArmed=true;
+    renderFeed();
+  });
+}
 /* 絞り込みチップ（ジャンル別ニュース）：種類・期間・お気に入り・検索は普段は
    畳み、見出し行の「絞り込み」チップで開閉する。分類フィルターだけはアプリの
    核の絞り込みとして常時表示する。開閉状態は保存しない（開くたびに閉じた
@@ -5621,7 +5711,7 @@ if(settingsToggleBtn){
    背景色・入室音）を1つのコードにして手渡しできるようにする。
    コードの中身は保存形式 nbaHubV1Prefs と同じ形のJSONを Base64 化したもの */
 function prefsSnapshot(){
-  return {fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet),readMark:readMark};
+  return {fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet),readMark:readMark,saved:Object.keys(savedSet)};
 }
 function encodePrefsCode(){
   return "NBABEAT1."+btoa(unescape(encodeURIComponent(JSON.stringify(prefsSnapshot()))));
@@ -5679,6 +5769,7 @@ if(prefsApplyBtn)prefsApplyBtn.addEventListener("click",function(){
   /* 保存し直した設定を、そのまま起動時と同じ手順で読み直して反映する */
   readSet={};
   readMark={};
+  savedSet={};
   loadPrefs();
   state.cat="all";
   applyTheme(themeMode);
@@ -6665,8 +6756,12 @@ function ghConvertArticle(a,idx){
      詳細シートの要約欄（roomSummary 経由）は body を読むため、これでフィード記事も
      要約が表示される。無い場合は従来どおり空で、シート側は要約ブロックを出さない。
      ルームの吹き出しには要約を出さない（v30の決定どおり見出しのみ）。
-     body は表示時に roomSummary が escapeHtml するため、生テキストのまま保持する */
+     body は表示時に roomSummary が escapeHtml するため、生テキストのまま保持する。
+     英語要約（summaryEn）は EN 版コピーの body にだけ入れる：英語モードの
+     シートで日本語の要約を混ぜないため、summaryEn が無い記事の EN 版 body は
+     空にし、シート側で要約欄自体を出さない（日本語モードは従来どおり） */
   var summary=(typeof a.summary==="string")?a.summary.trim():"";
+  var summaryEn=(typeof a.summaryEn==="string")?a.summaryEn.trim():"";
   var base={
     id:String(a.id||("gh-"+dm[1]+dm[2]+dm[3]+"-"+idx)),
     cat:lv.cat,s:lv.s,teams:teams,type:type,
@@ -6694,7 +6789,7 @@ function ghConvertArticle(a,idx){
     ghGossip:a.level==="gossip"
   };
   var ja=Object.assign({},base,{date:mo+"/"+d+"（"+GH_WD_JA[wd]+"）"});
-  var en=Object.assign({},base,{date:GH_MO_EN[mo-1]+" "+d+" ("+GH_WD_EN[wd]+")",title:escapeHtml(headlineEn)});
+  var en=Object.assign({},base,{date:GH_MO_EN[mo-1]+" "+d+" ("+GH_WD_EN[wd]+")",title:escapeHtml(headlineEn),body:summaryEn});
   return {ja:ja,en:en,rawId:base.id,rawUrl:url,rawTitle:headline,color:lv.color,
           dateKey:y*10000+mo*100+d,mapLabel:mo+"月"+d+"日"};
 }
@@ -6790,11 +6885,16 @@ function applyRetractedIds(list){
    保持先の全配列（日英の通常記事＋ゴシップ専用）を対象に、id／URL／見出しの
    いずれかで一致する記事へ補完する。実際に補完したら true を返す */
 function ghSupplementExisting(c){
-  var body=String(c.ja.body||"").trim();
+  /* 要約の補完は言語別に行う：日本語コピーには日本語要約（summary）、
+     英語コピーには英語要約（summaryEn）だけを渡す。英語要約が無い時は
+     英語コピーへは何も補完しない（日本語の要約が英語モードのシートに
+     混ざるのを防ぐ。関連リンクは言語共通なので従来どおり補完する） */
+  var bodyJa=String(c.ja.body||"").trim();
+  var bodyEn=String(c.en.body||"").trim();
   var related=(Array.isArray(c.ja.related)&&c.ja.related.length)?c.ja.related:null;
-  if(!body&&!related)return false;
+  if(!bodyJa&&!bodyEn&&!related)return false;
   var changed=false;
-  function scan(list){
+  function scan(list,body){
     list.forEach(function(n){
       if(!n)return;
       var hit=(String(n.id||"")===c.rawId)
@@ -6805,7 +6905,8 @@ function ghSupplementExisting(c){
       if(related&&!(Array.isArray(n.related)&&n.related.length)){n.related=related;changed=true;}
     });
   }
-  scan(ARTICLES_JA); scan(ARTICLES_EN); scan(GH_GOSSIP_JA); scan(GH_GOSSIP_EN);
+  scan(ARTICLES_JA,bodyJa); scan(GH_GOSSIP_JA,bodyJa);
+  scan(ARTICLES_EN,bodyEn); scan(GH_GOSSIP_EN,bodyEn);
   return changed;
 }
 /* feed.json の記事を組み込み記事へ取り込む。実際に新規追加があった時だけ true を返す
