@@ -1093,9 +1093,51 @@ window.NBA_FEED = {
      "url": "https://netswire.usatoday.com/story/sports/nba/nets/2026/11/26/nets-mo-wagner-left-knee-out-for-fridays-nba-cup-game-at-raptors/92975563007/"
     }
    ]
+  },
+  {
+   "id": "gh-20261127-gossip-vassell-thanksgiving-dinner",
+   "level": "gossip",
+   "teams": [
+    "SAS"
+   ],
+   "headline": "デビン・バッセル、感謝祭に子ども約200人へ夕食と七面鳥券を贈る",
+   "headlineEn": "Devin Vassell treats about 200 kids to Thanksgiving dinner and turkey vouchers",
+   "date": "2026-11-26",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/nba/spurs/onsi/devin-vassell-raised-to-give-back-now-setting-example-san-antonio-spurs",
+   "genre": "ほのぼの",
+   "top": false
+  },
+  {
+   "id": "gh-20261127-gossip-doncic-thankful-message",
+   "level": "gossip",
+   "teams": [
+    "LAL"
+   ],
+   "headline": "ルカ・ドンチッチ、スパーズ戦前に一言「感謝」　感謝祭の投稿が話題に",
+   "headlineEn": "Luka Doncic posts one-word Thanksgiving message \"Thankful\" ahead of Spurs clash",
+   "date": "2026-11-26",
+   "sourceName": "Heavy",
+   "url": "https://heavy.com/sports/nba/los-angeles-lakers/luka-doncic-thankful-message-lakers-spurs/",
+   "genre": "ほのぼの",
+   "top": false
+  },
+  {
+   "id": "gh-20261127-gossip-maxey-lebron-dust-off",
+   "level": "gossip",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "タイリース・マクシー、レブロン・ジェームズに「疲れてる暇はない」　初トリプルダブルを後押し",
+   "headlineEn": "Tyrese Maxey to LeBron James: \"No time to be tired\" before his first 76ers triple-double",
+   "date": "2026-11-26",
+   "sourceName": "EssentiallySports",
+   "url": "https://www.essentiallysports.com/nba-active-basketball-news-dust-it-off-then-tyrese-maxey-challenges-lebron-james-as-historic-milestone-headlines-76ers-win-over-heat/",
+   "genre": "舞台裏",
+   "top": false
   }
  ],
- "updatedAt": "2026-11-27T17:06:20+09:00",
+ "updatedAt": "2026-11-27T17:57:37+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
