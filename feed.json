@@ -1,18 +1,44 @@
 {
  "articles": [
   {
-   "id": "gh-20261126-draymond-green-trade-amick",
-   "level": "rumor",
+   "id": "gh-20261127-gossip-kenny-smith-hand-checking",
+   "level": "gossip",
    "teams": [
-    "GSW"
+    "PHI"
    ],
-   "headline": "ウォリアーズ、ドレイモンド・グリーンのトレード話も排除せず",
-   "headlineEn": "Warriors not ruling out Draymond Green in trade talks",
+   "headline": "ケニー・スミス、レブロンの長寿は「ハンドチェック廃止のおかげ」　ファン猛反発",
+   "headlineEn": "Kenny Smith credits LeBron's longevity to end of hand-checking, fans hit back",
    "date": "2026-11-26",
-   "sourceName": "HoopsHype",
-   "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/26/warriors-not-ruling-out-including-draymond-green-in-trade-talks/92970051007/",
-   "reporter": "Sam Amick",
-   "category": "トレード",
+   "sourceName": "Pro Football Network",
+   "url": "https://www.profootballnetwork.com/nba/kenny-smith-lebron-james-hand-checking/",
+   "genre": "ドロドロ",
+   "top": false
+  },
+  {
+   "id": "gh-20261127-gossip-teague-sneakers-debate",
+   "level": "gossip",
+   "teams": [],
+   "headline": "ジェフ・ティーグ「最高のシューズはレブロンとMJ」　ファン「コービーこそ」と反論",
+   "headlineEn": "Jeff Teague calls LeBron and MJ shoes the best, fans say Kobe's are better",
+   "date": "2026-11-27",
+   "sourceName": "Sportskeeda",
+   "url": "https://www.sportskeeda.com/basketball/news-nobody-likes-lebron-s-shoe-lol-nba-world-disagrees-with-jeff-teague-his-podcast-crew-for-claiming-lebron-mj-shoes-are-best",
+   "genre": "キラキラ",
+   "top": false
+  },
+  {
+   "id": "gh-20261127-gossip-durant-brooks-warning",
+   "level": "gossip",
+   "teams": [
+    "HOU",
+    "PHX"
+   ],
+   "headline": "デュラント、ブルックスに警告「先に進むなら俺も準備はできている」",
+   "headlineEn": "Durant warns Brooks: 'If it goes further, I'll be ready for that too'",
+   "date": "2026-11-26",
+   "sourceName": "Sports Illustrated",
+   "url": "https://www.si.com/nba/rockets/onsi/kevin-durant-discusses-heated-confrontation-with-dillon-brooks-01m8c7sj79v0",
+   "genre": "ドロドロ",
    "top": false
   },
   {
@@ -28,7 +54,8 @@
    "sourceName": "Yahoo Sports",
    "url": "https://sports.yahoo.com/nba/articles/lights-luka-contagious-chemistry-lakers-110022468.html",
    "category": "分析",
-   "top": false
+   "top": false,
+   "provisional": true
   },
   {
    "id": "gh-20261127-martin-questionable-nets",
@@ -128,13 +155,7 @@
    "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html",
    "reporter": "Marc Stein",
    "category": "怪我",
-   "top": true,
-   "related": [
-    {
-     "label": "RealGM",
-     "url": "https://basketball.realgm.com/wiretap/288258/DeAaron-Fox-Dylan-Harper-Upgraded-To-Questionable-For-Fridays-Game-Against-Lakers"
-    }
-   ]
+   "top": true
   },
   {
    "id": "gh-20261127-pistons-trio-out-bucks",
@@ -274,10 +295,6 @@
     {
      "label": "RealGM",
      "url": "https://basketball.realgm.com/wiretap/288242/Raptors-Warriors-Hawks-Seen-As-Teams-To-Watch-If-Wizards-Make-Anthony-Davis-Available"
-    },
-    {
-     "label": "Basketball News",
-     "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-insider-reveals-worrying-news-to-washington-wizards-over-anthony-davis-trade/"
     }
    ]
   },
@@ -724,13 +741,7 @@
    "reporter": "Jake Fischer",
    "category": "トレード",
    "top": false,
-   "headlineEn": "Fischer: Brook Lopez an \"appealing target\" for Lakers",
-   "related": [
-    {
-     "label": "NBC Sports",
-     "url": "https://www.nbcsports.com/nba/news/nba-trade-rumors-2026-27-will-anthony-davis-get-traded-clippers-as-sellers"
-    }
-   ]
+   "headlineEn": "Fischer: Brook Lopez an \"appealing target\" for Lakers"
   },
   {
    "id": "gh-20261126-rss-embiid-out-heat-illness",
@@ -1195,44 +1206,12 @@
    "category": "分析",
    "top": false,
    "provisional": true
-  },
-  {
-   "id": "gh-20261127-gossip-shaq-avdija-hebrew",
-   "level": "gossip",
-   "teams": [
-    "POR"
-   ],
-   "headline": "シャック、アブディヤにヘブライ語で挨拶　バークリーも大絶賛",
-   "headlineEn": "Shaq greets Deni Avdija in Hebrew as Barkley raves about him",
-   "date": "2026-11-26",
-   "sourceName": "Ynetnews",
-   "url": "https://www.ynetnews.com/sport/article/hklnlprjmg",
-   "genre": "キラキラ",
-   "top": false
-  },
-  {
-   "id": "gh-20261124-mcconnell-recall-fix",
-   "level": "reported",
-   "teams": [
-    "IND"
-   ],
-   "headline": "マコネル、Gリーグから復帰",
-   "headlineEn": "McConnell recalled from the G League",
-   "date": "2026-11-24",
-   "sourceName": "RotoWire",
-   "url": "https://www.rotowire.com/basketball/headlines/tj-mcconnell-injury-recalled-to-nba-540855",
-   "reporter": "Shams Charania",
-   "category": "怪我",
-   "top": true
   }
  ],
- "updatedAt": "2026-11-27T23:20:00+09:00",
+ "updatedAt": "2026-11-27T23:58:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
-  "gh-20261126-gossip-stiller-brunson-pumpfake",
-  "mcconnell-recall",
-  "gh-20261125-gossip-kyrie-irving-shoes-fan",
-  "gh-20261125-gossip-draymond-bench-kerr"
+  "gh-20261126-gossip-stiller-brunson-pumpfake"
  ]
 }
