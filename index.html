@@ -2795,7 +2795,8 @@ var SOURCE_HIT_HISTORY=[
  {name:"Kevin O'Connor",kind:"analysis",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"},
  {name:"Bobby Marks",kind:"analysis",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"},
  {name:"Marc J. Spears",kind:"analysis",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-27"},
- {name:"John Gambadoro",kind:"local",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"}
+ {name:"John Gambadoro",kind:"local",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"},
+ {name:"Dave McMenamin",kind:"local",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-28"}
 ];
 /* 的中履歴から記者の種別を引く（自動分類の内部参照用。UIには出さない）。
    テキストに記者の姓・名が含まれれば、その記者の kind を返す */
@@ -2806,7 +2807,8 @@ var REPORTER_ALIASES=[
  ["scotto","Michael Scotto"],
  ["fischer","Jake Fischer"],
  ["windhorst","Brian Windhorst"],
- ["amick","Sam Amick"]
+ ["amick","Sam Amick"],
+ ["mcmenamin","Dave McMenamin"]
 ];
 function reporterKindInText(text){
   var found=null;
@@ -2880,6 +2882,7 @@ var LOCAL_DIRECTORY=[
  {abbr:"GSW",name:"Monte Poole",ini:"MP",handle:"MontePooleNBCS",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"NBC Sports Bay Area",outletEn:"NBC Sports Bay Area",descJa:"NBC Sports Bay AreaのWarriors番記者。",descEn:"Warriors beat writer at NBC Sports Bay Area."},
  {abbr:"HOU",name:"Varun Shankar",ini:"VS",handle:"ByVarunShankar",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Houston Chronicle",outletEn:"Houston Chronicle",descJa:"Houston ChronicleのRockets番記者。",descEn:"Rockets beat writer at the Houston Chronicle."},
  {abbr:"LAC",name:"Law Murray",ini:"LM",handle:"LawMurrayTheNU",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのClippers番記者。",descEn:"Clippers beat writer at The Athletic."},
+ {abbr:"LAL",name:"Dave McMenamin",ini:"DM",handle:"mcten",tagsJa:["番記者","全国担当"],tagsEn:["Beat writer","National"],outletJa:"ESPN",outletEn:"ESPN",descJa:"ESPNのLakers番記者。",descEn:"Lakers beat writer at ESPN."},
  {abbr:"LAL",name:"Dan Woike",ini:"DW",handle:"DanWoikeSports",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのLakers番記者。",descEn:"Lakers beat writer at The Athletic."},
  {abbr:"LAL",name:"Khobi Price",ini:"KP",handle:"khobi_price",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"California Post",outletEn:"California Post",descJa:"California PostのLakers番記者。",descEn:"Lakers beat writer at the California Post."},
  {abbr:"MEM",name:"Damichael Cole",ini:"DC",handle:"DamichaelC",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Commercial Appeal",outletEn:"The Commercial Appeal",descJa:"The Commercial AppealのGrizzlies番記者。",descEn:"Grizzlies beat writer at The Commercial Appeal."},
