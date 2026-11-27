@@ -1222,19 +1222,15 @@ body.room-open{overflow-x:clip}
 .insider b{font-size:var(--fs-headline);line-height:var(--lh-headline)}
 .insider p{margin:2px 0 0;font-size:var(--fs-sub);color:var(--muted);line-height:var(--lh-body)}
 
-/* 地元ライターのカードは記者一覧と完全に同じ様式に統一する（2026-11-26 TK指示）：
-   寸法・字サイズ・余白の地元側の上書きは置かず、.voice-reporter／.insider-head の
-   共通ルールだけで描く。チーム略称チップは見出し行に入れず（狭幅で名前・所属の
-   列を潰すため）、タグ行の先頭に小さい寸法で置く */
+/* 地元ライターのタグ行（ピッカー行／速報ソースのパネルで共用）：チーム略称
+   チップは見出し行に入れず（狭幅で名前・所属の列を潰すため）、タグ行の先頭に
+   小さい寸法で置く */
 .local-tags-row{display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap;margin-top:var(--sp-2)}
 .local-tags-row .field-tags{margin-top:0}
 .local-tags-row .local-abbr{width:32px;height:32px;font-size:var(--fs-chip);border-radius:var(--radius-s)}
-/* 記者一覧の小見出し（TK決定 2026-11-28）：全国組／地元ライターの区切り。
-   タブで隠さず1つのリストに全員出すための見出しで、区切り線の伸び方と
-   文字の開始位置は記者カード（.voice-reporter）に揃える */
-.rep-group-head{font-size:var(--fs-small);font-weight:700;color:var(--muted);letter-spacing:.04em;margin:var(--sp-5) -10px 0;padding:var(--sp-4) 10px 0;border-top:1px solid var(--line)}
-.rep-group-head:first-child{margin-top:0;padding-top:0;border-top:0}
-.rep-group-head + .voice-reporter{border-top:0;padding-top:var(--sp-2)}
+/* 速報ソースのパネル（記者リストで選んだ記者を表示）：タグ行の間隔は
+   記者カード（.voice-reporter）の縦リズム（8px）に揃える */
+#insiderPanel .field-tags{margin-top:var(--sp-2)}
 
 /* ポストカード */
 .posts-head{display:flex;align-items:baseline;gap:8px;margin:0 0 4px}
@@ -1630,7 +1626,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
      2) 大ブロックごとに地の色を白⇔薄グレーで交互に切り替える
         （TOP NEWS=グレー（既存）／TEAMS=白／チーム詳細=グレー／
           ジャンル別ニュース=白／オフコート=紙色（既存）／
-          速報ソース=グレー／記者一覧=白／地元ライター=グレー）
+          速報ソース=グレー）
      3) ブロック間の余白を広げ、切り替わりのリズムを作る
    ・色は既存パレット（--surface／--surface2／--line-strong）のみ使う。
      グラデーション・影・新しい色は使わない
@@ -1670,14 +1666,12 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   /* ジャンル別ニュース＝白：種類タブ帯も白地でつないで1つの塊にする */
   .cols>div:first-child .toolbar{background:var(--surface);margin-bottom:0;padding-top:var(--sp-3);padding-bottom:var(--sp-3)}
   #feedCard{background:var(--surface)}
-  /* 右カラム：速報ソース＝グレー／記者一覧＝白（既定のまま）／地元ライター＝グレー。
+  /* 右カラム：速報ソース＝グレー（記者一覧は 2026-11-28 に撤去し、
+     速報ソース欄はピッカー＋パネルのカード1枚だけになった）。
      グレー地のカードでは内側の空状態の面を白にして塊が読めるようにする */
-  .side-col>section.card:nth-of-type(1),
-  .side-col>section.card:nth-of-type(3){background:var(--surface2)}
+  .side-col>section.card:nth-of-type(1){background:var(--surface2)}
   .side-col>section.card:nth-of-type(1) .empty,
-  .side-col>section.card:nth-of-type(3) .empty,
-  .side-col>section.card:nth-of-type(1) .posts-empty,
-  .side-col>section.card:nth-of-type(3) .posts-empty{background:var(--surface)}
+  .side-col>section.card:nth-of-type(1) .posts-empty{background:var(--surface)}
 }
 @media(max-width:520px){
   .section-head{padding:var(--sp-4) var(--gutter) var(--sp-3)}
@@ -1862,7 +1856,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
    ・TOP NEWS＝顔：現状維持で最も格上。このブロックでは触らない
    ・TEAMS＝道具：見出し帯と中身の間隔を一段詰め、
      行の密度を上げて「道具」らしく実用的にする
-   ・速報ソース列（速報ソース／記者一覧／地元ライター）＝静かなパネル：
+   ・速報ソース列（速報ソース）＝静かなパネル：
      英字ラベルを一段小さくし、帯の余白と段間を詰めて一段静かにする
    【戻し方】このブロックを丸ごと削除すれば変更前に戻る
    ============================================================ */
@@ -2355,13 +2349,6 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
         <div id="insiderPanel" style="margin-top:16px"></div>
         <div id="insiderList"></div>
       </section>
-
-      <!-- 記者一覧（TK決定 2026-11-28）：全国組＋地元ライターをタブで隠さず
-           1つのリストに全員表示する（renderVoices が小見出し付きで描く） -->
-      <div class="section-head side-stack-head"><div><h2 data-i18n="reportersH">記者一覧</h2></div></div>
-      <section class="card">
-        <div id="reporterList"></div>
-      </section>
     </div>
   </div>
 
@@ -2439,10 +2426,9 @@ var UI={
   insH:"速報ソース",
   pickerBtn:"記者リスト", pickerNow:"表示中",
   embedFallback:"Xで開く",
-  reportersH:"記者一覧", repGroupNational:"全国組",
   opinionChip:"分析・意見", latestAnalysis:"最新の分析・コメント",
   rumorChip:"噂・未確認", latestRumor:"最新の噂・発信",
-  localH:"地元ライター", localSub:"地元メディアの見方。速報の一次ソースではありません。",
+  localSub:"地元メディアの見方。速報の一次ソースではありません。",
   localView:"地元の見方",
 
   disclaimer:"本サイトはNBAおよび各チームとは関係のない非公式ファンサイトです。",
@@ -2514,10 +2500,9 @@ var UI={
   insH:"Breaking Sources",
   pickerBtn:"Reporter list", pickerNow:"Showing",
   embedFallback:"Open on X",
-  reportersH:"Reporters", repGroupNational:"National",
   opinionChip:"Analysis / Opinion", latestAnalysis:"Latest analysis & commentary",
   rumorChip:"Rumor · Unconfirmed", latestRumor:"Latest rumors & posts",
-  localH:"Local Writers", localSub:"Views from local media — not primary breaking sources.",
+  localSub:"Views from local media — not primary breaking sources.",
   localView:"Local view",
 
   disclaimer:"This is an unofficial fan site, not affiliated with the NBA or its teams.",
@@ -2810,7 +2795,7 @@ var FEATURED_INSIDERS=[
  {key:"fischer",name:"Jake Fischer",ini:"JF",color:"#475569",handle:"JakeLFischer",tagsJa:["トレード市場"],tagsEn:["Trade market"],outletJa:"The Stein Line ／ Bleacher Report",outletEn:"The Stein Line / Bleacher Report",descJa:"The Stein Lineに週2回寄稿するNBAインサイダー。トレード市場の初報や噂の動向に強い。",descEn:"NBA insider contributing twice weekly to The Stein Line — strong on early trade-market reporting and how rumors develop.",detailJa:"2024年11月からThe Stein Lineに参加し、2026年9月に複数年契約を延長。Bleacher Reportの動画NBAインサイダー、SiriusXM NBA Radio「Deals and Dunks」にも出演。元Yahoo Sports／Sports Illustrated。",detailEn:"Joined The Stein Line in November 2024 and signed a multi-year extension in September 2026. Also a Bleacher Report video NBA insider and a host on SiriusXM NBA Radio's \"Deals and Dunks\". Previously Yahoo Sports and Sports Illustrated."}
 ];
 function featuredInsider(key){return FEATURED_INSIDERS.filter(function(f){return f.key===key;})[0]||FEATURED_INSIDERS[0];}
-/* ===== 分析系の記者（記者一覧に統合表示する。分析系の記事は速報フィード・TOP NEWSには入れない） ===== */
+/* ===== 分析系の記者（記者リスト（ピッカー）に含める。分析系の記事は速報フィード・TOP NEWSには入れない） ===== */
 var ANALYSIS_REPORTERS=[
  {name:"Ramona Shelburne",ini:"RS",color:"#0e7490",handle:"RamonaShelburne",tagsJa:["内情","深掘り"],tagsEn:["Behind the scenes","Deep dives"],outletJa:"ESPN シニアNBAライター",outletEn:"ESPN Senior NBA Writer",descJa:"ESPNのシニアNBAライター。調査報道とチーム内部の取材に強い。",descEn:"ESPN Senior NBA Writer — investigative reporting on teams and front offices."},
  {name:"Tim MacMahon",ini:"TM",color:"#334155",handle:"TimMacMahon",tagsJa:["チーム報道","分析"],tagsEn:["Team coverage","Analysis"],outletJa:"ESPN 記者",outletEn:"ESPN Reporter",descJa:"ESPNの記者。チーム取材と分析、特にマーベリックスに強い。",descEn:"ESPN reporter — team coverage and analysis, especially the Mavericks."},
@@ -2885,7 +2870,7 @@ function teamColorMap(){
    クリーンなイラスト調アイコンを使う（ピクセルアートは廃止）。
    チーム＝チームカラーを下地に「チーム名のモチーフ」を描いたオリジナルアイコンを
    円バッジの中に表示（略称は上に重ねて視認性を維持）。記者＝ジャンル別イラストで、
-   速報パネルのインサイダーは人影バストアップ（people-insider-*）、記者一覧は記者キャラ
+   速報5人は人影バストアップ（people-insider-*）、それ以外の記者は記者キャラ
    （people-reporter-*）。イニシャル表示は廃止。画像が読めない場合は onerror で img を
    外し、従来の単色円に戻る ===== */
 var REPORTER_GENRE={ShamsCharania:"breaking",ChrisBHaynes:"breaking",MikeAScotto:"breaking",TheSteinLine:"market",JakeLFischer:"market",WindhorstESPN:"rumor",sam_amick:"rumor",RamonaShelburne:"analysis",TimMacMahon:"analysis",KevinOConnor:"analysis",BobbyMarks42:"salary",KeithSmithNBA:"salary",MarcJSpears:"analysis"};
@@ -2906,27 +2891,7 @@ function localAbbrHTML(r,color){
   if(!r.abbr)return "";
   return '<span class="local-abbr" style="background:'+color+'"><img src="assets/icons/team-'+r.abbr.toLowerCase()+'.png" alt="" loading="lazy" onerror="this.remove()"><span class="abbr-tx">'+r.abbr+'</span></span>';
 }
-/* 地元ライターのカード：記者一覧（unifiedReporterHTML）と完全に同じ構成にする。
-   見出し行は「アバター／名前／Xリンク」の3要素だけ。所属・@ハンドルは
-   見出し行の下段にカード幅いっぱいで流す（中列に入れるとXリンクに幅を
-   取られて狭い列で割れる）。チーム略称チップはタグ行の先頭に小さく置く。
-   その下にタグ行、紹介文の順。ポストカードは 2026-11-28 に全廃した */
-function localReporterCardHTML(r,colorMap){
-  var en=state.lang==="en";
-  var color=localCardColor(r,colorMap);
-  var sub=((en?r.outletEn:r.outletJa)?(en?r.outletEn:r.outletJa)+" · ":"")+"@"+r.handle;
-  var abbr=localAbbrHTML(r,color);
-  var tags=reporterTagsHTML(r);
-  var metaRow=(abbr||tags)?'<div class="local-tags-row">'+abbr+tags+'</div>':"";
-  return '<div class="voice-reporter" id="rep-'+r.handle+'">'
-    +'<div class="insider-head">'+avatarIconHTML(r,"reporter",color)+'<div><b>'+r.name+'</b></div>'
-    +'<a class="insider-x-link" href="https://x.com/'+r.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
-    +'<p class="insider-sub">'+sub+'</p>'
-    +metaRow
-    +'<p class="sub phrase" style="margin:8px 0 0">'+phraseHTML(en?r.descEn:r.descJa)+'</p>'
-    +'</div>';
-}
-/* ===== 地元ライターの並び（TK決定 2026-11-28：記者一覧に統合） =====
+/* ===== 地元ライターの並び（TK決定 2026-11-28：記者リスト（ピッカー）に統合） =====
    LOCAL_DIRECTORY は30チームマップと同じチーム順（EAST→WEST）で並んでいる。
    常時表示組（LOCAL_REPORTERS＝Gambadoro／PHX）は、同じチームの先頭に
    割り込ませてチーム順を保つ */
@@ -2939,44 +2904,25 @@ function localReportersInTeamOrder(){
   });
   return arr;
 }
-/* ===== 噂系の記者（記者一覧に統合表示する。速報の一次ソースにはしない。発信は「噂」として扱い、公式発表か信頼できるインサイダーの裏付けがあるまで未確認。速報タブ・TOP NEWSには入れない） ===== */
+/* ===== 噂系の記者（記者リスト（ピッカー）に含める。速報の一次ソースにはしない。発信は「噂」として扱い、公式発表か信頼できるインサイダーの裏付けがあるまで未確認。速報タブ・TOP NEWSには入れない） ===== */
 var RUMOR_REPORTERS=[
  {name:"Brian Windhorst",ini:"BW",color:"#1d4ed8",handle:"WindhorstESPN",tagsJa:["トレード市場","リーグ動向"],tagsEn:["Trade market","League trends"],outletJa:"ESPN",outletEn:"ESPN",descJa:"ESPNのNBA記者。トレード市場の空気を読む発信が多い。",descEn:"ESPN NBA reporter — known for reading the trade market."},
  {name:"Sam Amick",ini:"SA",color:"#0369a1",handle:"sam_amick",tagsJa:["チーム内情","トレード"],tagsEn:["Team intel","Trades"],outletJa:"The Athletic シニアNBAライター",outletEn:"The Athletic Senior NBA Writer",descJa:"The AthleticのシニアNBAライター。",descEn:"Senior NBA writer at The Athletic."}
 ];
 /* ポストカード生成（voicePostHTML／rumorPostHTML）は TK決定 2026-11-28 で全廃。
    記者カードは名前・タグ・紹介・Xプロフィールリンクだけにする */
-/* ===== 記者一覧：枠分け（分析・背景／噂系）はやめ、全記者を1つの一覧にまとめる =====
-   各カードに得意分野のタグを小さく複数付ける（タグは目安表示で、人を区切らない）。
+/* ===== 全国組の記者（記者リスト（ピッカー）の選択肢）：枠分け（分析・背景／
+   噂系）はやめ、全記者を1つの並びにまとめる =====
+   各記者に得意分野のタグを小さく複数付ける（タグは目安表示で、人を区切らない）。
    並びは速報タブの5人 → 噂系 → 分析系。ポストカードは 2026-11-28 に全廃し、
-   カードは名前・タグ・紹介・Xプロフィールリンクだけにする */
+   パネルは名前・タグ・紹介・Xプロフィールリンクだけにする。
+   全員リスト（記者一覧）は TK決定 2026-11-28 で撤去し、記者リスト（ピッカー）に
+   一本化した：ピッカーで選んだ記者は速報ソースのパネルに表示する */
 var ALL_REPORTERS=FEATURED_INSIDERS.concat(RUMOR_REPORTERS,ANALYSIS_REPORTERS);
 function reporterTagsHTML(r){
   var tags=(state.lang==="en"?r.tagsEn:r.tagsJa)||[];
   if(!tags.length)return "";
   return '<div class="field-tags">'+tags.map(function(t){return '<span class="field-tag">'+t+'</span>';}).join("")+'</div>';
-}
-function unifiedReporterHTML(r){
-  var en=state.lang==="en";
-  var sub=((en?r.outletEn:r.outletJa)?(en?r.outletEn:r.outletJa)+" · ":"")+"@"+r.handle;
-  return '<div class="voice-reporter" id="rep-'+r.handle+'">'
-    +'<div class="insider-head">'+avatarIconHTML(r,"reporter",r.color)+'<div><b>'+r.name+'</b></div><a class="insider-x-link" href="https://x.com/'+r.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
-    +'<p class="insider-sub">'+sub+'</p>'
-    +reporterTagsHTML(r)
-    +'<p class="sub phrase" style="margin:8px 0 0">'+phraseHTML(en?r.descEn:r.descJa)+'</p>'
-    +'</div>';
-}
-/* ===== 記者一覧の描画（TK決定 2026-11-28：全員を1つのリストに常時表示） =====
-   全国組 → 地元ライター（チーム順）の順に、小見出しの区切りを挟んで
-   同じ #reporterList に全員を出す。タブや開閉ボタンでは隠さない */
-function renderVoices(){
-  var list=document.getElementById("reporterList");
-  if(!list)return;
-  var colorMap=teamColorMap();
-  list.innerHTML='<div class="rep-group-head">'+L().repGroupNational+'</div>'
-    +ALL_REPORTERS.map(unifiedReporterHTML).join("")
-    +'<div class="rep-group-head">'+L().localH+'</div>'
-    +localReportersInTeamOrder().map(function(r){return localReporterCardHTML(r,colorMap);}).join("");
 }
 var favorites={LAL:true,GSW:true,BOS:true};
 var state={teamTab:"all",q:"",type:"all",level:"all",period:"all",cat:"all",selected:"GSW",lang:"ja",insider:"shams"};
@@ -5395,19 +5341,42 @@ function renderInsiders(){
    パネルは選択中の記者の名前・媒体・紹介とXプロフィールへのリンクだけを示す。
    本物の投稿は、記者ヘッダーの「Xで開く」リンクから記者のXプロフィールへ
    飛んで読む（X公式埋め込みは 2026-11-26 に廃止し、プロフィールリンクに一本化済み） */
-/* 選択中のインサイダーのパネル：名前・媒体・紹介のみ（ポストカードは置かない）。
-   Xへの導線はヘッダーの「Xで開く」（記者のプロフィール）リンクに一本化する */
+/* 記者リスト（ピッカー）で選択中の記者。null の間は速報5人の選択
+   （state.insider）をパネルに出す。記者一覧の撤去（TK決定 2026-11-28）に
+   伴い、全国組・地元ライターの別を問わず、選んだ記者は全員このパネルに
+   名前・媒体・紹介・タグ・Xプロフィールリンクを表示する */
+var selectedReporter=null;
+function panelReporter(){
+  return selectedReporter||featuredInsider(state.insider);
+}
+function findReporterByHandle(handle){
+  var all=ALL_REPORTERS.concat(localReportersInTeamOrder());
+  for(var i=0;i<all.length;i++){if(all[i].handle===handle)return all[i];}
+  return null;
+}
+/* 選択中の記者のパネル：名前・媒体・紹介・タグのみ（ポストカードは置かない）。
+   Xへの導線はヘッダーの「Xで開く」（記者のプロフィール）リンクに一本化する。
+   地元ライターはチーム略称チップをタグ行の先頭に置く */
 function renderInsiderPanel(){
   var panel=document.getElementById("insiderPanel");
   if(!panel)return;
-  var f=featuredInsider(state.insider);
+  var f=panelReporter();
   var en=state.lang==="en";
   var outlet=en?f.outletEn:f.outletJa;
   var desc=en?f.descEn:f.descJa;
   var sub=(outlet?outlet+" · ":"")+"@"+f.handle;
+  var isLocal=!!f.abbr;
+  var color=isLocal?localCardColor(f,teamColorMap()):f.color;
+  var tags=reporterTagsHTML(f);
+  var metaRow=tags;
+  if(isLocal){
+    var abbr=localAbbrHTML(f,color);
+    metaRow=(abbr||tags)?'<div class="local-tags-row">'+abbr+tags+'</div>':"";
+  }
   var panelChanged=setHTMLQuiet(panel,
-    '<div class="insider-head">'+avatarIconHTML(f,"insider",f.color)+'<div><b>'+f.name+'</b></div><a class="insider-x-link" href="https://x.com/'+f.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
+    '<div class="insider-head">'+avatarIconHTML(f,f.key?"insider":"reporter",color)+'<div><b>'+f.name+'</b></div><a class="insider-x-link" href="https://x.com/'+f.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
     +'<p class="insider-sub">'+sub+'</p>'
+    +metaRow
     +'<p class="sub phrase" style="margin:8px 0 0">'+phraseHTML(desc)+'</p>');
   /* 記者切替のフィードバック（第4弾）：パネルが実際に差し替わった時だけ出す */
   if(panelChanged)swapIn(panel);
@@ -5424,7 +5393,7 @@ function applyLang(lang){
   document.querySelectorAll("[data-i18n-aria]").forEach(function(el){var k=el.getAttribute("data-i18n-aria"); if(L()[k]!=null)el.setAttribute("aria-label",L()[k]);});
   /* 属性側の文言（背景スウォッチの title／aria-label）も言語に追随させる */
   document.querySelectorAll("[data-i18n-title]").forEach(function(el){var k=el.getAttribute("data-i18n-title"); if(L()[k]!=null){el.setAttribute("title",L()[k]); el.setAttribute("aria-label",L()[k]);}});
-  renderGrid(); renderDigest(); renderPastTop(); renderEditorColumn(); renderFeed(); renderInsiders(); renderInsiderPanel(); renderInsiderPicker(); renderVoices(); selectTeam(state.selected,false);
+  renderGrid(); renderDigest(); renderPastTop(); renderEditorColumn(); renderFeed(); renderInsiders(); renderInsiderPanel(); renderInsiderPicker(); selectTeam(state.selected,false);
   if(typeof renderLastUpdated==="function")renderLastUpdated();
   if(typeof syncRefreshBtnLabel==="function")syncRefreshBtnLabel();
   if(typeof updateToolbarFades==="function")updateToolbarFades();
@@ -5808,9 +5777,9 @@ window.addEventListener("scroll",syncMastheadShrink,{passive:true});
 syncMastheadShrink();
 /* ===== v65：記者ピッカー（全員） =====
    「記者リスト」ボタンで開閉する（初期状態は閉）。
-   行は名前・所属・@ハンドル・得意分野タグ。速報5人を選ぶとパネル表示を切り替え、
-   それ以外の記者（地元ライター含む）は記者一覧の本人のカード（id="rep-<handle>"）へ
-   スクロールして一瞬ハイライトする */
+   行は名前・所属・@ハンドル・得意分野タグ。選んだ記者は全国組・地元ライターの
+   別を問わず速報ソースのパネル表示を切り替える（記者一覧は TK決定 2026-11-28 で
+   撤去し、このピッカー＋パネルに一本化した） */
 var insiderPickerOpen=false;
 function renderInsiderPicker(){
   var box=document.getElementById("insiderPickerList");
@@ -5821,7 +5790,7 @@ function renderInsiderPicker(){
     var tags=(en?r.tagsEn:r.tagsJa)||[];
     var outlet=en?r.outletEn:r.outletJa;
     var sub=(outlet?outlet+" · ":"")+"@"+r.handle;
-    var now=!!r.key&&r.key===state.insider;
+    var now=r.handle===panelReporter().handle;
     var color=r.abbr?localCardColor(r,colorMap):r.color;
     return '<button type="button" class="picker-row" data-handle="'+r.handle+'">'
       +avatarIconHTML(r,r.key?"insider":"reporter",color)
@@ -5844,22 +5813,14 @@ function setInsiderPicker(open){
 }
 function pickReporter(handle){
   setInsiderPicker(false);
-  var f=FEATURED_INSIDERS.filter(function(x){return x.handle===handle;})[0];
-  if(f){
-    state.insider=f.key;
-    renderInsiderPanel();
-    renderInsiderPicker();
-    return;
-  }
-  var el=document.getElementById("rep-"+handle);
-  if(!el)return;
-  /* 記者一覧は全員常時表示なので、そのまま本人のカードへスクロールする */
-  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  el.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
-  el.classList.remove("flash");
-  void el.offsetWidth;
-  el.classList.add("flash");
-  setTimeout(function(){el.classList.remove("flash");},1900);
+  var r=findReporterByHandle(handle);
+  if(!r)return;
+  /* 速報5人は従来どおり state.insider も切り替え、それ以外の記者（全国組・
+     地元ライター）も含め、選んだ記者をそのままパネルに表示する */
+  if(r.key)state.insider=r.key;
+  selectedReporter=r;
+  renderInsiderPanel();
+  renderInsiderPicker();
 }
 document.getElementById("insiderPickerBtn").addEventListener("click",function(){setInsiderPicker(!insiderPickerOpen);});
 document.getElementById("insiderPickerList").addEventListener("click",function(e){
