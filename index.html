@@ -3174,13 +3174,94 @@ function ampmFromHM(s){
 function ampmFromDate(d){
   return (d&&!isNaN(d.getTime()))?ampmLabel(d.getHours(),d.getMinutes()):"";
 }
+/* ===== 日時のタイムゾーン表示（TK決定 2026-11-28）=====
+   記事が公開日時のタイムスタンプ ts（ISO 8601・オフセット付き）を持つ場合、
+   日付・時刻の表示は言語モードで切り替える：日本語＝Asia/Tokyo で表示
+   （従来の date／time 表示と一致する）、英語＝閲覧者の端末のローカル
+   タイムゾーンで表示する。日付が関わる表示はすべて変換後の表示日付を
+   基準にする：トークルームの日付区切りピルと並び、TOP NEWS の日付・
+   並び順、ニュースアーカイブと検索のカード日付、記事詳細シートの
+   日付行、NEW マーカー（表示タイムゾーンでの「今日」）。
+   ts を持たない記事は従来どおり date／time（JST）をそのまま表示する。
+   RSS新着は pubDate から正確な日時が分かるため、ts 相当として同じ
+   変換表示の対象にする（下の dispParts 経由で各表示が変換する）。
+   タイムゾーン名・UTCオフセットは表示しない（日付と時刻だけを変換する） */
+/* Date を表示タイムゾーン（日本語＝Asia/Tokyo／英語＝端末ローカル）の
+   日時部品 {y,mo,d,hh,mm}（hh は 0〜23）に分解する */
+function dispParts(d){
+  if(!d||isNaN(d.getTime()))return null;
+  if(state.lang==="en"){
+    return {y:d.getFullYear(),mo:d.getMonth()+1,d:d.getDate(),hh:d.getHours(),mm:d.getMinutes()};
+  }
+  try{
+    var f=dispParts._f;
+    if(!f)f=dispParts._f=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Tokyo",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric",hourCycle:"h23"});
+    var mp={},ps=f.formatToParts(d);
+    for(var i=0;i<ps.length;i++)mp[ps[i].type]=ps[i].value;
+    return {y:+mp.year,mo:+mp.month,d:+mp.day,hh:(+mp.hour)%24,mm:+mp.minute};
+  }catch(e){
+    var j=new Date(d.getTime()+9*60*60*1000);
+    return {y:j.getUTCFullYear(),mo:j.getUTCMonth()+1,d:j.getUTCDate(),hh:j.getUTCHours(),mm:j.getUTCMinutes()};
+  }
+}
+/* 表示タイムゾーンでの「今日」の日時部品 */
+function dispTodayParts(){return dispParts(new Date());}
+/* 記事の ts を Date にする（無い・パースできない時は null） */
+function articleTsDate(n){
+  if(!n||typeof n.ts!=="string"||!n.ts)return null;
+  var d=new Date(n.ts);
+  return isNaN(d.getTime())?null:d;
+}
+var TS_TIME_RE=/^([01]\d|2[0-3]):([0-5]\d)$/;
+/* 記事の表示用の日時部品：ts があれば表示タイムゾーンへ変換した
+   {y,mo,d,hh,mm,hasTime} を返し、無ければ従来の ord 日付＋ time
+   （JST）の部品を返す。time が無い記事は hasTime:false で時刻なし */
+function articleDispParts(n){
+  var td=articleTsDate(n);
+  if(td){var p=dispParts(td); if(p)return {y:p.y,mo:p.mo,d:p.d,hh:p.hh,mm:p.mm,hasTime:true};}
+  var q=articleDayParts(n);
+  var r={y:q.y,mo:q.mo,d:q.d,hh:0,mm:0,hasTime:false};
+  if(typeof n.time==="string"){var m=TS_TIME_RE.exec(n.time); if(m){r.hh=+m[1];r.mm=+m[2];r.hasTime=true;}}
+  return r;
+}
+/* 表示日付の比較キー（yyyymmdd） */
+function articleDispDayKey(n){
+  var p=articleDispParts(n);
+  return p.y*10000+p.mo*100+p.d;
+}
+/* ts が無い記事の並び比較用の時刻（epoch ms）：JST の date＋time から
+   求める（time が無い記事はその日の 0時＋ ord の小数部で同日内の
+   細かい順を補う） */
+function articleJstEpoch(n){
+  var p=articleDayParts(n);
+  var hh=0,mm=0;
+  if(typeof n.time==="string"){var m=TS_TIME_RE.exec(n.time); if(m){hh=+m[1];mm=+m[2];}}
+  var ord=(typeof n.ord==="number"&&isFinite(n.ord))?n.ord:0;
+  return Date.UTC(p.y,p.mo-1,p.d,hh,mm)-9*60*60*1000+(ord-Math.floor(ord))*60000;
+}
+/* 新しい順の比較（フィード／過去のTOP NEWS／ゴシップの並びで共用）：
+   ts を持つ記事は ts の時刻順を優先し、ts が無い記事同士は従来どおり
+   ord（date／time 由来）で比較する */
+function cmpArticleNewFirst(a,b){
+  var ta=articleTsDate(a),tb=articleTsDate(b);
+  if(ta||tb){
+    var ea=ta?ta.getTime():articleJstEpoch(a);
+    var eb=tb?tb.getTime():articleJstEpoch(b);
+    if(ea!==eb)return eb-ea;
+  }
+  return b.ord-a.ord;
+}
+/* 24時間表記の "HH:MM"（ゼロ埋め） */
+function hhmm24(hh,mm){return (hh<10?"0":"")+hh+":"+(mm<10?"0":"")+mm;}
 /* トーク一覧の時刻ラベル（LINEの規則）：今日＝時刻（午前/午後＋h:mm。
    時刻データが無い記事は日付で出す）、昨日＝「昨日」、1週間以内＝曜日、
    それ以前＝日付（M/D） */
 function lineListTimeLabel(y,mo,d,timeStr){
   if(!(mo>=1&&mo<=12&&d>=1&&d<=31))return "";
-  var now=new Date();
-  var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  /* 「今日／昨日」の基準日は表示タイムゾーン（日本語＝JST／英語＝端末
+     ローカル）で取る。渡される y/mo/d は表示日付側の値にそろえてある */
+  var tp=dispTodayParts()||{y:2026,mo:1,d:1};
+  var today=new Date(tp.y,tp.mo-1,tp.d);
   var that=new Date(y,mo-1,d);
   var diff=Math.round((today.getTime()-that.getTime())/86400000);
   if(diff===0){
@@ -3198,22 +3279,24 @@ function teamLatestInfo(t){
   var arts=teamArticles(t[0]);
   var latest=null,latestKey=-1,latestMin=-1;
   arts.forEach(function(n){
-    var f=Math.floor(n.ord);
-    var k=(2026+Math.floor(f/10000))*10000+(f%10000);
+    /* 日付・時刻は表示用の部品（ts があれば表示タイムゾーンへ変換済み、
+       無ければ従来の ord／time）で比べる */
+    var p=articleDispParts(n);
+    var k=p.y*10000+p.mo*100+p.d;
     /* 同日で両方に時刻がある場合は、ord の細かい順ではなく実際の時刻が新しい方を最新とする */
-    var mins=-1;
-    if(n.time){var tm=String(n.time).match(/^(\d{2}):(\d{2})$/); if(tm)mins=(+tm[1])*60+(+tm[2]);}
+    var mins=p.hasTime?(p.hh*60+p.mm):-1;
     if(!latest||k>latestKey||(k===latestKey&&(mins>latestMin||(mins===latestMin&&n.ord>latest.ord)))){
       latest=n; latestKey=k; latestMin=mins;
     }
   });
   var staticKey=ghMapDateKey(t[7]);
   var artKey=0,mo=0,d=0,year=2026;
+  var latestDisp=null;
   if(latest){
-    var f=Math.floor(latest.ord);
-    year=2026+Math.floor(f/10000);
-    mo=Math.floor(f/100)%100; d=f%100;
-    artKey=year*10000+(f%10000);
+    /* 最新記事の日付も表示用の部品（ts があれば変換後の表示日付）で取る */
+    latestDisp=articleDispParts(latest);
+    year=latestDisp.y; mo=latestDisp.mo; d=latestDisp.d;
+    artKey=year*10000+mo*100+d;
   }
   var key=Math.max(artKey,staticKey);
   if(!key)return null;
@@ -3222,7 +3305,9 @@ function teamLatestInfo(t){
      静的ラベルが月までしか無いチームは従来のラベル表記に落とす */
   var timeLabel;
   if(latest&&artKey>=staticKey){
-    timeLabel=lineListTimeLabel(year,mo,d,latest.time);
+    /* 時刻ラベルも表示用の時刻（ts があれば変換後、無ければ従来の time） */
+    var ltStr=latestDisp.hasTime?hhmm24(latestDisp.hh,latestDisp.mm):null;
+    timeLabel=lineListTimeLabel(year,mo,d,ltStr);
   }else{
     var sd=staticKey%100;
     timeLabel=(staticKey&&sd>=1)?lineListTimeLabel(Math.floor(staticKey/10000),Math.floor(staticKey/100)%100,sd,null):lastLabel(t[7]);
@@ -3664,6 +3749,12 @@ function rssAvatarHTML(item){
   return '<span class="fb-avatar fb-avatar-initial" aria-hidden="true">'+escapeHtml(initial)+'</span>';
 }
 function feedTimeLabel(n){
+  /* ts を持つ記事は、表示タイムゾーンへ変換した日付＋時刻で出す
+     （時刻の表記自体は従来どおり：午前/午後・AM/PM は ampmLabel 側） */
+  if(articleTsDate(n)){
+    var p=articleDispParts(n);
+    return fullDate(n)+" "+ampmLabel(p.hh,p.mm);
+  }
   var d=fullDate(n);
   if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))return d+" "+ampmFromHM(n.time);
   return d;
@@ -3678,10 +3769,12 @@ function isTodayYMD(y,mo,dy){
 }
 function articleIsToday(n){
   if(!n||typeof n.ord!=="number"||!isFinite(n.ord))return false;
-  var o=Math.floor(n.ord);
-  var y=2026+Math.floor(o/10000),mo=Math.floor(o/100)%100,dy=o%100;
-  if(mo<1||mo>12||dy<1||dy>31)return false;
-  return isTodayYMD(y,mo,dy);
+  /* NEW 判定は表示日付（ts があれば変換後、無ければ従来の ord 日付）と
+     表示タイムゾーンでの「今日」の一致で決める */
+  var p=articleDispParts(n);
+  if(p.mo<1||p.mo>12||p.d<1||p.d>31)return false;
+  var t=dispTodayParts();
+  return !!t&&t.y===p.y&&t.mo===p.mo&&t.d===p.d;
 }
 function newDotHTML(fresh){
   return fresh?'<span class="new-tag">NEW</span>':"";
@@ -3689,7 +3782,10 @@ function newDotHTML(fresh){
 function articleNewDotHTML(n){return newDotHTML(articleIsToday(n));}
 function rssNewDotHTML(item){
   var d=(item&&item.pubDate&&!isNaN(item.pubDate.getTime()))?item.pubDate:null;
-  return newDotHTML(!!d&&isTodayYMD(d.getFullYear(),d.getMonth()+1,d.getDate()));
+  if(!d)return newDotHTML(false);
+  /* RSS新着も ts 相当：pubDate を表示タイムゾーンへ変換した日付で判定する */
+  var p=dispParts(d),t=dispTodayParts();
+  return newDotHTML(!!p&&!!t&&p.y===t.y&&p.mo===t.mo&&p.d===t.d);
 }
 /* 吹き出し型カードのメタ行に出る出典リンクの表示名（articleSourceLinksHTML と
    同一ルールで名前だけを返す。送信者行との重複判定に使う） */
@@ -3773,9 +3869,9 @@ function bindShareDelegation(el){
    どちらから開かれたかを区別しない */
 var feedSheetItems=[];
 function feedSheetItemFor(n){
-  var p=articleDayParts(n);
-  var timeStr="";
-  if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))timeStr=ampmFromHM(n.time);
+  /* シートの日付行も表示用の部品（ts があれば変換後の表示日付・時刻）で作る */
+  var p=articleDispParts(n);
+  var timeStr=p.hasTime?ampmLabel(p.hh,p.mm):"";
   return {id:String(n.id||""),y:p.y,mo:p.mo,d:p.d,
     chip:cardChipHTML(n),title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
     detail:roomSummary(n.body,n.title,600),srcName:String(n.media||n.src||""),
@@ -3783,9 +3879,10 @@ function feedSheetItemFor(n){
 }
 function rssSheetItemFor(item){
   var dt=(item.pubDate&&!isNaN(item.pubDate.getTime()))?item.pubDate:null;
-  return {y:dt?dt.getFullYear():2026,mo:dt?(dt.getMonth()+1):1,d:dt?dt.getDate():1,
+  var p=dt?dispParts(dt):null;
+  return {y:p?p.y:2026,mo:p?p.mo:1,d:p?p.d:1,
     chip:provChipHTML(item)+(item.provType?'<span class="tag">'+escapeHtml(TYPE_LABEL[state.lang][item.provType]||item.provType)+'</span>':''),
-    title:rssTitleHTML(item),url:String(item.link||""),time:dt?ampmFromDate(dt):"",
+    title:rssTitleHTML(item),url:String(item.link||""),time:p?ampmLabel(p.hh,p.mm):"",
     detail:roomSummary(item.desc,item.title,600),srcName:rssSourceName(item),related:null};
 }
 /* ===== オフコートの記事詳細シート（2026-11-28）=====
@@ -3797,9 +3894,8 @@ function rssSheetItemFor(item){
    データ（body）にある時だけシート側で出る（従来どおり） */
 var gossipSheetItems=[];
 function gossipSheetItemFor(n){
-  var p=articleDayParts(n);
-  var timeStr="";
-  if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))timeStr=ampmFromHM(n.time);
+  var p=articleDispParts(n);
+  var timeStr=p.hasTime?ampmLabel(p.hh,p.mm):"";
   var gg=gossipGenreOf(n);
   return {id:String(n.id||""),y:p.y,mo:p.mo,d:p.d,
     chip:'<span class="cat-chip cat-gossip">'+CAT_LABEL[state.lang].gossip+'</span>',
@@ -3840,7 +3936,7 @@ function feedGossipBubbleHTML(n){
 }
 function newsHTML(list){
   if(!list||!list.length)return emptyHTML(L().noNews,L().noNewsSub);
-  return list.slice().sort(function(a,b){return b.ord-a.ord;}).map(articleHTML).join("");
+  return list.slice().sort(cmpArticleNewFirst).map(articleHTML).join("");
 }
 /* 日付表示の補完：月だけしか記録されていない記事（初期スナップショットの一部）は、
    並びキー ord（月×100＋日）から日付を復元し、他の記事と同じ「M/D（曜）」形式で出す。
@@ -3850,6 +3946,13 @@ var WD_JA=["日","月","火","水","木","金","土"];
 var WD_EN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 var MO_EN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 function fullDate(n){
+  /* ts を持つ記事は n.date（JST文字列）ではなく、表示タイムゾーンへ
+     変換した日付を同じ「M/D（曜）／Mon D (Wd)」形式で出す */
+  if(articleTsDate(n)){
+    var tp=articleDispParts(n);
+    var twd=new Date(tp.y,tp.mo-1,tp.d).getDay();
+    return state.lang==="en"?(MO_EN[tp.mo-1]+" "+tp.d+" ("+WD_EN[twd]+")"):(tp.mo+"/"+tp.d+"（"+WD_JA[twd]+"）");
+  }
   if(!n.date)return digestDate(n);
   if(/\d+\/\d+/.test(n.date)||/[A-Z][a-z]{2} \d+/.test(n.date))return n.date;
   var mo=Math.floor(n.ord/100),dy=Math.floor(n.ord%100);
@@ -3869,6 +3972,11 @@ function fullDate(n){
    日付は全項目に必ず出す：dateShort が月のみの記事は、記事データの ord
    （月×100＋日 を表す並びキー）から日付を復元して表示する */
 function digestDate(n){
+  /* ts を持つ記事は表示タイムゾーンへ変換した日付を出す（形式は従来どおり） */
+  if(articleTsDate(n)){
+    var tp=articleDispParts(n);
+    return state.lang==="en"?(MO_EN[tp.mo-1]+" "+tp.d):(tp.mo+"/"+tp.d);
+  }
   var mo=0,dy=0,m=/(\d+)\/(\d+)/.exec(n.dateShort||"");
   if(m){mo=+m[1]; dy=+m[2];}
   if(!(mo>=1&&mo<=12&&dy>=1&&dy<=31)){
@@ -3890,6 +3998,12 @@ function digestDate(n){
    24時間表記のまま、英語＝ジャンル別ニュース等と同じ12時間表記（AM/PM）
    に変換して出す。データの time 自体（24時間表記）は変えない */
 function digestDateTime(n){
+  /* ts を持つ記事は変換後の日付＋時刻：日本語＝JST の24時間表記、
+     英語＝端末ローカル時刻の12時間表記（表記形式自体は従来どおり） */
+  if(articleTsDate(n)){
+    var tp=articleDispParts(n);
+    return digestDate(n)+" "+(state.lang==="en"?ampmLabel(tp.hh,tp.mm):hhmm24(tp.hh,tp.mm));
+  }
   var d=digestDate(n);
   if(n&&typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))return d+" "+(state.lang==="en"?ampmFromHM(n.time):n.time);
   return d;
@@ -3905,6 +4019,15 @@ function topTimeMinutes(n){
   return m?(+m[1])*60+(+m[2]):null;
 }
 function compareTopNews(a,b){
+  /* ts を持つ記事が絡む場合は ts の時刻順を優先する（相手が ts 無しなら
+     JST の date／time から求めた時刻と比較する）。どちらも ts が無い
+     場合は従来どおりの日付→時刻→ord の比較に落とす */
+  var tsa=articleTsDate(a),tsb=articleTsDate(b);
+  if(tsa||tsb){
+    var ea=tsa?tsa.getTime():articleJstEpoch(a);
+    var eb=tsb?tsb.getTime():articleJstEpoch(b);
+    if(ea!==eb)return eb-ea;
+  }
   var da=Math.floor(a.ord),db=Math.floor(b.ord);
   if(db!==da)return db-da;
   var ta=topTimeMinutes(a),tb=topTimeMinutes(b);
@@ -4031,19 +4154,20 @@ function pastTopArticles(){
     if(n.noTop===true)return true;
     /* 上限7件から溢れた掲載対象（8件目以降）も過去のTOP NEWSへ回す */
     return shown.indexOf(n)===-1;
-  }).sort(function(a,b){return b.ord-a.ord;});
+  }).sort(cmpArticleNewFirst);
 }
 function renderPastTop(){
   var el=document.getElementById("pastTopList");
   if(!el)return;
   var list=pastTopArticles();
   if(!list.length){reconcileList(el,[{key:"__empty",html:emptyHTML(L().pastTopEmpty,L().pastTopEmptySub)}]);return;}
-  /* 日付ごとに見出し行（.past-date-head）で区切る。リストは ord 降順に
-     並び済みなので同じ日付は連続する。見出しの表記は記事カードの日付と
-     同じ fullDate（M/D（曜）形式）に揃える */
+  /* 日付ごとに見出し行（.past-date-head）で区切る。リストは新しい順に
+     並び済みなので同じ日付は連続する。区切りの基準は表示日付（ts が
+     あれば変換後）で、見出しの表記は記事カードの日付と同じ fullDate
+     （M/D（曜）形式）に揃える */
   var segs=[],lastKey=null;
   list.forEach(function(n){
-    var key=newsDateKey(n);
+    var key=articleDispDayKey(n);
     if(key!==lastKey){lastKey=key;segs.push({key:"h:"+key,html:'<div class="past-date-head">'+fullDate(n)+'</div>'});}
     segs.push({key:"a:"+n.id,html:articleHTML(n)});
   });
@@ -4289,8 +4413,10 @@ function rssItemsForTeam(abbr){
      同じ日付では仮分類の 公式→報道→噂 をタイブレークにする（v78） */
   return liveFeedItems.filter(function(it){return it.teamAbbr===abbr&&liveItemVisibleInFeed(it);}).slice().sort(function(a,b){
     var da=a.pubDate?a.pubDate.getTime():0, db=b.pubDate?b.pubDate.getTime():0;
-    var dayA=a.pubDate?(a.pubDate.getFullYear()*10000+(a.pubDate.getMonth()+1)*100+a.pubDate.getDate()):0;
-    var dayB=b.pubDate?(b.pubDate.getFullYear()*10000+(b.pubDate.getMonth()+1)*100+b.pubDate.getDate()):0;
+    /* 日付の比較は表示タイムゾーンへ変換した日付で行う（RSS は ts 相当） */
+    var pa=a.pubDate?dispParts(a.pubDate):null, pb=b.pubDate?dispParts(b.pubDate):null;
+    var dayA=pa?(pa.y*10000+pa.mo*100+pa.d):0;
+    var dayB=pb?(pb.y*10000+pb.mo*100+pb.d):0;
     if(dayB!==dayA)return dayB-dayA;
     var s=statusRank(a.provLevel)-statusRank(b.provLevel);
     if(s!==0)return s;
@@ -4340,11 +4466,11 @@ function roomSummary(raw,titleText,limit){
 function roomFlowItems(abbr){
   var items=[];
   teamArticles(abbr).forEach(function(n){
-    var p=articleDayParts(n);
-    var mins=-1,timeStr="";
-    if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time)){
-      var tm=n.time.split(":"); mins=(+tm[0])*60+(+tm[1]); timeStr=ampmFromHM(n.time);
-    }
+    /* 日付区切り・並び・吹き出し脇の時刻はすべて表示用の部品で作る
+       （ts があれば表示タイムゾーンへ変換後の日付・時刻になる） */
+    var p=articleDispParts(n);
+    var mins=p.hasTime?(p.hh*60+p.mm):-1;
+    var timeStr=p.hasTime?ampmLabel(p.hh,p.mm):"";
     /* 公式スタンプは「分類チップが公式発表になる記事」だけに付ける
        （確定の公式発表のみ。仮分類・チーム情報・ゴシップは対象外） */
     var official=!n.provisional&&n.cat!=="teaminfo"&&n.cat!=="gossip"&&n.s==="confirmed";
@@ -4363,11 +4489,13 @@ function roomFlowItems(abbr){
   });
   rssItemsForTeam(abbr).forEach(function(it){
     var dt=(it.pubDate&&!isNaN(it.pubDate.getTime()))?it.pubDate:null;
-    var y=dt?dt.getFullYear():2026, mo=dt?(dt.getMonth()+1):1, d=dt?dt.getDate():1;
-    var mins=dt?(dt.getHours()*60+dt.getMinutes()):-1;
+    /* RSS新着も ts 相当：pubDate を表示タイムゾーンへ変換して日付・時刻を作る */
+    var dp=dt?dispParts(dt):null;
+    var y=dp?dp.y:2026, mo=dp?dp.mo:1, d=dp?dp.d:1;
+    var mins=dp?(dp.hh*60+dp.mm):-1;
     var chip=provChipHTML(it)+(it.provType?'<span class="tag">'+escapeHtml(TYPE_LABEL[state.lang][it.provType]||it.provType)+'</span>':'');
     items.push({day:y*10000+mo*100+d,y:y,mo:mo,d:d,mins:mins,ord:mins,
-      chip:chip,title:rssTitleHTML(it),url:String(it.link||""),time:dt?ampmFromDate(dt):"",
+      chip:chip,title:rssTitleHTML(it),url:String(it.link||""),time:dp?ampmLabel(dp.hh,dp.mm):"",
       summary:roomSummary(it.desc,it.title),official:false,rumor:it.provLevel==="rumor",
       sender:String(it.reporter||rssSourceName(it)||""),
       /* 詳細シート用（試作 2026-11-28）：RSS新着に関連リンクは無い */
@@ -5144,7 +5272,7 @@ function renderFeed(){
      ゾーン側の表示は従来どおりこの全件から作る */
   var gPool=[];
   if(state.cat==="all"||state.cat==="gossip"){
-    gPool=mergedGossipArticles(all.filter(function(n){return n.cat==="gossip";}).sort(function(a,b){return b.ord-a.ord;}));
+    gPool=mergedGossipArticles(all.filter(function(n){return n.cat==="gossip";}).sort(cmpArticleNewFirst));
   }
   /* 表示順どおりに「記事HTML＋記事id」をフラットな項目列へ組み立てる。
      RSSで取得できた新着は、仮分類チップ付きでフィード先頭へ「新着（仮分類）」として出す。
@@ -5181,7 +5309,9 @@ function renderFeed(){
      40件以上後ろに沈んで「噂が反映されていない」状態になっていた（TK指摘
      2026-11-26）。分類の区別は各カード末尾の分類チップと分類フィルターが担う。
      分類フィルターで「噂」を選んだ時は s==="rumor" の記事だけがこの一列に残る */
-  var sortedFeed=feedList.slice().sort(function(a,b){return b.ord-a.ord;});
+  /* 並びは新しい順。ts を持つ記事は ts の時刻順を優先する
+     （cmpArticleNewFirst：ts が無い記事同士は従来どおり ord 順） */
+  var sortedFeed=feedList.slice().sort(cmpArticleNewFirst);
   /* 仮分類（provisional）の畳み込み（TK承認 2026-11-27）：仮分類記事は
      確認済み記事の並びには混ぜず、リスト末尾の畳み行（この後ろで付ける
      __provfold）の中に分ける。段階表示の件数（total／feedShown）にも
@@ -5208,7 +5338,7 @@ function renderFeed(){
   gossipHits.forEach(function(n){gossipHitIds[n.id]=1;});
   /* ニュースとゴシップのヒットは新しい順（ord 降順）に混ぜて一列で出す。
      ゴシップはチップで区別できる専用カード（feedGossipBubbleHTML）で描く */
-  sortedFeed.filter(function(n){return !n.provisional;}).concat(gossipHits).sort(function(a,b){return b.ord-a.ord;}).forEach(function(n){
+  sortedFeed.filter(function(n){return !n.provisional;}).concat(gossipHits).sort(cmpArticleNewFirst).forEach(function(n){
     if(gossipHitIds[n.id])entries.push({key:"g:"+n.id,html:feedGossipBubbleHTML(n),id:n.id});
     else entries.push({key:"a:"+n.id,html:feedBubbleHTML(n),id:n.id});
   });
@@ -6070,13 +6200,16 @@ function allSettled(promises){
    （AM/PM）で全セクション統一する（TK指示 2026-11-27） */
 function formatFeedDate(d){
   if(!d||isNaN(d.getTime()))return "";
-  var hh=d.getHours(),mm=d.getMinutes();
-  var hm=(hh<10?"0":"")+hh+":"+(mm<10?"0":"")+mm;
+  /* RSS新着の日時は ts 相当として表示タイムゾーンへ変換する
+     （日本語＝JST の M/D HH:MM、英語＝端末ローカルの Mon D ＋ AM/PM。
+     表記形式自体は従来どおり） */
+  var p=dispParts(d);
+  if(!p)return "";
   if(state.lang==="en"){
     var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    return months[d.getMonth()]+" "+d.getDate()+" "+ampmLabel(hh,mm);
+    return months[p.mo-1]+" "+p.d+" "+ampmLabel(p.hh,p.mm);
   }
-  return (d.getMonth()+1)+"/"+d.getDate()+" "+hm;
+  return p.mo+"/"+p.d+" "+hhmm24(p.hh,p.mm);
 }
 /* RSS新着→チームの紐づけ：チーム名が本文中に確実に1つだけ特定できる時だけ紐づける。
    複数チームに触れている記事や、一般語と紛らわしい短い愛称（Heat／Magic／Thunder／Jazz／Kings／Nets／Suns）だけの記事は無理に紐づけない */
@@ -6604,7 +6737,7 @@ function mergedGossipArticles(builtin){
   }
   (builtin||[]).forEach(push);
   ghGossipArticles().filter(function(n){return state.type==="all"||n.type===state.type;}).forEach(push);
-  return out.sort(function(a,b){return b.ord-a.ord;});
+  return out.sort(cmpArticleNewFirst);
 }
 var GH_WD_JA=["日","月","火","水","木","金","土"];
 var GH_WD_EN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -6655,6 +6788,11 @@ function ghConvertArticle(a,idx){
      TOP NEWS のメタ行でのみ併記に使い、形式が合わない値は捨てる
      （取得時刻・巡回時刻で代用しないための入口検証） */
   var pubTime=(typeof a.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(a.time))?a.time:null;
+  /* 公開日時のタイムスタンプ ts（ISO 8601・オフセット付き）：Date として
+     パースできる文字列だけを保持する。表示側は ts を持つ記事だけを
+     表示タイムゾーン（日本語＝JST／英語＝端末ローカル）へ変換して出し、
+     持たない記事は従来どおり date／time（JST）のままにする */
+  var pubTs=(typeof a.ts==="string"&&a.ts&&!isNaN(new Date(a.ts).getTime()))?a.ts:null;
   /* 同一出来事を報じた他媒体のリンク（任意フィールド related：{label, url} の配列）。
      http(s) の URL を持つ件だけを保持し、媒体名は外部データなので escapeHtml して
      保持する（表示側 relatedLinksHTML がそのまま差し込むため）。媒体名が無い時は
@@ -6686,6 +6824,7 @@ function ghConvertArticle(a,idx){
        いずれかの時だけ保持する。不正値・未指定は "" にし、表示側で見出しから判定する */
     genre:(typeof a.genre==="string"&&GOSSIP_GENRE_LABEL.ja[a.genre])?a.genre:"",
     time:pubTime,
+    ts:pubTs,
     related:related,
     src:escapeHtml(reporter||sourceName||siteNameFromUrl(url)),
     media:escapeHtml(sourceName||siteNameFromUrl(url)),
@@ -6809,7 +6948,11 @@ function ghSupplementExisting(c){
   var bodyJa=String(c.ja.body||"").trim();
   var bodyEn=String(c.en.body||"").trim();
   var related=(Array.isArray(c.ja.related)&&c.ja.related.length)?c.ja.related:null;
-  if(!bodyJa&&!bodyEn&&!related)return false;
+  /* ts（公開日時のタイムスタンプ）も要約・関連リンクと同じ補完対象にする：
+     ts の無い古いコピーが先勝ちしても、後から来たコピーの ts で
+     タイムゾーン変換表示が効くようにする（言語共通の値なので両言語へ渡す） */
+  var cTs=(typeof c.ja.ts==="string"&&c.ja.ts)?c.ja.ts:null;
+  if(!bodyJa&&!bodyEn&&!related&&!cTs)return false;
   var changed=false;
   function scan(list,body){
     list.forEach(function(n){
@@ -6820,6 +6963,7 @@ function ghSupplementExisting(c){
       if(!hit)return;
       if(body&&!String(n.body||"").trim()){n.body=body;changed=true;}
       if(related&&!(Array.isArray(n.related)&&n.related.length)){n.related=related;changed=true;}
+      if(cTs&&!n.ts){n.ts=cTs;changed=true;}
     });
   }
   scan(ARTICLES_JA,bodyJa); scan(GH_GOSSIP_JA,bodyJa);
