@@ -2549,7 +2549,7 @@ var INSIDERS=[
  ["B","MS","Michael Scotto","HoopsHype ・ @MikeAScotto","HoopsHypeのシニアNBAインサイダー。契約・トレード・FA情報に強い。","#0f766e"],
  ["C","JF","Jake Fischer","The Stein Line ／ Bleacher Report ・ @JakeLFischer","The Stein Lineに週2回寄稿し、Bleacher Report動画のNBAインサイダーも務める。元Yahoo Sports／Sports Illustrated。","#475569"]
 ];
-/* 削除・非表示の記録（画面には出さない）：Tim Bontemps（2026年7月にESPNを離れホークスの戦略アドバイザーに就任。現役のNBA記者ではないため削除）とYahoo Sports USの番記者は削除。Marc J. Spears（ESPN / Andscape ・ @MarcJSpears）はEランクの枠組みとしての記録のみで、アプリ・一覧には表示しない。分析系のKevin O'ConnorとBobby Marks、噂系のBrian WindhorstとSam Amickは、下の各枠（ANALYSIS_REPORTERS／RUMOR_REPORTERS）にXリンク付きで配置する */
+/* 削除・非表示の記録（画面には出さない）：Tim Bontemps（2026年7月にESPNを離れホークスの戦略アドバイザーに就任。現役のNBA記者ではないため削除）とYahoo Sports USの番記者は削除。Marc J. Spears（ESPN / Andscape ・ @MarcJSpears）は2026-11-27 TK指示で記者一覧に復帰し、分析系として下のANALYSIS_REPORTERSにXリンク付きで配置する。分析系のKevin O'ConnorとBobby Marks、噂系のBrian WindhorstとSam Amickは、下の各枠（ANALYSIS_REPORTERS／RUMOR_REPORTERS）にXリンク付きで配置する */
 var INSIDERS_EN=[
  ["A","SC","Shams Charania","ESPN Senior NBA Insider · @ShamsCharania","ESPN Senior NBA Insider — the fastest source for NBA trades, contracts and injury news.","#e11d2e"],
  ["B","MS","Marc Stein","The Stein Line (Substack) · @TheSteinLine","Independent insider behind The Stein Line. Covering the NBA since 1994; Basketball Hall of Fame Curt Gowdy Award winner.","#0f766e"],
@@ -2586,6 +2586,7 @@ var SOURCE_HIT_HISTORY=[
  {name:"Tim MacMahon",kind:"analysis",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"},
  {name:"Kevin O'Connor",kind:"analysis",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"},
  {name:"Bobby Marks",kind:"analysis",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"},
+ {name:"Marc J. Spears",kind:"analysis",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-27"},
  {name:"John Gambadoro",kind:"local",reports:0,confirmed:0,unresolved:0,lastUpdated:"2026-11-24"}
 ];
 /* 的中履歴から記者の種別を引く（自動分類の内部参照用。UIには出さない）。
@@ -2632,7 +2633,8 @@ var ANALYSIS_REPORTERS=[
  ]},
  {name:"Kevin O'Connor",ini:"KO",color:"#166534",handle:"KevinOConnor",tagsJa:["ドラフト","若手","分析"],tagsEn:["Draft","Young players","Analysis"],outletJa:"Yahoo Sports シニアアナリスト",outletEn:"Yahoo Sports Senior Analyst",descJa:"Yahoo Sportsのシニアアナリスト。全国向けの分析・解説が中心。",descEn:"Yahoo Sports senior analyst — national analysis and commentary.",posts:[]},
  {name:"Bobby Marks",ini:"BM",color:"#b45309",handle:"BobbyMarks42",tagsJa:["サラリー","契約"],tagsEn:["Salary cap","Contracts"],outletJa:"ESPN NBAフロントオフィス・インサイダー（サラリーキャップ専門）",outletEn:"ESPN NBA Front Office Insider (salary-cap specialist)",descJa:"ESPNのフロントオフィス・インサイダー。サラリーキャップと契約が専門。",descEn:"ESPN front-office insider — salary-cap and contract specialist.",posts:[]},
- {name:"Keith Smith",ini:"KS",color:"#7c2d12",handle:"KeithSmithNBA",tagsJa:["サラリー／契約","CBA"],tagsEn:["Salary cap / Contracts","CBA"],outletJa:"Spotrac",outletEn:"Spotrac",descJa:"Spotracのサラリーキャップ・契約解説の専門家。CBA（労使協定）に詳しい。",descEn:"Spotrac salary-cap and contract expert — deep knowledge of the CBA.",posts:[]}
+ {name:"Keith Smith",ini:"KS",color:"#7c2d12",handle:"KeithSmithNBA",tagsJa:["サラリー／契約","CBA"],tagsEn:["Salary cap / Contracts","CBA"],outletJa:"Spotrac",outletEn:"Spotrac",descJa:"Spotracのサラリーキャップ・契約解説の専門家。CBA（労使協定）に詳しい。",descEn:"Spotrac salary-cap and contract expert — deep knowledge of the CBA.",posts:[]},
+ {name:"Marc J. Spears",ini:"MS",color:"#7a3b2e",handle:"MarcJSpears",tagsJa:["分析","深掘り"],tagsEn:["Analysis","Deep dives"],outletJa:"ESPN / Andscape シニアNBAライター",outletEn:"ESPN / Andscape Senior NBA Writer",descJa:"ESPN / AndscapeのシニアNBAライター。選手やチームの背景を掘り下げる取材に強い。",descEn:"Senior NBA writer at ESPN / Andscape — known for in-depth reporting on players and teams.",posts:[]}
 ];
 /* ===== v37：地元ライター枠（意見・分析寄り。速報の一次ソースではない。地元枠の中だけに表示し、フィード・TOP NEWSには入れない） ===== */
 var LOCAL_REPORTERS=[
@@ -2646,25 +2648,33 @@ var LOCAL_REPORTERS=[
 var LOCAL_DIRECTORY=[
  {abbr:"ATL",name:"Lauren Williams",ini:"LW",handle:"WilliamsLaurenL",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Atlanta Journal-Constitution (AJC)",outletEn:"The Atlanta Journal-Constitution (AJC)",descJa:"The Atlanta Journal-Constitution（AJC）のHawks番記者。",descEn:"Hawks beat writer at The Atlanta Journal-Constitution (AJC)."},
  {abbr:"BOS",name:"Adam Himmelsbach",ini:"AH",handle:"AdamHimmelsbach",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Boston Globe",outletEn:"The Boston Globe",descJa:"The Boston GlobeのCeltics番記者。",descEn:"Celtics beat writer at The Boston Globe."},
+ {abbr:"BOS",name:"Jay King",ini:"JK",handle:"ByJayKing",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのCeltics番記者。",descEn:"Celtics beat writer at The Athletic."},
  {abbr:"BKN",name:"Brian Lewis",ini:"BL",handle:"NYPost_Lewis",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"New York Post",outletEn:"New York Post",descJa:"New York PostのNets番記者。2015年から担当。",descEn:"Nets beat writer at the New York Post, on the beat since 2015."},
  {abbr:"CHA",name:"Rod Boone",ini:"RB",handle:"rodboone",tagsJa:["番記者","独立系"],tagsEn:["Beat writer","Independent"],outletJa:"独立系Substack「The Boone Docs」",outletEn:"Independent Substack \u201CThe Boone Docs\u201D",descJa:"独立系Substack「The Boone Docs」でHornetsを取材。元Charlotte Observer番記者。",descEn:"Covers the Hornets on his independent Substack, The Boone Docs — formerly the Charlotte Observer beat writer."},
  {abbr:"CHI",name:"K.C. Johnson",ini:"KJ",handle:"KCJHoop",tagsJa:["番記者","インサイダー"],tagsEn:["Beat writer","Insider"],outletJa:"CHSN (Chicago Sports Network)",outletEn:"CHSN (Chicago Sports Network)",descJa:"CHSNのBulls Insider。長年のBulls番記者。",descEn:"Bulls Insider at CHSN and a longtime Bulls beat writer."},
+ {abbr:"CHI",name:"Joe Cowley",ini:"JC",handle:"JCowleyHoops",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Chicago Sun-Times",outletEn:"Chicago Sun-Times",descJa:"Chicago Sun-TimesのBulls番記者。",descEn:"Bulls beat writer at the Chicago Sun-Times."},
  {abbr:"CLE",name:"Chris Fedor",ini:"CF",handle:"ChrisFedor",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"cleveland.com / The Plain Dealer",outletEn:"cleveland.com / The Plain Dealer",descJa:"cleveland.com / The Plain DealerのCavs番記者。92.3 The Fanのホストも兼務。",descEn:"Cavs beat writer at cleveland.com / The Plain Dealer; also a host on 92.3 The Fan."},
  {abbr:"DET",name:"Omari Sankofa II",ini:"OS",handle:"omarisankofa",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Detroit Free Press",outletEn:"Detroit Free Press",descJa:"Detroit Free PressのPistons番記者。",descEn:"Pistons beat writer at the Detroit Free Press."},
  {abbr:"IND",name:"Dustin Dopirak",ini:"DD",handle:"DustinDopirak",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"IndyStar",outletEn:"IndyStar",descJa:"IndyStarのPacers番記者。",descEn:"Pacers beat writer at IndyStar."},
  {abbr:"MIA",name:"Ira Winderman",ini:"IW",handle:"IraHeatBeat",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"South Florida Sun Sentinel",outletEn:"South Florida Sun Sentinel",descJa:"South Florida Sun SentinelのHeat番記者。38シーズン目。",descEn:"Heat beat writer at the South Florida Sun Sentinel, in his 38th season on the beat."},
+ {abbr:"MIA",name:"Eric Nehm",ini:"EN",handle:"eric_nehm",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのHeat番記者。",descEn:"Heat beat writer at The Athletic."},
  {abbr:"MIL",name:"Jim Owczarski",ini:"JO",handle:"JimOwczarski",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Milwaukee Journal Sentinel",outletEn:"Milwaukee Journal Sentinel",descJa:"Milwaukee Journal SentinelのBucks番記者。",descEn:"Bucks beat writer at the Milwaukee Journal Sentinel."},
  {abbr:"NYK",name:"James L. Edwards III",ini:"JE",handle:"JLEdwardsIII",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのKnicks番記者。",descEn:"Knicks beat writer at The Athletic."},
+ {abbr:"NYK",name:"Ian Begley",ini:"IB",handle:"IanBegley",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"SNY",outletEn:"SNY",descJa:"SNYのKnicks番記者。",descEn:"Knicks beat writer at SNY."},
  {abbr:"ORL",name:"Jason Beede",ini:"JB",handle:"therealBeede",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Orlando Sentinel",outletEn:"Orlando Sentinel",descJa:"Orlando SentinelのMagic番記者。",descEn:"Magic beat writer at the Orlando Sentinel."},
  {abbr:"PHI",name:"Gina Mizell",ini:"GM",handle:"ginamizell",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Philadelphia Inquirer",outletEn:"The Philadelphia Inquirer",descJa:"The Philadelphia Inquirerの76ers番記者。",descEn:"76ers beat writer at The Philadelphia Inquirer."},
  {abbr:"TOR",name:"Josh Lewenberg",ini:"JL",handle:"JLew1050",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"TSN / TSN 1050 Radio",outletEn:"TSN / TSN 1050 Radio",descJa:"TSN / TSN 1050 RadioのRaptors番記者。",descEn:"Raptors beat writer at TSN / TSN 1050 Radio."},
  {abbr:"WAS",name:"Josh Robbins",ini:"JR",handle:"JoshuaBRobbins",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのWizards担当シニアライター。",descEn:"Senior writer covering the Wizards at The Athletic."},
  {abbr:"DAL",name:"Brad Townsend",ini:"BT",handle:"townbrad",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Dallas Morning News",outletEn:"The Dallas Morning News",descJa:"The Dallas Morning NewsのMavericks／NBA担当。",descEn:"Covers the Mavericks and the NBA for The Dallas Morning News."},
+ {abbr:"DAL",name:"Mike Curtis",ini:"MC",handle:"MikeACurtis2",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Dallas Morning News",outletEn:"The Dallas Morning News",descJa:"The Dallas Morning NewsのMavericks番記者。",descEn:"Mavericks beat writer at The Dallas Morning News."},
  {abbr:"DEN",name:"Bennett Durando",ini:"BD",handle:"BennettDurando",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Denver Post",outletEn:"Denver Post",descJa:"Denver PostのNuggets番記者。",descEn:"Nuggets beat writer at the Denver Post."},
+ {abbr:"DEN",name:"Vinny Benedetto",ini:"VB",handle:"VBenedetto",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Denver Gazette",outletEn:"Denver Gazette",descJa:"Denver GazetteのNuggets番記者。",descEn:"Nuggets beat writer at the Denver Gazette."},
  {abbr:"GSW",name:"Anthony Slater",ini:"AS",handle:"anthonyVslater",tagsJa:["番記者","全国担当"],tagsEn:["Beat writer","National"],outletJa:"ESPN",outletEn:"ESPN",descJa:"ESPNのシニアNBAライター。Warriors中心に全国も担当。",descEn:"ESPN senior NBA writer, focused on the Warriors with national coverage."},
+ {abbr:"GSW",name:"Monte Poole",ini:"MP",handle:"MontePooleNBCS",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"NBC Sports Bay Area",outletEn:"NBC Sports Bay Area",descJa:"NBC Sports Bay AreaのWarriors番記者。",descEn:"Warriors beat writer at NBC Sports Bay Area."},
  {abbr:"HOU",name:"Varun Shankar",ini:"VS",handle:"ByVarunShankar",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Houston Chronicle",outletEn:"Houston Chronicle",descJa:"Houston ChronicleのRockets番記者。",descEn:"Rockets beat writer at the Houston Chronicle."},
  {abbr:"LAC",name:"Law Murray",ini:"LM",handle:"LawMurrayTheNU",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのClippers番記者。",descEn:"Clippers beat writer at The Athletic."},
  {abbr:"LAL",name:"Dan Woike",ini:"DW",handle:"DanWoikeSports",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのLakers番記者。",descEn:"Lakers beat writer at The Athletic."},
+ {abbr:"LAL",name:"Khobi Price",ini:"KP",handle:"khobi_price",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"California Post",outletEn:"California Post",descJa:"California PostのLakers番記者。",descEn:"Lakers beat writer at the California Post."},
  {abbr:"MEM",name:"Damichael Cole",ini:"DC",handle:"DamichaelC",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Commercial Appeal",outletEn:"The Commercial Appeal",descJa:"The Commercial AppealのGrizzlies番記者。",descEn:"Grizzlies beat writer at The Commercial Appeal."},
  {abbr:"MIN",name:"Sarah Todd",ini:"ST",handle:"NBASarah",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"Minnesota Star Tribune",outletEn:"Minnesota Star Tribune",descJa:"Minnesota Star TribuneのTimberwolves記者。",descEn:"Covers the Timberwolves for the Minnesota Star Tribune."},
  {abbr:"NOP",name:"Will Guillory",ini:"WG",handle:"WillGuillory",tagsJa:["番記者"],tagsEn:["Beat writer"],outletJa:"The Athletic",outletEn:"The Athletic",descJa:"The AthleticのPelicans番記者。",descEn:"Pelicans beat writer at The Athletic."},
@@ -2687,7 +2697,7 @@ function teamColorMap(){
    速報パネルのインサイダーは人影バストアップ（people-insider-*）、記者一覧は記者キャラ
    （people-reporter-*）。イニシャル表示は廃止。画像が読めない場合は onerror で img を
    外し、従来の単色円に戻る ===== */
-var REPORTER_GENRE={ShamsCharania:"breaking",ChrisBHaynes:"breaking",MikeAScotto:"breaking",TheSteinLine:"market",JakeLFischer:"market",WindhorstESPN:"rumor",sam_amick:"rumor",RamonaShelburne:"analysis",TimMacMahon:"analysis",KevinOConnor:"analysis",BobbyMarks42:"salary",KeithSmithNBA:"salary"};
+var REPORTER_GENRE={ShamsCharania:"breaking",ChrisBHaynes:"breaking",MikeAScotto:"breaking",TheSteinLine:"market",JakeLFischer:"market",WindhorstESPN:"rumor",sam_amick:"rumor",RamonaShelburne:"analysis",TimMacMahon:"analysis",KevinOConnor:"analysis",BobbyMarks42:"salary",KeithSmithNBA:"salary",MarcJSpears:"analysis"};
 var INSIDER_NAME_GENRE={"Shams Charania":"breaking","Chris Haynes":"breaking","Michael Scotto":"breaking","Marc Stein":"market","Jake Fischer":"market"};
 function reporterGenre(r){
   if(r&&r.handle&&REPORTER_GENRE[r.handle])return REPORTER_GENRE[r.handle];
@@ -2728,7 +2738,7 @@ function localReporterCardHTML(r,colorMap){
     +'</div>';
 }
 /* ===== v66：地元ライターピッカー（記者リストと同じ選択式） =====
-   「地元ライター一覧」ボタンで全31人のリストを開閉し（初期状態は閉）、
+   「地元ライター一覧」ボタンで全39人のリストを開閉し（初期状態は閉）、
    選ぶとその人のカード（id="rep-<handle>"）へスクロールして一瞬ハイライトする */
 var localPickerOpen=false;
 function renderLocalPicker(){
@@ -4741,7 +4751,11 @@ if(feedSearchInput){
 var FEED_SUGGEST_STOP={"デイ・トゥ・デイ":1,"クエスチョナブル":1,"ハムストリング":1,"トレード":1,"シーズン":1,"プレーオフ":1,"ファイナル":1,"カンファレンス":1,"イースタン":1,"ウェスタン":1,"ディビジョン":1,"オールスター":1,"ドラフト":1,"ルーキー":1,"ベテラン":1,"バスケットボール":1,"スリーポイント":1,"フリースロー":1,"ダブルダブル":1,"トリプルダブル":1,"リバウンド":1,"アシスト":1,"スティール":1,"ブロック":1,"ダンク":1,"レイアップ":1,"タイムアウト":1,"オーバータイム":1,"シリーズ":1,"ゲーム":1,"チーム":1,"コーチ":1,"ヘッドコーチ":1,"ファン":1,"メディア":1,"リーグ":1,"スタッツ":1,"ホーム":1,"カップ":1,"キャンプ":1,"ガード":1,"フォワード":1,"センター":1,"ポイントガード":1,"シューティングガード":1,"スモールフォワード":1,"パワーフォワード":1,"エース":1,"キャプテン":1,"ベンチ":1,"スターター":1,"ロスター":1,"サラリー":1,"キャップ":1,"オプション":1,"エージェント":1,"ワークアウト":1,"インタビュー":1,"ランキング":1,"バズ":1,"チャンピオン":1,"タイトル":1,"キャリア":1,"アリーナ":1,"コート":1,"ジャージー":1,"ハイライト":1,"オーナー":1,"マネージャー":1,"フル":1,"ファッション":1,"シューズ":1};
 var feedSuggestCache=null;
 function feedSuggestCandidates(){
-  if(feedSuggestCache&&feedSuggestCache.jaLen===ARTICLES_JA.length&&feedSuggestCache.enLen===ARTICLES_EN.length)return feedSuggestCache.list;
+  /* オフコート（feed.json由来ゴシップ）の見出しにしか出ない名前も
+     「掲載記事に登場する名前」として候補に入れる */
+  var ghJa=(typeof GH_GOSSIP_JA!=="undefined"&&GH_GOSSIP_JA)?GH_GOSSIP_JA:[];
+  var ghEn=(typeof GH_GOSSIP_EN!=="undefined"&&GH_GOSSIP_EN)?GH_GOSSIP_EN:[];
+  if(feedSuggestCache&&feedSuggestCache.jaLen===ARTICLES_JA.length&&feedSuggestCache.enLen===ARTICLES_EN.length&&feedSuggestCache.ghJaLen===ghJa.length&&feedSuggestCache.ghEnLen===ghEn.length)return feedSuggestCache.list;
   var freq={},order=[];
   function add(name,count){
     name=String(name||"").trim();
@@ -4759,7 +4773,7 @@ function feedSuggestCandidates(){
   });
   /* 日本語見出しのカタカナ（選手名・チーム名の表記）：「・」でつながる
      フルネームと、姓・名それぞれの部分の両方を候補にする */
-  ARTICLES_JA.forEach(function(n){
+  ARTICLES_JA.concat(ghJa).forEach(function(n){
     var toks=String(n.title||"").match(/[ァ-ヶー・]{2,}/g)||[];
     toks.forEach(function(tok){
       tok=tok.replace(/^・+|・+$/g,"");
@@ -4771,12 +4785,12 @@ function feedSuggestCandidates(){
     });
   });
   /* 英語見出しの人名（2語以上の大文字始まりの並び） */
-  ARTICLES_EN.forEach(function(n){
+  ARTICLES_EN.concat(ghEn).forEach(function(n){
     var seqs=String(n.title||"").match(/[A-Z][a-z]+(?: [A-Z][a-z]+)+/g)||[];
     seqs.forEach(function(s){add(s);});
   });
   var list=order.map(function(k){return freq[k];});
-  feedSuggestCache={jaLen:ARTICLES_JA.length,enLen:ARTICLES_EN.length,list:list};
+  feedSuggestCache={jaLen:ARTICLES_JA.length,enLen:ARTICLES_EN.length,ghJaLen:ghJa.length,ghEnLen:ghEn.length,list:list};
   return list;
 }
 var feedSuggestEl=document.getElementById("feedSuggest");
