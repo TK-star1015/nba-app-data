@@ -1240,10 +1240,16 @@
       "url": "https://www.threads.com/@shams/post/DgP9FCfBzPt",
       "reporter": "Shams Charania",
       "category": "契約",
-      "top": false
+      "top": false,
+      "related": [
+        {
+          "label": "Hoops Rumors",
+          "url": "https://www.hoopsrumors.com/2026/11/grizzlies-sign-lawson-lovering-to-10-day-hardship-deal.html"
+        }
+      ]
     }
   ],
-  "updatedAt": "2026-11-28T00:30:00+09:00",
+  "updatedAt": "2026-11-28T00:39:00+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
