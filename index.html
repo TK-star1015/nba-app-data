@@ -366,12 +366,13 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .settings-chev{display:inline-flex;line-height:0;transition:transform .15s ease}
 .utility.settings-open .settings-chev{transform:rotate(180deg)}
 /* お知らせボタン：更新と設定の間に置く小さな文字ボタン（設定トグルと同寸）。
-   未読のお知らせがある間だけアクセント色で塗って目立たせ、シートを開いて
-   既読になると通常の静かな見た目に戻る */
+   未読のお知らせがある間だけ公式ラベルと同じ赤で塗って目立たせ（TK指示
+   2026-11-28：従来の墨色塗りから赤に変更）、シートを開いて既読になると
+   通常の静かな見た目に戻る */
 .notices-btn{display:inline-flex;align-items:center;min-height:var(--tab-h);padding:6px var(--sp-3);border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:var(--fs-small);font-weight:700;line-height:1;white-space:nowrap;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
 .notices-btn:hover{color:var(--ink);border-color:var(--muted)}
-.notices-btn.has-unread{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.notices-btn.has-unread:hover{color:var(--on-accent);opacity:.88}
+.notices-btn.has-unread{background:var(--c-official);border-color:var(--c-official);color:#fff}
+.notices-btn.has-unread:hover{color:#fff;opacity:.88}
 /* 畳んだ状態ではテーマ／言語／背景・入室音の帯を全幅で隠す
    （従来はモバイル用メディアブロックの中にだけあった指定を全幅へ移す） */
 .utility:not(.settings-open) .theme-bar{display:none}
