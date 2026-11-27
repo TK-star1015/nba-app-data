@@ -1,6 +1,14 @@
 {
- "updatedAt": "2026-11-28T03:45:00+09:00",
+ "updatedAt": "2026-11-28T03:58:00+09:00",
  "notices": [
+  {
+   "id": "n20261128-update-restart",
+   "date": "2026-11-28",
+   "title": "アプリを更新しました",
+   "titleEn": "The app has been updated",
+   "body": "いくつか機能を追加して、デザインも少し変えました。記事の日付は日本時間で揃うようになり、英語版では現地時間で表示されます。記事の保存や、この「お知らせ」も新しい機能です。古い表示のままのときは、アプリを一度閉じて開き直す（再起動する）と最新の状態になります。",
+   "bodyEn": "We've added several features and refreshed the design a little. Article dates are now consistent in Japan time, and the English version shows your local time. Article saving and these announcements are new, too. If you still see the old layout, close and reopen the app (restart it) to get the latest version."
+  },
   {
    "id": "n20261128-start",
    "date": "2026-11-28",
