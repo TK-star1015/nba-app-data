@@ -1209,12 +1209,28 @@ window.NBA_FEED = {
    "url": "https://www.ynetnews.com/sport/article/hklnlprjmg",
    "genre": "キラキラ",
    "top": false
+  },
+  {
+   "id": "gh-20261124-mcconnell-recall-fix",
+   "level": "reported",
+   "teams": [
+    "IND"
+   ],
+   "headline": "マコネル、Gリーグから復帰",
+   "headlineEn": "McConnell recalled from the G League",
+   "date": "2026-11-24",
+   "sourceName": "RotoWire",
+   "url": "https://www.rotowire.com/basketball/headlines/tj-mcconnell-injury-recalled-to-nba-540855",
+   "reporter": "Shams Charania",
+   "category": "怪我",
+   "top": true
   }
  ],
  "updatedAt": "2026-11-27T23:20:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
-  "gh-20261126-gossip-stiller-brunson-pumpfake"
+  "gh-20261126-gossip-stiller-brunson-pumpfake",
+  "mcconnell-recall"
  ]
 };
