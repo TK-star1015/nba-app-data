@@ -1,6 +1,21 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261127-pistons-trio-out-bucks",
+      "level": "reported",
+      "teams": [
+        "DET"
+      ],
+      "headline": "カニングハム、右膝でバックス戦欠場　デューレン・ロビンソンも欠場",
+      "headlineEn": "Cunningham, Duren, Robinson ruled out for Friday vs. Bucks",
+      "date": "2026-11-27",
+      "sourceName": "Detroit Free Press",
+      "url": "https://www.freep.com/story/sports/nba/pistons/2026/11/26/cade-cunningham-injury-detroit-pistons/92973776007/",
+      "reporter": "Omari Sankofa",
+      "category": "怪我",
+      "top": true
+    },
+    {
       "id": "gh-20261127-edey-ankle-soreness",
       "level": "reported",
       "teams": [
@@ -471,7 +486,7 @@ window.NBA_FEED = {
       "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/25/markelle-fultz-to-join-raptors-g-league-affiliate/92958550007/",
       "reporter": "Michael Scotto",
       "category": "契約",
-      "top": true
+      "top": false
     },
     {
       "id": "gh-20261125-kpj-magic-agreement-shams",
@@ -580,7 +595,13 @@ window.NBA_FEED = {
       "time": "06:57",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs",
-      "top": true
+      "top": true,
+      "related": [
+        {
+          "label": "NBC Sports",
+          "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/austin-reaves-heel-questionable-friday-vs-spurs"
+        }
+      ]
     },
     {
       "id": "gh-20261125-gossip-draymond-bench-kerr",
@@ -821,7 +842,6 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T08:59:08+09:00",
+  "updatedAt": "2026-11-27T09:07:39+09:00",
   "version": 1
-}
-;
+};
