@@ -5579,10 +5579,54 @@ function ghMapDateKey(s){
   var m2=String(s).match(/^(\d+)月$/); if(m2)return 2026*10000+(+m2[1])*100;
   return 0;
 }
-/* feed.json の記事を組み込み記事へ取り込む。実際に新規追加があった時だけ true を返す。
+/* ===== 記事の取り下げ（retracted）=====
+   feed.json／feed.js（window.NBA_FEED）のトップレベルに "retracted": ["記事id", ...]
+   が含まれる場合、その id の記事を表示から除外する。ページ本体を再配布しなくても、
+   データ側の更新だけで取り下げを即時反映するための仕組み。
+   ・適用はマージ処理（mergeGithubFeed）の段階で行うため、起動時の焼き込み取り込みと
+     「↻ 更新」での再取得のどちらでも毎回効く（feed.json の fetch 経路でも feed.js
+     経路でも、最終的には refreshGithubFeed → mergeGithubFeed を通る）。
+   ・対象は内蔵記事・feed 記事を問わず、保持先の全配列（ARTICLES_JA／EN と
+     ゴシップ専用の GH_GOSSIP_JA／EN）。表示側（TOP NEWS／ジャンル別ニュース／
+     TEAMS のトークルーム／オフコート）はすべてこの配列から描くため、
+     ここで落とせば全セクションから消える。
+   ・一度取り下げた id はこのセッション中は保持し、後から届いたデータに
+     retracted が無くても同じ id の記事を再び取り込まない（古いキャッシュ
+     応答で取り下げが巻き戻るのを防ぐ）。
+   ・retracted が無い・空の場合は従来どおり何も除外しない */
+var RETRACTED_IDS={};
+function dropRetractedFrom(list){
+  var removed=false;
+  for(var i=list.length-1;i>=0;i--){
+    if(list[i]&&RETRACTED_IDS[String(list[i].id)]){list.splice(i,1);removed=true;}
+  }
+  return removed;
+}
+/* data.retracted を取り下げ集合へ取り込み、表示中の記事から該当分を落とす。
+   実際に表示中の記事を落とした時だけ true を返す（呼び出し側の再描画判定用） */
+function applyRetractedIds(list){
+  if(!Array.isArray(list)||!list.length)return false;
+  var fresh=false;
+  list.forEach(function(x){
+    var id=String(x==null?"":x).trim();
+    if(id&&!RETRACTED_IDS[id]){RETRACTED_IDS[id]=1;fresh=true;}
+  });
+  if(!fresh)return false;
+  var removed=false;
+  if(dropRetractedFrom(ARTICLES_JA))removed=true;
+  if(dropRetractedFrom(ARTICLES_EN))removed=true;
+  if(dropRetractedFrom(GH_GOSSIP_JA))removed=true;
+  if(dropRetractedFrom(GH_GOSSIP_EN))removed=true;
+  return removed;
+}
+/* feed.json の記事を組み込み記事へ取り込む。実際に新規追加があった時だけ true を返す
+   （取り下げで表示中の記事を落とした時も true を返し、再描画させる）。
    あわせて更新マップ（TEAMS）にも反映する：該当チームの未読件数を加算し、
    ステータス色は格上げ方向にだけ進め、最終更新日は新しい記事の日付に進める */
 function mergeGithubFeed(data){
+  /* 取り下げ（retracted）を先に適用する：この回のデータで新たに指定された
+     id は、既に表示中の記事（内蔵／取り込み済み）からもこの時点で落とす */
+  var retractedRemoved=applyRetractedIds(data?data.retracted:null);
   var seenId={},seenUrl={},seenTitle={};
   /* 重複判定は通常記事＋保持済み GH ゴシップの両方を対象にする
      （組み込みゴシップは通常記事側に cat:"gossip" として入っている） */
@@ -5592,6 +5636,8 @@ function mergeGithubFeed(data){
   var gossipAdded=false;
   data.articles.forEach(function(a,idx){
     var c=ghConvertArticle(a,idx); if(!c)return;
+    /* 取り下げ済みの id は、同じ回の articles に残っていても取り込まない */
+    if(RETRACTED_IDS[c.rawId])return;
     if(seenId[c.rawId]||seenUrl[c.rawUrl]||seenTitle[c.rawTitle]||seenTitle[c.ja.title])return;
     seenId[c.rawId]=1; seenUrl[c.rawUrl]=1; seenTitle[c.rawTitle]=1; seenTitle[c.ja.title]=1;
     if(c.ja.ghGossip){
@@ -5606,7 +5652,7 @@ function mergeGithubFeed(data){
     ARTICLES_EN.push(c.en);
     added.push(c);
   });
-  if(!added.length)return gossipAdded;
+  if(!added.length)return gossipAdded||retractedRemoved;
   var rank={none:0,blue:1,orange:2,red:3};
   var perTeam={};
   added.forEach(function(c){
