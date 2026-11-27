@@ -546,6 +546,16 @@ button:disabled{opacity:.55;cursor:not-allowed}
 /* 日付見出し：その日のブロックの先頭だと分かるよう、少し大きく太くし、
    下に1pxの太い罫を引いて「日付の見出し」として独立させる */
 .editor-date{font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif;font-size:var(--fs-h3);font-weight:700;letter-spacing:.02em;line-height:1.4;color:var(--ink);font-variant-numeric:tabular-nums;padding-bottom:var(--sp-2);border-bottom:2px solid var(--line-strong)}
+/* ページ上部の日付チップ一覧（TK承認 2026-11-27）：掲載日を小さなチップで
+   横並びにし、タップでその日のエントリーへスクロールする。寸法・様式は
+   切替チップ（.seg button）と同一（12px／高さ30px／ピル型）に揃え、
+   装飾は足さない。はみ出す分は .toolbar と同じ横スクロール帯にする */
+.editor-date-nav{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;margin:0 0 var(--sp-4);padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.editor-date-nav::-webkit-scrollbar{height:4px}
+.editor-date-nav::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px}
+.editor-date-chip{flex:none;border:1px solid var(--line);background:var(--surface);padding:6px var(--sp-3);border-radius:999px;font-size:var(--fs-small);font-weight:700;color:var(--muted);white-space:nowrap;min-height:var(--tab-h);line-height:var(--lh-meta);font-variant-numeric:tabular-nums;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.editor-date-chip:hover{color:var(--ink);border-color:var(--muted)}
+.editor-date-chip:active{background:var(--surface2)}
 .editor-intro{margin:var(--sp-1) 0 0;color:var(--muted);font-size:var(--fs-sub);line-height:var(--lh-body)}
 .editor-takes{margin-top:var(--sp-2)}
 .editor-take{padding:var(--sp-3) 0}
@@ -1038,7 +1048,7 @@ a.room-bubble:active{filter:brightness(.95)}
 .picker-row:first-child{border-top:0}
 .picker-row:hover{background:var(--surface2)}
 .picker-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
-.picker-main b{font-size:var(--fs-item);line-height:1.35}
+.picker-main b{font-size:var(--fs-item);line-height:var(--lh-headline)}
 .picker-sub{font-size:var(--fs-small);color:var(--muted);line-height:var(--lh-meta);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .picker-now{font-size:var(--fs-chip);font-weight:700;background:var(--accent);color:var(--on-accent);border-radius:var(--radius-chip);padding:3px 9px;line-height:var(--lh-meta);flex:none}
 .picker-tags{flex:none}
@@ -1057,8 +1067,8 @@ a.room-bubble:active{filter:brightness(.95)}
 .insider-head{display:flex;gap:var(--sp-3);align-items:center}
 .insider-head>div{flex:1;min-width:0}
 .insider-head .avatar{width:48px;height:48px;font-size:var(--fs-body)}
-.insider-head b{display:block;font-size:var(--fs-headline);line-height:1.3}
-.insider-sub{margin:6px 0 0;font-size:var(--fs-small);color:var(--muted);line-height:1.55}
+.insider-head b{display:block;font-size:var(--fs-headline);line-height:var(--lh-headline)}
+.insider-sub{margin:6px 0 0;font-size:var(--fs-newsmeta);color:var(--muted);line-height:var(--lh-body)}
 .insider-x-link{display:inline-flex;align-items:center;gap:4px;flex:none;min-height:32px;padding:6px 2px 6px 10px;font-size:var(--fs-small);font-weight:700;line-height:1.4;color:var(--link);text-decoration:none;white-space:nowrap}
 .insider-x-link:hover{text-decoration:underline;text-underline-offset:3px}
 /* 顔アイコンの寸法は文脈ごとに2段へ統一する（デザイナー指摘 2026-11-27）：
@@ -1075,15 +1085,21 @@ a.room-bubble:active{filter:brightness(.95)}
 .local-abbr .abbr-tx{position:relative;z-index:1;text-shadow:0 1px 4px rgba(0,0,0,.65),0 0 3px rgba(0,0,0,.6)}
 .field-tags{display:flex;gap:6px;flex-wrap:wrap}
 .field-tag{font-size:var(--fs-chip);font-weight:700;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap;line-height:var(--lh-meta)}
-.voice-reporter{padding:var(--sp-4) 0;border-top:1px solid var(--line)}
+/* 記者カードの箱の寸法はニュース行（.news-item）と同一にする（TK承認 2026-11-27）：
+   上下は --sp-4、左右は -10px マージン＋10px パディングで、区切り線の
+   伸び方と文字の開始位置をジャンル別ニュースの行と揃える */
+.voice-reporter{padding:var(--sp-4) 10px;margin:0 -10px;border-top:1px solid var(--line)}
 .voice-reporter:first-of-type{border-top:0;padding-top:0}
 /* 記者カード内の縦リズムは 8px 刻みで統一（見出し→タグ→紹介文）。
    地元ライター側の 8px と揃え、両リストで同じ間隔にする */
 .voice-reporter .field-tags{margin-top:var(--sp-2)}
-.insider{display:flex;gap:var(--sp-3);padding:var(--sp-4) 0;border-top:1px solid var(--line);align-items:flex-start}
+/* 紹介文はニュース行の本文（.news-item p）と同寸にする：13px／行間1.7。
+   .card .sub の既定（12.5px／1.65）より要素指定を強くし、記者カード側を優先する */
+.voice-reporter p.sub{font-size:var(--fs-sub);line-height:var(--lh-body)}
+.insider{display:flex;gap:var(--sp-3);padding:var(--sp-4) 10px;margin:0 -10px;border-top:1px solid var(--line);align-items:flex-start}
 .insider:first-of-type{border-top:0;padding-top:0}
-.insider b{font-size:var(--fs-item)}
-.insider p{margin:2px 0 0;font-size:var(--fs-small);color:var(--muted);line-height:1.65}
+.insider b{font-size:var(--fs-headline);line-height:var(--lh-headline)}
+.insider p{margin:2px 0 0;font-size:var(--fs-sub);color:var(--muted);line-height:var(--lh-body)}
 
 /* 地元ライターのカードは記者一覧と完全に同じ様式に統一する（2026-11-26 TK指示）：
    寸法・字サイズ・余白の地元側の上書きは置かず、.voice-reporter／.insider-head の
@@ -1142,7 +1158,7 @@ a.room-bubble:active{filter:brightness(.95)}
    マストヘッドはセーフエリア分（env(safe-area-inset-top)）だけ背が高くなるため、
    余白も同じ分を加算する。加算しないとノッチ付き端末で先頭カードの見出しが
    ヘッダーの下に隠れる（html の scroll-padding-top と同値に揃える） */
-.card,.voice-reporter,.news-item,.section-head,.gossip-zone,.map-panel,.detail-sec,.digest{scroll-margin-top:calc(88px + env(safe-area-inset-top,0px))}
+.card,.voice-reporter,.news-item,.section-head,.gossip-zone,.map-panel,.detail-sec,.digest,.editor-entry{scroll-margin-top:calc(88px + env(safe-area-inset-top,0px))}
 body.lang-en .sec-en{display:none}
 body.lang-en .kicker-ja{display:none}
 body.lang-en .section-head h2{font-size:var(--fs-h3)}
@@ -1279,7 +1295,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   /* 固定マストヘッドが細くなる分、アンカー先の余白も詰めて止まり位置を揃える
      （セーフエリア分はデスクトップ側と同様に加算し、見出しが隠れないようにする） */
   html{scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
-  .card,.voice-reporter,.news-item,.section-head,.gossip-zone,.map-panel,.detail-sec,.digest{scroll-margin-top:calc(80px + env(safe-area-inset-top,0px))}
+  .card,.voice-reporter,.news-item,.section-head,.gossip-zone,.map-panel,.detail-sec,.digest,.editor-entry{scroll-margin-top:calc(80px + env(safe-area-inset-top,0px))}
   .wrap{padding:0 16px calc(48px + env(safe-area-inset-bottom,0px))}
   .masthead{margin:0 -16px;padding:calc(9px + env(safe-area-inset-top,0px)) 16px 9px}
   .masthead-title{font-size:20px;gap:9px}
@@ -1378,6 +1394,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
 
   /* 見出し・帯・フッターも同じ14pxに揃え、区切り線は画面端まで通す */
   .section-head{padding-left:var(--gutter);padding-right:var(--gutter)}
+  .editor-date-nav{padding-left:var(--gutter);padding-right:var(--gutter)}
   .toolbar{padding-left:var(--gutter);padding-right:var(--gutter)}
   .legend{padding-left:var(--gutter);padding-right:var(--gutter)}
   .foot{padding-left:var(--gutter);padding-right:var(--gutter)}
@@ -2141,6 +2158,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
       <div><span class="sec-en" aria-hidden="true">EDITOR'S TAKE</span><h2 data-i18n="editorH">管理人の見解</h2></div>
       <button class="btn" id="editorBackBtn" type="button"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span data-i18n="pastTopBack">戻る</span></button>
     </div>
+    <nav class="editor-date-nav" id="editorDateNav" data-i18n-aria="editorDateNav" aria-label="掲載日一覧"></nav>
     <section class="card editor-card"><div id="editorList"></div></section>
     <div class="past-top-foot"><button class="btn" id="editorBackBtn2" type="button"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span data-i18n="pastTopBack">戻る</span></button></div>
   </div>
@@ -2214,7 +2232,7 @@ var UI={
   toFeed:"関連フィードへ",
   backToMap:"更新マップに戻る",
   pastTopLink:"過去のTOP NEWS", pastTopH:"過去のTOP NEWS", pastTopBack:"戻る", pastTopEmpty:"過去のTOP NEWSはまだありません。", pastTopEmptySub:"新しい公式・報道が増えると、ここに移ります。",
-  editorH:"管理人の見解", editorSign:"出入り禁止", editorDoorLabel:"管理人の見解を開く", editorEmpty:"まだ記事がありません。", editorEmptySub:"その日のニュースへの見解が、ここに並びます。",
+  editorH:"管理人の見解", editorDateNav:"掲載日一覧", editorSign:"出入り禁止", editorDoorLabel:"管理人の見解を開く", editorEmpty:"まだ記事がありません。", editorEmptySub:"その日のニュースへの見解が、ここに並びます。",
   detailLatest:"最新", detailAll:"すべて",
   detailLatestNote:"公式 → 報道 → 噂 の順、同ステータス内は新しい順",
   detailEmpty:"このチームの記事はまだありません",
@@ -2289,7 +2307,7 @@ var UI={
   toFeed:"Go to related feed",
   backToMap:"Back to update map",
   pastTopLink:"Past TOP NEWS", pastTopH:"Past TOP NEWS", pastTopBack:"Back", pastTopEmpty:"No past TOP NEWS yet.", pastTopEmptySub:"Older top stories will move here as new ones arrive.",
-  editorH:"Editor's Take", editorSign:"KEEP OUT", editorDoorLabel:"Open Editor's Take", editorEmpty:"No entries yet.", editorEmptySub:"The editor's takes on the day's news will appear here.",
+  editorH:"Editor's Take", editorDateNav:"Entry dates", editorSign:"KEEP OUT", editorDoorLabel:"Open Editor's Take", editorEmpty:"No entries yet.", editorEmptySub:"The editor's takes on the day's news will appear here.",
   detailLatest:"Latest", detailAll:"All",
   detailLatestNote:"Ordered by status — Official → Reported → Rumor — then newest first",
   detailEmpty:"No articles for this team yet",
@@ -2363,7 +2381,7 @@ var ARTICLES_JA=[
  {id:"boozer-ankle",cat:"important",s:"almost",teams:["MEM"],type:"怪我",src:"Shams Charania",media:"USA Today",official:false,ord:1123.4,date:"11/23（月）",dateShort:"11/23",title:"ブーザー、右足首捻挫で約4週間離脱",body:"右足首の中等度内側捻挫と画像検査で判明し、約4週間後に再評価。構造的な損傷はなく全治が見込まれる。11/19のGSW戦で負傷。",url:"https://www.usatoday.com/story/sports/nba/grizzlies/2026/11/23/cameron-boozer-injury-timeline-update/92934309007/"},
  {id:"ingram",cat:"important",s:"almost",teams:["LAC"],type:"怪我",src:"Shams Charania",media:"NBC Sports",official:false,ord:1120,date:"11/20（金）",dateShort:"11/20",title:"イングラム、月曜にクリッパーズでデビュー",body:"アキレス腱の負傷で離脱していたブランドン・イングラムが、月曜にクリッパーズデビューする見通しだとShamsが報道。",url:"https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-20/shams-brandon-ingram-achilles-to-debut-monday"},
  {id:"murray-suns",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Chris Haynes",media:"Sports Illustrated",official:false,ord:1116,date:"11月",dateShort:"11月",title:"サンズ、デジョンテ・マレーに関心",body:"サンズがペリカンズのデジョンテ・マレー獲得に関心を示しているとHaynesが報道。",url:"https://www.si.com/nba/suns/onsi/report-phoenix-suns-registering-interest-dejounte-murray-trade-request"},
- {id:"green-murray",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Sam Amick",media:"Hoops Rumors",official:false,ord:1115.5,date:"11月",dateShort:"11月",title:"サンズとペリカンズ、ジェイレン・グリーン⇔デジョンテ・マレーの協議か",body:"ジェイレン・グリーンとデジョンテ・マレーを軸にした、サンズとペリカンズの協議が取り沙汰されているとAmickが伝えた。",url:"https://www.hoopsrumors.com/2026/11/suns-notes-green-murray-bridges-booker-timme.html"},
+ {id:"green-murray",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Sam Amick",media:"Hoops Rumors",official:false,ord:1115.5,date:"11月",dateShort:"11月",title:"サンズとペリカンズ、ジェイレン・グリーン⇔デジョンテ・マレー協議か",body:"ジェイレン・グリーンとデジョンテ・マレーを軸にした、サンズとペリカンズの協議が取り沙汰されているとAmickが伝えた。",url:"https://www.hoopsrumors.com/2026/11/suns-notes-green-murray-bridges-booker-timme.html"},
  {id:"clippers-sellers",cat:"rumor",s:"rumor",teams:["LAC"],type:"トレード",src:"Marc Stein",media:"Hoops Rumors",official:false,ord:1115,date:"11月",dateShort:"11月",title:"クリッパーズは「確実な売り手」との見方",body:"Steinはクリッパーズをトレード市場の「確実な売り手」と位置づけた。",url:"https://www.hoopsrumors.com/2026/11/steins-latest-grimes-clippers-nets-clayton.html"},
  {id:"kings-cap",cat:"teaminfo",s:"almost",teams:["SAC"],type:"分析",src:"Sports Illustrated",media:"Sports Illustrated",official:false,ord:1123,date:"11/23（月）",dateShort:"11/23",title:"キングス、ビンセント加入後のキャップ分析",body:"ビンセント加入後のキングスのサラリーキャップをSIが分析。",url:"https://www.si.com/nba/kings/onsi/where-the-kings-cap-sheet-stands-after-filling-final-roster-spot"},
  {id:"nets-traore-fill",cat:"teaminfo",s:"almost",teams:["BKN"],type:"分析",src:"Sports Illustrated",media:"Sports Illustrated",official:false,ord:1113,date:"11月",dateShort:"11月",title:"ネッツ、トラオレ離脱の穴埋め策",body:"トラオレの長期離脱を受け、ネッツがどう穴を埋めるかをSIが分析。",url:"https://www.si.com/nba/nets/onsi/how-the-brooklyn-nets-could-overcome-the-loss-of-nolan-traore"},
@@ -2398,7 +2416,7 @@ var ARTICLES_JA=[
  {id:"holmgren-knee",cat:"important",s:"almost",teams:["OKC"],type:"怪我",src:"Oklahoma City Thunder",media:"USA Today",official:false,ord:1030.2,date:"10/30（金）",dateShort:"10/30",title:"ホルムグレン、右膝の治療で8〜10週間離脱",body:"サンダーのチェット・ホルムグレンが右膝の治療で8〜10週間の離脱。",url:"https://www.usatoday.com/story/sports/nba/thunder/2026/10/30/chet-holmgren-injury-update-patellar-tendon-tear-treatment/92525150007/",past:true},
  {id:"wizards-options",cat:"teaminfo",s:"almost",teams:["WAS"],type:"契約",src:"Washington Wizards",media:"Field Level Media",official:false,ord:1101.1,date:"11/1（日）",dateShort:"11/1",title:"ウィザーズ、サールら5選手のオプション行使",body:"ウィザーズがアレックス・サールら5選手のオプションを行使した。",url:"https://fieldlevelmedia.com/nba/wizards-exercise-options-on-five-players-including-former-no-2-pick-alex-sarr/",past:true},
  {id:"hawks-newell-option",cat:"teaminfo",s:"almost",teams:["ATL"],type:"契約",src:"Atlanta Hawks",media:"Hoops Rumors",official:false,ord:1101.2,date:"11/1（日）",dateShort:"11/1",title:"ホークス、ニューウェルの3年目オプション行使",body:"ホークスがエイサ・ニューウェルの3年目オプションを行使した。",url:"https://www.hoopsrumors.com/2026/11/hawks-exercise-2027-28-option-on-asa-newell.html",past:true},
- {id:"thunder-options",cat:"teaminfo",s:"almost",teams:["OKC"],type:"契約",src:"Oklahoma City Thunder",media:"Hoops Rumors",official:false,ord:1101.3,date:"11/1（日）",dateShort:"11/1",title:"サンダー、マケインとソーバーのオプション行使（トピッチは行使せず）",body:"サンダーがマケインとソーバーのオプションを行使し、トピッチのオプションは行使しなかった。",url:"https://www.hoopsrumors.com/2026/11/thunder-exercise-mccain-sorber-team-options-decline-topic.html",past:true},
+ {id:"thunder-options",cat:"teaminfo",s:"almost",teams:["OKC"],type:"契約",src:"Oklahoma City Thunder",media:"Hoops Rumors",official:false,ord:1101.3,date:"11/1（日）",dateShort:"11/1",title:"サンダー、マケインとソーバーのオプション行使",body:"サンダーがマケインとソーバーのオプションを行使し、トピッチのオプションは行使しなかった。",url:"https://www.hoopsrumors.com/2026/11/thunder-exercise-mccain-sorber-team-options-decline-topic.html",past:true},
  {id:"flemings-suspension",cat:"important",s:"almost",teams:["ATL"],type:"話題",src:"NBA",media:"USA TODAY",official:false,ord:1101.4,date:"11/1（日）",dateShort:"11/1",title:"フレミングス、肘打ちで1試合出場停止",body:"ホークスのキングストン・フレミングスが肘打ちで1試合の出場停止処分を受けた。",url:"https://www.usatoday.com/story/sports/nba/hawks/2026/11/01/kingston-flemings-suspended-game-elbow-hawks-pelicans/92557805007/",past:true},
  {id:"coby-white-debut",cat:"important",s:"almost",teams:["CHA"],type:"怪我",src:"Charlotte Hornets",media:"ESPN",official:false,ord:1102.1,date:"11/2（月）",dateShort:"11/2",title:"コービー・ホワイト、復帰して今季初出場",body:"ホーネッツのコービー・ホワイトが復帰し、今季初出場を果たした。",url:"https://www.espn.ph/nba/story/_/id/50362034/coby-white-returns-hornets-kon-knueppel-right-corner",past:true},
  {id:"westbrook-no0",cat:"important",s:"almost",teams:["OKC"],type:"話題",src:"Oklahoma City Thunder",media:"ESPN",official:false,ord:1102.2,date:"11/2（月）",dateShort:"11/2",title:"サンダー、ウェストブルックの背番号0を永久欠番に",body:"サンダーがラッセル・ウェストブルックの背番号0を永久欠番にすると発表した。",url:"https://www.espn.ph/nba/story/_/id/50360248/thunder-retire-russell-westbrook-no-0",past:true},
@@ -2419,7 +2437,7 @@ var ARTICLES_JA=[
  {id:"harper-hip",cat:"important",s:"almost",teams:["SAS"],type:"怪我",src:"Shams Charania",media:"USA Today",official:false,ord:1119.5,noTop:true,date:"11/19（木）",dateShort:"11/19",title:"ディラン・ハーパー、左股関節の肉離れで1〜3週間離脱",body:"スパーズのディラン・ハーパーが左股関節の肉離れで1〜3週間離脱するとShamsが報道。",url:"https://www.usatoday.com/story/sports/nba/spurs/2026/11/19/spurs-dylan-harper-injury-update-hip-rotator-strain/92865867007/",past:true,top:true},
  {id:"barrett-hamstring",cat:"important",s:"almost",teams:["TOR"],type:"怪我",src:"Toronto Raptors",media:"Sportsnet",official:false,ord:1119.6,date:"11/19（木）",dateShort:"11/19",title:"バレット、右ハムストリングで少なくとも2週間離脱",body:"ラプターズのRJ・バレットが右ハムストリングの負傷で少なくとも2週間の離脱。",url:"https://www.sportsnet.ca/nba/article/raptors-barrett-out-at-least-two-weeks-with-hamstring-strain/",past:true},
  {id:"kawhi-more-weeks",cat:"important",s:"almost",teams:["TOR"],type:"怪我",src:"Shams Charania",media:"TSN",official:false,ord:1119.9,date:"11/20（金）",dateShort:"11/20",title:"カワイ、左膝の腫れでさらに約2週間離脱見込み",body:"ラプターズのカワイ・レナードが左膝の腫れでさらに約2週間離脱する見込みだとShamsが報道。",url:"https://www.tsn.ca/nba/article/report-raptors-leonard-to-miss-two-more-weeks-with-knee-swelling/",past:true,top:true},
- {id:"grant-calf",cat:"important",s:"almost",teams:["MEM"],type:"怪我",src:"Memphis Grizzlies",media:"Hoops Rumors",official:false,ord:1122,date:"11/22（日）",dateShort:"11/22",title:"ジェラミ・グラント、左ふくらはぎ肉離れで少なくとも2週間離脱",body:"グリズリーズのジェラミ・グラントが左ふくらはぎの肉離れで少なくとも2週間の離脱。",url:"https://www.hoopsrumors.com/2026/11/jerami-grant-out-at-least-two-weeks-with-calf-strain.html",past:true,top:true}
+ {id:"grant-calf",cat:"important",s:"almost",teams:["MEM"],type:"怪我",src:"Memphis Grizzlies",media:"Hoops Rumors",official:false,ord:1122,date:"11/22（日）",dateShort:"11/22",title:"ジェラミ・グラント、左ふくらはぎ肉離れで2週間以上離脱",body:"グリズリーズのジェラミ・グラントが左ふくらはぎの肉離れで少なくとも2週間の離脱。",url:"https://www.hoopsrumors.com/2026/11/jerami-grant-out-at-least-two-weeks-with-calf-strain.html",past:true,top:true}
 ];
 var ARTICLES_EN=[
  {id:"mcconnell-recall",cat:"important",s:"almost",teams:["IND"],type:"怪我",src:"Shams Charania",media:"RotoWire",official:false,ord:1124.5,date:"Nov 24 (Tue)",dateShort:"11/24",title:"McConnell recalled from the G League",body:"Shams reports the Pacers have recalled T.J. McConnell to the NBA after he missed the last two games with left hamstring tightness and practiced with the G League's Noblesville Boom. He is questionable for Friday's game against the 76ers.",url:"https://www.rotowire.com/basketball/headlines/tj-mcconnell-injury-recalled-to-nba-540855"},
@@ -2431,14 +2449,14 @@ var ARTICLES_EN=[
  {id:"boozer-ankle",cat:"important",s:"almost",teams:["MEM"],type:"怪我",src:"Shams Charania",media:"USA Today",official:false,ord:1123.4,date:"Nov 23 (Mon)",dateShort:"11/23",title:"Boozer out about four weeks with a right ankle sprain",body:"Shams reports Grizzlies rookie Cameron Boozer has a moderate medial right ankle sprain on imaging and will be re-evaluated in about four weeks. There is no structural damage and a full recovery is expected. He was injured in the Nov 19 game against Golden State.",url:"https://www.usatoday.com/story/sports/nba/grizzlies/2026/11/23/cameron-boozer-injury-timeline-update/92934309007/"},
  {id:"ingram",cat:"important",s:"almost",teams:["LAC"],type:"怪我",src:"Shams Charania",media:"NBC Sports",official:false,ord:1120,date:"Nov 20 (Fri)",dateShort:"11/20",title:"Ingram set to debut for the Clippers on Monday",body:"Shams reports Brandon Ingram, sidelined with an Achilles injury, is set to make his Clippers debut on Monday.",url:"https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-20/shams-brandon-ingram-achilles-to-debut-monday"},
  {id:"murray-suns",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Chris Haynes",media:"Sports Illustrated",official:false,ord:1116,date:"Nov",dateShort:"Nov",title:"Suns register interest in Dejounte Murray",body:"Haynes reports the Suns have registered interest in the Pelicans' Dejounte Murray.",url:"https://www.si.com/nba/suns/onsi/report-phoenix-suns-registering-interest-dejounte-murray-trade-request"},
- {id:"green-murray",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Sam Amick",media:"Hoops Rumors",official:false,ord:1115.5,date:"Nov",dateShort:"Nov",title:"Suns and Pelicans talk Green-for-Murray framework?",body:"Amick relayed talk of Suns–Pelicans discussions built around Jalen Green and Dejounte Murray.",url:"https://www.hoopsrumors.com/2026/11/suns-notes-green-murray-bridges-booker-timme.html"},
+ {id:"green-murray",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Sam Amick",media:"Hoops Rumors",official:false,ord:1115.5,date:"Nov",dateShort:"Nov",title:"Suns, Pelicans in Green-for-Murray talks",body:"Amick relayed talk of Suns–Pelicans discussions built around Jalen Green and Dejounte Murray.",url:"https://www.hoopsrumors.com/2026/11/suns-notes-green-murray-bridges-booker-timme.html"},
  {id:"clippers-sellers",cat:"rumor",s:"rumor",teams:["LAC"],type:"トレード",src:"Marc Stein",media:"Hoops Rumors",official:false,ord:1115,date:"Nov",dateShort:"Nov",title:"Clippers viewed as definite sellers",body:"Stein positions the Clippers as definite sellers on the trade market.",url:"https://www.hoopsrumors.com/2026/11/steins-latest-grimes-clippers-nets-clayton.html"},
  {id:"kings-cap",cat:"teaminfo",s:"almost",teams:["SAC"],type:"分析",src:"Sports Illustrated",media:"Sports Illustrated",official:false,ord:1123,date:"Nov 23 (Mon)",dateShort:"11/23",title:"Kings cap sheet after the Vincent signing",body:"SI breaks down the Kings' cap sheet after Vincent's signing filled the final roster spot.",url:"https://www.si.com/nba/kings/onsi/where-the-kings-cap-sheet-stands-after-filling-final-roster-spot"},
  {id:"nets-traore-fill",cat:"teaminfo",s:"almost",teams:["BKN"],type:"分析",src:"Sports Illustrated",media:"Sports Illustrated",official:false,ord:1113,date:"Nov",dateShort:"Nov",title:"How the Nets cover for Traore's absence",body:"SI analyzes how Brooklyn could cover for Traore's long absence.",url:"https://www.si.com/nba/nets/onsi/how-the-brooklyn-nets-could-overcome-the-loss-of-nolan-traore"},
  {id:"scotto-clifford",cat:"important",s:"almost",teams:["SAC","OKC"],type:"トレード",src:"Michael Scotto",media:"HoopsHype",official:false,ord:1108,date:"Nov 8 (Sun)",dateShort:"11/8",noTop:true,title:"Kings trade Nique Clifford to the Thunder",body:"Scotto reports the Sacramento Kings traded Nique Clifford to the Oklahoma City Thunder in exchange for two second-round picks.",url:"https://www.hoopshype.com/story/sports/nba/rumors/2026/11/08/nique-clifford-traded-to-oklahoma-city/92678946007/"},
  {id:"scotto-cooper",cat:"important",s:"almost",teams:["LAL"],type:"契約",src:"Michael Scotto",media:"HoopsHype",official:false,ord:1110,date:"Nov 10 (Tue)",dateShort:"11/10",noTop:true,title:"Lakers plan to sign Carson Cooper to a two-way deal",body:"Scotto reports the Los Angeles Lakers plan to sign center Carson Cooper to a two-way contract.",url:"https://www.hoopshype.com/story/sports/nba/rumors/2026/11/10/lakers-plan-to-sign-carson-cooper/92715556007/"},
  {id:"scotto-porter",cat:"rumor",s:"rumor",teams:["ORL","DEN"],type:"契約",src:"Michael Scotto",media:"HoopsHype",official:false,ord:1123.3,date:"Nov 23 (Mon)",dateShort:"11/23",title:"Magic and Nuggets interested in Kevin Porter Jr.",body:"Scotto reports the Magic and Nuggets have shown interest in free-agent guard Kevin Porter Jr. — interest only, no agreement.",url:"https://www.hoopshype.com/story/sports/nba/rumors/2026/11/23/magic-nuggets-interested-in-kevin-porter/92924837007/"},
- {id:"fischer-suns-murray",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Jake Fischer",media:"Hoops Rumors",official:false,ord:1119.2,date:"Nov 19 (Thu)",dateShort:"11/19",title:"Suns would want draft compensation in any Murray deal",body:"Fischer reports the Suns are seeking draft compensation in a Murray swap and prioritize frontcourt size over a point guard.",url:"https://www.hoopsrumors.com/2026/11/trade-rumors-murray-suns-heat-murphy-mcbride.html"},
+ {id:"fischer-suns-murray",cat:"rumor",s:"rumor",teams:["PHX","NOP"],type:"トレード",src:"Jake Fischer",media:"Hoops Rumors",official:false,ord:1119.2,date:"Nov 19 (Thu)",dateShort:"11/19",title:"Suns seeking draft compensation in Murray deal",body:"Fischer reports the Suns are seeking draft compensation in a Murray swap and prioritize frontcourt size over a point guard.",url:"https://www.hoopsrumors.com/2026/11/trade-rumors-murray-suns-heat-murphy-mcbride.html"},
  {id:"fischer-murphy",cat:"rumor",s:"rumor",teams:["NOP","GSW"],type:"トレード",src:"Jake Fischer",media:"HoopsHype",official:false,ord:1119.1,date:"Nov 19 (Thu)",dateShort:"11/19",title:"Murphy III has not asked out",body:"Fischer reports Trey Murphy III has not requested a trade and the Pelicans are reluctant to move him, amid reported Warriors interest.",url:"https://www.hoopshype.com/story/sports/nba/rumors/2026/11/19/trey-murphy-has-not-pushed-for-a-trade-from-pelicans-new-orleans-remains-reluctant-to-trade-him/92863158007/"},
  {id:"fischer-wiggins",cat:"rumor",s:"rumor",teams:["LAL"],type:"トレード",src:"Jake Fischer",media:"Sportscasting",official:false,ord:1123.6,date:"Nov 23 (Mon)",dateShort:"11/23",title:"Lakers monitoring Wiggins for a potential trade",body:"Fischer reports the Lakers are monitoring Heat forward Andrew Wiggins; if Miami makes Wiggins available, the Lakers are expected to make a move (Fischer's Bleacher Report comments, relayed by NBACentral and others).",url:"https://www.sportscasting.com/news/the-lakers-will-reportedly-monitor-miamis-andrew-wiggins-for-a-potential-trade/"},
  {id:"fischer-porter-talks",cat:"rumor",s:"rumor",teams:["ORL","DEN"],type:"契約",src:"Jake Fischer",media:"RealGM",official:false,ord:1124.3,date:"Nov 24 (Tue)",dateShort:"11/24",title:"Porter Jr. in talks with the Nuggets and Magic",body:"Fischer reports free-agent guard Kevin Porter Jr. is in talks with the Denver Nuggets and Orlando Magic. He has met with both teams and visited the Magic on Monday (Nov 23). No agreement or signing yet — still at the talks stage (Fischer of The Stein Line, via RealGM Wiretap).",url:"https://basketball.realgm.com/wiretap/288239/Kevin-Porter-Jr-In-Talks-With-Nuggets-Magic"},
@@ -2464,7 +2482,7 @@ var ARTICLES_EN=[
  {id:"holmgren-knee",cat:"important",s:"almost",teams:["OKC"],type:"怪我",src:"Oklahoma City Thunder",media:"USA Today",official:false,ord:1030.2,date:"Oct 30 (Fri)",dateShort:"10/30",title:"Holmgren out 8-10 weeks with knee treatment",body:"The Thunder's Chet Holmgren will miss 8–10 weeks for treatment on his right knee.",url:"https://www.usatoday.com/story/sports/nba/thunder/2026/10/30/chet-holmgren-injury-update-patellar-tendon-tear-treatment/92525150007/",past:true},
  {id:"wizards-options",cat:"teaminfo",s:"almost",teams:["WAS"],type:"契約",src:"Washington Wizards",media:"Field Level Media",official:false,ord:1101.1,date:"Nov 1 (Sun)",dateShort:"11/1",title:"Wizards exercise options on Sarr, 4 others",body:"The Wizards exercised team options on Alex Sarr and four other players.",url:"https://fieldlevelmedia.com/nba/wizards-exercise-options-on-five-players-including-former-no-2-pick-alex-sarr/",past:true},
  {id:"hawks-newell-option",cat:"teaminfo",s:"almost",teams:["ATL"],type:"契約",src:"Atlanta Hawks",media:"Hoops Rumors",official:false,ord:1101.2,date:"Nov 1 (Sun)",dateShort:"11/1",title:"Hawks exercise Newell's third-year option",body:"The Hawks exercised Asa Newell's third-year team option.",url:"https://www.hoopsrumors.com/2026/11/hawks-exercise-2027-28-option-on-asa-newell.html",past:true},
- {id:"thunder-options",cat:"teaminfo",s:"almost",teams:["OKC"],type:"契約",src:"Oklahoma City Thunder",media:"Hoops Rumors",official:false,ord:1101.3,date:"Nov 1 (Sun)",dateShort:"11/1",title:"Thunder exercise McCain, Sorber options; decline Topic's",body:"The Thunder exercised team options on Jared McCain and Thomas Sorber and declined Nikola Topic's.",url:"https://www.hoopsrumors.com/2026/11/thunder-exercise-mccain-sorber-team-options-decline-topic.html",past:true},
+ {id:"thunder-options",cat:"teaminfo",s:"almost",teams:["OKC"],type:"契約",src:"Oklahoma City Thunder",media:"Hoops Rumors",official:false,ord:1101.3,date:"Nov 1 (Sun)",dateShort:"11/1",title:"Thunder exercise options on McCain, Sorber",body:"The Thunder exercised team options on Jared McCain and Thomas Sorber and declined Nikola Topic's.",url:"https://www.hoopsrumors.com/2026/11/thunder-exercise-mccain-sorber-team-options-decline-topic.html",past:true},
  {id:"flemings-suspension",cat:"important",s:"almost",teams:["ATL"],type:"話題",src:"NBA",media:"USA TODAY",official:false,ord:1101.4,date:"Nov 1 (Sun)",dateShort:"11/1",title:"Flemings suspended 1 game for elbow",body:"The Hawks' Kingston Flemings was suspended one game for an elbow against the Pelicans.",url:"https://www.usatoday.com/story/sports/nba/hawks/2026/11/01/kingston-flemings-suspended-game-elbow-hawks-pelicans/92557805007/",past:true},
  {id:"coby-white-debut",cat:"important",s:"almost",teams:["CHA"],type:"怪我",src:"Charlotte Hornets",media:"ESPN",official:false,ord:1102.1,date:"Nov 2 (Mon)",dateShort:"11/2",title:"Coby White makes season debut in return",body:"The Hornets' Coby White returned to the lineup and made his season debut.",url:"https://www.espn.ph/nba/story/_/id/50362034/coby-white-returns-hornets-kon-knueppel-right-corner",past:true},
  {id:"westbrook-no0",cat:"important",s:"almost",teams:["OKC"],type:"話題",src:"Oklahoma City Thunder",media:"ESPN",official:false,ord:1102.2,date:"Nov 2 (Mon)",dateShort:"11/2",title:"Thunder to retire Westbrook's No. 0",body:"The Thunder announced they will retire Russell Westbrook's No. 0 jersey.",url:"https://www.espn.ph/nba/story/_/id/50360248/thunder-retire-russell-westbrook-no-0",past:true},
@@ -2741,7 +2759,7 @@ function pickLocalReporter(handle){
 var RUMOR_REPORTERS=[
  {name:"Brian Windhorst",ini:"BW",color:"#1d4ed8",handle:"WindhorstESPN",postChip:"rumor",tagsJa:["トレード市場","リーグ動向"],tagsEn:["Trade market","League trends"],outletJa:"ESPN",outletEn:"ESPN",descJa:"ESPNのNBA記者。トレード市場の空気を読む発信が多い。",descEn:"ESPN NBA reporter — known for reading the trade market.",posts:[]},
  {name:"Sam Amick",ini:"SA",color:"#0369a1",handle:"sam_amick",postChip:"rumor",tagsJa:["チーム内情","トレード"],tagsEn:["Team intel","Trades"],outletJa:"The Athletic シニアNBAライター",outletEn:"The Athletic Senior NBA Writer",descJa:"The AthleticのシニアNBAライター。",descEn:"Senior NBA writer at The Athletic.",posts:[
-  {dateJa:"11月",dateEn:"Nov",teams:["PHX","NOP"],titleJa:"サンズとペリカンズ、ジェイレン・グリーン⇔デジョンテ・マレーの協議か",titleEn:"Suns and Pelicans talk Green-for-Murray framework?",bodyJa:"ジェイレン・グリーンとデジョンテ・マレーを軸にした、サンズとペリカンズの協議が取り沙汰されているとAmickが伝えた。",bodyEn:"Amick relayed talk of Suns–Pelicans discussions built around Jalen Green and Dejounte Murray.",url:"https://www.hoopsrumors.com/2026/11/suns-notes-green-murray-bridges-booker-timme.html"}
+  {dateJa:"11月",dateEn:"Nov",teams:["PHX","NOP"],titleJa:"サンズとペリカンズ、ジェイレン・グリーン⇔デジョンテ・マレー協議か",titleEn:"Suns, Pelicans in Green-for-Murray talks",bodyJa:"ジェイレン・グリーンとデジョンテ・マレーを軸にした、サンズとペリカンズの協議が取り沙汰されているとAmickが伝えた。",bodyEn:"Amick relayed talk of Suns–Pelicans discussions built around Jalen Green and Dejounte Murray.",url:"https://www.hoopsrumors.com/2026/11/suns-notes-green-murray-bridges-booker-timme.html"}
  ]}
 ];
 function voicePostHTML(r,p){
@@ -3777,15 +3795,29 @@ function columnDateLabel(dateStr){
   var wd=new Date(parseInt(m[1],10),mo-1,dy).getDay();
   return state.lang==="en"?(WD_EN[wd]+", "+MO_EN[mo-1]+" "+dy):(mo+"月"+dy+"日（"+WD_JA[wd]+"）");
 }
+/* 日付チップ用の短い日付表記（日本語＝M/D（曜）で記事の日付行と同形式、
+   英語＝Mon D (Wday)）。ページ上部のチップ一覧のラベルにだけ使う */
+function columnChipLabel(dateStr){
+  var m=/^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(dateStr||""); if(!m)return dateStr||"";
+  var mo=parseInt(m[2],10),dy=parseInt(m[3],10);
+  var wd=new Date(parseInt(m[1],10),mo-1,dy).getDay();
+  return state.lang==="en"?(MO_EN[mo-1]+" "+dy+" ("+WD_EN[wd]+")"):(mo+"/"+dy+"（"+WD_JA[wd]+"）");
+}
 function renderEditorColumn(){
   var el=document.getElementById("editorList");
   if(!el)return;
   var list=mergedColumnEntries();
-  if(!list.length){el.innerHTML=emptyHTML(L().editorEmpty,L().editorEmptySub);return;}
+  var nav=document.getElementById("editorDateNav");
+  if(!list.length){el.innerHTML=emptyHTML(L().editorEmpty,L().editorEmptySub);if(nav)nav.innerHTML="";return;}
   var en=state.lang==="en";
+  /* ページ上部の日付チップ一覧：掲載日（新しい順）を並べ、タップでその日の
+     エントリー（#editor-entry-<date>）へスクロールする */
+  if(nav)nav.innerHTML=list.map(function(entry){
+    return '<button type="button" class="editor-date-chip" data-date="'+entry.date+'">'+columnChipLabel(entry.date)+'</button>';
+  }).join("");
   el.innerHTML=list.map(function(entry){
     var intro=en?(entry.introEn||entry.intro):entry.intro;
-    var html='<article class="editor-entry"><div class="editor-date">'+columnDateLabel(entry.date)+'</div>';
+    var html='<article class="editor-entry" id="editor-entry-'+entry.date+'"><div class="editor-date">'+columnDateLabel(entry.date)+'</div>';
     if(intro)html+='<p class="editor-intro">'+intro+'</p>';
     html+='<div class="editor-takes">';
     (entry.takes||[]).forEach(function(t){
@@ -3849,6 +3881,17 @@ function closeEditor(){
 document.getElementById("editorDoorBtn").addEventListener("click",openEditor);
 document.getElementById("editorBackBtn").addEventListener("click",closeEditor);
 document.getElementById("editorBackBtn2").addEventListener("click",closeEditor);
+/* 日付チップのタップでその日のエントリーへスクロールする（イベント委譲：
+   チップは renderEditorColumn が描き直すため、帯側に1つだけ付ける。
+   動きの作法は地元ライターのピッカー選択（pickLocalReporter）と揃える） */
+var editorDateNavEl=document.getElementById("editorDateNav");
+if(editorDateNavEl)editorDateNavEl.addEventListener("click",function(e){
+  var b=e.target.closest("button[data-date]"); if(!b)return;
+  var target=document.getElementById("editor-entry-"+b.getAttribute("data-date"));
+  if(!target)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
+});
 /* ===== チーム詳細＝LINE風トークルーム =====
    一覧の行タップで専用ビュー（ルーム）へ入る。遷移・スクロール復帰は
    過去のTOP NEWS／管理人の見解ビューと同じ方式（通常画面を隠して切り替え、
