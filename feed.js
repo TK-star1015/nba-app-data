@@ -1625,9 +1625,27 @@ window.NBA_FEED = {
      "url": "https://www.fantasypros.com/nba/news/622937/jalen-smith-illness-listed-probable-saturday.php"
     }
    ]
+  },
+  {
+   "id": "gh-20261128-yang-hansen-questionable-warriors",
+   "level": "official",
+   "teams": [
+    "POR"
+   ],
+   "headline": "ヤン・ハンセン、左足首の捻挫で土曜ウォリアーズ戦はクエスチョナブル",
+   "headlineEn": "Yang Hansen questionable for Friday vs. Warriors with left ankle sprain",
+   "date": "2026-11-28",
+   "time": "05:30",
+   "ts": "2026-11-28T05:30:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_03_30PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "ブレイザーズのヤン・ハンセンが左足首の捻挫のため、土曜のウォリアーズ戦はクエスチョナブルとされた。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後3時30分版）に新たに掲載された。同戦ではデイミアン・リラードの欠場もすでに決まっている。",
+   "summaryEn": "Trail Blazers center Yang Hansen is listed as questionable for Friday's game against the Warriors with a left ankle sprain, per the latest edition of the NBA's official injury report (3:30 p.m. ET, Nov. 27). Hansen is a new addition to the report. Damian Lillard has already been ruled out for the same game."
   }
  ],
- "updatedAt": "2026-11-28T05:34:46+09:00",
+ "updatedAt": "2026-11-28T05:41:46+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
@@ -1644,4 +1662,5 @@ window.NBA_FEED = {
   "gh-20261126-rss-haliburton-nears-return",
   "gh-20261126-anunoby-calf-strain"
  ]
-};
+}
+;
