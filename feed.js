@@ -2105,5 +2105,4 @@ window.NBA_FEED = {
   "gh-20261126-anunoby-calf-strain",
   "gh-20261126-rss-brown-exits-heat-hamstring"
  ]
-}
-;
+};
