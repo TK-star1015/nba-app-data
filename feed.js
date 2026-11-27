@@ -1,6 +1,24 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261128-giannis-available-knicks",
+      "level": "official",
+      "teams": [
+        "MIA"
+      ],
+      "headline": "ヤニス・アデトクンボ、右鼠径部の腱炎も土曜ニックス戦に出場可能へ格上げ",
+      "headlineEn": "Giannis Antetokounmpo upgraded to available for Friday's game vs. Knicks despite right groin tendinitis",
+      "date": "2026-11-28",
+      "time": "07:30",
+      "ts": "2026-11-28T07:30:00+09:00",
+      "sourceName": "NBA公式レポート",
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_05_30PM.pdf",
+      "category": "怪我",
+      "top": false,
+      "summary": "ヒートのヤニス・アデトクンボが右鼠径部の腱炎のため、土曜（日本時間）のニックス戦はプロバブルとされていたが、NBA公式インジャリーレポートの最新版（米東部時間11月27日午後5時30分版）で出場可能へ格上げされた。離脱期間についての言及はレポートにない。",
+      "summaryEn": "Heat star Giannis Antetokounmpo has been upgraded to available for Friday's game against the Knicks despite right groin tendinitis, per the latest edition of the NBA's official injury report (5:30 p.m. ET, Nov. 27). He had previously been listed as probable. No timeline was given in the report."
+    },
+    {
       "id": "gh-20261128-bittle-raptors905-debut",
       "level": "reported",
       "teams": [
@@ -1858,7 +1876,7 @@ window.NBA_FEED = {
       "summaryEn": "Amick said on a radio show that the Warriors are not telling rival GMs to keep Draymond Green out of trade conversations. Green picked up his player option for this season and was not offered an extension, and Amick noted expiring contracts are the easiest to move for salary matching. He added Green can still defend at a high level and help another team as a veteran short-term piece."
     }
   ],
-  "updatedAt": "2026-11-28T07:40:32+09:00",
+  "updatedAt": "2026-11-28T07:41:51+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
@@ -1875,4 +1893,5 @@ window.NBA_FEED = {
     "gh-20261126-rss-haliburton-nears-return",
     "gh-20261126-anunoby-calf-strain"
   ]
-};
+}
+;
