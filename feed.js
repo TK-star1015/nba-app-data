@@ -54,8 +54,7 @@ window.NBA_FEED = {
    "sourceName": "Yahoo Sports",
    "url": "https://sports.yahoo.com/nba/articles/lights-luka-contagious-chemistry-lakers-110022468.html",
    "category": "分析",
-   "top": false,
-   "provisional": true
+   "top": false
   },
   {
    "id": "gh-20261127-martin-questionable-nets",
@@ -1205,7 +1204,13 @@ window.NBA_FEED = {
    "url": "https://sports.yahoo.com/nba/articles/nba-cup-bracket-watch-whos-110816968.html",
    "category": "分析",
    "top": false,
-   "provisional": true
+   "provisional": true,
+   "related": [
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/nba-cup-clinching-scenarios-for-fridays-games.html"
+    }
+   ]
   },
   {
    "id": "gh-20261124-mcconnell-recall-fix",
@@ -1238,7 +1243,7 @@ window.NBA_FEED = {
    "top": false
   }
  ],
- "updatedAt": "2026-11-27T23:58:00+09:00",
+ "updatedAt": "2026-11-28T00:16:41+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
