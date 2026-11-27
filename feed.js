@@ -1221,6 +1221,21 @@ window.NBA_FEED = {
    "reporter": "Shams Charania",
    "category": "怪我",
    "top": true
+  },
+  {
+   "id": "gh-20261128-lovering-grizzlies-10day",
+   "level": "reported",
+   "teams": [
+    "MEM"
+   ],
+   "headline": "グリズリーズ、ローソン・ラブリングと10日間契約へ",
+   "headlineEn": "Grizzlies to sign Lawson Lovering to a 10-day hardship deal",
+   "date": "2026-11-28",
+   "sourceName": "Threads",
+   "url": "https://www.threads.com/@shams/post/DgP9FCfBzPt",
+   "reporter": "Shams Charania",
+   "category": "契約",
+   "top": false
   }
  ],
  "updatedAt": "2026-11-27T23:58:00+09:00",
