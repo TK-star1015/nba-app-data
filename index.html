@@ -2965,10 +2965,11 @@ var themeMode="light"; /* 標準テーマはライト（TK決定 2026-11-26）�
 var bgChoice=""; /* 背景色：""＝デフォルト（テーマ連動）、それ以外は #rrggbb */
 var roomSoundOn=true; /* 入室音（トークルーム入室時のポップ音）：デフォルトON */
 var readSet={};
+var readMark={};
 /* お気に入り・フィルター・言語・テーマ・既読を端末に保存して次回も引き継ぐ */
 var STORE_KEY="nbaHubV1Prefs";
 function savePrefs(){
-  try{localStorage.setItem(STORE_KEY,JSON.stringify({fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet)}));}catch(e){}
+  try{localStorage.setItem(STORE_KEY,JSON.stringify({fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet),readMark:readMark}));}catch(e){}
 }
 function loadPrefs(){
   try{
@@ -2992,7 +2993,69 @@ function loadPrefs(){
     if(typeof p.bg==="string")bgChoice=p.bg.toLowerCase();
     if(typeof p.sound==="boolean")roomSoundOn=p.sound;
     if(p.read&&p.read.forEach)p.read.forEach(function(a){readSet[a]=true;});
+    if(p.readMark&&typeof p.readMark==="object"){
+      Object.keys(p.readMark).forEach(function(a){
+        var m=p.readMark[a];
+        if(m&&typeof m.d==="number"&&isFinite(m.d))readMark[a]={d:m.d,ids:(Array.isArray(m.ids)?m.ids.map(function(x){return String(x);}):[])};
+      });
+    }
+    /* 旧形式（チーム単位の既読フラグのみで、読んだ時点の印が無い）からの
+       移行：既読フラグのあるチームには「現時点で取り込み済みの記事まで
+       読んだ」という印を付ける。この後に届く記事（起動後の feed.json
+       取り込み分など）は未読として数えられるようになる */
+    if(p.read&&p.read.forEach)p.read.forEach(function(a){
+      if(readSet[a]&&!readMark[a]){try{readMark[a]=computeReadMark(a);}catch(e){}}
+    });
   }catch(e){}
+}
+/* ===== 既読・未読（LINE方式・全セクション共通の基準） =====
+   既読は「チームを一度開いたら永久に既読」にはしない。各チームに
+   「最後にルームを開いて読んだ時点」の印（readMark）を保存し、それより
+   後に届いた記事だけを未読として数える（LINEのトーク一覧と同じ挙動：
+   ルームを開けば0に戻り、新しい記事が来ればまた増える）。
+   印は「最後に読んだ記事の日付キー（ord の整数部）＋その日の記事ID」で
+   持ち、同日に複数記事が届くケースもIDで区別する。この印を、トーク
+   一覧の緑バッジ、ルーム内の「ここから新しい記事」の区切り、
+   ジャンル別ニュース／TOP NEWS 側の既読の弱め表示のすべてで共通の
+   基準として使う。readSet（チーム単位のフラグ）は「一度でも開いた
+   ことがあるか」の記録として残すが、未読判定には使わない。
+   まだ一度も開いていないチームは従来どおり t[6] の件数を出す */
+function artDayKey(n){return Math.floor(+((n&&n.ord)||0));}
+function computeReadMark(abbr){
+  var d=0,ids=[];
+  teamArticles(abbr).forEach(function(n){var k=artDayKey(n); if(k>d)d=k;});
+  if(d>0)teamArticles(abbr).forEach(function(n){if(artDayKey(n)===d)ids.push(String(n.id));});
+  return {d:d,ids:ids};
+}
+function markTeamRead(abbr){
+  readMark[abbr]=computeReadMark(abbr);
+  readSet[abbr]=true;
+}
+/* そのチームの基準で、その記事が既読か（印の時点までに届いていた＝既読） */
+function articleSeenByTeam(n,abbr){
+  var m=readMark[abbr];
+  if(!m)return !!readSet[abbr];
+  var k=artDayKey(n);
+  return k<m.d||(k===m.d&&m.ids.indexOf(String(n.id))>=0);
+}
+function teamUnreadCount(t){
+  var abbr=t[0];
+  if(!readMark[abbr])return t[6]||0;
+  var c=0;
+  teamArticles(abbr).forEach(function(n){if(!articleSeenByTeam(n,abbr))c++;});
+  return c;
+}
+/* RSS（仮分類）の既読判定も同じ印で見る：印の日付より前の記事だけを
+   既読扱いにする（同日分は、ルームを開いた後に届いた可能性を残すため
+   未読のままにする） */
+function rssItemIsRead(item){
+  if(!item||!item.teamAbbr)return false;
+  var m=readMark[item.teamAbbr];
+  if(!m)return !!readSet[item.teamAbbr];
+  var dt=item.pubDate;
+  if(!dt||isNaN(dt.getTime()))return false;
+  var k=(dt.getFullYear()-2026)*10000+(dt.getMonth()+1)*100+dt.getDate();
+  return k<m.d;
 }
 function applyTheme(mode){
   themeMode=mode||"light";
@@ -3205,8 +3268,11 @@ function teamLatestInfo(t){
    行タップで従来どおりチーム詳細を開く。星はお気に入り切替として右端に残す */
 function teamRowHTML(t,info){
   var abbr=t[0],color=t[4];
-  var isRead=!!readSet[abbr];
-  var unread=isRead?0:(t[6]||0);
+  /* 未読件数は共通基準（teamUnreadCount）：最後にルームを読んだ時点
+     より後に届いた記事の件数。開いたことのあるチームでも、新着が
+     あれば緑バッジが再び出る（LINEと同じ挙動） */
+  var unread=teamUnreadCount(t);
+  var isRead=unread===0&&(!!readMark[abbr]||!!readSet[abbr]);
   var name=teamName(t);
   var line1='<span class="trow-line1"><span class="trow-name">'+name+'</span>'
     +(info?'<span class="trow-time">'+info.time+'</span>':'')
@@ -3575,7 +3641,10 @@ function topDigestTitleHTML(text){
    見え方（弱め方）は CSS の .is-read ルール側で全セクション共通にする */
 function emptyInner(main,sub){return '<span class="empty-main">'+main+'</span>'+(sub?'<span class="empty-sub">'+sub+'</span>':'');}
 function emptyHTML(main,sub){return '<div class="empty">'+emptyInner(main,sub)+'</div>';}
-function articleIsRead(n){return !!(n&&n.teams&&n.teams.some(function(t){return !!readSet[t];}));}
+/* 記事の既読判定も共通基準で見る：そのチームのルームを最後に読んだ
+   時点までに届いていた記事だけを既読（弱め表示）にする。ルームを
+   読んだ後に届いた新着は、フィード／TOP NEWS 側でも未読のまま濃く出る */
+function articleIsRead(n){return !!(n&&n.teams&&n.teams.some(function(t){return articleSeenByTeam(n,t);}));}
 function articleHTML(n, hideCert, anchorId){
   return '<div class="news-item'+(articleIsRead(n)?' is-read':'')+'"'+(anchorId?' id="'+anchorId+'"':'')+'><div class="news-date-line"><span class="art-date">'+fullDate(n)+'</span><span class="art-teams">'+n.teams.join(" · ")+'</span></div><h4>'+phraseHTML(n.title)+'</h4><div class="news-meta">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'<span class="news-tag-end">'+cardChipHTML(n)+'</span></div></div>';
 }
@@ -4374,10 +4443,13 @@ function selectTeam(abbr,open,markRead){
   if(!t)return;
   if(open){
     roomAbbr=abbr;
-    roomNewCount=(markRead&&t[5]!=="none"&&!readSet[abbr])?(t[6]||0):0;
+    /* 区切り位置は「前回読んだ後に届いた件数」で決める（2回目以降の
+       入室でも新しい記事の直前に区切りが出る）。既読化は、現時点までの
+       記事を読んだものとして印（readMark）を進める */
+    roomNewCount=(markRead&&t[5]!=="none")?teamUnreadCount(t):0;
     if(markRead){
       t[6]=0;
-      if(t[5]!=="none"){readSet[abbr]=true;savePrefs();}
+      if(t[5]!=="none"){markTeamRead(abbr);savePrefs();}
     }
     roomAnimate=true;
     renderRoom();
@@ -5122,7 +5194,7 @@ if(settingsToggleBtn){
    背景色・入室音）を1つのコードにして手渡しできるようにする。
    コードの中身は保存形式 nbaHubV1Prefs と同じ形のJSONを Base64 化したもの */
 function prefsSnapshot(){
-  return {fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet)};
+  return {fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet),readMark:readMark};
 }
 function encodePrefsCode(){
   return "NBABEAT1."+btoa(unescape(encodeURIComponent(JSON.stringify(prefsSnapshot()))));
@@ -5179,9 +5251,9 @@ if(prefsApplyBtn)prefsApplyBtn.addEventListener("click",function(){
   try{localStorage.setItem(STORE_KEY,JSON.stringify(p));}catch(e){prefsMsg("prefsInvalid",true);return;}
   /* 保存し直した設定を、そのまま起動時と同じ手順で読み直して反映する */
   readSet={};
+  readMark={};
   loadPrefs();
   state.cat="all";
-  TEAMS.forEach(function(t){if(readSet[t[0]])t[6]=0;});
   applyTheme(themeMode);
   applyBg();
   syncSeg("langSeg","data-lang",state.lang);
@@ -5314,7 +5386,7 @@ document.getElementById("localPickerList").addEventListener("click",function(e){
   pickLocalReporter(b.getAttribute("data-handle"));
 });
 document.getElementById("markAllRead").addEventListener("click",function(){
-  TEAMS.forEach(function(t){if(t[5]!=="none"){readSet[t[0]]=true;t[6]=0;}});
+  TEAMS.forEach(function(t){if(t[5]!=="none"){markTeamRead(t[0]);t[6]=0;}});
   savePrefs();renderGrid();
   /* 「すべて既読」も同じ弱め方を全セクションへ伝播させる */
   try{renderFeed();}catch(e){}
@@ -5758,7 +5830,7 @@ function rssItemHTML(item,hideNewChip){
      （2026-11-26 引き算）。グループ見出しの無いチーム詳細では従来どおり付ける */
   var reporterHTML=item.reporter?'<span class="rss-reporter">· '+escapeHtml(item.reporter)+'</span>':'';
   var newChip=hideNewChip?'':'<span class="cat-chip cat-new">'+escapeHtml(L().rssNewChip)+'</span>';
-  return '<div class="news-item'+(item.teamAbbr&&readSet[item.teamAbbr]?' is-read':'')+'"><div class="news-date-line"><span class="art-date">'+escapeHtml(formatFeedDate(item.pubDate))+'</span>'+(item.teamAbbr?'<span class="art-teams">'+escapeHtml(item.teamAbbr)+'</span>':'')+'</div>'
+  return '<div class="news-item'+(rssItemIsRead(item)?' is-read':'')+'"><div class="news-date-line"><span class="art-date">'+escapeHtml(formatFeedDate(item.pubDate))+'</span>'+(item.teamAbbr?'<span class="art-teams">'+escapeHtml(item.teamAbbr)+'</span>':'')+'</div>'
     +'<h4>'+rssTitleHTML(item)+'</h4>'
     +'<div class="news-meta"><span class="rss-meta-right">'+rssItemLinkHTML(item)+reporterHTML+'</span><span class="news-tag-end">'+newChip+provChipHTML(item)+(item.provType?'<span class="tag">'+escapeHtml(TYPE_LABEL[state.lang][item.provType]||item.provType)+'</span>':'')+'</span></div></div>';
 }
@@ -5773,7 +5845,7 @@ function rssBubbleHTML(item){
      特定できない場合は送信者行に出典名を出し、リンク側を短いラベル
      （原文を見る）に替える。日付はメタ行の時刻だけに出す */
   var sender=item.reporter?item.reporter:rssSourceName(item);
-  return '<div class="news-item fb-item'+(item.teamAbbr&&readSet[item.teamAbbr]?' is-read':'')+'">'
+  return '<div class="news-item fb-item'+(rssItemIsRead(item)?' is-read':'')+'">'
     +rssAvatarHTML(item)
     +'<div class="fb-main"><div class="fb-sender">'+escapeHtml(sender)+(item.teamAbbr?'<span class="fb-teams">'+escapeHtml(item.teamAbbr)+'</span>':'')+'</div>'
     +'<div class="fb-bubble"><h4>'+(chips?'<span class="room-chip">'+chips+'</span>':'')+rssTitleHTML(item)+'</h4>'
@@ -6391,7 +6463,9 @@ try{syncTeamStatusFromArticles();}catch(e){}
 /* 保存済みの設定を復元してから初期表示 */
 loadPrefs();
 state.cat="all"; /* 分類タブ（すべて／公式発表／噂／ゴシップ／チーム情報・記事）は削除済みのため、フィードは常に全分類を表示する */
-TEAMS.forEach(function(t){if(readSet[t[0]])t[6]=0;});
+/* 既読チームの未読件数を起動時にゼロ化はしない：未読は readMark
+   （最後にルームを読んだ時点）との差分で決まるため、読んだ後に
+   届いた記事は次回起動時にも緑バッジで残る（LINEと同じ挙動） */
 applyTheme(themeMode);
 applyBg();
 syncSeg("langSeg","data-lang",state.lang);
