@@ -7,7 +7,7 @@
 <!-- PWA（静的サイトで可能な範囲）：ホーム画面追加用の Manifest＋テーマカラー＋アイコン。
      アイコンは実在ロゴを使わない自作のバスケットボール意匠（assets/icon-*.png）。
      通知機能は廃止済み（ページを開いている間しか届かず意味が薄いため、ボタンごと撤去） -->
-<link rel="manifest" href="assets/manifest.webmanifest" />
+<link rel="manifest" href="assets/manifest.webmanifest">
 <meta name="theme-color" content="#101318" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -825,6 +825,30 @@ body.lang-en .team-name{font-size:var(--fs-meta)}
 .feed-more{margin-top:var(--sp-4);padding-top:var(--sp-4);border-top:1px solid var(--line);text-align:center}
 .feed-more-btn{min-width:220px;max-width:100%}
 .feed-more-count{font-size:var(--fs-small);font-weight:500;color:var(--muted)}
+
+/* 仮分類の畳み行（TK承認 2026-11-27）：仮分類（provisional）記事は確認済み
+   記事の並びから外し、リスト末尾のこの1行にまとめる。タップでその場に
+   展開し、再タップで畳む。PCの2カラムグリッドでは行は全幅に置く */
+#feedCard .prov-fold-row{grid-column:1 / -1}
+.prov-fold-row{margin-top:var(--sp-4);border-top:1px solid var(--line)}
+.prov-fold{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:none;border:0;padding:10px 2px;min-height:44px;cursor:pointer;text-align:left;
+  font-size:var(--fs-small);font-weight:700;color:var(--muted);
+}
+.prov-fold-chev{display:inline-flex;line-height:0;color:var(--muted);transition:transform .2s}
+.prov-fold[aria-expanded="true"] .prov-fold-chev{transform:rotate(180deg)}
+
+/* 共有ボタン（TK承認 2026-11-27）：記事カードと TOP NEWS のメタ行に置く
+   小さなアイコンのみのボタン。当たり判定は約30px、見た目は既存の小さな
+   コントロール類に合わせて静かにする（地・枠なし、押下時だけ薄地） */
+.share-btn{
+  flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;min-height:30px;padding:0;border:0;border-radius:50%;
+  background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+.share-btn:active{background:var(--surface2)}
+.digest-src .share-btn{margin-left:2px;vertical-align:middle}
 
 /* 横スクロール帯の端フェード：まだ続きがある時だけ JS が .fade-r を付け、
    右端を薄くして「横にスクロールできる」ことを示す（装飾ではなく操作の示唆） */
@@ -1939,6 +1963,41 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   .digest-item{padding-top:17px;padding-bottom:17px;border-top:1px solid #cfd4da}
   .digest-meta{margin-bottom:5px}
 }
+
+/* ============================================================
+   モバイル：速報ソースの格下げ（TK承認 2026-11-27）
+   ・対象はモバイル表示（1024px以下）のみ。PC（1025px以上）の
+     レイアウト（速報ソースの右サイドバー配置）は一切変えない
+   ・ブロック順を TOP NEWS → ジャンル別ニュース → TEAMS →
+     オフコート → 速報ソース にし、速報ソース（記者一覧・地元
+     ライターを含む列）を最下部へ移す。中身は変更しない
+   ・実装：.wrap を縦フレックスにし、.cols とその2カラムには
+     display:contents を使って中身を .wrap の並びに溶かし、
+     order で並べ替える。DOM は変えないため、.cols>div:first-child
+     等の既存セレクタや再描画系の仕組みはそのまま効く
+   【戻し方】このブロックを丸ごと削除すれば変更前の並びに戻る
+   ============================================================ */
+@media(max-width:1024px){
+  .wrap{display:flex;flex-direction:column}
+  .cols,.cols>div{display:contents}
+  .masthead{order:1}
+  .utility{order:2}
+  .digest{order:3}
+  /* ジャンル別ニュース（見出し・絞り込み・フィードカード） */
+  .cols>div:first-child>*{order:4}
+  /* TEAMS（見出し・検索・タブ・トーク一覧） */
+  #mapHead{order:5}
+  .team-search{order:5}
+  .filter-above-map{order:5}
+  .teams-panes{order:5}
+  /* オフコート（フィード列の中にあるが TEAMS より後へ回す） */
+  #gossipZone{order:6}
+  /* 速報ソース列（速報ソース／記者一覧／地元ライター）＝最下部 */
+  .cols>div:last-child>*{order:7}
+  #pastTopView{order:8}
+  #editorView{order:8}
+  .foot{order:9}
+}
 </style>
 <!-- 背景色の自由色専用の上書きスタイル：プリセット色は data-bg 属性＋静的ルールで
      切り替え、ここはカラーピッカーの自由色のときだけ applyBg() が書き込む
@@ -2286,6 +2345,7 @@ var UI={
   teamPage:"チームページ", favTitle:"お気に入り", sourceLink:"原文・出典を見る", sourceLinkShort:"原文を見る", official:"公式",
   nbaLink:"NBA.com", relatedLabel:"関連：",
   noNews:"この期間（10/20〜11/25）の掲載ニュースはまだありません。", noNewsSub:"更新すると新しい記事が入ります。", feedEmpty:"この絞り込みに合う記事はありません。", feedEmptySub:"分類や種類を変えてみてください。", feedMore:"もっと見る", feedMoreLeft:"残り{n}件",
+  shareBtn:"共有", provFold:"未確認（仮）{n}件",
   toFeed:"関連フィードへ",
   backToMap:"更新マップに戻る",
   pastTopLink:"過去のTOP NEWS", pastTopH:"過去のTOP NEWS", pastTopBack:"戻る", pastTopEmpty:"過去のTOP NEWSはまだありません。", pastTopEmptySub:"新しい公式・報道が増えると、ここに移ります。",
@@ -2361,6 +2421,7 @@ var UI={
   teamPage:"Team Page", favTitle:"Favorite", sourceLink:"View source", sourceLinkShort:"View source", official:"Official",
   nbaLink:"NBA.com", relatedLabel:"Related:",
   noNews:"No stories from this period (Oct 20–Nov 26) yet for this team.", noNewsSub:"Refresh to check for new stories.", feedEmpty:"No stories match these filters.", feedEmptySub:"Try another category or type.", feedMore:"Show more", feedMoreLeft:"{n} more",
+  shareBtn:"Share", provFold:"Unconfirmed (provisional): {n}",
   toFeed:"Go to related feed",
   backToMap:"Back to update map",
   pastTopLink:"Past TOP NEWS", pastTopH:"Past TOP NEWS", pastTopBack:"Back", pastTopEmpty:"No past TOP NEWS yet.", pastTopEmptySub:"Older top stories will move here as new ones arrive.",
@@ -3034,6 +3095,7 @@ var IC_PATHS={
   star:'<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
   clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
   ext:'<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
+  share:'<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/>',
   back:'<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
   fwd:'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>'
 };
@@ -3619,12 +3681,55 @@ function feedSenderHTML(n){
   if(n.teams&&n.teams.length)parts.push('<span class="fb-teams">'+n.teams.join(" · ")+'</span>');
   return parts.length?'<div class="fb-sender">'+parts.join("")+'</div>':'';
 }
+/* ===== 共有ボタン（TK承認 2026-11-27）=====
+   ジャンル別ニュースの記事カードと TOP NEWS の各アイテムに置く。
+   共有するURLはアプリのURLではなく、その記事の出典リンク先
+   （articleSourceLinksHTML が出すリンクと同じ規則で解決する）。
+   動作は Web Share API（navigator.share）を優先し、使えない環境では
+   X の投稿画面（intent）に見出しとURLを入れて開く */
+function articleShareURL(n){
+  if(isOfficialArticle(n)){
+    var u=String(n.url||"").trim();
+    if(/^https?:\/\//i.test(u)&&u.replace(/\/+$/,"")!==NBA_NEWS_URL)return u;
+    return NBA_NEWS_URL;
+  }
+  var u2=String(n.url||"").trim();
+  return /^https?:\/\//i.test(u2)?u2:"";
+}
+function shareBtnHTML(title,url){
+  if(!url||!/^https?:\/\//i.test(url))return "";
+  return '<button type="button" class="share-btn" data-share-url="'+escapeHtml(url)+'" data-share-title="'+escapeHtml(title||"")+'" aria-label="'+escapeHtml(L().shareBtn)+'" title="'+escapeHtml(L().shareBtn)+'">'+ic('share')+'</button>';
+}
+function shareArticle(title,url){
+  if(!url)return;
+  var text=String(title||"");
+  if(navigator.share){
+    try{
+      var p=navigator.share({text:text,url:url});
+      if(p&&p.catch)p.catch(function(){});
+    }catch(e){}
+    return;
+  }
+  window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(text)+"&url="+encodeURIComponent(url),"_blank","noopener");
+}
+/* カードは差分再描画で組み替わるため、共有ボタンの受け口はコンテナへの
+   委譲で1回だけ付ける（#feedCard と #digestList） */
+function bindShareDelegation(el){
+  if(!el||el._shareBound)return;
+  el._shareBound=1;
+  el.addEventListener("click",function(e){
+    var b=(e.target&&e.target.closest)?e.target.closest("[data-share-url]"):null;
+    if(!b||!el.contains(b))return;
+    e.preventDefault();
+    shareArticle(b.getAttribute("data-share-title")||"",b.getAttribute("data-share-url")||"");
+  });
+}
 function feedBubbleHTML(n){
   return '<div class="news-item fb-item'+(articleIsRead(n)?' is-read':'')+'" id="feed-art-'+n.id+'">'
     +feedAvatarHTML(n)
     +'<div class="fb-main">'+feedSenderHTML(n)
     +'<div class="fb-bubble"><h4><span class="room-chip">'+cardChipHTML(n)+'</span>'+phraseHTML(n.title)+'</h4>'
-    +'<div class="fb-meta"><span class="fb-links">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'</span><span class="fb-time">'+articleNewDotHTML(n)+feedTimeLabel(n)+'</span></div>'
+    +'<div class="fb-meta"><span class="fb-links">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'</span><span class="fb-time">'+articleNewDotHTML(n)+feedTimeLabel(n)+'</span>'+shareBtnHTML(n.title,articleShareURL(n))+'</div>'
     +'</div></div></div>';
 }
 function newsHTML(list){
@@ -3795,10 +3900,12 @@ function renderDigest(){
      TK指摘（2026-11-26）で廃止済み */
   var digestEl=document.getElementById("digestList");
   var digestChanged=reconcileList(digestEl,list.map(function(n){
-    return {key:"a:"+n.id,html:'<div class="digest-item'+(articleIsRead(n)?' is-read':'')+'"><div class="digest-meta"><time>'+articleNewDotHTML(n)+digestDateTime(n)+'</time><span class="digest-src">'+articleSourceLinksHTML(n,true)+'</span></div><div class="digest-main">'+topDigestTitleHTML(n.title)+'</div></div>'};
+    return {key:"a:"+n.id,html:'<div class="digest-item'+(articleIsRead(n)?' is-read':'')+'"><div class="digest-meta"><time>'+articleNewDotHTML(n)+digestDateTime(n)+'</time><span class="digest-src">'+articleSourceLinksHTML(n,true)+shareBtnHTML(n.title,articleShareURL(n))+'</span></div><div class="digest-main">'+topDigestTitleHTML(n.title)+'</div></div>'};
   }));
   if(digestChanged)swapIn(digestEl);
 }
+bindShareDelegation(document.getElementById("digestList"));
+bindShareDelegation(document.getElementById("feedCard"));
 /* ===== v98：過去のTOP NEWS（専用ビュー） =====
    過去にTOP NEWS級だった公式／報道だけを、新しい順に一覧する。
    対象は2群：(1) 過去記事（past:true）のうち重要度フラグ（cat:"important"＝公式／報道級）の
@@ -4431,6 +4538,10 @@ if(DESKTOP_MQ){
    マージ後の再描画でも、現在の表示件数のままこのルールで描く */
 var FEED_PAGE=10;
 var feedShown=FEED_PAGE;
+/* 仮分類の畳み行の開閉状態（TK承認 2026-11-27）：初期は畳んだ状態。
+   絞り込みを変えても開閉はそのまま保ち、件数と中身だけが絞り込みに
+   連動する。再読み込みでは保存しない（開くたびに畳んだ状態から） */
+var provOpen=false;
 /* フィードの差し替えフィードバック（第4弾）の発火フラグ：フィルター切替と
    更新の反映の時だけ、呼び出し側が立ててから renderFeed() を呼ぶ。
    「もっと見る」や既読化の伝播では立てない（読み進めている一覧を
@@ -4560,7 +4671,14 @@ function renderFeed(){
      40件以上後ろに沈んで「噂が反映されていない」状態になっていた（TK指摘
      2026-11-26）。分類の区別は各カード末尾の分類チップと分類フィルターが担う。
      分類フィルターで「噂」を選んだ時は s==="rumor" の記事だけがこの一列に残る */
-  feedList.slice().sort(function(a,b){return b.ord-a.ord;}).forEach(function(n){
+  var sortedFeed=feedList.slice().sort(function(a,b){return b.ord-a.ord;});
+  /* 仮分類（provisional）の畳み込み（TK承認 2026-11-27）：仮分類記事は
+     確認済み記事の並びには混ぜず、リスト末尾の畳み行（この後ろで付ける
+     __provfold）の中に分ける。段階表示の件数（total／feedShown）にも
+     数えない。絞り込み（分類・種類・期間・お気に入り・検索）は従来どおり
+     feedList の段階で効いているため、件数・中身とも絞り込みに連動する */
+  var provList=sortedFeed.filter(function(n){return !!n.provisional;});
+  sortedFeed.filter(function(n){return !n.provisional;}).forEach(function(n){
     entries.push({key:"a:"+n.id,html:feedBubbleHTML(n),id:n.id});
   });
   feedOrderIds=entries.map(function(e){return e.id;});
@@ -4632,6 +4750,16 @@ function renderFeed(){
   if(hasMore){
     fcSegs.push({key:"__more",html:'<div class="feed-more"><button type="button" class="btn feed-more-btn" id="feedMoreBtn">'+L().feedMore+' <span class="feed-more-count">'+L().feedMoreLeft.replace("{n}",total-shown)+'</span></button></div>'});
   }
+  /* 仮分類の畳み行（TK承認 2026-11-27）：絞り込みに一致する仮分類が
+     1件以上ある時だけ、リストの末尾に「未確認（仮）○件」の1行を出す。
+     開いている時は、その下に仮分類カードを従来どおり（点線チップ付きで）
+     並べる。0件の時は行自体を出さない */
+  if(provList.length){
+    fcSegs.push({key:"__provfold",html:'<div class="prov-fold-row"><button type="button" class="prov-fold" id="provFoldBtn" aria-expanded="'+(provOpen?"true":"false")+'"><span>'+L().provFold.replace("{n}",provList.length)+'</span><span class="prov-fold-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></div>'});
+    if(provOpen){
+      provList.forEach(function(n){fcSegs.push({key:"a:"+n.id,html:feedBubbleHTML(n),id:n.id});});
+    }
+  }
   /* 検索中はヒット0件でも空状態の文言を出す（ゴシップだけ残る表示にしない） */
   if(!fcSegs.length&&!(gList.length&&!fqToks.length)){
     fcSegs.push({key:"__empty",html:emptyHTML(L().feedEmpty,L().feedEmptySub)});
@@ -4641,9 +4769,13 @@ function renderFeed(){
     var fmb=document.getElementById("feedMoreBtn");
     if(fmb&&!fmb._bound){fmb._bound=1;fmb.addEventListener("click",function(){feedShown+=FEED_PAGE;renderFeed();});}
   }
+  if(provList.length){
+    var pfb=document.getElementById("provFoldBtn");
+    if(pfb&&!pfb._bound){pfb._bound=1;pfb.addEventListener("click",function(){provOpen=!provOpen;renderFeed();});}
+  }
   /* 通常記事が無くゴシップだけが残る絞り込みでは、空のフィードカードを出さず
-     ゴシップゾーンだけを見せる */
-  fc.style.display=(total===0&&gList.length&&!fqToks.length)?"none":"";
+     ゴシップゾーンだけを見せる（仮分類の畳み行がある時はカードを残す） */
+  fc.style.display=(total===0&&!provList.length&&gList.length&&!fqToks.length)?"none":"";
   if(feedSwapArmed){
     feedSwapArmed=false;
     /* 切り替えフィードバックは実際に差し替わったコンテナにだけ出す
@@ -5599,7 +5731,7 @@ function rssBubbleHTML(item){
     +rssAvatarHTML(item)
     +'<div class="fb-main"><div class="fb-sender">'+escapeHtml(sender)+(item.teamAbbr?'<span class="fb-teams">'+escapeHtml(item.teamAbbr)+'</span>':'')+'</div>'
     +'<div class="fb-bubble"><h4>'+(chips?'<span class="room-chip">'+chips+'</span>':'')+rssTitleHTML(item)+'</h4>'
-    +'<div class="fb-meta"><span class="fb-links">'+rssItemLinkHTML(item,!item.reporter)+'</span><span class="fb-time">'+rssNewDotHTML(item)+escapeHtml(formatFeedDate(item.pubDate))+'</span></div>'
+    +'<div class="fb-meta"><span class="fb-links">'+rssItemLinkHTML(item,!item.reporter)+'</span><span class="fb-time">'+rssNewDotHTML(item)+escapeHtml(formatFeedDate(item.pubDate))+'</span>'+shareBtnHTML(item.title,item.link)+'</div>'
     +'</div></div></div>';
 }
 function formatHHMM(d){
