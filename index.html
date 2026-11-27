@@ -897,6 +897,9 @@ body.lang-en .team-name{font-size:var(--fs-meta)}
 .gossip-zone .news-item{background:var(--paper-card);border:1px solid var(--paper-line);border-radius:3px;padding:var(--sp-4) 10px;margin:0 -10px var(--sp-3)}
 .gossip-zone .news-item:hover{background:var(--paper-card);border-color:var(--paper-rule)}
 .gossip-zone .news-item:active{background:var(--paper-card)}
+/* オフコートのカードは本体タップで詳細シートが開く（2026-11-28）。紙面の
+   見た目は変えず、タップ可能であることだけカーソルで示す */
+.gossip-zone .news-item[data-gossip-sheet-idx]{cursor:pointer}
 .gossip-zone .news-item:first-of-type{padding-top:16px}
 /* 欄の中の補助文字（日付・紹介文・メタ・相対時刻）は冷たいグレーではなく
    紙に馴染む温かい色に寄せる。本文の見出しは欄の墨色（継承）を使う */
@@ -1077,6 +1080,18 @@ body.room-open{overflow-x:clip}
 .sheet-foot{flex:none;border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
 .sheet-read{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;padding:10px 16px;border-radius:var(--radius);background:var(--ink);color:var(--on-accent);font-size:var(--fs-headline);font-weight:700;text-decoration:none}
 .sheet-read:active{filter:brightness(1.25)}
+/* シート内「前の記事／次の記事」ナビ（2026-11-28）：開いた元の一覧の並びで
+   連続読みするための行。「記事を読む」の下に置き、ボタンはアプリの小さい
+   チップ規律（12px・フラット）に合わせる。移動先の見出しは muted で1行だけ
+   添え、はみ出しは省略する。端（先頭／末尾）では無い側のボタンを出さない */
+.sheet-nav{display:flex;gap:8px;margin-top:10px}
+.sheet-nav[hidden]{display:none}
+.sheet-nav-btn{flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:1px;padding:6px 10px;background:transparent;border:1px solid var(--line);border-radius:var(--radius-chip);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.sheet-nav-btn[hidden]{display:none}
+.sheet-nav-btn:active{background:var(--surface2)}
+.sheet-nav-next{text-align:right;align-items:flex-end}
+.sheet-nav-label{font-size:12px;font-weight:700;line-height:1.3;white-space:nowrap}
+.sheet-nav-title{display:block;max-width:100%;font-size:11px;font-weight:400;line-height:1.35;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media(min-width:1025px){
   .sheet-root{display:flex;align-items:center;justify-content:center}
   .sheet{position:relative;left:auto;right:auto;bottom:auto;width:calc(100% - 48px);max-width:560px;max-height:82vh;border-radius:16px;transform:translateY(14px);opacity:0;transition:transform .22s ease,opacity .22s ease}
@@ -2236,6 +2251,10 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
       </div>
       <div class="sheet-foot" id="sheetFoot" hidden>
         <a class="sheet-read" id="sheetRead" href="#" target="_blank" rel="noopener"><span id="sheetReadLabel">記事を読む</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m10 14 11-11"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <div class="sheet-nav" id="sheetNav" hidden>
+          <button type="button" class="sheet-nav-btn" id="sheetPrevBtn"><span class="sheet-nav-label" id="sheetPrevLabel">← 前の記事</span><span class="sheet-nav-title" id="sheetPrevTitle"></span></button>
+          <button type="button" class="sheet-nav-btn sheet-nav-next" id="sheetNextBtn"><span class="sheet-nav-label" id="sheetNextLabel">次の記事 →</span><span class="sheet-nav-title" id="sheetNextTitle"></span></button>
+        </div>
       </div>
     </div>
   </div>
@@ -2425,6 +2444,7 @@ var UI={
   detailSeeAll:"すべて見る", inFeed:"フィードで見る",
   roomNewFrom:"ここから新しい記事", roomTapHint:"吹き出しをタップで詳細を表示", yesterdayLabel:"昨日",
   readArticle:"記事を読む", sheetRelated:"関連リンク", ariaSheetClose:"閉じる",
+  sheetPrev:"前の記事", sheetNext:"次の記事",
   teamSearchPh:"チーム名で検索", soundLabel:"入室音", swipeFav:"お気に入り",
   transferLabel:"設定の移行", prefsExport:"書き出し", prefsImport:"読み込み", prefsCopy:"コピー", prefsApply:"このコードで復元", prefsCodePh:"設定コード",
   transferNote:"ホーム画面アプリとSafariでは設定が別々に保存されます。片方でコードを書き出し、もう片方で読み込むと、お気に入り・既読・テーマなどを引き継げます。",
@@ -2502,6 +2522,7 @@ var UI={
   detailSeeAll:"See all", inFeed:"View in feed",
   roomNewFrom:"New articles from here", roomTapHint:"Tap a bubble for details", yesterdayLabel:"Yesterday",
   readArticle:"Read article", sheetRelated:"Related links", ariaSheetClose:"Close",
+  sheetPrev:"Previous article", sheetNext:"Next article",
   teamSearchPh:"Search teams", soundLabel:"Room sound", swipeFav:"Favorite",
   transferLabel:"Transfer settings", prefsExport:"Export", prefsImport:"Import", prefsCopy:"Copy", prefsApply:"Restore from this code", prefsCodePh:"Settings code",
   transferNote:"The home-screen app and Safari store settings separately. Export a code in one and import it in the other to carry over favorites, read state, theme and more.",
@@ -3721,10 +3742,17 @@ function emptyHTML(main,sub){return '<div class="empty">'+emptyInner(main,sub)+'
    時点までに届いていた記事だけを既読（弱め表示）にする。ルームを
    読んだ後に届いた新着は、フィード／TOP NEWS 側でも未読のまま濃く出る */
 function articleIsRead(n){return !!(n&&n.teams&&n.teams.some(function(t){return articleSeenByTeam(n,t);}));}
-function articleHTML(n, hideCert, anchorId){
-  return '<div class="news-item'+(articleIsRead(n)?' is-read':'')+'"'+(anchorId?' id="'+anchorId+'"':'')+'><div class="news-date-line"><span class="art-date">'+fullDate(n)+'</span><span class="art-teams">'+n.teams.join(" · ")+'</span></div><h4>'+phraseHTML(n.title)+'</h4><div class="news-meta">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'<span class="news-tag-end">'+cardChipHTML(n)+'</span></div></div>';
+function articleHTML(n, hideCert, anchorId, extraAttrs){
+  return '<div class="news-item'+(articleIsRead(n)?' is-read':'')+'"'+(anchorId?' id="'+anchorId+'"':'')+(extraAttrs||'')+'><div class="news-date-line"><span class="art-date">'+fullDate(n)+'</span><span class="art-teams">'+n.teams.join(" · ")+'</span></div><h4>'+phraseHTML(n.title)+'</h4><div class="news-meta">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'<span class="news-tag-end">'+cardChipHTML(n)+'</span></div></div>';
 }
 function feedArticleHTML(n){return articleHTML(n,true,"feed-art-"+n.id);}
+/* オフコートのカード（2026-11-28）：見た目は従来の .news-item のまま、
+   本体タップで詳細シートが開くようシート項目の番号（data-gossip-sheet-idx）
+   だけを足す。カード内の小さい出典リンクは従来どおり直接リンクで、
+   受け口側（#gossipZone への委譲）でリンク上のタップを素通しする */
+function gossipArticleHTML(n,sheetIdx){
+  return articleHTML(n,true,"feed-art-"+n.id,' data-gossip-sheet-idx="'+sheetIdx+'" role="button" tabindex="0" aria-haspopup="dialog"');
+}
 /* ジャンル別ニュース専用の吹き出し型カード（LINEのトーク文法）：
    左に丸アバター（記者・出典のアイコン）、その右に吹き出し風の面を置き、
    見出しの先頭に分類チップを同じ行で付け、吹き出しの右下に小さく日時を出す。
@@ -3885,6 +3913,26 @@ function rssSheetItemFor(item){
     chip:provChipHTML(item)+(item.provType?'<span class="tag">'+escapeHtml(TYPE_LABEL[state.lang][item.provType]||item.provType)+'</span>':''),
     title:rssTitleHTML(item),url:String(item.link||""),time:dt?ampmFromDate(dt):"",
     detail:roomSummary(item.desc,item.title,600),srcName:rssSourceName(item),related:null};
+}
+/* ===== オフコートの記事詳細シート（2026-11-28）=====
+   オフコートのカードも同じ詳細シートで開く。項目は描画のたびに表示順
+   （gList の並び＝新しい順）どおり gossipSheetItems へ積み直し、カードには
+   その番号（data-gossip-sheet-idx）を埋める。シートのチップは分類チップ
+   （ゴシップ）にジャンルチップ（あれば）を併記する：分類チップは chip、
+   ジャンルチップは genreChip に分け、シート側で並べて出す。要約は
+   データ（body）にある時だけシート側で出る（従来どおり） */
+var gossipSheetItems=[];
+function gossipSheetItemFor(n){
+  var p=articleDayParts(n);
+  var timeStr="";
+  if(typeof n.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(n.time))timeStr=ampmFromHM(n.time);
+  var gg=gossipGenreOf(n);
+  return {y:p.y,mo:p.mo,d:p.d,
+    chip:'<span class="cat-chip cat-gossip">'+CAT_LABEL[state.lang].gossip+'</span>',
+    genreChip:gg?'<span class="genre-chip">'+GOSSIP_GENRE_LABEL[state.lang][gg]+'</span>':'',
+    title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
+    detail:roomSummary(n.body,n.title,600),srcName:String(n.media||n.src||""),
+    related:(Array.isArray(n.related)&&n.related.length)?n.related:null};
 }
 function feedBubbleHTML(n){
   var sheetIdx=feedSheetItems.length;
@@ -4663,29 +4711,69 @@ document.getElementById("roomBackBtn2").addEventListener("click",closeRoom);
    吹き出し／カードをタップしても外部サイトへは飛ばず、このシートで記事の
    詳細（分類チップ・見出し・日時・出典・要約・関連リンク）を大きく見せる。
    外部へ進むのは最下部の「記事を読む」リンクを押した時だけ。
-   開く元は2か所：トークルームの吹き出し（roomSheetItems）と、
-   ジャンル別ニュースの吹き出し型カード（feedSheetItems）。項目の形は
-   両者で同一にそろえてあり、シート側（showArticleSheet）は開く元を
-   区別しない。TOP NEWS は対象外（従来どおりタップで直接リンク）。
-   開閉は既読・未読（readMark）には一切触れない（既読化は入室時のみ） */
+   開く元は3か所：トークルームの吹き出し（roomSheetItems）、
+   ジャンル別ニュースの吹き出し型カード（feedSheetItems）、オフコートの
+   カード（gossipSheetItems）。項目の形は3者で同一にそろえてあり、
+   シート側（showArticleSheet）は開く元を区別しない。TOP NEWS は対象外
+   （従来どおりタップで直接リンク）。
+   開閉は既読・未読（readMark）には一切触れない（既読化は入室時のみ）
+   前後ナビ（2026-11-28）：開いた元の一覧と位置を sheetNavList／
+   sheetNavIdx に保持し、シート下部の「前の記事／次の記事」と左右矢印
+   キーで一覧の並び順に中身だけを差し替える（シートは開いたまま、
+   スクロールは先頭へ戻す）。並びはルーム＝表示順（古い→新しい）、
+   ジャンル別＝フィルター適用後の表示順、オフコート＝表示順 */
 var roomSheetItems=[];
 var sheetReturnFocus=null;
 var sheetPrevOverflow="";
 var sheetHideTimer=null;
+var sheetNavList=null;
+var sheetNavIdx=-1;
 function openArticleSheet(idx,trigger){
   var it=roomSheetItems[idx];
-  if(it)showArticleSheet(it,trigger);
+  if(it)showArticleSheet(it,trigger,roomSheetItems,idx);
 }
 function openFeedSheet(idx,trigger){
   var it=feedSheetItems[idx];
-  if(it)showArticleSheet(it,trigger);
+  if(it)showArticleSheet(it,trigger,feedSheetItems,idx);
 }
-function showArticleSheet(it,trigger){
-  if(!it)return;
-  var root=document.getElementById("sheetRoot");
-  if(!root)return;
-  if(sheetHideTimer){clearTimeout(sheetHideTimer);sheetHideTimer=null;}
-  document.getElementById("sheetChip").innerHTML=it.chip?'<span class="room-chip">'+it.chip+'</span>':'';
+function openGossipSheet(idx,trigger){
+  var it=gossipSheetItems[idx];
+  if(it)showArticleSheet(it,trigger,gossipSheetItems,idx);
+}
+/* ナビの見出し添え用：項目の見出しHTML（文節の <wbr> や装飾 span 入り）から
+   プレーンテキストを取り出す。実体参照は &amp; を最後に復号する
+   （先に復号すると &amp;lt; のような二重エスケープが化けるため） */
+function sheetPlainTitle(html){
+  return String(html||"").replace(/<[^>]*>/g,"")
+    .replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"')
+    .replace(/&#0?39;|&apos;/g,"'").replace(/&nbsp;/g," ").replace(/&amp;/g,"&");
+}
+/* 前後ナビの表示更新：隣がある側のボタンだけを出し、移動先の見出しを
+   添える。両隣が無い（一覧が1件だけ等）時はナビ行自体を隠す。
+   戻り値：ナビ行を出したかどうか（フッタの表示判定に使う） */
+function renderSheetNav(){
+  var nav=document.getElementById("sheetNav");
+  if(!nav)return false;
+  var hasPrev=!!(sheetNavList&&sheetNavIdx>0);
+  var hasNext=!!(sheetNavList&&sheetNavIdx>=0&&sheetNavIdx<sheetNavList.length-1);
+  if(!hasPrev&&!hasNext){nav.hidden=true;return false;}
+  nav.hidden=false;
+  var prevBtn=document.getElementById("sheetPrevBtn"),nextBtn=document.getElementById("sheetNextBtn");
+  document.getElementById("sheetPrevLabel").textContent="← "+L().sheetPrev;
+  document.getElementById("sheetNextLabel").textContent=L().sheetNext+" →";
+  prevBtn.hidden=!hasPrev;
+  nextBtn.hidden=!hasNext;
+  document.getElementById("sheetPrevTitle").textContent=hasPrev?sheetPlainTitle(sheetNavList[sheetNavIdx-1].title):"";
+  document.getElementById("sheetNextTitle").textContent=hasNext?sheetPlainTitle(sheetNavList[sheetNavIdx+1].title):"";
+  return true;
+}
+/* シートの中身だけを項目で差し替える（開閉の動きは付けない）。
+   初回の表示（showArticleSheet）と前後ナビの移動（sheetMove）で共用する */
+function fillSheet(it){
+  /* 分類チップ＋（オフコートのみ）ジャンルチップを併記する */
+  var chipHTML=it.chip?'<span class="room-chip">'+it.chip+'</span>':'';
+  if(it.genreChip)chipHTML+=(chipHTML?" ":"")+it.genreChip;
+  document.getElementById("sheetChip").innerHTML=chipHTML;
   document.getElementById("sheetTitle").innerHTML=it.title||"";
   var meta=roomDateLabel(it.y,it.mo,it.d)+(it.time?" "+it.time:"");
   if(it.srcName)meta+=" · "+escapeHtml(it.srcName);
@@ -4709,14 +4797,39 @@ function showArticleSheet(it,trigger){
   }
   if(relHtml){relEl.innerHTML=relHtml;relEl.hidden=false;}
   else{relEl.innerHTML="";relEl.hidden=true;}
-  /* 出典URLがある記事だけ「記事を読む」を出す */
+  /* 前後ナビを先に更新し、フッタは「記事を読む」かナビのどちらかが
+     ある時だけ出す（URL が無い記事でもナビだけでフッタを出す） */
+  var navShown=renderSheetNav();
   var foot=document.getElementById("sheetFoot"),read=document.getElementById("sheetRead");
   if(it.url){
     read.setAttribute("href",it.url);
     document.getElementById("sheetReadLabel").textContent=L().readArticle;
+    read.style.display="";
     foot.hidden=false;
-  }else{foot.hidden=true;read.removeAttribute("href");}
+  }else{
+    read.removeAttribute("href");
+    read.style.display="none";
+    foot.hidden=!navShown;
+  }
   document.getElementById("sheetBody").scrollTop=0;
+}
+/* 前後ナビの移動：シートは開いたまま中身だけを差し替え、スクロールは
+   fillSheet 側で先頭へ戻る。端では何もしない */
+function sheetMove(delta){
+  if(!sheetNavList||sheetNavIdx<0)return;
+  var ni=sheetNavIdx+delta;
+  if(ni<0||ni>=sheetNavList.length)return;
+  sheetNavIdx=ni;
+  fillSheet(sheetNavList[ni]);
+}
+function showArticleSheet(it,trigger,list,idx){
+  if(!it)return;
+  var root=document.getElementById("sheetRoot");
+  if(!root)return;
+  if(sheetHideTimer){clearTimeout(sheetHideTimer);sheetHideTimer=null;}
+  sheetNavList=(list&&typeof idx==="number"&&idx>=0)?list:null;
+  sheetNavIdx=sheetNavList?idx:-1;
+  fillSheet(it);
   sheetReturnFocus=trigger||null;
   sheetPrevOverflow=document.body.style.overflow;
   document.body.style.overflow="hidden";
@@ -4745,6 +4858,8 @@ function closeArticleSheet(){
   sheetHideTimer=setTimeout(function(){root.hidden=true;sheetHideTimer=null;},240);
   if(sheetReturnFocus&&sheetReturnFocus.focus){try{sheetReturnFocus.focus({preventScroll:true});}catch(e){}}
   sheetReturnFocus=null;
+  sheetNavList=null;
+  sheetNavIdx=-1;
 }
 /* 吹き出し（ボタン）タップの受け口：roomBody への委譲なので、再描画で
    吹き出しが差し替わっても付け直しは不要 */
@@ -4779,9 +4894,47 @@ if(feedCardEl){
     openFeedSheet(parseInt(t.getAttribute("data-feed-sheet-idx"),10),t);
   });
 }
+/* オフコートのカードタップの受け口：#gossipZone への委譲なので、差分
+   再描画でカードが差し替わっても付け直しは不要。カード内の出典リンク
+   （<a>）と「過去の記事を見る」ボタン（<button>）は従来の挙動を優先し、
+   シートは開かない（リンク／ボタン上のタップは素通し） */
+var gossipZoneEl=document.getElementById("gossipZone");
+if(gossipZoneEl){
+  gossipZoneEl.addEventListener("click",function(e){
+    var t=e.target;
+    if(!t||!t.closest)return;
+    if(t.closest("a,button"))return;
+    var b=t.closest("[data-gossip-sheet-idx]");
+    if(!b||!gossipZoneEl.contains(b))return;
+    openGossipSheet(parseInt(b.getAttribute("data-gossip-sheet-idx"),10),b);
+  });
+  /* カードは div のため、キーボード（Enter／Space）でも開けるようにする */
+  gossipZoneEl.addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ")return;
+    var t=e.target;
+    if(!t||!t.getAttribute||t.getAttribute("data-gossip-sheet-idx")===null)return;
+    e.preventDefault();
+    openGossipSheet(parseInt(t.getAttribute("data-gossip-sheet-idx"),10),t);
+  });
+}
+/* 前後ナビのボタン：シートが開いている間だけ意味を持つ（sheetMove 側で
+   一覧と位置を確認し、端では何もしない） */
+document.getElementById("sheetPrevBtn").addEventListener("click",function(){sheetMove(-1);});
+document.getElementById("sheetNextBtn").addEventListener("click",function(){sheetMove(1);});
 document.getElementById("sheetClose").addEventListener("click",closeArticleSheet);
 document.getElementById("sheetBackdrop").addEventListener("click",closeArticleSheet);
-document.addEventListener("keydown",function(e){if(e.key==="Escape")closeArticleSheet();});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){closeArticleSheet();return;}
+  /* 左右矢印キーでも前後の記事へ移動できる（シートが開いている間だけ。
+     入力欄にフォーカスがある時は奪わない） */
+  if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight")return;
+  var root=document.getElementById("sheetRoot");
+  if(!root||root.hidden||!root.classList.contains("open"))return;
+  var t=e.target;
+  if(t&&(t.tagName==="INPUT"||t.tagName==="TEXTAREA"||t.isContentEditable))return;
+  e.preventDefault();
+  sheetMove(e.key==="ArrowLeft"?-1:1);
+});
 /* 下スワイプで閉じる：つまみ（グラブバー）を下へ引いた量がしきい値を
    超えたら閉じ、届かなければ元の位置へ戻す */
 (function(){
@@ -5084,6 +5237,9 @@ function renderFeed(){
   }
   var gz=document.getElementById("gossipZone");
   var gzChanged=false;
+  /* 詳細シート用のオフコート項目はこの描画で積み直す（表示順＝gItems の
+     並びどおり。カードに埋めた番号と常に一致させる） */
+  gossipSheetItems=[];
   if(gz){
     if(gList.length){
       var gHead='<div class="gossip-head"><span class="sec-en sec-en-gossip" aria-hidden="true">OFF THE COURT</span><span class="gossip-corner-title">'+L().gossipCorner+'</span></div>';
@@ -5096,6 +5252,7 @@ function renderFeed(){
          ゾーンの骨格（題字・注記・段組みの器・もっと見る）はキー付き断片
          としてそろえ、段の中身は記事単位で差分更新する */
       var gItems=gList.slice(0,gossipShown);
+      gossipSheetItems=gItems.map(gossipSheetItemFor);
       var gSplit=Math.ceil(gItems.length/2);
       var gHasMore=gList.length>gItems.length;
       var gSegs=[
@@ -5115,8 +5272,8 @@ function renderFeed(){
         var needCols=gItems.length>gSplit?2:1;
         while(colsEl.children.length<needCols){var cd=document.createElement("div");cd.className="gossip-col";colsEl.appendChild(cd);gzChanged=true;}
         while(colsEl.children.length>needCols){colsEl.removeChild(colsEl.children[colsEl.children.length-1]);gzChanged=true;}
-        if(reconcileList(colsEl.children[0],gItems.slice(0,gSplit).map(function(n){return {key:"g:"+n.id,html:feedArticleHTML(n)};})))gzChanged=true;
-        if(needCols>1&&reconcileList(colsEl.children[1],gItems.slice(gSplit).map(function(n){return {key:"g:"+n.id,html:feedArticleHTML(n)};})))gzChanged=true;
+        if(reconcileList(colsEl.children[0],gItems.slice(0,gSplit).map(function(n,i){return {key:"g:"+n.id,html:gossipArticleHTML(n,i)};})))gzChanged=true;
+        if(needCols>1&&reconcileList(colsEl.children[1],gItems.slice(gSplit).map(function(n,i){return {key:"g:"+n.id,html:gossipArticleHTML(n,gSplit+i)};})))gzChanged=true;
       }
       if(gHasMore){
         var gmb=document.getElementById("gossipMoreBtn");
