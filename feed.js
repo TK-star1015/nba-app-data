@@ -908,5 +908,8 @@ window.NBA_FEED = {
   }
  ],
  "updatedAt": "2026-11-27T11:59:28+09:00",
- "version": 1
+ "version": 1,
+ "retracted": [
+  "fischer-kings-open"
+ ]
 };
