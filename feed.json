@@ -905,9 +905,24 @@
    "url": "https://www.basketballnetwork.net/off-the-court/sophie-cunningham-blasts-two-influencers-over-revealing-outfits-at-clippers-game",
    "genre": "キラキラ",
    "top": false
+  },
+  {
+   "id": "gh-20261127-nurkic-questionable-nuggets",
+   "level": "reported",
+   "teams": [
+    "UTA"
+   ],
+   "headline": "ユスフ・ヌルキッチ、ナゲッツ戦は出場疑問　今季初出場の可能性も",
+   "headlineEn": "Nurkic questionable vs. Nuggets on Friday, could make season debut",
+   "date": "2026-11-27",
+   "time": "10:56",
+   "sourceName": "Yahoo Sports",
+   "url": "https://sports.yahoo.com/nba/articles/important-jusuf-nurkic-injury-015629072.html",
+   "category": "怪我",
+   "top": false
   }
  ],
- "updatedAt": "2026-11-27T11:59:28+09:00",
+ "updatedAt": "2026-11-27T13:20:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open"
