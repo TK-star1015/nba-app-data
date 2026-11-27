@@ -1,6 +1,21 @@
 window.NBA_FEED = {
  "articles": [
   {
+   "id": "gh-20261126-draymond-green-trade-amick",
+   "level": "rumor",
+   "teams": [
+    "GSW"
+   ],
+   "headline": "ウォリアーズ、ドレイモンド・グリーンのトレード話も排除せず",
+   "headlineEn": "Warriors not ruling out Draymond Green in trade talks",
+   "date": "2026-11-26",
+   "sourceName": "HoopsHype",
+   "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/26/warriors-not-ruling-out-including-draymond-green-in-trade-talks/92970051007/",
+   "reporter": "Sam Amick",
+   "category": "トレード",
+   "top": false
+  },
+  {
    "id": "gh-20261127-rss-lakers-luka-analysis",
    "level": "rumor",
    "teams": [
@@ -704,7 +719,13 @@ window.NBA_FEED = {
    "reporter": "Jake Fischer",
    "category": "トレード",
    "top": false,
-   "headlineEn": "Fischer: Brook Lopez an \"appealing target\" for Lakers"
+   "headlineEn": "Fischer: Brook Lopez an \"appealing target\" for Lakers",
+   "related": [
+    {
+     "label": "NBC Sports",
+     "url": "https://www.nbcsports.com/nba/news/nba-trade-rumors-2026-27-will-anthony-davis-get-traded-clippers-as-sellers"
+    }
+   ]
   },
   {
    "id": "gh-20261126-rss-embiid-out-heat-illness",
@@ -1185,7 +1206,7 @@ window.NBA_FEED = {
    "top": false
   }
  ],
- "updatedAt": "2026-11-27T21:17:00+09:00",
+ "updatedAt": "2026-11-27T22:24:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
