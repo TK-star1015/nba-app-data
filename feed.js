@@ -2032,5 +2032,4 @@ window.NBA_FEED = {
   "gh-20261126-rss-haliburton-nears-return",
   "gh-20261126-anunoby-calf-strain"
  ]
-}
-;
+};
