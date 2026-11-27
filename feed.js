@@ -1,6 +1,49 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261127-robinson-questionable-hawks",
+      "level": "reported",
+      "teams": [
+        "BOS"
+      ],
+      "headline": "ミッチェル・ロビンソン、体調不良でホークス戦はクエスチョナブル　3戦欠場中",
+      "headlineEn": "Mitchell Robinson questionable for Friday vs. Hawks after missing three games with illness",
+      "date": "2026-11-27",
+      "time": "03:57",
+      "sourceName": "NBC Sports",
+      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/mitchell-robinson-illness-questionable-friday",
+      "category": "怪我",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-hayes-questionable-nuggets",
+      "level": "reported",
+      "teams": [
+        "UTA"
+      ],
+      "headline": "ジャクソン・ヘイズ、左膝の故障でナゲッツ戦はクエスチョナブル",
+      "headlineEn": "Jaxson Hayes questionable for Friday vs. Nuggets with left knee strain",
+      "date": "2026-11-27",
+      "sourceName": "NBC Sports",
+      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/jaxson-hayes-knee-questionable-friday-vs-denver",
+      "category": "怪我",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-stewart-questionable-wolves",
+      "level": "reported",
+      "teams": [
+        "MEM"
+      ],
+      "headline": "アイザイア・スチュワート、右股関節の痛みでウルブズ戦はクエスチョナブル",
+      "headlineEn": "Isaiah Stewart questionable for Friday vs. Timberwolves with right hip soreness",
+      "date": "2026-11-27",
+      "sourceName": "NBC Sports",
+      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/isaiah-stewart-hip-questionable-friday-vs-min",
+      "category": "怪我",
+      "top": false
+    },
+    {
       "id": "gh-20261127-spurs-harper-fox-questionable",
       "level": "reported",
       "teams": [
@@ -1011,7 +1054,7 @@ window.NBA_FEED = {
       ]
     }
   ],
-  "updatedAt": "2026-11-27T15:38:30+09:00",
+  "updatedAt": "2026-11-27T16:15:00+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
