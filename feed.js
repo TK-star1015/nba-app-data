@@ -395,7 +395,7 @@ window.NBA_FEED = {
       "headlineEn": "Iverson donates 263 turkeys in hometown Thanksgiving giveaway"
     },
     {
-      "id": "gh-20261125-gossip-kyrie-irving-shoes-fan",
+      "id": "gh-20261125-gossip-kyrie-irving-shoes-fan-r",
       "level": "gossip",
       "teams": [
         "DAL"
@@ -729,7 +729,7 @@ window.NBA_FEED = {
       "headlineEn": "Reaves back to full practice; status vs. Spurs TBD"
     },
     {
-      "id": "gh-20261125-gossip-draymond-bench-kerr",
+      "id": "gh-20261125-gossip-draymond-bench-kerr-r",
       "level": "gossip",
       "teams": [
         "GSW"
@@ -1054,10 +1054,12 @@ window.NBA_FEED = {
       ]
     }
   ],
-  "updatedAt": "2026-11-27T16:17:26+09:00",
+  "updatedAt": "2026-11-27T17:03:59+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
-    "gh-20261126-gossip-stiller-brunson-pumpfake"
+    "gh-20261126-gossip-stiller-brunson-pumpfake",
+    "gh-20261125-gossip-kyrie-irving-shoes-fan",
+    "gh-20261125-gossip-draymond-bench-kerr"
   ]
 };
