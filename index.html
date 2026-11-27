@@ -94,6 +94,10 @@
   --sp-section:56px;
   --sp-zone:64px;
   --gutter:24px;
+  /* ページ全体の最大幅（PC最適化 2026-11-27）：広い画面では 1280px まで
+     自然に広げ、TEAMS の2ペインとフィードの2カラムに横幅を使う。
+     TOP NEWS の紹介文など行長を保ちたい要素は要素側の max-width で守る */
+  --wrap-max:1280px;
   /* 文字の階層：見出し／本文／メタ／チップの確定値 */
   --fs-display:34px;  /* 英字大見出し（TOP NEWS／セクション英字） */
   --fs-h1:25px;       /* ページ大見出し */
@@ -246,7 +250,7 @@ a{color:inherit;touch-action:manipulation}
 button{font-family:inherit;cursor:pointer;min-height:40px;color:inherit;touch-action:manipulation}
 ::selection{background:var(--ink);color:var(--on-accent)}
 :focus-visible{outline:2px solid var(--link);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gutter) calc(64px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:var(--wrap-max);margin:0 auto;padding:0 var(--gutter) calc(64px + env(safe-area-inset-bottom,0px))}
 .en{font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif}
 [hidden]{display:none!important}
 
@@ -273,7 +277,7 @@ a .ic-s,.detail-see-all .ic-s,.past-top-link .ic-s{margin-left:3px}
   position:sticky;top:0;z-index:60;
   transition:padding .25s ease,background-color .2s ease;
 }
-.masthead-row{display:flex;align-items:center;gap:14px;max-width:1120px;margin:0 auto}
+.masthead-row{display:flex;align-items:center;gap:14px;max-width:var(--wrap-max);margin:0 auto}
 .masthead-title{
   font-family:"Barlow Condensed","Barlow Condensed Fallback","Noto Sans JP","Noto Sans JP Fallback",sans-serif;
   font-size:24px;font-weight:700;letter-spacing:.03em;line-height:1.2;color:var(--ink);
@@ -314,7 +318,7 @@ body.lang-en .editor-door-sign{font-family:"Barlow Condensed","Barlow Condensed 
   margin:0 calc(var(--gutter) * -1);padding:var(--sp-3) var(--gutter);
   transition:background-color .2s ease;
 }
-.utility-in{max-width:1120px;margin:0 auto}
+.utility-in{max-width:var(--wrap-max);margin:0 auto}
 
 /* ---------- 上部コントロール（更新／テーマ／言語：全タブ共通の小さいサイズで統一） ---------- */
 .top-controls{display:flex;align-items:center;justify-content:flex-start;gap:20px;flex-wrap:nowrap;margin:0}
@@ -1821,6 +1825,48 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
    追加）トークルーム：同じ日の中の吹き出し同士の間隔を 5px→12px に拡大
       （日付ピルの上下・日をまたぐ間隔は不変。横幅の変更はTK訂正で取り下げ）
    ============================================================ */
+
+/* ============================================================
+   PC最適化（TK指示 2026-11-27）
+   ・対象は広い画面（1025px以上）のみ。モバイル表示（見た目・挙動）は
+     一切変えない。色・角丸・チップ寸法・フォントは既存トークンのまま
+   1) TEAMS 2ペイン：左＝トーク一覧（固定幅）、右＝選択中チームの
+      トークルームを常時表示する LINE デスクトップ版の構成。ルームは
+      ペインの中で独立にスクロールし、見出し（.room-head）はペイン
+      上端に留まる。一覧でチームを選ぶと右ペインの中身だけが替わる
+      （切替は JS の selectTeam／syncRoomPane 側）
+   2) ジャンル別ニュース 2カラム：記事カードを2列グリッドに流し、
+      グループ見出し・「もっと見る」・空状態は全幅に置く。段階表示
+      （10件ずつ）とフィルターの挙動は従来どおり
+   3) 全体の最大幅は --wrap-max（1280px）。TOP NEWS はパネルごと
+      自然に広がるが、紹介文の行長（max-width:640px）は維持する
+   ============================================================ */
+@media(min-width:1025px){
+  /* --- 1) TEAMS 2ペイン --- */
+  .teams-panes{display:flex;gap:var(--sp-6);align-items:flex-start}
+  .teams-list-pane{flex:0 0 400px;min-width:0}
+  .teams-panes #roomView{
+    flex:1 1 auto;min-width:0;margin-top:0;
+    position:sticky;top:76px;max-height:calc(100dvh - 100px);overflow-y:auto;
+  }
+  /* ペイン表示では「戻る」導線は置かない（一覧が常に見えているため。
+     ヘッダーの星＝お気に入りトグルは残す） */
+  .teams-panes .room-back,.teams-panes .room-foot{display:none}
+  /* 吹き出し列はペイン幅に合わせて上限を少しだけ広げる */
+  .teams-panes .room-body{max-width:760px}
+  /* 右ペインで開いているチームの行は、一覧側でも地色で示す
+     （ホバーと同じ --surface2。新しい色は足さない） */
+  #teamList .trow.is-active .trow-front{background:var(--surface2)}
+
+  /* --- 2) ジャンル別ニュース 2カラム --- */
+  #feedCard{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--sp-6);align-items:start}
+  #feedCard .feed-group,#feedCard .feed-more,#feedCard .empty{grid-column:1 / -1}
+  /* グリッド内では行の負マージン相殺をやめ、全カードに上の区切り線と
+     上余白を付け直して2列でも行のリズムを揃える（先頭行も同じ扱い） */
+  #feedCard .news-item{margin-left:0;margin-right:0}
+  #feedCard .news-item,
+  #feedCard .news-item:first-of-type{border-top:1px solid var(--line);padding-top:var(--sp-4)}
+}
 </style>
 <!-- 背景色の自由色専用の上書きスタイル：プリセット色は data-bg 属性＋静的ルールで
      切り替え、ここはカラーピッカーの自由色のときだけ applyBg() が書き込む
@@ -1957,6 +2003,13 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   <!-- 凡例はリストの下に最小構成で置く：公式／報道の定義は初見では
        分からないため短く残し、行の未読バッジと時刻の読み方を足した -->
 
+  <!-- TEAMS 2ペイン（PC最適化 2026-11-27）：広い画面では左＝トーク一覧、
+       右＝選択中チームのトークルームを常時表示する2ペイン構成にする
+       （並べ替えとペイン化は CSS の PC ブロック側、切替は selectTeam /
+       syncRoomPane 側）。モバイルでは包むだけの無地のコンテナで、
+       従来どおり一覧→ルームの画面遷移のまま一切変えない -->
+  <div class="teams-panes">
+  <div class="teams-list-pane">
   <div class="map-panel" id="mapPanel">
     <!-- LINEのトーク一覧形式：1チーム1行（アイコン＋チーム名＋最新見出し／
          時刻＋未読バッジ）。並び順・ピン留めは renderGrid 側で制御し、
@@ -1973,6 +2026,23 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     <span class="pill"><span class="unread-sample" data-i18n="badgeSample">未読 3</span><span data-i18n="legendBadge">未読件数</span></span>
     <span class="pill"><span class="time-sample"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> <span data-i18n="footDate">11月24日</span></span><span data-i18n="legendFoot">最新記事の日時</span></span>
   </div>
+  </div><!-- /.teams-list-pane -->
+
+  <!-- チーム詳細＝LINE風トークルーム。中身は renderRoom が入れる。
+       モバイル：専用ビュー（通常画面を隠して切り替え、戻るで一覧の元の
+       スクロール位置に復帰）。PC：この場所（TEAMS の右ペイン）に常時表示し、
+       一覧でチームを選ぶと中身だけが切り替わる -->
+  <div id="roomView" hidden>
+    <div class="room-head">
+      <button class="room-back" id="roomBackBtn" type="button" data-i18n-title="pastTopBack" title="戻る" aria-label="戻る"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="room-badge" id="roomBadge"></span>
+      <h2 class="room-title" id="roomTitle"></h2>
+      <button class="room-fav" id="roomFavBtn" type="button" data-i18n-title="favTitle" title="お気に入り" aria-label="お気に入り"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
+    </div>
+    <div class="room-body" id="roomBody"></div>
+    <div class="room-foot"><button class="btn" id="roomBackBtn2" type="button"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span data-i18n="pastTopBack">戻る</span></button></div>
+  </div>
+  </div><!-- /.teams-panes -->
 
   <!-- チーム詳細 + 速報 -->
   <div class="cols">
@@ -2062,20 +2132,6 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     </div>
     <section class="card past-top-card"><div id="pastTopList"></div></section>
     <div class="past-top-foot"><button class="btn" id="pastTopBackBtn2" type="button"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span data-i18n="pastTopBack">戻る</span></button></div>
-  </div>
-
-  <!-- チーム詳細＝LINE風トークルーム：専用ビュー（過去のTOP NEWS・管理人の見解と
-       同じ方式。通常画面を隠して切り替え、戻るで一覧の元のスクロール位置に復帰）。
-       中身は renderRoom が入れる -->
-  <div id="roomView" hidden>
-    <div class="room-head">
-      <button class="room-back" id="roomBackBtn" type="button" data-i18n-title="pastTopBack" title="戻る" aria-label="戻る"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-      <span class="room-badge" id="roomBadge"></span>
-      <h2 class="room-title" id="roomTitle"></h2>
-      <button class="room-fav" id="roomFavBtn" type="button" data-i18n-title="favTitle" title="お気に入り" aria-label="お気に入り"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
-    </div>
-    <div class="room-body" id="roomBody"></div>
-    <div class="room-foot"><button class="btn" id="roomBackBtn2" type="button"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span data-i18n="pastTopBack">戻る</span></button></div>
   </div>
 
   <!-- 管理人の見解：専用ビュー（過去のTOP NEWSと同じ方式。マストヘッド右端のドアボタンから開き、
@@ -3065,6 +3121,12 @@ function renderGrid(){
     return rb-ra;
   });
   document.getElementById("teamList").innerHTML=rows.map(function(r){return teamRowHTML(r.t,r.info);}).join("");
+  /* PC 2ペイン表示中は、右ペインで開いているチームの行を選択中として
+     示す（地色は CSS の PC ブロック側。モバイルでは何も変わらない） */
+  if(roomPane&&roomAbbr){
+    var actRow=document.querySelector('#teamList .trow[data-abbr="'+roomAbbr+'"]');
+    if(actRow)actRow.classList.add("is-active");
+  }
   /* 空表示：お気に入りタブで1件も無い時だけ専用の短い文言に切り替える
      （applyLang の data-i18n 復元より後に renderGrid が走るため、ここで上書きできる） */
   var emptyEl=document.getElementById("teamListEmpty");
@@ -4013,11 +4075,33 @@ function selectTeam(abbr,open,markRead){
     }
     roomAnimate=true;
     renderRoom();
+    if(isDesktopLayout()){
+      /* PC（2ペイン）：ページは切り替えず、右ペインのルームだけを差し替える。
+         既読化・既読の伝播はモバイルの入室と同じ扱いにし、ペイン内は
+         最新（最下部）に合わせる。画面遷移・スライド・入室音は出さない */
+      roomPane=true;
+      var roomElD=document.getElementById("roomView");
+      roomElD.hidden=false;
+      roomElD.classList.remove("room-slide-in","room-slide-out");
+      renderGrid();
+      if(markRead){try{renderFeed();}catch(e){} try{renderDigest();}catch(e){} try{renderPastTop();}catch(e){}}
+      var toPaneBottom=function(){roomElD.scrollTop=roomElD.scrollHeight;};
+      toPaneBottom();
+      if(window.requestAnimationFrame)requestAnimationFrame(toPaneBottom);
+      return;
+    }
     roomScrollY=window.scrollY||window.pageYOffset||0;
     var wrap=document.querySelector(".wrap");
     if(!wrap)return;
     Array.prototype.forEach.call(wrap.children,function(el){
-      if(el.id!=="roomView")el.style.display="none";
+      /* ルームは .teams-panes の中に移したため、コンテナ自体は隠さず
+         中の一覧ペインだけを隠す（ルームはコンテナの中で表示する） */
+      if(el.classList&&el.classList.contains("teams-panes")){
+        var lp=el.querySelector(".teams-list-pane");
+        if(lp)lp.style.display="none";
+        return;
+      }
+      el.style.display="none";
     });
     var roomEl=document.getElementById("roomView");
     roomEl.hidden=false;
@@ -4041,8 +4125,9 @@ function selectTeam(abbr,open,markRead){
     return;
   }
   /* 再描画の呼び出し（言語切替・更新の反映）：ルームを開いている時だけ
-     中身を描き直す（「ここから新しい記事」の位置は入室時点のまま維持する） */
-  if(roomOpen&&roomAbbr===abbr)renderRoom();
+     中身を描き直す（「ここから新しい記事」の位置は入室時点のまま維持する）。
+     PC のペイン表示中（roomPane）も同じ扱いで描き直す */
+  if((roomOpen||roomPane)&&roomAbbr===abbr)renderRoom();
 }
 /* 戻る：ルームを右へスライドアウトさせてから通常画面を戻し、一覧の元の
    スクロール位置に復帰する（LINEの退室感）。モーション抑制設定の時は
@@ -4068,6 +4153,9 @@ function finishCloseRoom(){
   roomEl.classList.remove("room-slide-out","room-slide-in");
   var wrap=document.querySelector(".wrap");
   if(wrap)Array.prototype.forEach.call(wrap.children,function(el){el.style.display="";});
+  /* 入室時に隠した一覧ペイン（.teams-panes の中）も戻す */
+  var lp=document.querySelector(".teams-panes .teams-list-pane");
+  if(lp)lp.style.display="";
   roomEl.hidden=true;
   roomOpen=false;
   roomNewCount=0;
@@ -4085,6 +4173,52 @@ document.getElementById("roomFavBtn").addEventListener("click",function(){
   favorites[roomAbbr]=!favorites[roomAbbr];
   savePrefs(); renderRoom(); renderGrid(); renderFeed();
 });
+/* ===== PC 2ペイン（TEAMS・PC最適化 2026-11-27）=====
+   広い画面（1025px以上）ではトークルームを TEAMS の右ペインに常時表示し、
+   一覧でチームを選ぶとペインの中身だけが切り替わる（selectTeam の
+   PC 分岐）。ここは表示モードの同期だけを担う：初期表示と、画面幅が
+   境界をまたいだ時に、ペイン表示⇔従来表示を切り替える。
+   初期表示のペインは既読化しない（開いただけで未読が消えないよう、
+   roomNewCount は 0 のまま renderRoom する） */
+var roomPane=false;   /* PC ペインにルームを表示中か */
+var DESKTOP_MQ=(window.matchMedia?window.matchMedia("(min-width:1025px)"):null);
+function isDesktopLayout(){return !!(DESKTOP_MQ&&DESKTOP_MQ.matches);}
+function syncRoomPane(){
+  var roomEl=document.getElementById("roomView");
+  if(!roomEl)return;
+  if(isDesktopLayout()){
+    if(roomOpen){
+      /* モバイルの全画面ルーム表示中に広い画面になった：隠していた
+         通常画面を戻し、全画面表示を解いてペイン表示に移す */
+      var wrap=document.querySelector(".wrap");
+      if(wrap)Array.prototype.forEach.call(wrap.children,function(el){el.style.display="";});
+      var lp=document.querySelector(".teams-panes .teams-list-pane");
+      if(lp)lp.style.display="";
+      roomEl.classList.remove("room-slide-in","room-slide-out");
+      document.body.classList.remove("room-open");
+      roomOpen=false;
+      roomNewCount=0;
+    }
+    if(!roomPane){
+      roomPane=true;
+      if(!roomAbbr)roomAbbr=state.selected;
+      roomAnimate=false;
+      renderRoom();
+      roomEl.hidden=false;
+      renderGrid();
+      roomEl.scrollTop=roomEl.scrollHeight;
+    }
+  }else if(roomPane){
+    /* 狭い画面に戻った：ペインを畳み、従来の一覧表示に戻す
+       （全画面ルーム表示中はそちらを優先し、ここでは触らない） */
+    roomPane=false;
+    if(!roomOpen)roomEl.hidden=true;
+  }
+}
+if(DESKTOP_MQ){
+  if(DESKTOP_MQ.addEventListener)DESKTOP_MQ.addEventListener("change",syncRoomPane);
+  else if(DESKTOP_MQ.addListener)DESKTOP_MQ.addListener(syncRoomPane);
+}
 /* ===== フィード段階表示 =====
    初期表示は最新10件まで。末尾の「もっと見る」を押すごとに10件ずつ追加し、
    全件表示したらボタンは消える。フィルターを切り替えたら表示件数は10件に
@@ -5754,6 +5888,9 @@ syncSeg("typeSeg","data-type",state.type);
 syncSeg("levelSeg","data-level",state.level);
 syncSeg("soundSeg","data-sound",roomSoundOn?"on":"off");
 applyLang(state.lang);
+/* PC幅では TEAMS の右ペインに選択中チームのルームを最初から出す
+   （モバイル幅では何もしない。syncRoomPane 側で幅判定する） */
+syncRoomPane();
 /* 初回表示の時点から「更新中…」をステータスに出しておく
    （直後の自動更新がそのまま引き継ぎ、完了時に最終更新へ切り替わる） */
 (function(){var st=document.getElementById("refreshStatus"),tx=document.getElementById("refreshStatusText");if(st&&tx){st.classList.add("is-loading");tx.textContent=L().loading||"更新中…";}})();
