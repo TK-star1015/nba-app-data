@@ -128,6 +128,20 @@ window.NBA_FEED = {
       "top": true
     },
     {
+      "id": "gh-20261126-gossip-williams-thanksgiving-giving",
+      "level": "gossip",
+      "teams": [
+        "LAL"
+      ],
+      "headline": "ザイア・ウィリアムズ、感謝祭の食事支援は6年目　子ども150人と交流",
+      "headlineEn": "Ziaire Williams marks sixth year of Thanksgiving meals for 150 kids",
+      "date": "2026-11-26",
+      "sourceName": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/nba/articles/giving-why-lakers-ziaire-williams-120000392.html",
+      "genre": "ほのぼの",
+      "top": false
+    },
+    {
       "id": "gh-20261125-fischer-davis-no-rush",
       "level": "rumor",
       "teams": [
@@ -177,6 +191,34 @@ window.NBA_FEED = {
       "sourceName": "EssentiallySports",
       "url": "https://www.essentiallysports.com/nba-legends-basketball-news-its-an-illusion-gilbert-arenas-shuts-down-eddie-johnson-over-his-latest-jab-at-draymond-green/",
       "genre": "ドロドロ",
+      "top": false
+    },
+    {
+      "id": "gh-20261125-gossip-lebron-binocular-celly",
+      "level": "gossip",
+      "teams": [
+        "PHI"
+      ],
+      "headline": "レブロン・ジェームズ、ハーフコートからのロブで双眼鏡ポーズ",
+      "headlineEn": "LeBron James caps half-court lob with binocular celebration",
+      "date": "2026-11-25",
+      "sourceName": "Yardbarker",
+      "url": "https://www.yardbarker.com/nba/articles/dust_it_off_then_tyrese_maxey_challenges_lebron_james_as_historic_milestone_headlines_76ers_win_over_heat/s1_17730_44621766",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261122-gossip-curry-chair-fall",
+      "level": "gossip",
+      "teams": [
+        "GSW"
+      ],
+      "headline": "ステフィン・カリー、ドレイモンド・グリーンの3Pに歓喜し椅子から転落",
+      "headlineEn": "Curry falls off his chair celebrating Draymond's three-point barrage",
+      "date": "2026-11-22",
+      "sourceName": "theScore",
+      "url": "https://www.thescore.com/nba/news/3666518",
+      "genre": "キラキラ",
       "top": false
     },
     {
@@ -864,6 +906,6 @@ window.NBA_FEED = {
       "top": false
     }
   ],
-  "updatedAt": "2026-11-27T10:04:46+09:00",
+  "updatedAt": "2026-11-27T11:59:28+09:00",
   "version": 1
 };
