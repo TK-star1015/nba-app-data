@@ -1183,7 +1183,9 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
 .news-item h4,.post-title,.digest h1,.digest-main,#detailTitle{overflow-wrap:break-word;word-break:normal}
 /* TOP NEWS の見出し（.digest-main）だけ文節単位で折る：word-break:keep-all で
    折り返し位置を <wbr>（文節境界）だけに限定し、右端に隙間が出ても文節を守る。
-   1文節が行幅より長い場合の保険として overflow-wrap:break-word は残す */
+   1文節が行幅より長い場合の保険として overflow-wrap:break-word は残す。
+   例外（TK指示 2026-11-27）：モバイル（760px以下）では文節改行を使わず通常
+   改行にする（下のモバイル用ブロックで上書き。「・」でつながる語は割らない） */
 .digest-item .digest-main{word-break:keep-all;overflow-wrap:break-word}
 /* 紹介文も見出しと同じ通常改行に揃える */
 .sub.phrase{word-break:normal;overflow-wrap:break-word}
@@ -1485,6 +1487,24 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   body{letter-spacing:.005em}
   .news-item h4,.post-title,.digest-main{letter-spacing:0}
   .digest h1{letter-spacing:.005em}
+}
+
+/* ============================================================
+   モバイル：TOP NEWS 見出しの改行（TK指示 2026-11-27）
+   ・対象はモバイル表示（760px以下）の TOP NEWS のみ。PC は従来どおり
+     文節単位の改行（topPhraseHTML＋keep-all）を維持する
+   ・モバイルでは文節単位の事前分割を使わず、ジャンル別ニュースのカードと
+     同じ通常改行にする：行を右端まで使って端で自然に折る。行数を
+     2行・3行に揃える制御はしない
+   ・ただし「・」でつながる語（ディアロン・フォックス／デイ・トゥ・デイ等）は
+     途中で割らない：JS（topDigestTitleHTML）が付けた .top-keep を
+     モバイルでのみ nowrap にして1単位として扱う
+   ・フォントサイズ・余白・色などのタイポグラフィは変更しない
+   【戻し方】このブロックを丸ごと削除すれば変更前の表示に戻る
+   ============================================================ */
+@media(max-width:760px){
+  .digest-item .digest-main{word-break:normal}
+  .digest-main .top-keep{white-space:nowrap}
 }
 
 /* ============================================================
@@ -3408,6 +3428,22 @@ function topPhraseHTML(text){
     return out;
   }catch(e){return t;}
 }
+/* TOP NEWS 見出しの描画（TK指示 2026-11-27）：モバイルでは文節単位の事前分割を
+   使わず、ジャンル別ニュースと同じ通常改行（右端まで使って端で自然に折る）に
+   するため、改行の効き方は CSS 側のメディアクエリで切り替える（PC は従来どおり
+   topPhraseHTML の文節改行＋keep-all を維持）。ただしモバイルの通常改行では
+   「ディアロン・フォックス」「デイ・トゥ・デイ」のような「・」でつながる語が
+   途中で割れてしまうため、カタカナ・英数字が「・」でつながる並びを丸ごと
+   <span class="top-keep"> で包み、モバイルでのみ CSS で nowrap にして1単位に
+   保つ（PC では span は素通しで、従来の文節改行の挙動は変わらない）。
+   topPhraseHTML の出力（<wbr> 入りHTML）に対して行うので、タグをまたがない
+   よう文字クラスはタグ記号を含まない範囲に限る */
+function topDigestTitleHTML(text){
+  var html=topPhraseHTML(text);
+  return html.replace(/[A-Za-z0-9ァ-ヶー]+(?:・[A-Za-z0-9ァ-ヶー]+)+/g,function(m){
+    return '<span class="top-keep">'+m+'</span>';
+  });
+}
 /* 記事カードはニュース一覧型の3行だけ：1行目＝日付＋チーム略称／2行目＝見出し／
    3行目＝リンク先名（左）＋分類タグ（末尾の決まった位置）。「日付 → 見出し → 分類タグ」の
    固定順で機械的に統一し、TOP NEWS（日付＋見出し＋リンク）とも視覚的に揃える。
@@ -3635,11 +3671,12 @@ function renderDigest(){
   var list=digestCandidates().slice(0,7);
   /* 並びは日付＋時刻の新しい順（時間順）。行形式は全件共通（TK指示 2026-11-26）：
      通し番号（01〜）と先頭1件の強調カードは廃止し、1行目を小さいメタ行
-     （左に日付、右端に出典リンク）、2行目を見出し（全幅・文節単位の改行）にする。
+     （左に日付、右端に出典リンク）、2行目を見出し（全幅）にする。改行は
+     PC＝文節単位／モバイル＝通常改行（右端まで使う。「・」語は割らない）。
      見出しサイズは全件同一（--fs-lead）：先頭1本だけ大きくする強調は
      TK指摘（2026-11-26）で廃止済み */
   document.getElementById("digestList").innerHTML=list.map(function(n,i){
-    return '<div class="digest-item'+(articleIsRead(n)?' is-read':'')+'"><div class="digest-meta"><time>'+articleNewDotHTML(n)+digestDateTime(n)+'</time><span class="digest-src">'+articleSourceLinksHTML(n,true)+'</span></div><div class="digest-main">'+topPhraseHTML(n.title)+'</div></div>';
+    return '<div class="digest-item'+(articleIsRead(n)?' is-read':'')+'"><div class="digest-meta"><time>'+articleNewDotHTML(n)+digestDateTime(n)+'</time><span class="digest-src">'+articleSourceLinksHTML(n,true)+'</span></div><div class="digest-main">'+topDigestTitleHTML(n.title)+'</div></div>';
   }).join("");
   swapIn(document.getElementById("digestList"));
 }
