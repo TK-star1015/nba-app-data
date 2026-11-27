@@ -28,7 +28,8 @@ window.NBA_FEED = {
    "sourceName": "Yahoo Sports",
    "url": "https://sports.yahoo.com/nba/articles/lights-luka-contagious-chemistry-lakers-110022468.html",
    "category": "分析",
-   "top": false
+   "top": false,
+   "provisional": true
   },
   {
    "id": "gh-20261127-martin-questionable-nets",
@@ -1205,7 +1206,7 @@ window.NBA_FEED = {
    "top": false
   }
  ],
- "updatedAt": "2026-11-27T22:24:00+09:00",
+ "updatedAt": "2026-11-27T22:42:10+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
