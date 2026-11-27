@@ -846,6 +846,19 @@ body.lang-en .team-name{font-size:var(--fs-meta)}
 .prov-fold-chev{display:inline-flex;line-height:0;color:var(--muted);transition:transform .2s}
 .prov-fold[aria-expanded="true"] .prov-fold-chev{transform:rotate(180deg)}
 
+/* 記事リストの開閉トグル（ニュースアーカイブと検索・TK決定 2026-11-28）：
+   記事リスト（#feedCard）は初期状態で折りたたみ、このトグルで手動開閉する。
+   様式は仮分類の畳み行（.prov-fold）と揃え、セクション内の静かな1行にする */
+.feed-list-toggle{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:none;border:0;border-top:1px solid var(--line);padding:10px 2px;min-height:44px;cursor:pointer;text-align:left;
+  font-size:var(--fs-small);font-weight:700;color:var(--muted);
+}
+.feed-list-toggle:active{background:var(--surface2)}
+.feed-list-chev{display:inline-flex;line-height:0;color:var(--muted);transition:transform .2s}
+.feed-list-toggle[aria-expanded="true"] .feed-list-chev{transform:rotate(180deg)}
+@media (prefers-reduced-motion: reduce){.feed-list-chev{transition:none}}
+
 /* 共有ボタン（TK承認 2026-11-27）：記事カードと TOP NEWS のメタ行に置く
    小さなアイコンのみのボタン。当たり判定は約30px、見た目は既存の小さな
    コントロール類に合わせて静かにする（地・枠なし、押下時だけ薄地） */
@@ -1216,20 +1229,12 @@ body.room-open{overflow-x:clip}
 .local-tags-row{display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap;margin-top:var(--sp-2)}
 .local-tags-row .field-tags{margin-top:0}
 .local-tags-row .local-abbr{width:32px;height:32px;font-size:var(--fs-chip);border-radius:var(--radius-s)}
-/* 全30チームの地元記者はタブ（開閉ボタン）の中に隠し、初期状態では出さない。
-   常時表示するのは Gambadoro のカードだけにする */
-.local-dir-toggle{margin-top:var(--sp-4)}
-#localDirWrap{margin-top:var(--sp-4)}
-/* 地元ライター欄の余白（TK訂正 2026-11-27）：「地元ライター一覧」の行のすぐ下に
-   Gambadoro のアイコンが詰まって付き、カード内側も窮屈に見える。
-   共通ルールでは先頭の .voice-reporter は padding-top:0 で、一覧ボタンとの
-   間隔が 0 になっていた。地元側では一覧の下に余白を空け、先頭カードの
-   上パディングも戻して、アイコン周りに呼吸を持たせる（記者一覧側は変えない） */
-#localList{margin-top:var(--sp-5)}
-#localList .voice-reporter:first-of-type{padding-top:var(--sp-2)}
-#localDirList .voice-reporter:first-of-type{padding-top:var(--sp-2)}
-/* 記者一覧（REPORTERS）もタブ（開閉）の中に隠し、初期状態では出さない */
-#reporterDirWrap{margin-top:var(--sp-2)}
+/* 記者一覧の小見出し（TK決定 2026-11-28）：全国組／地元ライターの区切り。
+   タブで隠さず1つのリストに全員出すための見出しで、区切り線の伸び方と
+   文字の開始位置は記者カード（.voice-reporter）に揃える */
+.rep-group-head{font-size:var(--fs-small);font-weight:700;color:var(--muted);letter-spacing:.04em;margin:var(--sp-5) -10px 0;padding:var(--sp-4) 10px 0;border-top:1px solid var(--line)}
+.rep-group-head:first-child{margin-top:0;padding-top:0;border-top:0}
+.rep-group-head + .voice-reporter{border-top:0;padding-top:var(--sp-2)}
 
 /* ポストカード */
 .posts-head{display:flex;align-items:baseline;gap:8px;margin:0 0 4px}
@@ -2277,7 +2282,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
   <!-- チーム詳細 + 速報 -->
   <div class="cols">
     <div>
-      <div class="section-head" id="secFeed"><div><h2 data-i18n="feedH">ジャンル別ニュース</h2></div><button type="button" class="filter-toggle" id="feedFilterToggle" aria-expanded="false" aria-controls="feedFilterPanel"><span data-i18n="filterToggle">絞り込み</span><span class="filter-count" id="feedFilterCount" hidden></span><span class="filter-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></div>
+      <div class="section-head" id="secFeed"><div><h2 data-i18n="feedH">ニュースアーカイブと検索</h2></div><button type="button" class="filter-toggle" id="feedFilterToggle" aria-expanded="false" aria-controls="feedFilterPanel"><span data-i18n="filterToggle">絞り込み</span><span class="filter-count" id="feedFilterCount" hidden></span><span class="filter-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></div>
       <!-- 分類フィルター：公式／報道／噂で絞る（種類フィルターと併用できる）。
            アプリの核の絞り込みなので常時表示し、1タップで届く場所に置く -->
       <div class="toolbar" style="margin-top:0">
@@ -2329,6 +2334,10 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
         </div>
       </div>
       </div>
+      <!-- 記事リストの開閉トグル（TK決定 2026-11-28）：記事リストは初期状態では
+           折りたたみ、検索・フィルター（保存含む）が有効な間は自動で開く。
+           開閉の同期は renderFeed が行う -->
+      <button type="button" class="feed-list-toggle" id="feedListToggle" aria-expanded="false" aria-controls="feedCard"><span id="feedListToggleLabel" data-i18n="feedListOpen">記事一覧を開く</span><span class="feed-list-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
       <section class="card" id="feedCard"></section>
 
       <!-- ゴシップコーナー：フィードカードの外に置く完全分離ゾーン（中身は renderFeed が入れる） -->
@@ -2347,19 +2356,11 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
         <div id="insiderList"></div>
       </section>
 
+      <!-- 記者一覧（TK決定 2026-11-28）：全国組＋地元ライターをタブで隠さず
+           1つのリストに全員表示する（renderVoices が小見出し付きで描く） -->
       <div class="section-head side-stack-head"><div><h2 data-i18n="reportersH">記者一覧</h2></div></div>
       <section class="card">
-        <button type="button" class="picker-toggle" id="reporterDirBtn" aria-expanded="false" aria-controls="reporterDirWrap"><span data-i18n="reporterDirTitle">全記者一覧</span><span class="picker-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
-        <div id="reporterDirWrap" hidden><div id="reporterList"></div></div>
-      </section>
-
-      <div class="section-head side-stack-head"><div><h2 data-i18n="localH">地元ライター</h2></div></div>
-      <section class="card">
-        <button type="button" class="picker-toggle" id="localPickerBtn" aria-expanded="false" aria-controls="localPickerList"><span data-i18n="localPickerBtn">地元ライター一覧</span><span class="picker-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
-        <div class="insider-picker" id="localPickerList" hidden></div>
-        <div id="localList"></div>
-        <button type="button" class="picker-toggle local-dir-toggle" id="localDirBtn" aria-expanded="false" aria-controls="localDirWrap"><span data-i18n="localDirTitle">全30チーム — 地元記者一覧</span><span class="picker-chev" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
-        <div id="localDirWrap" hidden><div id="localDirList"></div></div>
+        <div id="reporterList"></div>
       </section>
     </div>
   </div>
@@ -2428,7 +2429,7 @@ var UI={
   tlM1T:"11月", tlM1B:"噂 — サンズがデジョンテ・マレーに関心（Haynes報道）",
   tlM2T:"11月", tlM2B:"噂のまま — ジェイレン・グリーン⇔デジョンテ・マレーの協議も取り沙汰（Amick）",
   tlM3T:"今後", tlM3B:"今後 — 速報があれば報道へ", tlM3P:"進展があればここに追加。",
-  feedH:"ジャンル別ニュース", filterToggle:"絞り込み", feedSearchPh:"見出し・選手名・チーム名で検索",
+  feedH:"ニュースアーカイブと検索", filterToggle:"絞り込み", feedSearchPh:"見出し・選手名・チーム名で検索",
   cAll:"すべて", cImportant:"公式", cRumor:"噂", cGossip:"ゴシップ", cTeamInfo:"チーム情報・記事",
   gossipCorner:"オフコート",
   gossipNote:"コート外の小ネタ。話半分でどうぞ。",
@@ -2437,21 +2438,17 @@ var UI={
   pAll:"すべて", pToday:"今日", pDays3:"3日間", pDays7:"1週間", favOnly:"お気に入りチームのみ",
   insH:"速報ソース",
   pickerBtn:"記者リスト", pickerNow:"表示中",
-  postsH:"最新ポスト",
-  postsEmpty:"この記者のポストはまだ取り込まれていません。", postsEmptySub:"上の記者リストから別の記者も選べます。",
   embedFallback:"Xで開く",
-  reportersH:"記者一覧",
+  reportersH:"記者一覧", repGroupNational:"全国組",
   opinionChip:"分析・意見", latestAnalysis:"最新の分析・コメント",
   rumorChip:"噂・未確認", latestRumor:"最新の噂・発信",
   localH:"地元ライター", localSub:"地元メディアの見方。速報の一次ソースではありません。",
   localView:"地元の見方",
-  localDirTitle:"全30チーム — 地元記者一覧",
-  reporterDirTitle:"全記者一覧",
-  localPickerBtn:"地元ライター一覧",
+
   disclaimer:"本サイトはNBAおよび各チームとは関係のない非公式ファンサイトです。",
   teamPage:"チームページ", favTitle:"お気に入り", sourceLink:"原文・出典を見る", sourceLinkShort:"原文を見る", official:"公式",
   nbaLink:"NBA.com", relatedLabel:"関連：",
-  noNews:"この期間（10/20〜11/25）の掲載ニュースはまだありません。", noNewsSub:"更新すると新しい記事が入ります。", feedEmpty:"この絞り込みに合う記事はありません。", feedEmptySub:"分類や種類を変えてみてください。", feedMore:"もっと見る", feedMoreLeft:"残り{n}件",
+  noNews:"この期間（10/20〜11/25）の掲載ニュースはまだありません。", noNewsSub:"更新すると新しい記事が入ります。", feedEmpty:"この絞り込みに合う記事はありません。", feedEmptySub:"分類や種類を変えてみてください。", feedMore:"もっと見る", feedMoreLeft:"残り{n}件", feedListOpen:"記事一覧を開く", feedListClose:"記事一覧を閉じる",
   shareBtn:"共有", provFold:"未確認（仮）{n}件",
   toFeed:"関連フィードへ",
   backToMap:"更新マップに戻る",
@@ -2507,7 +2504,7 @@ var UI={
   tlM1T:"Nov", tlM1B:"Rumor — Suns register interest in Murray (Haynes)",
   tlM2T:"Nov", tlM2B:"Still a rumor — Green-for-Murray talks also mentioned (Amick)",
   tlM3T:"Next", tlM3B:"Next — Reported if an insider breaks it as fact", tlM3P:"Updates will be added here.",
-  feedH:"News by Genre", filterToggle:"Filter", feedSearchPh:"Search headlines, players, teams",
+  feedH:"News Archive & Search", filterToggle:"Filter", feedSearchPh:"Search headlines, players, teams",
   cAll:"All", cImportant:"Official", cRumor:"Rumors", cGossip:"Gossip", cTeamInfo:"Team News & Articles",
   gossipCorner:"OFF THE COURT",
   gossipNote:"Off-court chatter — take it lightly.",
@@ -2516,21 +2513,17 @@ var UI={
   pAll:"All", pToday:"Today", pDays3:"3 days", pDays7:"1 week", favOnly:"Favorite teams only",
   insH:"Breaking Sources",
   pickerBtn:"Reporter list", pickerNow:"Showing",
-  postsH:"Latest posts",
-  postsEmpty:"No posts from this reporter have been collected yet.", postsEmptySub:"You can pick another reporter from the list above.",
   embedFallback:"Open on X",
-  reportersH:"Reporters",
+  reportersH:"Reporters", repGroupNational:"National",
   opinionChip:"Analysis / Opinion", latestAnalysis:"Latest analysis & commentary",
   rumorChip:"Rumor · Unconfirmed", latestRumor:"Latest rumors & posts",
   localH:"Local Writers", localSub:"Views from local media — not primary breaking sources.",
   localView:"Local view",
-  localDirTitle:"All 30 teams — local writers",
-  reporterDirTitle:"All reporters",
-  localPickerBtn:"Local writers",
+
   disclaimer:"This is an unofficial fan site, not affiliated with the NBA or its teams.",
   teamPage:"Team Page", favTitle:"Favorite", sourceLink:"View source", sourceLinkShort:"View source", official:"Official",
   nbaLink:"NBA.com", relatedLabel:"Related:",
-  noNews:"No stories from this period (Oct 20–Nov 26) yet for this team.", noNewsSub:"Refresh to check for new stories.", feedEmpty:"No stories match these filters.", feedEmptySub:"Try another category or type.", feedMore:"Show more", feedMoreLeft:"{n} more",
+  noNews:"No stories from this period (Oct 20–Nov 26) yet for this team.", noNewsSub:"Refresh to check for new stories.", feedEmpty:"No stories match these filters.", feedEmptySub:"Try another category or type.", feedMore:"Show more", feedMoreLeft:"{n} more", feedListOpen:"Show articles", feedListClose:"Hide articles",
   shareBtn:"Share", provFold:"Unconfirmed (provisional): {n}",
   toFeed:"Go to related feed",
   backToMap:"Back to update map",
@@ -2808,7 +2801,7 @@ function reporterKindInText(text){
   }
   return found;
 }
-/* タブで切り替える主要インサイダー（最新ポストカード＋Xプロフィールリンク）。ランクは内部判断用なのでUIには出さない */
+/* リストで切り替える主要インサイダー（名前・媒体・紹介＋Xプロフィールリンクのみ。ポストカードは 2026-11-28 に全廃）。ランクは内部判断用なのでUIには出さない */
 var FEATURED_INSIDERS=[
  {key:"shams",name:"Shams Charania",ini:"SC",color:"#e11d2e",handle:"ShamsCharania",tagsJa:["速報全般","トレード","怪我"],tagsEn:["Breaking news","Trades","Injuries"],outletJa:"ESPN Senior NBA Insider",outletEn:"ESPN Senior NBA Insider",descJa:"ESPNのシニアNBAインサイダー。トレード・契約・怪我の速報を最も早く届ける記者。",descEn:"ESPN Senior NBA Insider — the fastest source for NBA trades, contracts and injury news.",detailJa:"2024年10月からESPN。以前はThe Athletic／Stadium／FanDuel TV／Yahoo Sports。NBA TodayやSportsCenterなどESPNの番組にも出演。",detailEn:"Joined ESPN in October 2024, after The Athletic, Stadium, FanDuel TV and Yahoo Sports. Also appears on ESPN shows including NBA Today and SportsCenter."},
  {key:"stein",name:"Marc Stein",ini:"MS",color:"#0f766e",handle:"TheSteinLine",tagsJa:["トレード市場","コラム"],tagsEn:["Trade market","Columns"],outletJa:"The Stein Line（Substack）",outletEn:"The Stein Line (Substack)",descJa:"The Stein Lineを主宰する独立系インサイダー。1994年からNBAを取材し、殿堂カート・ガウディ賞受賞。",descEn:"Independent insider behind The Stein Line. Covering the NBA since 1994; Basketball Hall of Fame Curt Gowdy Award winner.",detailJa:"1994年2月からNBAをフルタイムで取材。以前はESPN（15年）、The New York Times、Dallas Morning Newsなど。2019年にカート・ガウディ賞を受賞。ニュースレターは毎週火曜配信。",detailEn:"Covering the NBA full-time since February 1994. Previously ESPN (15 years), The New York Times and the Dallas Morning News. Won the Curt Gowdy Award in 2019; his newsletter lands every Tuesday."},
@@ -2819,22 +2812,16 @@ var FEATURED_INSIDERS=[
 function featuredInsider(key){return FEATURED_INSIDERS.filter(function(f){return f.key===key;})[0]||FEATURED_INSIDERS[0];}
 /* ===== 分析系の記者（記者一覧に統合表示する。分析系の記事は速報フィード・TOP NEWSには入れない） ===== */
 var ANALYSIS_REPORTERS=[
- {name:"Ramona Shelburne",ini:"RS",color:"#0e7490",handle:"RamonaShelburne",tagsJa:["内情","深掘り"],tagsEn:["Behind the scenes","Deep dives"],outletJa:"ESPN シニアNBAライター",outletEn:"ESPN Senior NBA Writer",descJa:"ESPNのシニアNBAライター。調査報道とチーム内部の取材に強い。",descEn:"ESPN Senior NBA Writer — investigative reporting on teams and front offices.",posts:[
-  {dateJa:"11/16（月）",dateEn:"Nov 16 (Mon)",teams:["LAL"],titleJa:"レイカーズの12勝2敗は「リーグで最も楽な日程の一つ」",titleEn:"Lakers' 12–2 start came on \u201Cone of the easiest schedules in the league\u201D",bodyJa:"ShelburneはESPN「NBA Today」で、レイカーズの好スタートの背景に日程の軽さを挙げた。",bodyEn:"On ESPN's NBA Today, Shelburne pointed to the Lakers' light schedule as context for their hot start.",url:"https://www.yardbarker.com/nba/articles/what_its_like_to_be_a_female_reporter_ramona_shelburne_responds_to_insults_after_saying_lakers_had_the_easiest_schedule/s1_17730_44577624"}
- ]},
- {name:"Tim MacMahon",ini:"TM",color:"#334155",handle:"TimMacMahon",tagsJa:["チーム報道","分析"],tagsEn:["Team coverage","Analysis"],outletJa:"ESPN 記者",outletEn:"ESPN Reporter",descJa:"ESPNの記者。チーム取材と分析、特にマーベリックスに強い。",descEn:"ESPN reporter — team coverage and analysis, especially the Mavericks.",posts:[
-  {dateJa:"11/24（火）",dateEn:"Nov 24 (Tue)",teams:["PHI"],titleJa:"76ersのクラッチ全勝は「優勝候補としては危険な生き方」",titleEn:"76ers' clutch run is \u201Ca dangerous way to live\u201D for a real contender",bodyJa:"MacMahonは、76ersの14勝4敗・クラッチ12勝0敗を、正当な優勝候補としては危険な勝ち方だと分析した。",bodyEn:"MacMahon analyzed the 76ers' 14–4 record and 12–0 mark in clutch games as a dangerous way for a legitimate title contender to live.",url:"https://www.basketballnetwork.net/latest-news/tim-macmahon-warns-the-76ers-about-their-clutch-wins"}
- ]},
- {name:"Kevin O'Connor",ini:"KO",color:"#166534",handle:"KevinOConnor",tagsJa:["ドラフト","若手","分析"],tagsEn:["Draft","Young players","Analysis"],outletJa:"Yahoo Sports シニアアナリスト",outletEn:"Yahoo Sports Senior Analyst",descJa:"Yahoo Sportsのシニアアナリスト。全国向けの分析・解説が中心。",descEn:"Yahoo Sports senior analyst — national analysis and commentary.",posts:[]},
- {name:"Bobby Marks",ini:"BM",color:"#b45309",handle:"BobbyMarks42",tagsJa:["サラリー","契約"],tagsEn:["Salary cap","Contracts"],outletJa:"ESPN NBAフロントオフィス・インサイダー（サラリーキャップ専門）",outletEn:"ESPN NBA Front Office Insider (salary-cap specialist)",descJa:"ESPNのフロントオフィス・インサイダー。サラリーキャップと契約が専門。",descEn:"ESPN front-office insider — salary-cap and contract specialist.",posts:[]},
- {name:"Keith Smith",ini:"KS",color:"#7c2d12",handle:"KeithSmithNBA",tagsJa:["サラリー／契約","CBA"],tagsEn:["Salary cap / Contracts","CBA"],outletJa:"Spotrac",outletEn:"Spotrac",descJa:"Spotracのサラリーキャップ・契約解説の専門家。CBA（労使協定）に詳しい。",descEn:"Spotrac salary-cap and contract expert — deep knowledge of the CBA.",posts:[]},
- {name:"Marc J. Spears",ini:"MS",color:"#7a3b2e",handle:"MarcJSpears",tagsJa:["分析","深掘り"],tagsEn:["Analysis","Deep dives"],outletJa:"ESPN / Andscape シニアNBAライター",outletEn:"ESPN / Andscape Senior NBA Writer",descJa:"ESPN / AndscapeのシニアNBAライター。選手やチームの背景を掘り下げる取材に強い。",descEn:"Senior NBA writer at ESPN / Andscape — known for in-depth reporting on players and teams.",posts:[]}
+ {name:"Ramona Shelburne",ini:"RS",color:"#0e7490",handle:"RamonaShelburne",tagsJa:["内情","深掘り"],tagsEn:["Behind the scenes","Deep dives"],outletJa:"ESPN シニアNBAライター",outletEn:"ESPN Senior NBA Writer",descJa:"ESPNのシニアNBAライター。調査報道とチーム内部の取材に強い。",descEn:"ESPN Senior NBA Writer — investigative reporting on teams and front offices."},
+ {name:"Tim MacMahon",ini:"TM",color:"#334155",handle:"TimMacMahon",tagsJa:["チーム報道","分析"],tagsEn:["Team coverage","Analysis"],outletJa:"ESPN 記者",outletEn:"ESPN Reporter",descJa:"ESPNの記者。チーム取材と分析、特にマーベリックスに強い。",descEn:"ESPN reporter — team coverage and analysis, especially the Mavericks."},
+ {name:"Kevin O'Connor",ini:"KO",color:"#166534",handle:"KevinOConnor",tagsJa:["ドラフト","若手","分析"],tagsEn:["Draft","Young players","Analysis"],outletJa:"Yahoo Sports シニアアナリスト",outletEn:"Yahoo Sports Senior Analyst",descJa:"Yahoo Sportsのシニアアナリスト。全国向けの分析・解説が中心。",descEn:"Yahoo Sports senior analyst — national analysis and commentary."},
+ {name:"Bobby Marks",ini:"BM",color:"#b45309",handle:"BobbyMarks42",tagsJa:["サラリー","契約"],tagsEn:["Salary cap","Contracts"],outletJa:"ESPN NBAフロントオフィス・インサイダー（サラリーキャップ専門）",outletEn:"ESPN NBA Front Office Insider (salary-cap specialist)",descJa:"ESPNのフロントオフィス・インサイダー。サラリーキャップと契約が専門。",descEn:"ESPN front-office insider — salary-cap and contract specialist."},
+ {name:"Keith Smith",ini:"KS",color:"#7c2d12",handle:"KeithSmithNBA",tagsJa:["サラリー／契約","CBA"],tagsEn:["Salary cap / Contracts","CBA"],outletJa:"Spotrac",outletEn:"Spotrac",descJa:"Spotracのサラリーキャップ・契約解説の専門家。CBA（労使協定）に詳しい。",descEn:"Spotrac salary-cap and contract expert — deep knowledge of the CBA."},
+ {name:"Marc J. Spears",ini:"MS",color:"#7a3b2e",handle:"MarcJSpears",tagsJa:["分析","深掘り"],tagsEn:["Analysis","Deep dives"],outletJa:"ESPN / Andscape シニアNBAライター",outletEn:"ESPN / Andscape Senior NBA Writer",descJa:"ESPN / AndscapeのシニアNBAライター。選手やチームの背景を掘り下げる取材に強い。",descEn:"Senior NBA writer at ESPN / Andscape — known for in-depth reporting on players and teams."}
 ];
 /* ===== v37：地元ライター枠（意見・分析寄り。速報の一次ソースではない。地元枠の中だけに表示し、フィード・TOP NEWSには入れない） ===== */
 var LOCAL_REPORTERS=[
- {name:"John Gambadoro",ini:"JG",color:"#92400e",handle:"Gambo987",abbr:"PHX",tagsJa:["チーム内情","地元インサイダー"],tagsEn:["Team intel","Local insider"],outletJa:"Arizona Sports 98.7 FM「Burns & Gambo」ホスト ・ PHXサンズ担当",outletEn:"Arizona Sports 98.7 FM — host of \u201CBurns & Gambo\u201D · Phoenix Suns",descJa:"Arizona Sports 98.7 FMのホスト。サンズの地元インサイダー。",descEn:"Arizona Sports 98.7 FM host and Suns local insider.",posts:[
-  {dateJa:"11/23（月）",dateEn:"Nov 23 (Mon)",teams:["PHX","NOP"],titleJa:"デジョンテ・マレー交渉「常時交渉中という報道は全く不正確。交渉はない」",titleEn:"Murray talks: \u201Cabsolutely untrue\u201D — there are no talks",bodyJa:"GambadoroはXで、サンズとペリカンズのマレー交渉について「常時交渉中という報道は全く不正確。交渉はない」と否定した。",bodyEn:"On X, Gambadoro pushed back on Dejounte Murray talk between the Suns and Pelicans, saying reports of ongoing talks are absolutely untrue and there are no talks between the teams.",url:"https://hoopswire.com/suns-insider-pushes-back-on-dejounte-murray-talk-absolutely-untrue/"}
- ]}
+ {name:"John Gambadoro",ini:"JG",color:"#92400e",handle:"Gambo987",abbr:"PHX",tagsJa:["チーム内情","地元インサイダー"],tagsEn:["Team intel","Local insider"],outletJa:"Arizona Sports 98.7 FM「Burns & Gambo」ホスト ・ PHXサンズ担当",outletEn:"Arizona Sports 98.7 FM — host of \u201CBurns & Gambo\u201D · Phoenix Suns",descJa:"Arizona Sports 98.7 FMのホスト。サンズの地元インサイダー。",descEn:"Arizona Sports 98.7 FM host and Suns local insider."}
 ];
 /* ===== v66：全30チームの地元ライター（記者一覧と同じカード形式：得意分野タグ＋所属メディア入りの1行紹介）。
    所属・担当はメディア候補一覧に記録済みの事実の範囲だけ。ポストカードは作らない（確認済みの個別ポストがないため）。
@@ -2923,8 +2910,7 @@ function localAbbrHTML(r,color){
    見出し行は「アバター／名前／Xリンク」の3要素だけ。所属・@ハンドルは
    見出し行の下段にカード幅いっぱいで流す（中列に入れるとXリンクに幅を
    取られて狭い列で割れる）。チーム略称チップはタグ行の先頭に小さく置く。
-   その下にタグ行、紹介文、ポストカードの順。
-   ポストカードはGambadoroの既存分だけ（postsがある人だけ描く） */
+   その下にタグ行、紹介文の順。ポストカードは 2026-11-28 に全廃した */
 function localReporterCardHTML(r,colorMap){
   var en=state.lang==="en";
   var color=localCardColor(r,colorMap);
@@ -2938,115 +2924,32 @@ function localReporterCardHTML(r,colorMap){
     +'<p class="insider-sub">'+sub+'</p>'
     +metaRow
     +'<p class="sub phrase" style="margin:8px 0 0">'+phraseHTML(en?r.descEn:r.descJa)+'</p>'
-    +(r.posts&&r.posts.length?r.posts.map(function(p){return voicePostHTML(r,p);}).join(""):"")
     +'</div>';
 }
-/* ===== v66：地元ライターピッカー（記者リストと同じ選択式） =====
-   「地元ライター一覧」ボタンで全49人のリストを開閉し（初期状態は閉）、
-   選ぶとその人のカード（id="rep-<handle>"）へスクロールして一瞬ハイライトする */
-var localPickerOpen=false;
-function renderLocalPicker(){
-  var box=document.getElementById("localPickerList");
-  if(!box)return;
-  var en=state.lang==="en";
-  var colorMap=teamColorMap();
-  box.innerHTML=LOCAL_REPORTERS.concat(LOCAL_DIRECTORY).map(function(r){
-    var tags=(en?r.tagsEn:r.tagsJa)||[];
-    var outlet=en?r.outletEn:r.outletJa;
-    var sub=(outlet?outlet+" · ":"")+"@"+r.handle;
-    var color=localCardColor(r,colorMap);
-    return '<button type="button" class="picker-row" data-handle="'+r.handle+'">'
-      +avatarIconHTML(r,"reporter",color)
-      +'<span class="picker-main"><b>'+r.name+'</b><span class="picker-sub">'+sub+'</span>'
-      +(tags.length?'<span class="field-tags picker-tags">'+tags.map(function(t){return '<span class="field-tag">'+t+'</span>';}).join("")+'</span>':"")
-      +'</span>'
-      +localAbbrHTML(r,color)
-      +'</button>';
-  }).join("");
-}
-function setLocalPicker(open){
-  localPickerOpen=open;
-  var box=document.getElementById("localPickerList");
-  var btn=document.getElementById("localPickerBtn");
-  if(box)box.hidden=!open;
-  if(btn)btn.setAttribute("aria-expanded",open?"true":"false");
-  if(open)swapIn(box);
-}
-/* 記者一覧（REPORTERS）のタブ（開閉）。地元記者のタブと同じ方式で、初期状態は閉 */
-var reporterDirOpen=false;
-function setReporterDir(open){
-  reporterDirOpen=open;
-  var wrap=document.getElementById("reporterDirWrap");
-  var btn=document.getElementById("reporterDirBtn");
-  if(wrap)wrap.hidden=!open;
-  if(btn)btn.setAttribute("aria-expanded",open?"true":"false");
-  if(open)swapIn(wrap);
-}
-/* 全30チームの地元記者のタブ（開閉）。初期状態は閉 */
-var localDirOpen=false;
-function setLocalDir(open){
-  localDirOpen=open;
-  var wrap=document.getElementById("localDirWrap");
-  var btn=document.getElementById("localDirBtn");
-  if(wrap)wrap.hidden=!open;
-  if(btn)btn.setAttribute("aria-expanded",open?"true":"false");
-  if(open)swapIn(wrap);
-}
-function pickLocalReporter(handle){
-  setLocalPicker(false);
-  var el=document.getElementById("rep-"+handle);
-  if(!el)return;
-  /* タブの中の記者が選ばれたら、先にタブを開いてからスクロールする */
-  var dirWrap=document.getElementById("localDirWrap");
-  if(dirWrap&&dirWrap.hidden&&dirWrap.contains(el))setLocalDir(true);
-  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  el.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
-  el.classList.remove("flash");
-  void el.offsetWidth;
-  el.classList.add("flash");
-  setTimeout(function(){el.classList.remove("flash");},1900);
+/* ===== 地元ライターの並び（TK決定 2026-11-28：記者一覧に統合） =====
+   LOCAL_DIRECTORY は30チームマップと同じチーム順（EAST→WEST）で並んでいる。
+   常時表示組（LOCAL_REPORTERS＝Gambadoro／PHX）は、同じチームの先頭に
+   割り込ませてチーム順を保つ */
+function localReportersInTeamOrder(){
+  var arr=LOCAL_DIRECTORY.slice();
+  LOCAL_REPORTERS.forEach(function(r){
+    var idx=-1;
+    for(var i=0;i<arr.length;i++){if(arr[i].abbr===r.abbr){idx=i;break;}}
+    if(idx<0)arr.push(r); else arr.splice(idx,0,r);
+  });
+  return arr;
 }
 /* ===== 噂系の記者（記者一覧に統合表示する。速報の一次ソースにはしない。発信は「噂」として扱い、公式発表か信頼できるインサイダーの裏付けがあるまで未確認。速報タブ・TOP NEWSには入れない） ===== */
 var RUMOR_REPORTERS=[
- {name:"Brian Windhorst",ini:"BW",color:"#1d4ed8",handle:"WindhorstESPN",postChip:"rumor",tagsJa:["トレード市場","リーグ動向"],tagsEn:["Trade market","League trends"],outletJa:"ESPN",outletEn:"ESPN",descJa:"ESPNのNBA記者。トレード市場の空気を読む発信が多い。",descEn:"ESPN NBA reporter — known for reading the trade market.",posts:[]},
- {name:"Sam Amick",ini:"SA",color:"#0369a1",handle:"sam_amick",postChip:"rumor",tagsJa:["チーム内情","トレード"],tagsEn:["Team intel","Trades"],outletJa:"The Athletic シニアNBAライター",outletEn:"The Athletic Senior NBA Writer",descJa:"The AthleticのシニアNBAライター。",descEn:"Senior NBA writer at The Athletic.",posts:[
-  {dateJa:"11月",dateEn:"Nov",teams:["PHX","NOP"],titleJa:"サンズとペリカンズ、ジェイレン・グリーン⇔デジョンテ・マレー協議か",titleEn:"Suns, Pelicans in Green-for-Murray talks",bodyJa:"ジェイレン・グリーンとデジョンテ・マレーを軸にした、サンズとペリカンズの協議が取り沙汰されているとAmickが伝えた。",bodyEn:"Amick relayed talk of Suns–Pelicans discussions built around Jalen Green and Dejounte Murray.",url:"https://www.hoopsrumors.com/2026/11/suns-notes-green-murray-bridges-booker-timme.html"}
- ]}
+ {name:"Brian Windhorst",ini:"BW",color:"#1d4ed8",handle:"WindhorstESPN",tagsJa:["トレード市場","リーグ動向"],tagsEn:["Trade market","League trends"],outletJa:"ESPN",outletEn:"ESPN",descJa:"ESPNのNBA記者。トレード市場の空気を読む発信が多い。",descEn:"ESPN NBA reporter — known for reading the trade market."},
+ {name:"Sam Amick",ini:"SA",color:"#0369a1",handle:"sam_amick",tagsJa:["チーム内情","トレード"],tagsEn:["Team intel","Trades"],outletJa:"The Athletic シニアNBAライター",outletEn:"The Athletic Senior NBA Writer",descJa:"The AthleticのシニアNBAライター。",descEn:"Senior NBA writer at The Athletic."}
 ];
-function voicePostHTML(r,p){
-  var en=state.lang==="en";
-  /* ポストカードも記事カードと同じニュース一覧型の3行構成：1行目＝日付＋チーム略称／2行目＝見出し／
-     3行目＝リンク先名（リンクは1本だけ）＋分類タグは末尾の決まった位置。
-     記者名・@ハンドル・Xリンクは記者ヘッダー側に寄せ、カード内には入れない */
-  return '<div class="post-card">'
-    +'<div class="news-date-line"><span class="art-date">'+(en?p.dateEn:p.dateJa)+'</span><span class="art-teams">'+(p.teams||[]).join(" · ")+'</span></div>'
-    +'<p class="post-title">'+phraseHTML(en?p.titleEn:p.titleJa)+'</p>'
-    +'<div class="post-meta"><a href="'+p.url+'" target="_blank" rel="noopener">'+siteNameFromUrl(p.url)+ic('ext',1)+'</a><span class="news-tag-end"><span class="opinion-chip">'+L().opinionChip+'</span></span></div></div>';
-}
-function voiceReporterHTML(r){
-  var en=state.lang==="en";
-  var sub=((en?r.outletEn:r.outletJa)?(en?r.outletEn:r.outletJa)+" · ":"")+"@"+r.handle;
-  return '<div class="voice-reporter">'
-    +'<div class="insider-head">'+avatarIconHTML(r,"reporter",r.color)+'<div><b>'+r.name+'</b></div><a class="insider-x-link" href="https://x.com/'+r.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
-    +'<p class="insider-sub">'+sub+'</p>'
-    +'<p class="sub phrase" style="margin:8px 0 0">'+phraseHTML(en?r.descEn:r.descJa)+'</p>'
-    +(r.posts.length?r.posts.map(function(p){return voicePostHTML(r,p);}).join(""):"")
-    +'</div>';
-}
-function rumorPostHTML(r,p){
-  var en=state.lang==="en";
-  /* ポストカードも記事カードと同じニュース一覧型の3行構成：1行目＝日付＋チーム略称／2行目＝見出し／
-     3行目＝リンク先名（リンクは1本だけ）＋分類タグは末尾の決まった位置。
-     記者名・@ハンドル・Xリンクは記者ヘッダー側に寄せ、カード内には入れない */
-  return '<div class="post-card">'
-    +'<div class="news-date-line"><span class="art-date">'+(en?p.dateEn:p.dateJa)+'</span><span class="art-teams">'+(p.teams||[]).join(" · ")+'</span></div>'
-    +'<p class="post-title">'+phraseHTML(en?p.titleEn:p.titleJa)+'</p>'
-    +'<div class="post-meta"><a href="'+p.url+'" target="_blank" rel="noopener">'+siteNameFromUrl(p.url)+ic('ext',1)+'</a><span class="news-tag-end"><span class="status-tabs" style="margin:0"><span class="st-rumor">'+L().rumorChip+'</span></span></span></div></div>';
-}
+/* ポストカード生成（voicePostHTML／rumorPostHTML）は TK決定 2026-11-28 で全廃。
+   記者カードは名前・タグ・紹介・Xプロフィールリンクだけにする */
 /* ===== 記者一覧：枠分け（分析・背景／噂系）はやめ、全記者を1つの一覧にまとめる =====
    各カードに得意分野のタグを小さく複数付ける（タグは目安表示で、人を区切らない）。
-   並びは速報タブの5人 → 噂系 → 分析系。ポストカードの分類チップは従来どおり
-   （分析系＝分析・意見／噂系＝噂・未確認）で、記事の分類ルールは変えない */
+   並びは速報タブの5人 → 噂系 → 分析系。ポストカードは 2026-11-28 に全廃し、
+   カードは名前・タグ・紹介・Xプロフィールリンクだけにする */
 var ALL_REPORTERS=FEATURED_INSIDERS.concat(RUMOR_REPORTERS,ANALYSIS_REPORTERS);
 function reporterTagsHTML(r){
   var tags=(state.lang==="en"?r.tagsEn:r.tagsJa)||[];
@@ -3056,28 +2959,24 @@ function reporterTagsHTML(r){
 function unifiedReporterHTML(r){
   var en=state.lang==="en";
   var sub=((en?r.outletEn:r.outletJa)?(en?r.outletEn:r.outletJa)+" · ":"")+"@"+r.handle;
-  var postFn=r.postChip==="rumor"?rumorPostHTML:voicePostHTML;
   return '<div class="voice-reporter" id="rep-'+r.handle+'">'
     +'<div class="insider-head">'+avatarIconHTML(r,"reporter",r.color)+'<div><b>'+r.name+'</b></div><a class="insider-x-link" href="https://x.com/'+r.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
     +'<p class="insider-sub">'+sub+'</p>'
     +reporterTagsHTML(r)
     +'<p class="sub phrase" style="margin:8px 0 0">'+phraseHTML(en?r.descEn:r.descJa)+'</p>'
-    +(r.posts&&r.posts.length?r.posts.map(function(p){return postFn(r,p);}).join(""):"")
     +'</div>';
 }
+/* ===== 記者一覧の描画（TK決定 2026-11-28：全員を1つのリストに常時表示） =====
+   全国組 → 地元ライター（チーム順）の順に、小見出しの区切りを挟んで
+   同じ #reporterList に全員を出す。タブや開閉ボタンでは隠さない */
 function renderVoices(){
   var list=document.getElementById("reporterList");
-  if(list)list.innerHTML=ALL_REPORTERS.map(unifiedReporterHTML).join("");
-  var l=document.getElementById("localList");
-  if(l){
-    var colorMap=teamColorMap();
-    /* 常時表示は LOCAL_REPORTERS（Gambadoro）だけ。全30チームの記者は
-       タブ側（#localDirList）に入れ、開いたときだけ見せる */
-    l.innerHTML=LOCAL_REPORTERS.map(function(r){return localReporterCardHTML(r,colorMap);}).join("");
-    var dl=document.getElementById("localDirList");
-    if(dl)dl.innerHTML=LOCAL_DIRECTORY.map(function(r){return localReporterCardHTML(r,colorMap);}).join("");
-  }
-  renderLocalPicker();
+  if(!list)return;
+  var colorMap=teamColorMap();
+  list.innerHTML='<div class="rep-group-head">'+L().repGroupNational+'</div>'
+    +ALL_REPORTERS.map(unifiedReporterHTML).join("")
+    +'<div class="rep-group-head">'+L().localH+'</div>'
+    +localReportersInTeamOrder().map(function(r){return localReporterCardHTML(r,colorMap);}).join("");
 }
 var favorites={LAL:true,GSW:true,BOS:true};
 var state={teamTab:"all",q:"",type:"all",level:"all",period:"all",cat:"all",selected:"GSW",lang:"ja",insider:"shams"};
@@ -3973,6 +3872,26 @@ function feedBubbleHTML(n){
     +'<div class="fb-meta"><span class="fb-links">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'</span><span class="fb-time">'+articleNewDotHTML(n)+feedTimeLabel(n)+'</span>'+shareBtnHTML(n.title,articleShareURL(n))+'</div>'
     +'</div></div></div>';
 }
+/* 検索／保存フィルターでフィードに出すゴシップのカード（TK決定 2026-11-28）：
+   骨格はニュースの吹き出し型カードと同じにし、見出しのチップだけを
+   「ゴシップ」チップ＋ジャンルチップ（あれば）にして出自を区別する。
+   シート項目はオフコートと同じ gossipSheetItemFor で作り、フィード側の
+   シート列（feedSheetItems）に積むため、タップでは通常の受け口
+   （data-feed-sheet-idx）でゴシップ用のシート表示が開く。
+   NEW 表示と共有ボタンはオフコートのカードに合わせて付けない。
+   id はオフコート側のカード（feed-art-<id>）と重ならない接頭辞にする */
+function feedGossipBubbleHTML(n){
+  var sheetIdx=feedSheetItems.length;
+  var it=gossipSheetItemFor(n);
+  feedSheetItems.push(it);
+  var chips=it.chip+(it.genreChip?" "+it.genreChip:"");
+  return '<div class="news-item fb-item'+(articleIsRead(n)?' is-read':'')+'" id="feed-gart-'+n.id+'">'
+    +feedAvatarHTML(n)
+    +'<div class="fb-main">'+feedSenderHTML(n)
+    +'<div class="fb-bubble" data-feed-sheet-idx="'+sheetIdx+'" role="button" tabindex="0" aria-haspopup="dialog"><h4><span class="room-chip">'+chips+'</span>'+phraseHTML(n.title)+'</h4>'
+    +'<div class="fb-meta"><span class="fb-links">'+articleSourceLinksHTML(n,false)+relatedLinksHTML(n)+'</span><span class="fb-time">'+feedTimeLabel(n)+'</span></div>'
+    +'</div></div></div>';
+}
 function newsHTML(list){
   if(!list||!list.length)return emptyHTML(L().noNews,L().noNewsSub);
   return list.slice().sort(function(a,b){return b.ord-a.ord;}).map(articleHTML).join("");
@@ -4387,7 +4306,7 @@ document.getElementById("editorBackBtn").addEventListener("click",closeEditor);
 document.getElementById("editorBackBtn2").addEventListener("click",closeEditor);
 /* 日付チップのタップでその日のエントリーへスクロールする（イベント委譲：
    チップは renderEditorColumn が描き直すため、帯側に1つだけ付ける。
-   動きの作法は地元ライターのピッカー選択（pickLocalReporter）と揃える） */
+   動きの作法は記者ピッカーの選択（pickReporter）と揃える） */
 var editorDateNavEl=document.getElementById("editorDateNav");
 if(editorDateNavEl)editorDateNavEl.addEventListener("click",function(e){
   var b=e.target.closest("button[data-date]"); if(!b)return;
@@ -5169,6 +5088,15 @@ var feedFavOnly=false;
    絞り込みで、ON／OFF の状態自体は保存しない（開くたびに OFF から始める）。
    保存した記事の id 集合（savedSet）の方は prefs に保存される */
 var feedSavedOnly=false;
+/* 記事リストの折りたたみ（TK決定 2026-11-28）：ニュースアーカイブと検索の
+   記事リストは初期状態では表示せず、検索・フィルター（保存含む）が有効な
+   間か、このトグルで手動で開いた時だけ出す。どちらの状態も保存しない
+   （開くたびに折りたたんだ初期状態から始める）。
+   feedListClosed は「条件で自動で開いている最中に手動で閉じた」印で、
+   条件の並び（feedCondSig）が変わるまでの間だけ効く */
+var feedListOpen=false;
+var feedListClosed=false;
+var feedCondSig="";
 var FEED_TEAM_BY_ABBR=null, FEED_ARTICLE_PAIR=null;
 function feedSearchEnsure(){
   if(FEED_TEAM_BY_ABBR&&FEED_ARTICLE_PAIR&&FEED_ARTICLE_PAIR._jaLen===ARTICLES_JA.length&&FEED_ARTICLE_PAIR._enLen===ARTICLES_EN.length)return;
@@ -5196,6 +5124,17 @@ function feedArticleHaystack(n){
   if(pair){
     var other=state.lang==="en"?pair.ja:pair.en;
     if(other&&other!==n)h+=" "+feedHaystack(other.title,other.body,other.src,other.teams);
+  }
+  return h;
+}
+/* ゴシップ記事の検索用テキスト：GH ゴシップは通常記事の対（FEED_ARTICLE_PAIR）
+   には入らないため、対向言語の保持先（GH_GOSSIP_JA／EN）から同 id を引いて
+   両言語の見出し・要約を照合対象に含める（ニュース側と同じ両言語照合にする） */
+function gossipSearchHaystack(n){
+  var h=feedArticleHaystack(n);
+  var others=(state.lang==="en"?GH_GOSSIP_JA:GH_GOSSIP_EN)||[];
+  for(var i=0;i<others.length;i++){
+    if(others[i]&&others[i].id===n.id&&others[i]!==n){h+=" "+feedHaystack(others[i].title,others[i].body,others[i].src,others[i].teams);break;}
   }
   return h;
 }
@@ -5241,11 +5180,26 @@ function renderFeed(){
      空欄の時は従来どおり一切効かせない */
   var fqToks=feedQueryTokens();
   if(fqToks.length)feedSearchEnsure();
+  /* 記事リストの折りたたみ判定（TK決定 2026-11-28）：検索・分類・種類・
+     期間・お気に入り・保存のいずれかが有効な間は自動で開き、それ以外は
+     手動で開いた（feedListOpen）時だけ出す。条件の並びが変わったら
+     「手動で閉じた」印（feedListClosed）は解除し、条件側の状態に戻す */
+  var condSig=[feedQuery,state.level,state.type,state.period,feedFavOnly?1:0,feedSavedOnly?1:0].join("|");
+  if(condSig!==feedCondSig){feedCondSig=condSig;feedListClosed=false;}
+  var condActive=fqToks.length>0||state.level!=="all"||state.type!=="all"||state.period!=="all"||feedFavOnly||feedSavedOnly;
+  var listVisible=!feedListClosed&&(feedListOpen||condActive);
   /* 分類フィルター（公式／報道／噂）は通常フィード側にだけ効かせる。
      オフコート（ゴシップ）は独立ゾーンなので、分類で絞っても消えないよう all から作る */
   /* 期間フィルターも通常フィード側（この feedList と RSS新着）にだけ効かせる。
      ゴシップは all から別に作るため、期間で絞ってもオフコートは消えない */
   var feedList=all.filter(function(n){return (state.level==="all"||n.s===state.level)&&inPeriod(articleDayNumber(n))&&(!feedFavOnly||(n.teams||[]).some(function(t){return !!favorites[t];}))&&(!feedSavedOnly||!!savedSet[n.id])&&(!fqToks.length||feedMatchesTokens(feedArticleHaystack(n),fqToks));});
+  /* ゴシップの母集団（オフコートの表示と、検索／保存フィルターでの
+     フィード混入で共用する）：組み込みゴシップ＋ GH ゴシップのマージ。
+     ゾーン側の表示は従来どおりこの全件から作る */
+  var gPool=[];
+  if(state.cat==="all"||state.cat==="gossip"){
+    gPool=mergedGossipArticles(all.filter(function(n){return n.cat==="gossip";}).sort(function(a,b){return b.ord-a.ord;}));
+  }
   /* 表示順どおりに「記事HTML＋記事id」をフラットな項目列へ組み立てる。
      RSSで取得できた新着は、仮分類チップ付きでフィード先頭へ「新着（仮分類）」として出す。
      仮分類なので TOPニュースには入れない（TOPは確定分類の掲載記事だけ）。
@@ -5288,8 +5242,29 @@ function renderFeed(){
      数えない。絞り込み（分類・種類・期間・お気に入り・検索）は従来どおり
      feedList の段階で効いているため、件数・中身とも絞り込みに連動する */
   var provList=sortedFeed.filter(function(n){return !!n.provisional;});
-  sortedFeed.filter(function(n){return !n.provisional;}).forEach(function(n){
-    entries.push({key:"a:"+n.id,html:feedBubbleHTML(n),id:n.id});
+  /* 検索の全体対応＋保存へのゴシップ対応（TK決定 2026-11-28）：検索中、
+     または保存フィルター中は、条件に合うゴシップもフィードの結果に含める。
+     分類フィルターが「すべて」以外、または種類フィルターが有効な時は
+     含めない（ゴシップは分類・種類のどれでもないため）。期間・お気に入りは
+     従来どおりゴシップには効かせない。検索していない通常表示では混ぜない */
+  var gossipHits=[];
+  if(state.level==="all"&&state.type==="all"&&(fqToks.length||feedSavedOnly)){
+    var feedIds={};
+    feedList.forEach(function(n){feedIds[n.id]=1;});
+    gossipHits=gPool.filter(function(n){
+      if(feedIds[n.id])return false;
+      if(feedSavedOnly&&!savedSet[n.id])return false;
+      if(fqToks.length&&!feedMatchesTokens(gossipSearchHaystack(n),fqToks))return false;
+      return true;
+    });
+  }
+  var gossipHitIds={};
+  gossipHits.forEach(function(n){gossipHitIds[n.id]=1;});
+  /* ニュースとゴシップのヒットは新しい順（ord 降順）に混ぜて一列で出す。
+     ゴシップはチップで区別できる専用カード（feedGossipBubbleHTML）で描く */
+  sortedFeed.filter(function(n){return !n.provisional;}).concat(gossipHits).sort(function(a,b){return b.ord-a.ord;}).forEach(function(n){
+    if(gossipHitIds[n.id])entries.push({key:"g:"+n.id,html:feedGossipBubbleHTML(n),id:n.id});
+    else entries.push({key:"a:"+n.id,html:feedBubbleHTML(n),id:n.id});
   });
   feedOrderIds=entries.map(function(e){return e.id;});
   var total=entries.length;
@@ -5300,10 +5275,7 @@ function renderFeed(){
      独立フロー：組み込みゴシップ＋ feed.json 由来の GH ゴシップ（通常記事には
      入っていない専用保持先）をマージし、重複を除いて新しい順に並べる。
      組み込み分が無くても GH ゴシップだけでコーナーを出す */
-  var gList=[];
-  if(state.cat==="all"||state.cat==="gossip"){
-    gList=mergedGossipArticles(all.filter(function(n){return n.cat==="gossip";}).sort(function(a,b){return b.ord-a.ord;}));
-  }
+  var gList=gPool;
   var gz=document.getElementById("gossipZone");
   var gzChanged=false;
   /* 詳細シート用のオフコート項目はこの描画で積み直す（表示順＝gItems の
@@ -5397,6 +5369,11 @@ function renderFeed(){
      例外：保存フィルター中で保存が0件の時は、専用の空表示
      （「保存した記事はまだありません」）を出すためカードを残す */
   fc.style.display=(total===0&&!provList.length&&gList.length&&!fqToks.length&&!(feedSavedOnly&&!Object.keys(savedSet).length))?"none":"";
+  /* 記事リストの折りたたみ（TK決定 2026-11-28）：閉じている間は、条件に
+     合う記事があってもカード自体を出さない（見出し・検索・フィルターと
+     オフコート欄は従来どおり出す）。開閉トグルの表示は毎回ここで同期する */
+  if(!listVisible)fc.style.display="none";
+  syncFeedListToggle(listVisible);
   if(feedSwapArmed){
     feedSwapArmed=false;
     /* 切り替えフィードバックは実際に差し替わったコンテナにだけ出す
@@ -5412,39 +5389,13 @@ function renderInsiders(){
     return '<div class="insider"><span class="avatar" style="background:'+p[5]+'"><img src="assets/icons/people-insider-'+(INSIDER_NAME_GENRE[p[2]]||"breaking")+'.png" alt="" loading="lazy" onerror="this.remove()"></span><div style="flex:1"><b>'+p[2]+'</b><p><strong>'+p[3]+'</strong><br>'+p[4]+'</p></div></div>';
   }).join(""));
 }
-/* ===== v16：最新ポストはページ内ネイティブ表示 =====
-   widgets.js 方式はサンドボックス内 iframe や未ログイン環境で変換に失敗し続け、
-   「ポストを読み込めませんでした」になるため、主表示としては廃止した。
-   1) 各記者の最新ポスト（本人のポスト・報道をもとにしたアプリ内の実データ）を
-      ポスト風カードでこのページ内に直接描く ― Xに飛ばずに必ず読める。
-   2) 本物の投稿そのものは、記者ヘッダーの「Xで開く」リンクから記者の
-      Xプロフィールへ飛んで読む（X公式埋め込みは 2026-11-26 に廃止し、
-      プロフィールリンクに一本化した）。 */
-function insiderPosts(f){
-  return activeArticles().filter(function(n){return n.src===f.name;}).sort(function(a,b){return b.ord-a.ord;});
-}
-function postCardHTML(n,f){
-  /* ポストカードも記事カードと同じニュース一覧型の3行構成：1行目＝日付＋チーム略称／2行目＝見出し／
-     3行目＝リンク先名（リンクは1本だけ）＋分類タグは末尾の決まった位置。
-     記者名・@ハンドル・Xリンクは記者ヘッダー側（renderInsiderPanel）に寄せ、カード内には入れない。
-     日付はフィードと同じ feedTimeLabel で出し、確認済みの公開時刻（time）が
-     あるポストには時刻まで併記して「いつのポストか」が分かるようにする
-     （TK指摘 2026-11-27）。時刻データが無いポストは従来どおり日付のみで、
-     取得時刻などで代用はしない */
-  return '<div class="post-card'+(articleIsRead(n)?' is-read':'')+'">'
-    +'<div class="news-date-line"><span class="art-date">'+feedTimeLabel(n)+'</span><span class="art-teams">'+n.teams.join(" · ")+'</span></div>'
-    +'<p class="post-title">'+phraseHTML(n.title)+'</p>'
-    +'<div class="post-meta">'+articleSourceLinksHTML(n,false)+'<span class="news-tag-end">'+cardChipHTML(n)+'</span></div></div>';
-}
-function renderInsiderEmbed(){
-  var box=document.getElementById("insiderEmbed");
-  if(!box)return;
-  var f=featuredInsider(state.insider);
-  var posts=insiderPosts(f);
-  setHTMLQuiet(box,'<div class="posts-head"><b>'+L().postsH+'</b></div>'
-    +(posts.length?posts.slice(0,2).map(function(n){return postCardHTML(n,f);}).join(""):'<div class="posts-empty">'+emptyInner(L().postsEmpty,L().postsEmptySub)+'</div>'));
-}
-/* 選択中のインサイダーのパネル：名前・媒体・説明＋最新ポストカード。
+/* ===== 速報ソースのパネル（TK決定 2026-11-28：ポストカードは全廃） =====
+   記者の「最新ポスト」カードは静的な控えのため鮮度が保てず、最新ポストの
+   体裁で古い内容が残ってしまうので全廃した。速報ソース欄は記者リストだけにし、
+   パネルは選択中の記者の名前・媒体・紹介とXプロフィールへのリンクだけを示す。
+   本物の投稿は、記者ヘッダーの「Xで開く」リンクから記者のXプロフィールへ
+   飛んで読む（X公式埋め込みは 2026-11-26 に廃止し、プロフィールリンクに一本化済み） */
+/* 選択中のインサイダーのパネル：名前・媒体・紹介のみ（ポストカードは置かない）。
    Xへの導線はヘッダーの「Xで開く」（記者のプロフィール）リンクに一本化する */
 function renderInsiderPanel(){
   var panel=document.getElementById("insiderPanel");
@@ -5453,15 +5404,13 @@ function renderInsiderPanel(){
   var en=state.lang==="en";
   var outlet=en?f.outletEn:f.outletJa;
   var desc=en?f.descEn:f.descJa;
-  var detail=en?f.detailEn:f.detailJa;
   var sub=(outlet?outlet+" · ":"")+"@"+f.handle;
   var panelChanged=setHTMLQuiet(panel,
     '<div class="insider-head">'+avatarIconHTML(f,"insider",f.color)+'<div><b>'+f.name+'</b></div><a class="insider-x-link" href="https://x.com/'+f.handle+'" target="_blank" rel="noopener">'+L().embedFallback+ic('ext',1)+'</a></div>'
     +'<p class="insider-sub">'+sub+'</p>'
-    +'<div class="insider-embed" id="insiderEmbed"></div>');
+    +'<p class="sub phrase" style="margin:8px 0 0">'+phraseHTML(desc)+'</p>');
   /* 記者切替のフィードバック（第4弾）：パネルが実際に差し替わった時だけ出す */
   if(panelChanged)swapIn(panel);
-  renderInsiderEmbed();
 }
 function applyLang(lang){
   state.lang=lang;
@@ -5654,6 +5603,25 @@ if(savedOnlyBtn){
     renderFeed();
   });
 }
+/* 記事リストの開閉トグル（TK決定 2026-11-28）：表示状態の同期は renderFeed
+   から毎回呼ばれる。クリック時は、開いていれば閉じる（条件で自動で開いて
+   いる最中なら、その条件の並びの間だけ閉じる印を立てる）、閉じていれば
+   手動で開く。状態は保存しない（開くたびに折りたたみから始める） */
+var feedListToggleBtn=document.getElementById("feedListToggle");
+function syncFeedListToggle(visible){
+  if(!feedListToggleBtn)return;
+  feedListToggleBtn.setAttribute("aria-expanded",visible?"true":"false");
+  var lb=document.getElementById("feedListToggleLabel");
+  if(lb)lb.textContent=visible?L().feedListClose:L().feedListOpen;
+}
+if(feedListToggleBtn){
+  feedListToggleBtn.addEventListener("click",function(){
+    var visible=feedListToggleBtn.getAttribute("aria-expanded")==="true";
+    if(visible){feedListOpen=false;feedListClosed=true;}
+    else{feedListOpen=true;feedListClosed=false;}
+    renderFeed();
+  });
+}
 /* 絞り込みチップ（ジャンル別ニュース）：種類・期間・お気に入り・検索は普段は
    畳み、見出し行の「絞り込み」チップで開閉する。分類フィルターだけはアプリの
    核の絞り込みとして常時表示する。開閉状態は保存しない（開くたびに閉じた
@@ -5838,28 +5806,33 @@ function syncMastheadShrink(){
 }
 window.addEventListener("scroll",syncMastheadShrink,{passive:true});
 syncMastheadShrink();
-/* ===== v65：記者ピッカー（全12人） =====
+/* ===== v65：記者ピッカー（全員） =====
    「記者リスト」ボタンで開閉する（初期状態は閉）。
    行は名前・所属・@ハンドル・得意分野タグ。速報5人を選ぶとパネル表示を切り替え、
-   それ以外の記者は記者一覧の本人のカード（id="rep-<handle>"）へスクロールして一瞬ハイライトする */
+   それ以外の記者（地元ライター含む）は記者一覧の本人のカード（id="rep-<handle>"）へ
+   スクロールして一瞬ハイライトする */
 var insiderPickerOpen=false;
 function renderInsiderPicker(){
   var box=document.getElementById("insiderPickerList");
   if(!box)return;
   var en=state.lang==="en";
-  box.innerHTML=ALL_REPORTERS.map(function(r){
+  var colorMap=teamColorMap();
+  function row(r){
     var tags=(en?r.tagsEn:r.tagsJa)||[];
     var outlet=en?r.outletEn:r.outletJa;
     var sub=(outlet?outlet+" · ":"")+"@"+r.handle;
     var now=!!r.key&&r.key===state.insider;
+    var color=r.abbr?localCardColor(r,colorMap):r.color;
     return '<button type="button" class="picker-row" data-handle="'+r.handle+'">'
-      +avatarIconHTML(r,r.key?"insider":"reporter",r.color)
+      +avatarIconHTML(r,r.key?"insider":"reporter",color)
       +'<span class="picker-main"><b>'+r.name+'</b><span class="picker-sub">'+sub+'</span>'
       +(tags.length?'<span class="field-tags picker-tags">'+tags.map(function(t){return '<span class="field-tag">'+t+'</span>';}).join("")+'</span>':"")
       +'</span>'
+      +(r.abbr?localAbbrHTML(r,color):"")
       +(now?'<span class="picker-now">'+L().pickerNow+'</span>':"")
       +'</button>';
-  }).join("");
+  }
+  box.innerHTML=ALL_REPORTERS.map(row).join("")+localReportersInTeamOrder().map(row).join("");
 }
 function setInsiderPicker(open){
   insiderPickerOpen=open;
@@ -5880,10 +5853,7 @@ function pickReporter(handle){
   }
   var el=document.getElementById("rep-"+handle);
   if(!el)return;
-  /* 記者一覧タブの中の記者が選ばれたら、先にタブを開いてからスクロールする
-     （地元ライターの pickLocalReporter と同じ挙動） */
-  var repWrap=document.getElementById("reporterDirWrap");
-  if(repWrap&&repWrap.hidden&&repWrap.contains(el))setReporterDir(true);
+  /* 記者一覧は全員常時表示なので、そのまま本人のカードへスクロールする */
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   el.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
   el.classList.remove("flash");
@@ -5895,13 +5865,6 @@ document.getElementById("insiderPickerBtn").addEventListener("click",function(){
 document.getElementById("insiderPickerList").addEventListener("click",function(e){
   var b=e.target.closest("button[data-handle]");if(!b)return;
   pickReporter(b.getAttribute("data-handle"));
-});
-document.getElementById("localPickerBtn").addEventListener("click",function(){setLocalPicker(!localPickerOpen);});
-document.getElementById("localDirBtn").addEventListener("click",function(){setLocalDir(!localDirOpen);});
-document.getElementById("reporterDirBtn").addEventListener("click",function(){setReporterDir(!reporterDirOpen);});
-document.getElementById("localPickerList").addEventListener("click",function(e){
-  var b=e.target.closest("button[data-handle]");if(!b)return;
-  pickLocalReporter(b.getAttribute("data-handle"));
 });
 document.getElementById("markAllRead").addEventListener("click",function(){
   TEAMS.forEach(function(t){if(t[5]!=="none"){markTeamRead(t[0]);t[6]=0;}});
@@ -6508,10 +6471,6 @@ function syncRefreshBtnLabel(){
   if(!label)return;
   label.textContent=isRefreshing?(L().refreshing||"更新中…"):(L().refreshBtn||"更新");
 }
-function reloadShamsEmbed(){
-  /* 更新時は、選択中タブのインサイダーの最新ポストカードを再描画する */
-  renderInsiderEmbed();
-}
 function doRefresh(){
   if(isRefreshing)return;
   isRefreshing=true;
@@ -6557,7 +6516,6 @@ function doRefresh(){
       if(ghOk)autoRetryUsed=false;
       feedSwapArmed=true; try{renderFeed();}catch(e){}
       try{selectTeam(state.selected,false,false);}catch(e){}
-      try{reloadShamsEmbed();}catch(e){}
       finishRefresh();
       /* 2026-11-27：RSS・feed.json ともに全滅した時だけ、一度だけ自動で再試行する
          （モバイル回線や中継プロキシの一時的な失敗を、赤字表示のまま放置しないため）。
@@ -6614,7 +6572,6 @@ function doRefresh(){
       feedSwapArmed=true; try{renderFeed();}catch(e){}
       /* RSSの紐づけ結果をチーム詳細の「最新情報」にも反映する（既読にはしない） */
       try{selectTeam(state.selected,false,false);}catch(e){}
-      try{reloadShamsEmbed();}catch(e){}
       finishRefresh();
     }else{
       /* RSSは全部失敗：既存のスナップショット表示のままにし、最終更新時刻は
@@ -6635,8 +6592,7 @@ function doRefresh(){
    取り込み後の扱いは既存の掲載記事と全く同じ：3行カード（1行目＝分類チップ＋チーム略称、
    2行目＝見出し、3行目＝日付＋リンク先名＋↗）、リンクは1記事1本、分類チップは
    公式（赤）／報道（オレンジ）／噂（青）、フィードは日付順、該当チームの詳細と
-   更新マップのステータスにも反映し、reporter が既存インサイダー（FEATURED_INSIDERS）と
-   一致すればその記者のタブの最新ポストにも出す（insiderPosts が src 一致で拾う）。
+   更新マップのステータスにも反映する。
    TOP NEWS に入れるのは top:true かつ level が official／reported の記事だけ（rumorは入れない）。
    id・url・見出しが既存の組み込み記事と重複するものは二重表示しない。
    【ゴシップは独立フロー】level:"gossip" の記事は通常記事（ARTICLES_JA／EN）には
@@ -6998,7 +6954,6 @@ function refreshGithubFeed(){
     try{renderDigest();}catch(e){}
     try{renderPastTop();}catch(e){}
     feedSwapArmed=true; try{renderFeed();}catch(e){}
-    try{renderInsiderEmbed();}catch(e){}
     try{selectTeam(state.selected,false,false);}catch(e){}
     try{renderLastUpdated();}catch(e){}
   }).catch(function(){}).then(function(){return fetched;});
