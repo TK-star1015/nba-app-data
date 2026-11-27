@@ -7,7 +7,7 @@
 <!-- PWA（静的サイトで可能な範囲）：ホーム画面追加用の Manifest＋テーマカラー＋アイコン。
      アイコンは実在ロゴを使わない自作のバスケットボール意匠（assets/icon-*.png）。
      通知機能は廃止済み（ページを開いている間しか届かず意味が薄いため、ボタンごと撤去） -->
-<link rel="manifest" href="assets/manifest.webmanifest" />
+<link rel="manifest" href="assets/manifest.webmanifest">
 <meta name="theme-color" content="#101318" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -5758,10 +5758,14 @@ function fetchTextWithTimeout(url,ms){
    （type="module" を使わない、crossorigin 属性を付けない）、onload と onerror の
    両方を実装する、読み込み後に window.NBA_FEED が存在し articles 配列を持つこと
    まで検証する。CDNキャッシュで古いファイルが返る可能性に備え、URLには
-   時刻クエリ（キャッシュバスター）を付ける。配信元は jsDelivr を主とする
-   （.js を正しい MIME で返す。raw.githubusercontent.com は text/plain + nosniff の
-   ため script としては読めない）、予備に githack を使う */
+   時刻クエリ（キャッシュバスター）を付ける。配信元は GitHub Pages を主とする
+   （2026-11-28 変更：jsDelivr の @main は purge を実行しても古い feed.js
+   （要約が1件も無い版）のキャッシュが残り続ける状態を実測したため。
+   Pages 側は常に最新が配信される）。jsDelivr は Pages 版が読み込めなかった
+   場合の予備として残し、さらに予備に githack を使う
+   （raw.githubusercontent.com は text/plain + nosniff のため script としては読めない） */
 var FEED_JS_URLS=[
+ "https://tk-star1015.github.io/nba-app-data/feed.js",
  "https://cdn.jsdelivr.net/gh/TK-star1015/nba-app-data@main/feed.js",
  "https://rawcdn.githack.com/TK-star1015/nba-app-data/main/feed.js"
 ];
@@ -6544,6 +6548,36 @@ function applyRetractedIds(list){
   if(dropRetractedFrom(GH_GOSSIP_EN))removed=true;
   return removed;
 }
+/* ===== 重複記事の要約・関連リンク補完（2026-11-28 不具合修正） =====
+   同じ記事が複数経路（feed.js／feed.json／焼き込み）から届くと、先に取り込まれた
+   コピーが残り、後から来たコピーは重複として落とされる。経路によっては古い版
+   （要約 summary が1件も無い feed.js）が先勝ちしてしまい、feed.json 本体に
+   要約があっても詳細シートに要約が出ないことがあった（実測で特定）。
+   そのため重複で落とす前に、要約（body）と関連リンク（related）だけは
+   「持っている側」で補完する：保持済みコピーに無く、新しく来たコピーに
+   あれば取り込む（保持済み側が既に持っていればそちらが残るので結果は同じ）。
+   分類・見出し・top 等の他の項目の優先順位は従来どおり変えない。
+   保持先の全配列（日英の通常記事＋ゴシップ専用）を対象に、id／URL／見出しの
+   いずれかで一致する記事へ補完する。実際に補完したら true を返す */
+function ghSupplementExisting(c){
+  var body=String(c.ja.body||"").trim();
+  var related=(Array.isArray(c.ja.related)&&c.ja.related.length)?c.ja.related:null;
+  if(!body&&!related)return false;
+  var changed=false;
+  function scan(list){
+    list.forEach(function(n){
+      if(!n)return;
+      var hit=(String(n.id||"")===c.rawId)
+        ||(n.url&&n.url===c.rawUrl)
+        ||(n.title&&(n.title===c.rawTitle||n.title===c.ja.title||n.title===c.en.title));
+      if(!hit)return;
+      if(body&&!String(n.body||"").trim()){n.body=body;changed=true;}
+      if(related&&!(Array.isArray(n.related)&&n.related.length)){n.related=related;changed=true;}
+    });
+  }
+  scan(ARTICLES_JA); scan(ARTICLES_EN); scan(GH_GOSSIP_JA); scan(GH_GOSSIP_EN);
+  return changed;
+}
 /* feed.json の記事を組み込み記事へ取り込む。実際に新規追加があった時だけ true を返す
    （取り下げで表示中の記事を落とした時も true を返し、再描画させる）。
    あわせて更新マップ（TEAMS）にも反映する：該当チームの未読件数を加算し、
@@ -6559,11 +6593,18 @@ function mergeGithubFeed(data){
   GH_GOSSIP_JA.forEach(function(n){seenId[n.id]=1; if(n.url)seenUrl[n.url]=1; if(n.title)seenTitle[n.title]=1;});
   var added=[];
   var gossipAdded=false;
+  var supplemented=false;
   data.articles.forEach(function(a,idx){
     var c=ghConvertArticle(a,idx); if(!c)return;
     /* 取り下げ済みの id は、同じ回の articles に残っていても取り込まない */
     if(RETRACTED_IDS[c.rawId])return;
-    if(seenId[c.rawId]||seenUrl[c.rawUrl]||seenTitle[c.rawTitle]||seenTitle[c.ja.title])return;
+    if(seenId[c.rawId]||seenUrl[c.rawUrl]||seenTitle[c.rawTitle]||seenTitle[c.ja.title]){
+      /* 重複として落とす前に、要約・関連リンクだけは持っている側で補完する
+         （古い feed.js の要約なしコピーが先勝ちしても、後から来た feed.json の
+         要約が詳細シートに出るようにするため。ghSupplementExisting 参照） */
+      if(ghSupplementExisting(c))supplemented=true;
+      return;
+    }
     seenId[c.rawId]=1; seenUrl[c.rawUrl]=1; seenTitle[c.rawTitle]=1; seenTitle[c.ja.title]=1;
     if(c.ja.ghGossip){
       /* ゴシップは独立フロー：通常記事には入れず専用保持先へだけ入れる。
@@ -6577,7 +6618,7 @@ function mergeGithubFeed(data){
     ARTICLES_EN.push(c.en);
     added.push(c);
   });
-  if(!added.length)return gossipAdded||retractedRemoved;
+  if(!added.length)return gossipAdded||retractedRemoved||supplemented;
   var rank={none:0,blue:1,orange:2,red:3};
   var perTeam={};
   added.forEach(function(c){
