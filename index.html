@@ -396,6 +396,17 @@ button:disabled{opacity:.55;cursor:not-allowed}
 
 /* ---------- 背景色セレクター ---------- */
 .bg-bar{display:flex;align-items:center;gap:10px;justify-content:flex-end;margin:var(--sp-2) 0 0;flex-wrap:wrap}
+/* 設定の移行（書き出し／読み込み）：設定パネル最下部の控えめな帯。
+   パネル本体は設定を畳んだ時も一緒に出さない */
+.utility:not(.settings-open) .transfer-panel{display:none}
+.transfer-panel{margin:var(--sp-2) 0 0;text-align:left}
+.transfer-note{margin:0 0 var(--sp-2);font-size:var(--fs-meta);color:var(--muted);line-height:1.6}
+.transfer-panel textarea{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1.5;resize:vertical;word-break:break-all}
+.transfer-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:var(--sp-2)}
+.transfer-btn{border:1px solid var(--line);background:var(--surface);padding:6px var(--sp-3);border-radius:999px;font-size:var(--fs-small);font-weight:700;color:var(--muted);white-space:nowrap;min-height:var(--tab-h)}
+.transfer-btn:hover{color:var(--ink);border-color:var(--muted)}
+.transfer-msg{font-size:var(--fs-meta);color:var(--muted)}
+.transfer-msg.is-error{color:var(--red-tx);font-weight:700}
 .bg-swatches{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .bg-swatch{
   width:24px;height:24px;min-height:24px;border-radius:50%;flex:none;
@@ -1864,6 +1875,25 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     </div>
   </div>
 
+  <!-- 設定の移行：ホーム画面アプリとSafariでは保存領域が別で設定が引き継がれないため、
+       設定一式を1つのコードに書き出し／読み込みできるようにする（設定パネルの一番下） -->
+  <div class="bg-bar transfer-bar">
+    <span class="lang-label" data-i18n="transferLabel">設定の移行</span>
+    <div class="seg" role="group" data-i18n-aria="transferLabel" aria-label="設定の移行">
+      <button type="button" id="prefsExportBtn" data-i18n="prefsExport">書き出し</button>
+      <button type="button" id="prefsImportBtn" data-i18n="prefsImport">読み込み</button>
+    </div>
+  </div>
+  <div class="transfer-panel" id="transferPanel" hidden>
+    <p class="transfer-note" data-i18n="transferNote">ホーム画面アプリとSafariでは設定が別々に保存されます。片方でコードを書き出し、もう片方で読み込むと、お気に入り・既読・テーマなどを引き継げます。</p>
+    <textarea id="prefsCode" rows="3" spellcheck="false" data-i18n-ph="prefsCodePh" placeholder="設定コード" data-i18n-aria="transferLabel" aria-label="設定の移行"></textarea>
+    <div class="transfer-actions">
+      <button type="button" class="transfer-btn" id="prefsCopyBtn" data-i18n="prefsCopy">コピー</button>
+      <button type="button" class="transfer-btn" id="prefsApplyBtn" data-i18n="prefsApply">このコードで復元</button>
+      <span class="transfer-msg" id="prefsMsg" aria-live="polite"></span>
+    </div>
+  </div>
+
   </div></div>
 
   <!-- TOPニュース -->
@@ -2118,6 +2148,9 @@ var UI={
   detailSeeAll:"すべて見る", inFeed:"フィードで見る",
   roomNewFrom:"ここから新しい記事", yesterdayLabel:"昨日",
   teamSearchPh:"チーム名で検索", soundLabel:"入室音", swipeFav:"お気に入り",
+  transferLabel:"設定の移行", prefsExport:"書き出し", prefsImport:"読み込み", prefsCopy:"コピー", prefsApply:"このコードで復元", prefsCodePh:"設定コード",
+  transferNote:"ホーム画面アプリとSafariでは設定が別々に保存されます。片方でコードを書き出し、もう片方で読み込むと、お気に入り・既読・テーマなどを引き継げます。",
+  prefsExported:"コードを表示しました", prefsCopied:"コピーしました", prefsRestored:"設定を復元しました", prefsInvalid:"コードが正しくありません", prefsEmpty:"コードを貼り付けてください",
   ariaLang:"言語", ariaBg:"背景色", ariaTeamSearch:"チーム検索", ariaFeedSearch:"ニュース検索", ariaTeamFilter:"チーム絞り込み", ariaLegend:"凡例",
   rssLinked:"詳細にも追加"
  },
@@ -2190,6 +2223,9 @@ var UI={
   detailSeeAll:"See all", inFeed:"View in feed",
   roomNewFrom:"New articles from here", yesterdayLabel:"Yesterday",
   teamSearchPh:"Search teams", soundLabel:"Room sound", swipeFav:"Favorite",
+  transferLabel:"Transfer settings", prefsExport:"Export", prefsImport:"Import", prefsCopy:"Copy", prefsApply:"Restore from this code", prefsCodePh:"Settings code",
+  transferNote:"The home-screen app and Safari store settings separately. Export a code in one and import it in the other to carry over favorites, read state, theme and more.",
+  prefsExported:"Code ready — copy it", prefsCopied:"Copied", prefsRestored:"Settings restored", prefsInvalid:"That code isn't valid", prefsEmpty:"Paste a code first",
   ariaLang:"Language", ariaBg:"Background color", ariaTeamSearch:"Search teams", ariaFeedSearch:"Search news", ariaTeamFilter:"Team filter", ariaLegend:"Legend",
   rssLinked:"Also in team page"
  }
@@ -4425,6 +4461,81 @@ if(settingsToggleBtn){
     settingsToggleBtn.setAttribute("aria-expanded",open?"true":"false");
   });
 }
+/* 設定の移行（書き出し／読み込み）：ホーム画面アプリとSafariでは保存領域が
+   別で設定が引き継がれないため、設定一式（お気に入り・既読・テーマ・言語・
+   背景色・入室音）を1つのコードにして手渡しできるようにする。
+   コードの中身は保存形式 nbaHubV1Prefs と同じ形のJSONを Base64 化したもの */
+function prefsSnapshot(){
+  return {fav:favorites,teamTab:state.teamTab,type:state.type,level:state.level,cat:state.cat,lang:state.lang,theme:themeMode,bg:bgChoice,sound:roomSoundOn,read:Object.keys(readSet)};
+}
+function encodePrefsCode(){
+  return "NBABEAT1."+btoa(unescape(encodeURIComponent(JSON.stringify(prefsSnapshot()))));
+}
+function decodePrefsCode(str){
+  var s=(str||"").trim();
+  if(s.indexOf("NBABEAT1.")===0)s=s.slice("NBABEAT1.".length);
+  var p=JSON.parse(decodeURIComponent(escape(atob(s.replace(/\s+/g,"")))));
+  if(!p||typeof p!=="object"||Array.isArray(p))throw new Error("bad code");
+  if(!("fav" in p)&&!("lang" in p)&&!("theme" in p)&&!("read" in p))throw new Error("bad code");
+  return p;
+}
+var transferPanel=document.getElementById("transferPanel");
+var prefsCodeArea=document.getElementById("prefsCode");
+var prefsMsgEl=document.getElementById("prefsMsg");
+function prefsMsg(key,isError){
+  if(!prefsMsgEl)return;
+  prefsMsgEl.textContent=L()[key]||"";
+  prefsMsgEl.classList.toggle("is-error",!!isError);
+}
+function showTransferPanel(focus){
+  if(transferPanel)transferPanel.hidden=false;
+  if(focus&&prefsCodeArea)prefsCodeArea.focus();
+}
+var prefsExportBtn=document.getElementById("prefsExportBtn");
+if(prefsExportBtn)prefsExportBtn.addEventListener("click",function(){
+  showTransferPanel(false);
+  if(prefsCodeArea){prefsCodeArea.value=encodePrefsCode();prefsCodeArea.select();}
+  prefsMsg("prefsExported",false);
+});
+var prefsImportBtn=document.getElementById("prefsImportBtn");
+if(prefsImportBtn)prefsImportBtn.addEventListener("click",function(){
+  showTransferPanel(true);
+  prefsMsg("",false);
+});
+var prefsCopyBtn=document.getElementById("prefsCopyBtn");
+if(prefsCopyBtn)prefsCopyBtn.addEventListener("click",function(){
+  if(!prefsCodeArea||!prefsCodeArea.value){prefsMsg("prefsEmpty",true);return;}
+  prefsCodeArea.select();
+  function done(){prefsMsg("prefsCopied",false);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(prefsCodeArea.value).then(done,function(){
+      try{document.execCommand("copy");done();}catch(e){}
+    });
+  }else{
+    try{document.execCommand("copy");done();}catch(e){}
+  }
+});
+var prefsApplyBtn=document.getElementById("prefsApplyBtn");
+if(prefsApplyBtn)prefsApplyBtn.addEventListener("click",function(){
+  if(!prefsCodeArea||!prefsCodeArea.value.trim()){prefsMsg("prefsEmpty",true);return;}
+  var p;
+  try{p=decodePrefsCode(prefsCodeArea.value);}catch(e){prefsMsg("prefsInvalid",true);return;}
+  try{localStorage.setItem(STORE_KEY,JSON.stringify(p));}catch(e){prefsMsg("prefsInvalid",true);return;}
+  /* 保存し直した設定を、そのまま起動時と同じ手順で読み直して反映する */
+  readSet={};
+  loadPrefs();
+  state.cat="all";
+  TEAMS.forEach(function(t){if(readSet[t[0]])t[6]=0;});
+  applyTheme(themeMode);
+  applyBg();
+  syncSeg("langSeg","data-lang",state.lang);
+  syncSeg("teamTabSeg","data-teamtab",state.teamTab);
+  syncSeg("typeSeg","data-type",state.type);
+  syncSeg("levelSeg","data-level",state.level);
+  syncSeg("soundSeg","data-sound",roomSoundOn?"on":"off");
+  applyLang(state.lang);
+  prefsMsg("prefsRestored",false);
+});
 /* 横スクロール帯（フィルター等）：右にまだ続きがある時だけ .fade-r を付けて
    端を薄くし、スクロールできることを示す。末端まで来たら外す */
 function updateToolbarFades(){
