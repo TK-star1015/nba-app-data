@@ -644,6 +644,31 @@
    "summaryEn": "Gilbert Arenas jumped into the Draymond debate and fired back at Eddie Johnson, escalating the war of words."
   },
   {
+   "id": "gh-20261125-divincenzo-new-year-return",
+   "level": "reported",
+   "teams": [
+    "MIN"
+   ],
+   "headline": "ドンテ・ディビンチェンゾ、年明け前後の復帰を目標　アキレス腱手術からチーム練習復帰",
+   "headlineEn": "DiVincenzo targeting return around New Year after Achilles surgery; cleared for team activities",
+   "date": "2026-11-25",
+   "time": "05:13",
+   "ts": "2026-11-25T05:13:20+09:00",
+   "sourceName": "NBC Sports",
+   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-24/donte-divincenzo-targeting-new-years-return",
+   "reporter": "Shams Charania",
+   "category": "怪我",
+   "top": false,
+   "summary": "ESPNのシャムズ・シャラニア記者が報じた。右アキレス腱の手術を受けたドンテ・ディビンチェンゾは、年明け前後の復帰を目標にしているという。ティンバーウルブズによると、ディビンチェンゾはチームでのバスケットボール活動への参加許可を得て、復帰に向けて前進している。",
+   "summaryEn": "ESPN's Shams Charania reports that Donte DiVincenzo, who underwent surgery on his right Achilles tendon, is targeting a return shortly before or after the New Year. The Timberwolves say DiVincenzo has been cleared for team basketball activities and is progressing toward his return.",
+   "related": [
+    {
+     "label": "Bluesky",
+     "url": "https://bsky.app/profile/mikeascotto.bsky.social/post/3n334vnjjd22r"
+    }
+   ]
+  },
+  {
    "id": "gh-20261125-gossip-lebron-binocular-celly",
    "level": "gossip",
    "teams": [
@@ -1901,7 +1926,7 @@
    "summaryEn": "Amick said on a radio show that the Warriors are not telling rival GMs to keep Draymond Green out of trade conversations. Green picked up his player option for this season and was not offered an extension, and Amick noted expiring contracts are the easiest to move for salary matching. He added Green can still defend at a high level and help another team as a veteran short-term piece."
   }
  ],
- "updatedAt": "2026-11-28T07:51:28+09:00",
+ "updatedAt": "2026-11-28T07:54:57+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
