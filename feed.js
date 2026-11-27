@@ -1165,12 +1165,27 @@ window.NBA_FEED = {
    "category": "分析",
    "top": false,
    "provisional": true
+  },
+  {
+   "id": "gh-20261127-gossip-shaq-avdija-hebrew",
+   "level": "gossip",
+   "teams": [
+    "POR"
+   ],
+   "headline": "シャック、アブディヤにヘブライ語で挨拶　バークリーも大絶賛",
+   "headlineEn": "Shaq greets Deni Avdija in Hebrew as Barkley raves about him",
+   "date": "2026-11-26",
+   "sourceName": "Ynetnews",
+   "url": "https://www.ynetnews.com/sport/article/hklnlprjmg",
+   "genre": "キラキラ",
+   "top": false
   }
  ],
- "updatedAt": "2026-11-27T20:50:00+09:00",
+ "updatedAt": "2026-11-27T20:59:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
   "gh-20261126-gossip-stiller-brunson-pumpfake"
  ]
-};
+}
+;
