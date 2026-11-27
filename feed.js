@@ -656,7 +656,7 @@ window.NBA_FEED = {
       "time": "05:44",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50596747/76ers-star-joel-embiid-vs-heat-due-illness",
-      "top": true,
+      "top": false,
       "related": [
         {
           "label": "Yahoo Sports",
@@ -719,7 +719,7 @@ window.NBA_FEED = {
       "time": "06:57",
       "sourceName": "ESPN",
       "url": "https://www.espn.com/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs",
-      "top": true,
+      "top": false,
       "related": [
         {
           "label": "NBC Sports",
@@ -782,7 +782,7 @@ window.NBA_FEED = {
       "time": "09:11",
       "sourceName": "Hoops Rumors",
       "url": "https://www.hoopsrumors.com/2026/11/tyrese-haliburton-nears-return-from-hamstring-injury.html",
-      "top": true,
+      "top": false,
       "related": [
         {
           "label": "Indianapolis Star",
@@ -1054,7 +1054,7 @@ window.NBA_FEED = {
       ]
     }
   ],
-  "updatedAt": "2026-11-27T16:15:00+09:00",
+  "updatedAt": "2026-11-27T16:17:26+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
