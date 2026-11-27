@@ -1,33 +1,46 @@
 {
-  "version": 1,
-  "updatedAt": "2026-11-27T11:01:00+09:00",
-  "columns": [
+ "version": 1,
+ "updatedAt": "2026-11-28T00:07:00+09:00",
+ "columns": [
+  {
+   "date": "2026-11-28",
+   "intro": "今日のニュースに、管理人が本音でツッコむ。",
+   "introEn": "Today's news, with the editor's honest, unfiltered takes.",
+   "takes": [
     {
-      "date": "2026-11-27",
-      "intro": "今日のニュースに、管理人が本音でツッコむ。",
-      "introEn": "Today's news, with the editor's honest, unfiltered takes.",
-      "takes": [
-        {
-          "headline": "今日は全試合おやすみ",
-          "headlineEn": "No games today",
-          "take": "今日は全試合おやすみ（サンクスギビングデイ）。",
-          "takeEn": "All games are off today — it's Thanksgiving Day."
-        }
-      ]
-    },
-    {
-      "date": "2026-11-26",
-      "intro": "今日のニュースに、管理人が本音でツッコむ。",
-      "introEn": "Today's news, with the editor's honest, unfiltered takes.",
-      "takes": [
-        {
-          "headline": "KPJ、マジックと契約",
-          "headlineEn": "Kevin Porter Jr. signs with the Magic",
-          "take": "低迷するマジックの救世主となれるのか…というかマジックをレギュラーシーズン2位に予想した管理人を救ってください",
-          "takeEn": "Can he be the savior of the slumping Magic... actually, please save the editor who picked the Magic to finish second in the regular season.",
-          "meme": "kpj-savior"
-        }
-      ]
+     "headline": "デュラント、ブルックスに警告",
+     "headlineEn": "Durant warns Brooks",
+     "take": "ブルックスに「先に進むなら俺も準備はできている」と警告。この2人、どっちも一歩も引く気なし。",
+     "takeEn": "Durant warns Brooks: 'If you want to take it further, I'm ready too.' Neither of these two is backing down an inch."
     }
-  ]
+   ]
+  },
+  {
+   "date": "2026-11-27",
+   "intro": "今日のニュースに、管理人が本音でツッコむ。",
+   "introEn": "Today's news, with the editor's honest, unfiltered takes.",
+   "takes": [
+    {
+     "headline": "今日は全試合おやすみ",
+     "headlineEn": "No games today",
+     "take": "今日は全試合おやすみ（サンクスギビングデイ）。",
+     "takeEn": "All games are off today — it's Thanksgiving Day."
+    }
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "intro": "今日のニュースに、管理人が本音でツッコむ。",
+   "introEn": "Today's news, with the editor's honest, unfiltered takes.",
+   "takes": [
+    {
+     "headline": "KPJ、マジックと契約",
+     "headlineEn": "Kevin Porter Jr. signs with the Magic",
+     "take": "低迷するマジックの救世主となれるのか…というかマジックをレギュラーシーズン2位に予想した管理人を救ってください",
+     "takeEn": "Can he be the savior of the slumping Magic... actually, please save the editor who picked the Magic to finish second in the regular season.",
+     "meme": "kpj-savior"
+    }
+   ]
+  }
+ ]
 }
