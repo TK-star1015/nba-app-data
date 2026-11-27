@@ -985,21 +985,32 @@
    "teams": [
     "LAL"
    ],
-   "headline": "リーブス、フル練習に復帰　スパーズ戦出場は未定",
-   "date": "2026-11-26",
-   "time": "06:57",
-   "sourceName": "ESPN",
-   "url": "https://www.espn.com/nba/story/_/id/50597465/austin-reaves-rejoins-lakers-full-practice-tbd-face-spurs",
-   "top": false,
+   "headline": "リーブス、5試合ぶりに復帰　スパーズ戦に出場可能",
+   "date": "2026-11-28",
+   "time": "04:20",
+   "sourceName": "FantasyPros",
+   "url": "https://www.fantasypros.com/nba/news/622921/austin-reaves-heel-returns-to-lineup-friday.php",
+   "top": true,
    "related": [
     {
      "label": "NBC Sports",
      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/austin-reaves-heel-questionable-friday-vs-spurs"
+    },
+    {
+     "label": "theScore",
+     "url": "https://www.thescore.com/nba/news/3668046"
+    },
+    {
+     "label": "Lakers Nation",
+     "url": "https://lakersnation.com/lakers-injury-update-austin-reaves-upgraded-to-available-vs-spurs/"
     }
    ],
-   "headlineEn": "Reaves back to full practice; status vs. Spurs TBD",
-   "summary": "オースティン・リーブスがフル練習に復帰した。スパーズ戦に出場できるかどうかは、まだ決まっていない。",
-   "summaryEn": "Austin Reaves has returned to full practice. Whether he plays against the Spurs has not yet been decided."
+   "headlineEn": "Reaves available vs. Spurs, set to return after five-game absence",
+   "summary": "左かかとの打撲で5試合を欠場していたオースティン・リーブスが、土曜のスパーズ戦で出場可能となった。レイカーズの発表をESPNのデイブ・マクメナミンが伝えた。練習にフル参加し、クエスチョナブルを経ての復帰になる。",
+   "summaryEn": "Austin Reaves will return to the lineup for Friday's game against the Spurs after missing five games with a left heel bruise, per the Lakers via ESPN's Dave McMenamin. He was a full participant in practice and had been listed as questionable.",
+   "ts": "2026-11-28T04:20:00+09:00",
+   "reporter": "Dave McMenamin",
+   "category": "怪我"
   },
   {
    "id": "gh-20261125-gossip-draymond-bench-kerr",
@@ -1556,7 +1567,7 @@
    "summaryEn": "Knicks forward OG Anunoby has been ruled out for Friday's game against the Heat with a left calf strain, his fourth straight absence. He was listed as doubtful on Thursday before being downgraded to out on Friday's injury report. He is considered day-to-day, and a long absence is not expected."
   }
  ],
- "updatedAt": "2026-11-28T04:35:35+09:00",
+ "updatedAt": "2026-11-28T04:47:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
