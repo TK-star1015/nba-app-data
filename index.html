@@ -1023,6 +1023,20 @@ body.room-open{overflow-x:clip}
 .room-new-sep{display:flex;align-items:center;gap:10px;margin:14px 0 6px}
 .room-new-sep::before,.room-new-sep::after{content:"";flex:1;border-top:1px solid var(--room-line)}
 .room-new-sep span{font-size:var(--fs-chip);font-weight:700;color:var(--room-newtx);white-space:nowrap}
+/* 「細かい動き」の畳み行（v46）：日付ピルと同じトーンの中央ピル型ボタン。
+   シェブロンは aria-expanded と連動して開閉の向きを変える */
+.room-minor-toggle{display:block;width:100%;margin:14px 0 6px;padding:0;background:none;border:0;cursor:pointer;font:inherit;-webkit-appearance:none;appearance:none}
+.room-minor-pill{display:inline-flex;align-items:center;gap:7px;background:var(--room-pill);color:#fff;font-size:var(--fs-chip);font-weight:500;line-height:1;padding:6px 12px;border-radius:999px}
+.room-minor-toggle:active .room-minor-pill{filter:brightness(1.12)}
+.room-minor-toggle:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.room-minor-chev{flex:none;width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg);transition:transform .2s ease}
+.room-minor-toggle[aria-expanded="true"] .room-minor-chev{transform:rotate(225deg)}
+/* minor の吹き出しは通常より地味に：地色をグレー寄りにし（尻尾も同色）、
+   見出しの文字を一回り小さくする。地色はテーマ追従の --line を使うため
+   ダークテーマでも本文（--ink）とのコントラストは保たれる */
+.room-msg-minor .room-bubble{background:var(--line)}
+.room-msg-minor .room-bubble::before{background:var(--line)}
+.room-msg-minor .room-text{font-size:12.5px}
 /* 吹き出しの詰め方は LINE 実物に合わせる：アバターと吹き出しの間は7px、
    送信者名は11pxで吹き出しの左端にほぼ揃える。メッセージ間の基本マージンは
    上下5pxだが、同じ日の中の吹き出し同士はそれでは詰まって見えるため、
@@ -2482,7 +2496,7 @@ var UI={
   detailEmptySub:"新しい報道が出たらここに追加されます。",
   detailLatestEmpty:"いま表示できる最新情報はありません。", detailLatestEmptySub:"「すべて」タブで過去の記事が見られます。",
   detailSeeAll:"すべて見る", inFeed:"フィードで見る",
-  roomNewFrom:"ここから新しい記事", roomTapHint:"吹き出しをタップで詳細を表示", yesterdayLabel:"昨日",
+  roomNewFrom:"ここから新しい記事", minorUpdates:"細かい動き", roomTapHint:"吹き出しをタップで詳細を表示", yesterdayLabel:"昨日",
   readArticle:"記事を読む", sheetRelated:"関連リンク", ariaSheetClose:"閉じる",
   sheetPrev:"前の記事", sheetNext:"次の記事",
   saveArticle:"保存", savedArticle:"保存済み", savedChip:"保存", savedEmpty:"保存した記事はまだありません",
@@ -2556,7 +2570,7 @@ var UI={
   detailEmptySub:"New reporting will appear here.",
   detailLatestEmpty:"No latest updates to show right now.", detailLatestEmptySub:"See past stories in the All tab.",
   detailSeeAll:"See all", inFeed:"View in feed",
-  roomNewFrom:"New articles from here", roomTapHint:"Tap a bubble for details", yesterdayLabel:"Yesterday",
+  roomNewFrom:"New articles from here", minorUpdates:"Minor updates", roomTapHint:"Tap a bubble for details", yesterdayLabel:"Yesterday",
   readArticle:"Read article", sheetRelated:"Related links", ariaSheetClose:"Close",
   sheetPrev:"Previous article", sheetNext:"Next article",
   saveArticle:"Save", savedArticle:"Saved", savedChip:"Saved", savedEmpty:"No saved articles yet",
@@ -3039,8 +3053,13 @@ function loadPrefs(){
 function artDayKey(n){return Math.floor(+((n&&n.ord)||0));}
 function computeReadMark(abbr){
   var d=0,ids=[];
-  teamArticles(abbr).forEach(function(n){var k=artDayKey(n); if(k>d)d=k;});
-  if(d>0)teamArticles(abbr).forEach(function(n){if(artDayKey(n)===d)ids.push(String(n.id));});
+  /* 印の計算対象は「そのチームで表示される記事」だけ：お気に入りチームは
+     全件、それ以外は minor でない記事だけ（畳まれる細かい動きは既読・
+     未読の基準に入れない。v46） */
+  var fav=!!favorites[abbr];
+  var list=teamArticles(abbr).filter(function(n){return fav||!n.minor;});
+  list.forEach(function(n){var k=artDayKey(n); if(k>d)d=k;});
+  if(d>0)list.forEach(function(n){if(artDayKey(n)===d)ids.push(String(n.id));});
   return {d:d,ids:ids};
 }
 function markTeamRead(abbr){
@@ -3056,9 +3075,23 @@ function articleSeenByTeam(n,abbr){
 }
 function teamUnreadCount(t){
   var abbr=t[0];
-  if(!readMark[abbr])return t[6]||0;
+  var fav=!!favorites[abbr];
+  if(!readMark[abbr]){
+    /* 印が無いチームは従来どおり t[6] を出すが、お気に入りでないチームでは
+       表示されない minor 記事の分を差し引く（0未満にはしない。v46。
+       t[6] 自体は取り込み時に全記事で加算されるため、ここで調整する） */
+    if(fav)return t[6]||0;
+    var mc=0;
+    teamArticles(abbr).forEach(function(n){if(n.minor)mc++;});
+    return Math.max(0,(t[6]||0)-mc);
+  }
   var c=0;
-  teamArticles(abbr).forEach(function(n){if(!articleSeenByTeam(n,abbr))c++;});
+  teamArticles(abbr).forEach(function(n){
+    /* 数えるのは「表示される記事」だけ（お気に入りでないチームでは
+       minor を数えない。v46） */
+    if(!fav&&n.minor)return;
+    if(!articleSeenByTeam(n,abbr))c++;
+  });
   return c;
 }
 /* RSS（仮分類）の既読判定も同じ印で見る：印の日付より前の記事だけを
@@ -3321,7 +3354,11 @@ function lineListTimeLabel(y,mo,d,timeStr){
   return state.lang==="en"?(MO_EN[mo-1]+" "+d):(mo+"/"+d);
 }
 function teamLatestInfo(t){
+  /* 最新記事の選定対象は「そのチームで表示される記事」だけ：お気に入り
+     でないチームでは minor を外す。表示対象が無ければ latest は null の
+     ままになり、従来の静的ラベル側の扱いに落ちる（v46） */
   var arts=teamArticles(t[0]);
+  if(!favorites[t[0]])arts=arts.filter(function(n){return !n.minor;});
   var latest=null,latestKey=-1,latestMin=-1;
   arts.forEach(function(n){
     /* 日付・時刻は表示用の部品（ts があれば表示タイムゾーンへ変換済み、
@@ -4638,6 +4675,9 @@ var roomNewCount=0;   /* 入室時点で未読だった件数。「ここから�
                          境界位置で、入室中の再描画でも維持し、閉じたら戻す */
 var roomAnimate=false; /* 入室直後の1回だけ吹き出しの出現アニメを付ける
                           （言語切替などの再描画では付けない） */
+var roomMinorOpen=false; /* 「細かい動き」の畳み行の展開状態（v46）。
+                            renderRoom の再描画（言語切替・データ更新）でも
+                            維持し、部屋を開き直した時だけ false に戻す */
 function statusRank(s){return s==="confirmed"?0:s==="almost"?1:2;}
 function newsDateKey(n){return Math.floor(n.ord);}
 /* RSS新着のうち、このチームに確実に紐づいたものだけを返す（紐づけは detectRssTeam で判定済み） */
@@ -4713,7 +4753,7 @@ function roomFlowItems(abbr){
     var rumor=n.cat!=="gossip"&&n.cat!=="teaminfo"&&n.s==="rumor";
     items.push({id:String(n.id||""),day:p.y*10000+p.mo*100+p.d,y:p.y,mo:p.mo,d:p.d,mins:mins,ord:n.ord,
       chip:cardChipHTML(n),title:phraseHTML(n.title),url:articlePrimaryUrl(n),time:timeStr,
-      summary:roomSummary(n.body,n.title),official:official,rumor:rumor,
+      summary:roomSummary(n.body,n.title),official:official,rumor:rumor,minor:!!n.minor,
       sender:String(n.src||n.media||""),
       /* 詳細シート用（試作 2026-11-28）：要約はシート向けに長めに取り、
          出典名は media（sourceName）を優先。関連リンクは生データを渡し、
@@ -4730,7 +4770,7 @@ function roomFlowItems(abbr){
     var chip=provChipHTML(it)+(it.provType?'<span class="tag">'+escapeHtml(TYPE_LABEL[state.lang][it.provType]||it.provType)+'</span>':'');
     items.push({day:y*10000+mo*100+d,y:y,mo:mo,d:d,mins:mins,ord:mins,
       chip:chip,title:rssTitleHTML(it),url:String(it.link||""),time:dp?ampmLabel(dp.hh,dp.mm):"",
-      summary:roomSummary(it.desc,it.title),official:false,rumor:it.provLevel==="rumor",
+      summary:roomSummary(it.desc,it.title),official:false,rumor:it.provLevel==="rumor",minor:false,
       sender:String(it.reporter||rssSourceName(it)||""),
       /* 詳細シート用（試作 2026-11-28）：RSS新着に関連リンクは無い */
       detail:roomSummary(it.desc,it.title,600),srcName:rssSourceName(it),related:null});
@@ -4757,9 +4797,19 @@ function renderRoom(){
   var body=document.getElementById("roomBody");
   if(!body)return;
   var items=roomFlowItems(abbr);
-  /* 詳細シート（試作 2026-11-28）が吹き出しの data-sheet-idx から引く用に、
-     いま描いた並びをそのまま保持する（再描画のたびに差し替える） */
-  roomSheetItems=items;
+  /* 細かい動き（minor）の畳み表示（v46）：お気に入りチーム、または minor
+     アイテムが無い部屋は従来どおり全アイテムを1つの流れで描く。それ以外
+     の部屋では minor を通常の流れから外し、主要アイテムの流れの末尾に
+     畳み行を1つ置く（展開中はその下に minor を時系列で描く）。
+     詳細シートが data 属性から引く並びも流れごとに保持する：主要は
+     従来どおり roomSheetItems＋data-sheet-idx、minor は
+     roomMinorSheetItems＋data-sheet-minor-idx（前後ナビは開いた元の
+     リストの中でだけ移動する） */
+  var minorItems=items.filter(function(it){return it.minor;});
+  var foldMinor=!favorites[abbr]&&minorItems.length>0;
+  var mainItems=foldMinor?items.filter(function(it){return !it.minor;}):items;
+  roomSheetItems=mainItems;
+  roomMinorSheetItems=foldMinor?minorItems:[];
   if(!items.length){
     /* 記事がないチーム：空白にせず、専用の空表示で分かりやすく伝える */
     roomAnimate=false;
@@ -4767,17 +4817,18 @@ function renderRoom(){
     return;
   }
   /* 「ここから新しい記事」の境界：入室時点で未読だった件数ぶんを末尾
-     （最新側）から数えた位置。全既読で入った時（roomNewCount=0）は出さない */
-  var newStart=roomNewCount>0?Math.max(0,items.length-roomNewCount):-1;
+     （最新側）から数えた位置。全既読で入った時（roomNewCount=0）は出さない。
+     件数は主要の流れの中だけで数える（v46） */
+  var newStart=roomNewCount>0?Math.max(0,mainItems.length-roomNewCount):-1;
   var animate=roomAnimate; roomAnimate=false;
   var segs=[],lastDay=null,usedKeys={};
   function uniqKey(k){if(!usedKeys[k]){usedKeys[k]=1;return k;}var i=2;while(usedKeys[k+"#"+i])i++;usedKeys[k+"#"+i]=1;return k+"#"+i;}
-  items.forEach(function(it,idx){
-    if(it.day!==lastDay){
-      lastDay=it.day;
-      segs.push({key:uniqKey("d:"+it.day),html:'<div class="room-date-sep"><span>'+roomDateLabel(it.y,it.mo,it.d)+'</span></div>'});
-    }
-    if(idx===newStart)segs.push({key:"__newsep",html:'<div class="room-new-sep"><span>'+L().roomNewFrom+'</span></div>'});
+  /* 吹き出し1件分の断片を segs へ積む（主要／minor 共通）。sheetAttr は
+     シートを開くための data 属性名、listLen は入室アニメの末尾判定に使う
+     その流れの件数。minor の吹き出しは入室アニメを付けず、地味な見た目
+     （room-msg-minor）にする */
+  function pushMsg(it,idx,sheetAttr,listLen,isMinor){
+    var doAnim=animate&&!isMinor;
     /* 噂は LINE の自分の送信メッセージ様式で右から出す：吹き出しを
        右端に寄せる（並び替えと尻尾は .is-own の CSS 側）。吹き出しの
        右側には、左側の公式・報道に付くチームアバターと対になる位置に、
@@ -4807,22 +4858,49 @@ function renderRoom(){
        詳細シートを開き、外部サイトへの遷移はシート最下部の「記事を読む」
        からだけにする。URL が無い記事もシートは開ける（その場合はシート側で
        読むボタンを出さない）。既読・未読の印（readMark）はここでは触らない */
-    var bubble='<button type="button" class="room-bubble" data-sheet-idx="'+idx+'" aria-haspopup="dialog">'+inner+'</button>';
+    var bubble='<button type="button" class="room-bubble" '+sheetAttr+'="'+idx+'" aria-haspopup="dialog">'+inner+'</button>';
     /* 公式発表には吹き出しの右端に重ねて大きな「公式」判子を押す（円形・二重リングの印影風、少し傾ける） */
     var stamp=it.official?'<span class="room-stamp'+(state.lang==="en"?" room-stamp-en":"")+'" aria-hidden="true">'+(state.lang==="en"?"OFFICIAL":"公式")+'</span>':'';
     /* 入室直後のみ、末尾10件に出現アニメ（下から軽くスライド＋フェード、
        新しい側ほど遅れて届く）。遅延は最大でも約0.3秒に収める */
     var aCls="",aStyle="";
-    if(animate&&idx>=items.length-10){aCls=" msg-in";aStyle=' style="animation-delay:'+Math.min(315,(idx-(items.length-10))*35)+'ms"';}
+    if(doAnim&&idx>=listLen-10){aCls=" msg-in";aStyle=' style="animation-delay:'+Math.min(315,(idx-(listLen-10))*35)+'ms"';}
     /* アイコンの置き場所：左寄せ（公式・報道）は吹き出し列の前、右寄せ（噂）は
        吹き出し列の後ろに置き、吹き出しの右隣に来るようにする */
-    var msgHtml='<div class="room-msg'+(own?' is-own':'')+aCls+'"'+aStyle+'>'+(own?'':icon)+'<div class="room-col">'+sender+'<div class="room-line">'+bubble+stamp+(it.time?'<span class="room-time">'+it.time+'</span>':'')+'</div></div>'+(own?icon:'')+'</div>';
+    var msgHtml='<div class="room-msg'+(own?' is-own':'')+(isMinor?' room-msg-minor':'')+aCls+'"'+aStyle+'>'+(own?'':icon)+'<div class="room-col">'+sender+'<div class="room-line">'+bubble+stamp+(it.time?'<span class="room-time">'+it.time+'</span>':'')+'</div></div>'+(own?icon:'')+'</div>';
     /* 入室アニメ付きの断片は、アニメ用のクラス・遅延を除いた形を比較の
        基準（base）にする。次回（アニメなし）の再描画で「中身は同じ」と
        判定でき、読みかけのルームが組み替わらないようにするため */
-    var msgBase=animate?msgHtml.replace(/ msg-in/g,"").replace(/ style="animation-delay:[^"]*"/g,""):msgHtml;
+    var msgBase=doAnim?msgHtml.replace(/ msg-in/g,"").replace(/ style="animation-delay:[^"]*"/g,""):msgHtml;
     segs.push({key:uniqKey("m:"+it.day+":"+(it.url||"")+":"+(it.title||"")),html:msgHtml,base:msgBase});
+  }
+  mainItems.forEach(function(it,idx){
+    if(it.day!==lastDay){
+      lastDay=it.day;
+      segs.push({key:uniqKey("d:"+it.day),html:'<div class="room-date-sep"><span>'+roomDateLabel(it.y,it.mo,it.d)+'</span></div>'});
+    }
+    if(idx===newStart)segs.push({key:"__newsep",html:'<div class="room-new-sep"><span>'+L().roomNewFrom+'</span></div>'});
+    pushMsg(it,idx,"data-sheet-idx",mainItems.length,false);
   });
+  if(foldMinor){
+    /* 畳み行：主要アイテムの流れの末尾に1つだけ置く button。主要アイテムが
+       0件で minor だけの部屋でも、空表示ではなくこの行（と展開時の minor
+       一覧）を描く */
+    var minorLabel=state.lang==="en"?(L().minorUpdates+" ("+minorItems.length+")"):(L().minorUpdates+" "+minorItems.length+"件");
+    segs.push({key:"__minor",html:'<button type="button" class="room-minor-toggle" data-room-minor-toggle aria-expanded="'+(roomMinorOpen?"true":"false")+'"><span class="room-minor-pill">'+escapeHtml(minorLabel)+'<span class="room-minor-chev" aria-hidden="true"></span></span></button>'});
+    if(roomMinorOpen){
+      /* 展開中は畳み行の下に minor アイテムを時系列順（古い→新しい）で
+         描き、日付区切りも主要の流れと同じ規則（日が変わる所）で入れる */
+      var mLastDay=null;
+      minorItems.forEach(function(it,idx){
+        if(it.day!==mLastDay){
+          mLastDay=it.day;
+          segs.push({key:uniqKey("md:"+it.day),html:'<div class="room-date-sep"><span>'+roomDateLabel(it.y,it.mo,it.d)+'</span></div>'});
+        }
+        pushMsg(it,idx,"data-sheet-minor-idx",minorItems.length,true);
+      });
+    }
+  }
   reconcileList(body,segs);
 }
 /* 入室音：行タップ（ユーザー操作）を起点に、Web Audio で合成した短く小さな
@@ -4862,6 +4940,9 @@ function selectTeam(abbr,open,markRead){
   if(!t)return;
   if(open){
     roomAbbr=abbr;
+    /* 「細かい動き」の畳みは部屋を開き直すたびに閉じた状態から始める
+       （言語切替・データ更新での再描画では展開状態を維持する。v46） */
+    roomMinorOpen=false;
     /* 区切り位置は「前回読んだ後に届いた件数」で決める（2回目以降の
        入室でも新しい記事の直前に区切りが出る）。既読化は、現時点までの
        記事を読んだものとして印（readMark）を進める */
@@ -4979,6 +5060,9 @@ document.getElementById("roomBackBtn2").addEventListener("click",closeRoom);
    スクロールは先頭へ戻す）。並びはルーム＝表示順（古い→新しい）、
    ジャンル別＝フィルター適用後の表示順、オフコート＝表示順 */
 var roomSheetItems=[];
+/* 展開した「細かい動き」の吹き出しが引く並び（v46）。主要の流れとは
+   別配列にし、シートの前後ナビは開いた元のリストの中でだけ移動する */
+var roomMinorSheetItems=[];
 var sheetReturnFocus=null;
 var sheetPrevOverflow="";
 var sheetHideTimer=null;
@@ -4990,6 +5074,11 @@ var sheetSaveId="";
 function openArticleSheet(idx,trigger){
   var it=roomSheetItems[idx];
   if(it)showArticleSheet(it,trigger,roomSheetItems,idx);
+}
+/* 展開した minor の吹き出し用：ナビの対象は minor のリストだけにする */
+function openMinorArticleSheet(idx,trigger){
+  var it=roomMinorSheetItems[idx];
+  if(it)showArticleSheet(it,trigger,roomMinorSheetItems,idx);
 }
 function openFeedSheet(idx,trigger){
   var it=feedSheetItems[idx];
@@ -5144,7 +5233,22 @@ function closeArticleSheet(){
 var roomBodyEl=document.getElementById("roomBody");
 if(roomBodyEl)roomBodyEl.addEventListener("click",function(e){
   var t=e.target;
-  var b=(t&&t.closest)?t.closest("[data-sheet-idx]"):null;
+  if(!t||!t.closest)return;
+  /* 「細かい動き」の畳み行：展開状態を切り替えて描き直す（状態は
+     roomMinorOpen に保持し、再描画でも維持される。v46） */
+  var tg=t.closest("[data-room-minor-toggle]");
+  if(tg&&roomBodyEl.contains(tg)){
+    roomMinorOpen=!roomMinorOpen;
+    renderRoom();
+    return;
+  }
+  /* 展開した minor の吹き出し：minor 専用の並びでシートを開く */
+  var mb=t.closest("[data-sheet-minor-idx]");
+  if(mb&&roomBodyEl.contains(mb)){
+    openMinorArticleSheet(parseInt(mb.getAttribute("data-sheet-minor-idx"),10),mb);
+    return;
+  }
+  var b=t.closest("[data-sheet-idx]");
   if(!b||!roomBodyEl.contains(b))return;
   openArticleSheet(parseInt(b.getAttribute("data-sheet-idx"),10),b);
 });
@@ -7082,6 +7186,10 @@ function ghConvertArticle(a,idx){
        top:true が付いていても TOP NEWS には絶対に入れない */
     noTop:(a.provisional===true)||!(a.top===true&&(a.level==="official"||a.level==="reported")),
     provisional:a.provisional===true,
+    /* ルーム向けの細かい動き（ステータスの小変化・練習参加・Gリーグ昇降格
+       など）に付く印。内蔵記事は持たない（＝主要扱い）。表示はトーク
+       ルーム側でお気に入り連動に使う（v46） */
+    minor:a.minor===true,
     ghFeed:true,
     ghGossip:a.level==="gossip"
   };
@@ -7106,6 +7214,9 @@ function syncTeamStatusFromArticles(){
   var best={};
   ARTICLES_JA.forEach(function(n){
     if(n.cat==="gossip")return;
+    /* minor 記事は対象から外す：チームの静的状態（分類・最終更新日）は
+       主要記事基準にそろえる（v46） */
+    if(n.minor)return;
     var r=sRank[n.s]; if(!r)return;
     var mo=Math.floor(n.ord/100)%100, d=Math.floor(n.ord)%100;
     if(!mo||!d)return;
@@ -7193,7 +7304,11 @@ function ghSupplementExisting(c){
      ts の無い古いコピーが先勝ちしても、後から来たコピーの ts で
      タイムゾーン変換表示が効くようにする（言語共通の値なので両言語へ渡す） */
   var cTs=(typeof c.ja.ts==="string"&&c.ja.ts)?c.ja.ts:null;
-  if(!bodyJa&&!bodyEn&&!related&&!cTs)return false;
+  /* minor（細かい動きの印）も ts と同じ方式で補完する：取り込み側コピーが
+     minor:true を持ち既存記事が持たない場合にだけ伝播させる（言語共通の
+     値なので両言語へ渡す。v46） */
+  var cMinor=c.ja.minor===true;
+  if(!bodyJa&&!bodyEn&&!related&&!cTs&&!cMinor)return false;
   var changed=false;
   function scan(list,body){
     list.forEach(function(n){
@@ -7205,6 +7320,7 @@ function ghSupplementExisting(c){
       if(body&&!String(n.body||"").trim()){n.body=body;changed=true;}
       if(related&&!(Array.isArray(n.related)&&n.related.length)){n.related=related;changed=true;}
       if(cTs&&!n.ts){n.ts=cTs;changed=true;}
+      if(cMinor&&!n.minor){n.minor=true;changed=true;}
     });
   }
   scan(ARTICLES_JA,bodyJa); scan(GH_GOSSIP_JA,bodyJa);
@@ -7257,7 +7373,12 @@ function mergeGithubFeed(data){
   added.forEach(function(c){
     c.ja.teams.forEach(function(abbr){
       var p=perTeam[abbr]||(perTeam[abbr]={count:0,best:"none",newestKey:0,newestLabel:""});
+      /* 未読件数（t[6]）は従来どおり全記事で加算する（minor の調整は
+         teamUnreadCount 側で行う）。ステータス色（t[5]）と最終更新
+         ラベル（t[7]）の前進は minor 記事を対象から外し、主要記事
+         基準にそろえる（v46） */
       p.count++;
+      if(c.ja.minor)return;
       if(rank[c.color]>rank[p.best])p.best=c.color;
       if(c.dateKey>=p.newestKey){p.newestKey=c.dateKey; p.newestLabel=c.mapLabel;}
     });
