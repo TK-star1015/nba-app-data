@@ -575,11 +575,11 @@
       "teams": [
         "MIN"
       ],
-      "headline": "ラメロ・ボール、足首負傷でサンダー戦を途中退場",
-      "date": "2026-11-26",
-      "time": "12:07",
-      "sourceName": "Yahoo Sports",
-      "url": "https://sports.yahoo.com/nba/breaking-news/article/timberwolves-g-lamelo-ball-leaves-win-vs-thunder-early-due-to-apparent-ankle-injury-031210964.html",
+      "headline": "ラメロ・ボール、左足首捻挫で金曜グリズリーズ戦を欠場",
+      "date": "2026-11-28",
+      "time": "03:55",
+      "sourceName": "FantasyPros",
+      "url": "https://www.fantasypros.com/nba/news/622908/lamelo-ball-ankle-ruled-out-friday.php",
       "category": "怪我",
       "top": true,
       "related": [
@@ -590,11 +590,17 @@
         {
           "label": "RotoWire",
           "url": "https://www.rotowire.com/basketball/headlines/lamelo-ball-injury-not-present-at-shootaround-541161"
+        },
+        {
+          "label": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/breaking-news/article/timberwolves-g-lamelo-ball-leaves-win-vs-thunder-early-due-to-apparent-ankle-injury-031210964.html"
         }
       ],
-      "headlineEn": "LaMelo Ball exits vs. Thunder with ankle injury",
-      "summary": "ラメロ・ボールが足首の負傷でサンダー戦の途中に退場した。金曜のシュートアラウンドにも姿を見せず、グリズリーズ戦の出場は微妙な情勢。今後の出場可否や離脱期間は、検査結果を待って判断される。",
-      "summaryEn": "LaMelo Ball exited the Thunder game midway with an ankle injury. He was not present at Friday's shootaround, casting doubt on his availability against the Grizzlies. His status going forward will be determined after further evaluation."
+      "headlineEn": "LaMelo Ball ruled out vs. Grizzlies with sprained left ankle",
+      "summary": "ラメロ・ボールが水曜のサンダー戦で左足首を捻挫して途中退場し、金曜のグリズリーズ戦は欠場が決まった。マーク・スタインの報道によるもの。金曜のシュートアラウンドにも姿を見せず、アヨ・ドスンムとボーンズ・ハイランドの出場時間が増える見通し。",
+      "summaryEn": "LaMelo Ball was ruled out for Friday's game against the Grizzlies with a sprained left ankle, Marc Stein reports. Ball exited Wednesday's win over the Thunder early after rolling his ankle and was not present at Friday's shootaround. Ayo Dosunmu and Bones Hyland are expected to see increased minutes.",
+      "ts": "2026-11-28T03:55:34+09:00",
+      "reporter": "Marc Stein"
     },
     {
       "id": "gh-20261126-gossip-doncic-outburst-redick",
@@ -1546,7 +1552,7 @@
       "summaryEn": "Grammy-nominated rapper GloRilla watched the Grizzlies beat the Clippers at FedExForum on Thanksgiving eve. The Memphis native's appearance lit up social media."
     }
   ],
-  "updatedAt": "2026-11-28T03:37:00+09:00",
+  "updatedAt": "2026-11-28T04:08:00+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
