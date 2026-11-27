@@ -77,7 +77,7 @@
     "TOR"
    ],
    "headline": "スコッティ・バーンズ、感謝祭ディナーで正直告白「料理はしてない」",
-   "headlineEn": "Scottie Barnes admits he did not cook Thanksgiving dinner: \"The restaurant already had food\"",
+   "headlineEn": "Scottie Barnes admits he didn't cook Thanksgiving dinner",
    "date": "2026-11-26",
    "sourceName": "HoopsHype",
    "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/26/nah-i-didnt-cook-the-restaurant-already-had-food/92972134007/",
@@ -293,7 +293,8 @@
      "label": "Hoops Rumors",
      "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
     }
-   ]
+   ],
+   "headlineEn": "Anunoby day-to-day with left calf strain, out third straight game"
   },
   {
    "id": "gh-20261126-rss-lamelo-ball-ankle-injury",
@@ -313,7 +314,8 @@
      "label": "Hoops Rumors",
      "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
     }
-   ]
+   ],
+   "headlineEn": "LaMelo Ball exits vs. Thunder with ankle injury"
   },
   {
    "id": "gh-20261126-gossip-doncic-outburst-redick",
@@ -326,7 +328,8 @@
    "sourceName": "Heavy",
    "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-mamu/",
    "genre": "ドロドロ",
-   "top": false
+   "top": false,
+   "headlineEn": "Doncic's heated words to a teammate go viral; Redick defends him"
   },
   {
    "id": "gh-20261126-gossip-kuzma-fashion-clapback",
@@ -339,7 +342,8 @@
    "sourceName": "Sportskeeda",
    "url": "https://opera.sportskeeda.com/basketball/news-hop-d-k-please-kyle-kuzma-fires-no-holds-barred-reply-ex-nba-stars-mocking-fashion-choices",
    "genre": "ドロドロ",
-   "top": false
+   "top": false,
+   "headlineEn": "Kuzma fires back at ex-players mocking his fashion"
   },
   {
    "id": "gh-20261126-gossip-iverson-turkey-giveaway",
@@ -350,7 +354,8 @@
    "sourceName": "Parade",
    "url": "https://parade.com/celebrities/allen-iverson-thanksgiving-turkey-giveaway-virginia-hometown",
    "genre": "ほのぼの",
-   "top": false
+   "top": false,
+   "headlineEn": "Iverson donates 263 turkeys in hometown Thanksgiving giveaway"
   },
   {
    "id": "gh-20261125-gossip-kyrie-irving-shoes-fan",
@@ -358,12 +363,13 @@
    "teams": [
     "DAL"
    ],
-   "headline": "カイリー・アービング、NBAカップ勝利後に少年ファンへシューズをプレゼント",
+   "headline": "カイリー・アービング、カップ戦勝利後に少年ファンへシューズを贈る",
    "date": "2026-11-25",
    "sourceName": "ClutchPoints",
    "url": "https://clutchpoints.com/nba/dallas-mavericks/mavericks-news-kyrie-irving-fan-gift-nba-cup-win-nuggets",
    "top": false,
-   "genre": "ほのぼの"
+   "genre": "ほのぼの",
+   "headlineEn": "Kyrie gives his shoes to a young fan after NBA Cup win"
   },
   {
    "id": "gh-20261125-gossip-clingan-poster-lebron",
@@ -377,7 +383,8 @@
    "sourceName": "Sportsnaut",
    "url": "https://sportsnaut.com/nba/donovan-clingan-posterized-lebron-james",
    "top": false,
-   "genre": "ドロドロ"
+   "genre": "ドロドロ",
+   "headlineEn": "Clingan posterizes LeBron as \"LeWashed\" trends"
   },
   {
    "id": "gh-20261123-gossip-butler-tatum-friday-spoof",
@@ -391,7 +398,8 @@
    "sourceName": "NY Post",
    "url": "https://nypost.com/2026/11/23/sports/jimmy-butler-trolls-jayson-tatum-after-warriors-beat-celtics/",
    "top": false,
-   "genre": "ドロドロ"
+   "genre": "ドロドロ",
+   "headlineEn": "Butler trolls Tatum with AI \"Friday\" video"
   },
   {
    "id": "gh-20261125-gossip-paul-george-ankle-breaker",
@@ -405,7 +413,8 @@
    "sourceName": "ProFootballNetwork",
    "url": "https://www.profootballnetwork.com/nba/ankle-breaker-paul-george-stepback-stare-down/",
    "top": false,
-   "genre": "キラキラ"
+   "genre": "キラキラ",
+   "headlineEn": "Paul George's step-back sends defender to the floor"
   },
   {
    "id": "gh-20261122-gossip-draymond-eddie-johnson",
@@ -419,7 +428,8 @@
    "sourceName": "azcentral",
    "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
    "top": false,
-   "genre": "ドロドロ"
+   "genre": "ドロドロ",
+   "headlineEn": "Draymond, analyst Eddie Johnson spar on X"
   },
   {
    "id": "gh-20261123-gossip-gg-jackson-community-assist",
@@ -447,7 +457,8 @@
    "sourceName": "Yardbarker",
    "url": "https://www.yardbarker.com/nba/articles/be_honest_doc_rivers_gives_update_on_giannis_antetokounmpo_relationship_after_iq_comments/s1_17664_44616054",
    "top": false,
-   "genre": "舞台裏"
+   "genre": "舞台裏",
+   "headlineEn": "Rivers says relationship with Giannis is \"all good\""
   },
   {
    "id": "gh-20261125-gossip-brunson-swift",
@@ -460,7 +471,8 @@
    "sourceName": "EssentiallySports",
    "url": "https://www.essentiallysports.com/nba-active-basketball-news-jalen-brunson-breaks-silence-on-taylor-swift-after-tyler-kolek-called-her-the-fakest-celebrity-of-knicks-fandom/",
    "top": false,
-   "genre": "キラキラ"
+   "genre": "キラキラ",
+   "headlineEn": "Brunson defends Taylor Swift as \"a great Knicks fan\""
   },
   {
    "id": "gh-20261125-gossip-shelton-navarrette",
@@ -473,7 +485,8 @@
    "sourceName": "Yardbarker",
    "url": "https://www.yardbarker.com/general_sports/articles/ben_sheltons_nba_courtside_moment_with_inde_navarrette_sparks_rumours_after_trinity_rodman_split/s1_17664_44615395",
    "top": false,
-   "genre": "キラキラ"
+   "genre": "キラキラ",
+   "headlineEn": "Ben Shelton chats with actress Madelyn Navarrette at Knicks game"
   },
   {
    "category": "トレード",
@@ -487,7 +500,8 @@
     "UTA"
    ],
    "top": false,
-   "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz"
+   "url": "https://www.slcdunk.com/jazz-rumors/70904/nba-trade-rumors-trade-coming-for-the-jazz",
+   "headlineEn": "Jazz actively exploring the trade market"
   },
   {
    "id": "gh-20261125-nnaji-trade-fischer",
@@ -502,7 +516,7 @@
    "reporter": "Jake Fischer",
    "category": "トレード",
    "top": false,
-   "headlineEn": "Nuggets exploring a trade for Zeke Nnaji; plan to keep their 2031 first-round pick"
+   "headlineEn": "Nuggets exploring Zeke Nnaji trade, keeping 2031 first-rounder"
   },
   {
    "id": "gh-20261124-kawhi-workouts-scotto",
@@ -516,7 +530,8 @@
    "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
    "reporter": "Michael Scotto",
    "category": "怪我",
-   "top": false
+   "top": false,
+   "headlineEn": "Kawhi begins individual workouts, out at least one more week"
   },
   {
    "id": "gh-20261125-clippers-sellers-fischer",
@@ -537,7 +552,8 @@
      "label": "NY Post",
      "url": "https://sports.yahoo.com/nba/articles/clippers-interim-gm-given-full-130000542.html"
     }
-   ]
+   ],
+   "headlineEn": "Clippers lean sellers; Raptors eyeing center help"
   },
   {
    "id": "gh-20261125-fultz-raptors905-scotto",
@@ -545,13 +561,14 @@
    "teams": [
     "TOR"
    ],
-   "headline": "フルツ、ラプターズ傘下のGリーグチーム「Raptors 905」に加入へ",
+   "headline": "フルツ、ラプターズ傘下Gリーグ「Raptors 905」に加入へ",
    "date": "2026-11-25",
    "sourceName": "HoopsHype",
    "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/25/markelle-fultz-to-join-raptors-g-league-affiliate/92958550007/",
    "reporter": "Michael Scotto",
    "category": "契約",
-   "top": false
+   "top": false,
+   "headlineEn": "Fultz set to join Raptors 905 in the G League"
   },
   {
    "id": "gh-20261125-kpj-magic-agreement-shams",
@@ -588,7 +605,8 @@
    "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-elite-shooter-trade-news-doncic/",
    "reporter": "Jake Fischer",
    "category": "トレード",
-   "top": false
+   "top": false,
+   "headlineEn": "Fischer: Brook Lopez an \"appealing target\" for Lakers"
   },
   {
    "id": "gh-20261126-rss-embiid-out-heat-illness",
@@ -607,7 +625,8 @@
      "label": "Yahoo Sports",
      "url": "https://sports.yahoo.com/nba/article/76ers-rule-out-jaylen-brown-hamstring-list-joel-embiid-illness-as-questionable-for-fridays-game-vs-pacers-225906822.html"
     }
-   ]
+   ],
+   "headlineEn": "Embiid (illness) out vs. Heat, second straight game"
   },
   {
    "id": "gh-20261125-gossip-wembanyama-mr-morality",
@@ -620,7 +639,8 @@
    "sourceName": "ProFootballNetwork",
    "url": "https://www.profootballnetwork.com/nba/fans-defend-victor-wembanyama-mr-morality/",
    "top": false,
-   "genre": "舞台裏"
+   "genre": "舞台裏",
+   "headlineEn": "Fans defend Wembanyama amid \"Mr. Morality\" talk"
   },
   {
    "id": "gh-20261125-gossip-davis-kyshawn-trip",
@@ -634,7 +654,8 @@
    "sourceName": "Sports Illustrated",
    "url": "https://www.si.com/nba/wizards/onsi/anthony-davis-clears-wizards-teammate-s-name-regarding-viral-blunder-01m887kymefc",
    "top": false,
-   "genre": "舞台裏"
+   "genre": "舞台裏",
+   "headlineEn": "Davis admits he tripped Kyshawn George"
   },
   {
    "id": "gh-20261125-gossip-selena-gomez-spurs",
@@ -642,12 +663,13 @@
    "teams": [
     "SAS"
    ],
-   "headline": "セレーナ・ゴメス、スパーズ戦を観戦　ウェンバンヤマ「セレーナのために見せつけた」",
+   "headline": "セレーナ・ゴメスがスパーズ戦を観戦　ウェンバンヤマ「見せつけた」",
    "date": "2026-11-25",
    "sourceName": "Sports Illustrated",
    "url": "https://www.si.com/onsi/athlete-lifestyle/victor-wembanyama-makes-playful-admission-at-selena-gomezs-spurs-courtside-appearance",
    "top": false,
-   "genre": "キラキラ"
+   "genre": "キラキラ",
+   "headlineEn": "Selena Gomez watches Spurs; Wembanyama says he showed off for her"
   },
   {
    "id": "gh-20261126-rss-reaves-full-practice-spurs",
@@ -666,7 +688,8 @@
      "label": "NBC Sports",
      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/austin-reaves-heel-questionable-friday-vs-spurs"
     }
-   ]
+   ],
+   "headlineEn": "Reaves back to full practice; status vs. Spurs TBD"
   },
   {
    "id": "gh-20261125-gossip-draymond-bench-kerr",
@@ -679,7 +702,8 @@
    "sourceName": "ClutchPoints",
    "url": "https://clutchpoints.com/nba/golden-state-warriors/warriors-news-draymond-green-tells-steve-kerr-open-bench-role-without-stephen-curry",
    "top": false,
-   "genre": "舞台裏"
+   "genre": "舞台裏",
+   "headlineEn": "Draymond on Curry-less slump: \"Start me off the bench\""
   },
   {
    "id": "gh-20261125-gossip-giannis-herro-handshake",
@@ -693,7 +717,8 @@
    "sourceName": "Yardbarker",
    "url": "https://www.yardbarker.com/nba/articles/even_warriors_draymond_green_is_shocked_by_giannis_stiffing_ex_bucks_teammates_bam_adebayo_vs_tyler_herro_beef/s1_17113_44618521",
    "top": false,
-   "genre": "ドロドロ"
+   "genre": "ドロドロ",
+   "headlineEn": "No handshake between Giannis and Herro vs. former teams"
   },
   {
    "id": "gh-20261123-gossip-randle-turkey-drive",
@@ -706,7 +731,8 @@
    "sourceName": "Athlon Sports",
    "url": "https://athlonsports.com/nba/brooklyn-nets/nets-julius-randle-sends-powerful-message-ahead-of-thanksgiving",
    "top": false,
-   "genre": "ほのぼの"
+   "genre": "ほのぼの",
+   "headlineEn": "Randle gives away 400 turkeys in Brooklyn"
   },
   {
    "id": "gh-20261126-rss-haliburton-nears-return",
@@ -729,7 +755,8 @@
      "label": "Hoops Rumors",
      "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
     }
-   ]
+   ],
+   "headlineEn": "Haliburton goes full practice, nearing return"
   },
   {
    "id": "gh-20261126-rss-brown-exits-heat-hamstring",
@@ -748,7 +775,8 @@
      "label": "ESPN",
      "url": "https://www.espn.com/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday"
     }
-   ]
+   ],
+   "headlineEn": "Jaylen Brown exits vs. Heat with hamstring issue"
   },
   {
    "id": "gh-20261126-gossip-brooks-durant-beef",
@@ -762,7 +790,8 @@
    "sourceName": "Sports Illustrated",
    "url": "https://www.si.com/nba/suns/onsi/dillon-brooks-ejected-kevin-durant-beef-boils-over-phoenix-suns-houston-rockets-clash",
    "genre": "ドロドロ",
-   "top": false
+   "top": false,
+   "headlineEn": "Brooks ejected after spat with Durant in Suns-Rockets clash"
   },
   {
    "id": "gh-20261126-gossip-draymond-praises-eddie-johnson",
@@ -776,7 +805,8 @@
    "sourceName": "Heavy",
    "url": "https://heavy.com/sports/nba/golden-state-warriors/draymond-green-eddie-johnson-online-beef/",
    "genre": "ドロドロ",
-   "top": false
+   "top": false,
+   "headlineEn": "Draymond praises Eddie Johnson after their X feud"
   },
   {
    "id": "gh-20261126-gossip-holmgren-fur-coat-roast",
@@ -790,7 +820,8 @@
    "sourceName": "Heavy",
    "url": "https://heavy.com/sports/nba/oklahoma-city-thunder/chet-holmgren-roasted-by-shaq-barkley/",
    "genre": "キラキラ",
-   "top": false
+   "top": false,
+   "headlineEn": "Holmgren roasted by Shaq and Barkley for fur coat on bench"
   },
   {
    "id": "gh-20261126-gossip-stiller-brunson-pumpfake",
