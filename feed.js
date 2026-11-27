@@ -128,7 +128,13 @@ window.NBA_FEED = {
    "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html",
    "reporter": "Marc Stein",
    "category": "怪我",
-   "top": true
+   "top": true,
+   "related": [
+    {
+     "label": "RealGM",
+     "url": "https://basketball.realgm.com/wiretap/288258/DeAaron-Fox-Dylan-Harper-Upgraded-To-Questionable-For-Fridays-Game-Against-Lakers"
+    }
+   ]
   },
   {
    "id": "gh-20261127-pistons-trio-out-bucks",
@@ -1205,7 +1211,7 @@ window.NBA_FEED = {
    "top": false
   }
  ],
- "updatedAt": "2026-11-27T22:42:10+09:00",
+ "updatedAt": "2026-11-27T23:20:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
