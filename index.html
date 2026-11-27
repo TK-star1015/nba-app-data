@@ -1968,12 +1968,12 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
    モバイル：セクション並び順（TK承認 2026-11-27／DOM移動方式）
    ・対象はモバイル表示（1024px以下）のみ。PC（1025px以上）の
      レイアウト（速報ソースの右サイドバー配置）は一切変えない
-   ・ブロック順は TOP NEWS → ジャンル別ニュース → TEAMS →
-     オフコート → 速報ソース。中身は変更しない
+   ・ブロック順は TOP NEWS → TEAMS → ジャンル別ニュース →
+     オフコート → 速報ソース（TK実機の従来順に合わせ 2026-11-27
+     再修正）。中身は変更しない
    ・並べ替え自体は JS（applySectionOrder）が実際の DOM ノードを
      移動して行う。旧方式（display:contents ＋ CSS order）は
-     iOS Safari で効かず、ジャンル別ニュースが TEAMS の後ろに
-     回る不具合が出たため廃止した
+     iOS Safari で効かなかったため廃止した
    ・このブロックの役割は積み方の指定だけ：.wrap を縦積みにし、
      .cols を1カラム化する（移動後の .cols にはジャンル別
      ニュース列だけが残るため、2カラムグリッドのままだと
@@ -4523,14 +4523,14 @@ if(DESKTOP_MQ){
   else if(DESKTOP_MQ.addListener)DESKTOP_MQ.addListener(syncRoomPane);
 }
 /* ===== モバイル：セクション並び順（DOM移動方式）=====
-   モバイル（1024px以下）のブロック順を TOP NEWS → ジャンル別
-   ニュース → TEAMS → オフコート → 速報ソース にするため、実際の
-   DOM ノードを移動して並べ替える。旧方式（display:contents ＋
-   CSS order）は iOS Safari で効かず、ジャンル別ニュースが TEAMS
-   の後ろに表示される不具合が出たため廃止した（CSS 側の order／
-   display:contents 指定も撤去済み）。
-   ・.cols（ジャンル別ニュース列）ごと TOP NEWS の直後へ
-   ・オフコート（#gossipZone）を TEAMS（.teams-panes）の直後へ
+   モバイル（1024px以下）のブロック順を TOP NEWS → TEAMS →
+   ジャンル別ニュース → オフコート → 速報ソース にするため、実際の
+   DOM ノードを移動して並べ替える（TKの実機では従来ずっと TEAMS が
+   2番目だった並びが正。2026-11-27 再修正）。旧方式
+   （display:contents ＋ CSS order）は iOS Safari で効かなかった
+   ため廃止した（CSS 側の order／display:contents 指定も撤去済み）。
+   ・.cols（ジャンル別ニュース列）ごと TEAMS（.teams-panes）の直後へ
+   ・オフコート（#gossipZone）を .cols の直後へ
    ・速報ソース列（.side-col）をオフコートの直後へ
    PC（1025px以上）では元の配置にそのまま戻し、右サイドバーの
    2カラム表示を維持する。元の親と次の兄弟は初回の移動時に記録し、
@@ -4557,8 +4557,8 @@ function applySectionOrder(){
         side:{p:side.parentNode,n:side.nextSibling}
       };
     }
-    wrap.insertBefore(cols,mapHead);
-    wrap.insertBefore(gossip,panes.nextSibling);
+    wrap.insertBefore(cols,panes.nextSibling);
+    wrap.insertBefore(gossip,cols.nextSibling);
     wrap.insertBefore(side,gossip.nextSibling);
     sectionMoved=true;
   }else{
