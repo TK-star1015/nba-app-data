@@ -1,6 +1,80 @@
 window.NBA_FEED = {
  "articles": [
   {
+   "id": "gh-20261128-mcconnell-out-76ers",
+   "level": "official",
+   "teams": [
+    "IND"
+   ],
+   "headline": "マコネル、左ハムストリングで土曜シクサーズ戦を欠場",
+   "headlineEn": "T.J. McConnell out vs. 76ers on Friday with left hamstring injury management",
+   "date": "2026-11-28",
+   "time": "08:00",
+   "ts": "2026-11-28T08:00:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_06_00PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "ペイサーズのT.J.・マコネルが左ハムストリングの故障管理のため、土曜のシクサーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後6時版）でクエスチョナブルから欠場へ変更された。離脱期間についての言及はレポートにない。",
+   "summaryEn": "Pacers guard T.J. McConnell will miss Friday's game against the 76ers due to left hamstring injury management. The latest edition of the NBA's official injury report (6:00 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report."
+  },
+  {
+   "id": "gh-20261128-oubre-available-76ers",
+   "level": "official",
+   "teams": [
+    "IND"
+   ],
+   "headline": "ウーブレ、右手の裂傷も土曜シクサーズ戦に出場可能へ格上げ",
+   "headlineEn": "Kelly Oubre Jr. upgraded to available vs. 76ers on Friday despite right hand laceration",
+   "date": "2026-11-28",
+   "time": "08:00",
+   "ts": "2026-11-28T08:00:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_06_00PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "ペイサーズのケリー・ウーブレJr.が右手の裂傷のため、土曜のシクサーズ戦はクエスチョナブルとされていたが、NBA公式インジャリーレポートの最新版（米東部時間11月27日午後6時版）で出場可能へ格上げされた。離脱期間についての言及はレポートにない。",
+   "summaryEn": "Pacers forward Kelly Oubre Jr. has been upgraded to available for Friday's game against the 76ers despite a right hand laceration, per the latest edition of the NBA's official injury report (6:00 p.m. ET, Nov. 27). He had previously been listed as questionable. No timeline was given in the report."
+  },
+  {
+   "id": "gh-20261128-martin-available-nets",
+   "level": "official",
+   "teams": [
+    "TOR"
+   ],
+   "headline": "アリジャ・マーティン、左膝の痛みも土曜ネッツ戦に出場可能へ格上げ",
+   "headlineEn": "Alijah Martin upgraded to available vs. Nets on Friday despite left knee soreness",
+   "date": "2026-11-28",
+   "time": "08:00",
+   "ts": "2026-11-28T08:00:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_06_00PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "ラプターズのアリジャ・マーティンが左膝の痛みのため、土曜のネッツ戦はクエスチョナブルとされていたが、NBA公式インジャリーレポートの最新版（米東部時間11月27日午後6時版）で出場可能へ格上げされた。離脱期間についての言及はレポートにない。",
+   "summaryEn": "Raptors guard Alijah Martin has been upgraded to available for Friday's game against the Nets despite left knee soreness, per the latest edition of the NBA's official injury report (6:00 p.m. ET, Nov. 27). He had previously been listed as questionable. No timeline was given in the report."
+  },
+  {
+   "id": "gh-20261128-mathurin-doubtful-clippers",
+   "level": "reported",
+   "teams": [
+    "NOP"
+   ],
+   "headline": "マサリン、左足底筋膜炎で土曜クリッパーズ戦はダウトフル",
+   "headlineEn": "Bennedict Mathurin doubtful vs. Clippers on Friday with left plantar fasciitis",
+   "date": "2026-11-28",
+   "time": "04:01",
+   "ts": "2026-11-28T04:01:35+09:00",
+   "sourceName": "Bluesky",
+   "url": "https://bsky.app/profile/lawmurraythenu.bsky.social/post/3n3cusaydes24",
+   "reporter": "Law Murray",
+   "category": "怪我",
+   "minor": true,
+   "top": false,
+   "summary": "ペリカンズのベネディクト・マサリンが左足底筋膜炎のため、土曜のクリッパーズ戦はダウトフル（出場が疑わしい）とされた。NBA公式インジャリーレポートでもダウトフルと記載されている。",
+   "summaryEn": "Pelicans guard Bennedict Mathurin is doubtful for Friday's game against the Clippers with left plantar fasciitis. The NBA's official injury report also lists him as doubtful."
+  },
+  {
    "id": "gh-20261128-lavine-sabonis-want-out-kings",
    "level": "rumor",
    "teams": [
@@ -461,7 +535,13 @@ window.NBA_FEED = {
    "category": "怪我",
    "top": true,
    "summary": "ピストンズはケイド・カニングハムが右膝の故障でバックス戦を欠場。ジェイレン・デューレンとダンカン・ロビンソンも欠場し、主力3人を欠いて臨むことになる。",
-   "summaryEn": "The Pistons will be without Cade Cunningham (right knee) against the Bucks, and Jalen Duren and Duncan Robinson are also out, leaving Detroit missing three key players."
+   "summaryEn": "The Pistons will be without Cade Cunningham (right knee) against the Bucks, and Jalen Duren and Duncan Robinson are also out, leaving Detroit missing three key players.",
+   "related": [
+    {
+     "label": "Bluesky",
+     "url": "https://bsky.app/profile/omarisankofa.bsky.social/post/3n3dbxn7cak26"
+    }
+   ]
   },
   {
    "id": "gh-20261127-edey-ankle-soreness",
@@ -1311,11 +1391,16 @@ window.NBA_FEED = {
     {
      "label": "Hoops Rumors",
      "url": "https://www.hoopsrumors.com/2026/11/injury-notes-pacers-sixers-knicks-ball-edey.html"
+    },
+    {
+     "label": "Bluesky",
+     "url": "https://bsky.app/profile/scottagness.bsky.social/post/3n3cjbdmxrs2d"
     }
    ],
    "headlineEn": "Haliburton goes full practice, nearing return",
    "summary": "タイリース・ハリバートンが全体練習にフル参加し、復帰が近づいている。離脱していた司令塔の戦列復帰が見えてきた。今週2度目となるGリーグでの練習参加を経てNBAに復帰登録されており、復帰は近いとみられている。",
-   "summaryEn": "Tyrese Haliburton fully participated in team practice and is nearing his return, with the Pacers' floor general close to rejoining the lineup. After a second practice assignment with the G League's Noblesville Boom this week, he has been recalled to the NBA and is expected back soon."
+   "summaryEn": "Tyrese Haliburton fully participated in team practice and is nearing his return, with the Pacers' floor general close to rejoining the lineup. After a second practice assignment with the G League's Noblesville Boom this week, he has been recalled to the NBA and is expected back soon.",
+   "category": "怪我"
   },
   {
    "id": "gh-20261126-rss-brown-exits-heat-hamstring",
@@ -1333,11 +1418,15 @@ window.NBA_FEED = {
     {
      "label": "ESPN",
      "url": "https://www.espn.com/nba/story/_/id/50606614/76ers-jaylen-brown-hamstring-friday"
+    },
+    {
+     "label": "Bluesky",
+     "url": "https://bsky.app/profile/ginamizell.bsky.social/post/3n3dcabby7c2m"
     }
    ],
    "headlineEn": "Jaylen Brown exits vs. Heat with hamstring issue",
-   "summary": "ジェイレン・ブラウンがハムストリングの再発でヒート戦の途中に退場した。今後の状態は経過を見て判断される。",
-   "summaryEn": "Jaylen Brown exited the Heat game midway after his hamstring flared up again. His status will be monitored going forward."
+   "summary": "ジェイレン・ブラウンがハムストリングの再発でヒート戦の途中に退場した。MRIでは新たな損傷や再発は認められず、2連戦の遠征には帯同しない。",
+   "summaryEn": "Jaylen Brown exited the Heat game midway after his hamstring flared up again. An MRI showed no new injury or reaggravation, and he did not travel with the team for the two-game trip."
   },
   {
    "id": "gh-20261126-gossip-brooks-durant-beef",
@@ -1926,7 +2015,7 @@ window.NBA_FEED = {
    "summaryEn": "Amick said on a radio show that the Warriors are not telling rival GMs to keep Draymond Green out of trade conversations. Green picked up his player option for this season and was not offered an extension, and Amick noted expiring contracts are the easiest to move for salary matching. He added Green can still defend at a high level and help another team as a veteran short-term piece."
   }
  ],
- "updatedAt": "2026-11-28T07:54:57+09:00",
+ "updatedAt": "2026-11-28T08:35:37+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
@@ -1943,4 +2032,5 @@ window.NBA_FEED = {
   "gh-20261126-rss-haliburton-nears-return",
   "gh-20261126-anunoby-calf-strain"
  ]
-};
+}
+;
