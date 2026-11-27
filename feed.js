@@ -15,7 +15,8 @@ window.NBA_FEED = {
    "top": false,
    "summary": "レイカーズがガードのブロニー・ジェームズをGリーグ傘下のコーチェラ・バレー・レイカーズへアサインしたと発表した。金曜のスパーズ戦には帯同せず、育成目的の再アサインとなる。コーチェラ・バレーの次の試合は11月29日と12月3日。",
    "summaryEn": "The Lakers assigned guard Bronny James to their G League affiliate, the Coachella Valley Lakers, the team announced. He will miss Friday's game against the Spurs on the developmental assignment. Coachella Valley's next games are Nov. 29 and Dec. 3.",
-   "time": "02:42"
+   "time": "02:42",
+   "ts": "2026-11-28T02:42:00+09:00"
   },
   {
    "id": "gh-20261127-wiggins-probable-knicks",
