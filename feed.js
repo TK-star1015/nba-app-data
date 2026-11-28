@@ -1,6 +1,42 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261128-gossip-rose-mj-goat",
+      "level": "gossip",
+      "teams": [
+        "PHI",
+        "IND"
+      ],
+      "headline": "ジェイレン・ローズ、レブロン活躍中に「MJこそGOAT」投稿　ファンからツッコミ殺到",
+      "headlineEn": "Jalen Rose tweets 'MJ is the GOAT' as LeBron cooks Pacers, fans react",
+      "summary": "シクサーズがペイサーズに111-87で快勝した金曜の夜、レブロン・ジェームズが21得点の活躍を見せる中、元ペイサーズのジェイレン・ローズがXに「マイケル・ジョーダンこそGOAT」と投稿した。古巣を打ち破るレブロンの活躍の最中だっただけに、ファンからはタイミングへのツッコミが殺到した。",
+      "summaryEn": "As LeBron James dropped 21 points in the 76ers' 111-87 win over the Pacers on Friday night, former Pacer Jalen Rose posted on X that Michael Jordan is the GOAT. With LeBron torching his old team, fans piled on the timing of the post.",
+      "date": "2026-11-28",
+      "ts": "2026-11-28T19:34:00+09:00",
+      "sourceName": "Basketball Network",
+      "url": "https://www.basketballnetwork.net/latest-news/jalen-rose-sparks-backlash-with-michael-jordan-tweet-while-lebron-james-dominates-the-pacers",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261128-gossip-turner-thompson-ball",
+      "level": "gossip",
+      "teams": [
+        "MIL",
+        "DET"
+      ],
+      "headline": "マイルズ・ターナー、オサー・トンプソンにボールを投げつける　ピストンズ戦で小競り合い",
+      "headlineEn": "Myles Turner throws ball at Ausar Thompson in heated Pistons exchange",
+      "summary": "バックスがピストンズに98-113で敗れた金曜の試合、第4クォーターにマイルズ・ターナーとオサー・トンプソンが小競り合いになった。トンプソンがターナーの腕を払いのけると、ターナーはボールを投げつけ、審判とコーチが仲裁に入った。両者にテクニカルファウルが出たが退場はなく、動画はSNSで拡散された。",
+      "summaryEn": "In the fourth quarter of the Bucks' 113-98 loss to the Pistons on Friday, Myles Turner and Ausar Thompson got into a heated exchange. After Thompson shoved Turner's arm away, Turner threw the basketball at him, prompting officials and coaches to step in. Both were hit with technicals but stayed in the game, and video of the moment went viral.",
+      "date": "2026-11-28",
+      "ts": "2026-11-28T14:05:28+09:00",
+      "sourceName": "Hoops Wire",
+      "url": "https://hoopswire.com/bucks-myles-turner-throws-ball-at-pistons-ausar-thompson-in-heated-exchange/",
+      "genre": "ドロドロ",
+      "top": false
+    },
+    {
       "id": "gh-20261128-niederhauser-exits-pelicans-toe",
       "level": "reported",
       "teams": [
@@ -2075,7 +2111,7 @@ window.NBA_FEED = {
       "summaryEn": "Draymond opened up about the team's struggles without Curry, saying he'd accept a bench role."
     }
   ],
-  "updatedAt": "2026-11-28T19:01:00+09:00",
+  "updatedAt": "2026-11-28T21:05:00+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
@@ -2098,4 +2134,5 @@ window.NBA_FEED = {
     "gh-20261127-towns-questionable-heat",
     "gh-20261128-yang-hansen-questionable-warriors"
   ]
-};
+}
+;
