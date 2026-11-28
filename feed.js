@@ -1,6 +1,47 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261128-niederhauser-exits-pelicans-toe",
+      "level": "reported",
+      "teams": [
+        "LAC"
+      ],
+      "headline": "ニーダーハウザー、右足指の負傷で土曜ペリカンズ戦を途中退場",
+      "headlineEn": "Yanic Konan Niederhauser exits Pelicans game with right toe injury",
+      "date": "2026-11-28",
+      "sourceName": "NBC Sports",
+      "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-27/yanic-konan-niederhauser-toe-will-not-return",
+      "category": "怪我",
+      "top": false,
+      "minor": true,
+      "summary": "クリッパーズのヤニック・コナン・ニーダーハウザーが、土曜のペリカンズ戦で右足指を負傷し、そのまま復帰しなかった。ベンチから10分間の出場で2得点・1ブロックを記録した。3月に右足のリスフラン関節を負傷して昨季を終え、今季は復帰したばかりの5試合目の出場で、週末にさらに検査を受ける見通し。",
+      "summaryEn": "Clippers center Yanic Konan Niederhauser exited Friday's game against the Pelicans with a right toe injury and did not return. He had two points and a block in 10 minutes off the bench. It was only his fifth appearance of the season after a Lisfranc injury in his right foot ended last season early, and he will be evaluated further over the weekend."
+    },
+    {
+      "id": "gh-20261128-caleb-martin-exits-suns-ankle",
+      "level": "reported",
+      "teams": [
+        "DAL"
+      ],
+      "headline": "ケイレブ・マーティン、左足首の捻挫で土曜サンズ戦を途中退場　デイ・トゥ・デイ",
+      "headlineEn": "Caleb Martin exits Suns game with left ankle sprain, day-to-day",
+      "date": "2026-11-28",
+      "sourceName": "DallasHoopsJournal",
+      "reporter": "Grant Afseth",
+      "url": "https://dallassportsjournal.com/dallas-mavericks-rule-out-caleb-martin-with-left-ankle-sprain-vs-phoenix-suns/",
+      "category": "怪我",
+      "top": false,
+      "minor": true,
+      "summary": "マーベリックスのケイレブ・マーティンが、土曜のサンズ戦で左足首を捻挫し、後半は出場しなかった。第2クォーターにコート外に着地した際に痛めた。退場までに14分間で5得点・4リバウンド・4アシストを記録。デイ・トゥ・デイの見通しで、次戦セルティックス戦の出場はクエスチョナブルとみられる。",
+      "summaryEn": "Mavericks forward Caleb Martin exited Friday's game against the Suns with a left ankle sprain and did not return for the second half. He landed out of bounds in the second quarter and finished with five points, four rebounds and four assists in 14 minutes. He is considered day-to-day and questionable for Monday's game against the Celtics.",
+      "related": [
+        {
+          "label": "NBC Sports",
+          "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-27/caleb-martin-ankle-will-not-return-vs-suns"
+        }
+      ]
+    },
+    {
       "id": "gh-20261124-gossip-wembanyama-shunk",
       "level": "gossip",
       "teams": [
@@ -2034,7 +2075,7 @@ window.NBA_FEED = {
       "summaryEn": "Draymond opened up about the team's struggles without Curry, saying he'd accept a bench role."
     }
   ],
-  "updatedAt": "2026-11-28T18:46:00+09:00",
+  "updatedAt": "2026-11-28T19:01:00+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
@@ -2057,5 +2098,4 @@ window.NBA_FEED = {
     "gh-20261127-towns-questionable-heat",
     "gh-20261128-yang-hansen-questionable-warriors"
   ]
-}
-;
+};
