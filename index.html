@@ -1608,6 +1608,7 @@ body.lang-en .section-head h2{font-size:var(--fs-h3)}
     margin:0 calc(var(--gutter) * -1);padding:var(--sp-4) var(--gutter);
   }
   .gossip-zone .news-item:first-of-type{border-top:0;padding-top:var(--sp-4)}
+  .gossip-zone .gossip-col+.gossip-col .news-item:first-of-type{border-top:1px solid var(--paper-line)}
   .gossip-zone .news-item:hover{background:transparent;border-color:var(--paper-line)}
   .gossip-zone .news-item:active{background:transparent}
 }
@@ -2470,7 +2471,7 @@ var UI={
   feedH:"ニュースアーカイブと検索", filterToggle:"絞り込み", feedSearchPh:"見出し・選手名・チーム名で検索",
   cAll:"すべて", cImportant:"公式", cRumor:"噂", cGossip:"ゴシップ", cTeamInfo:"チーム情報・記事",
   gossipCorner:"オフコート",
-  gossipNote:"コート外の小ネタ。話半分でどうぞ。",
+  gossipNote:"コート内外の話題。話半分でどうぞ。",
   gossipMore:"過去の記事を見る",
   tAll:"全種類", tTrade:"トレード", tContract:"契約", tInjury:"怪我", tAnalysis:"分析", tBuzz:"話題",
   pAll:"すべて", pToday:"今日", pDays3:"3日間", pDays7:"1週間", favOnly:"お気に入りチームのみ",
@@ -2544,7 +2545,7 @@ var UI={
   feedH:"News Archive & Search", filterToggle:"Filter", feedSearchPh:"Search headlines, players, teams",
   cAll:"All", cImportant:"Official", cRumor:"Rumors", cGossip:"Gossip", cTeamInfo:"Team News & Articles",
   gossipCorner:"OFF THE COURT",
-  gossipNote:"Off-court chatter — take it lightly.",
+  gossipNote:"On- and off-court chatter — take it lightly.",
   gossipMore:"See past stories",
   tAll:"All types", tTrade:"Trade", tContract:"Contract", tInjury:"Injury", tAnalysis:"Analysis", tBuzz:"Buzz",
   pAll:"All", pToday:"Today", pDays3:"3 days", pDays7:"1 week", favOnly:"Favorite teams only",
