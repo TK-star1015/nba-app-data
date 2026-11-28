@@ -668,6 +668,10 @@ window.NBA_FEED = {
     {
      "label": "Hoops Rumors",
      "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html"
+    },
+    {
+     "label": "HoopsHype",
+     "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/27/dylan-harper-deaaron-fox-back-for-spurs/92987755007/"
     }
    ]
   },
@@ -2304,7 +2308,7 @@ window.NBA_FEED = {
    "summaryEn": "Mo Bamba will miss Friday's game against the Nuggets due to illness. The latest edition of the NBA's official injury report (8:30 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report."
   }
  ],
- "updatedAt": "2026-11-28T11:07:52+09:00",
+ "updatedAt": "2026-11-28T11:15:34+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
