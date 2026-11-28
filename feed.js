@@ -1,6 +1,54 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261124-gossip-wembanyama-shunk",
+      "level": "gossip",
+      "teams": [
+        "SAS"
+      ],
+      "headline": "ウェンバンヤマ、ダンクを「シュート」で決める珍プレー　「シャンク」と命名されバズる",
+      "headlineEn": "Wembanyama 'shoots' a dunk from above the rim in viral 'shunk' moment",
+      "summary": "クリッパーズ戦の第4Q、ウェンバンヤマはダンクせずにリングの上からそっとシュートを放って決め、実況が「シャンク」と命名した。右手中指の水ぶくれが理由で「ダンクするたびに痛い」と本人が明かし、スティーブン・アダムズが「パクリ」とからかう一幕もあった。",
+      "summaryEn": "Late in the Clippers game, Wembanyama rose above the rim and gently shot the ball down through the hoop instead of dunking — a play the broadcast dubbed the 'shunk.' He said a blister on his right middle finger made dunking painful, and Steven Adams jokingly called it 'plagiarism.'",
+      "date": "2026-11-24",
+      "ts": "2026-11-24T21:28:04+09:00",
+      "sourceName": "Yardbarker",
+      "url": "https://www.yardbarker.com/nba/articles/unrealistic_nba_champion_loses_his_mind_over_victor_wembanyamas_new_move_that_was_accused_of_plagiarism/s1_17730_44610899",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261124-gossip-eason-failed-windmill",
+      "level": "gossip",
+      "teams": [
+        "HOU"
+      ],
+      "headline": "タリ・イーソン、ウィンドミルを盛大に失敗　ロケッツベンチの爆笑反応がバズる",
+      "headlineEn": "Tari Eason botches a windmill dunk as the Rockets bench loses it laughing",
+      "summary": "クリッパーズ戦の第4Q、スティールから独走したタリ・イーソンがウィンドミルに挑んだが、ボールはバックボードに当たって失敗。デュラントやバンブリートらベンチ全員が総立ちで爆笑する様子が「今季一番面白い場面」として拡散された。",
+      "summaryEn": "In the fourth quarter against the Clippers, Tari Eason picked a pocket, broke free and went for a windmill — only to have the ball float off the backboard. The whole Rockets bench, including Durant and VanVleet, erupted in laughter, and the clip spread as the funniest moment of the season so far.",
+      "date": "2026-11-24",
+      "sourceName": "Sports Illustrated",
+      "url": "https://www.si.com/nba/rockets-bench-reaction-to-tari-easons-epic-failed-dunk-funniest-highlight-of-nba-season",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261127-gossip-westbrook-thanksgiving",
+      "level": "gossip",
+      "teams": [],
+      "headline": "ラッセル・ウェストブルック、感謝祭に1,300食超を配布　雨の中14年目の慈善活動",
+      "headlineEn": "Russell Westbrook hands out 1,300+ Thanksgiving meals in the rain in 14th annual giveaway",
+      "summary": "ラッセル・ウェストブルックのWhy Not?財団が、育った南ロサンゼルスのジェシー・オーエンス公園で14年目となる感謝祭の食事配布を実施した。雨の中、1,300食以上の食事や冬物衣料などを困窮する家庭に届けた。9月のチャリティポーカー大会で集めた約91万ドルが活動資金の一部となっている。",
+      "summaryEn": "Russell Westbrook's Why Not? Foundation held its 14th annual Thanksgiving meal distribution at Jesse Owens Park in South LA, where he grew up. In the rain, volunteers handed out more than 1,300 meals plus winter clothing and supplies to families in need. Part of the funding came from the $912,500 raised at September's charity poker night.",
+      "date": "2026-11-27",
+      "ts": "2026-11-27T01:00:00+09:00",
+      "sourceName": "PokerNews",
+      "url": "https://www.pokernews.com/news/2026/11/russell-westbrook-poker-thanksgiving-giveaway-52904.htm",
+      "genre": "ほのぼの",
+      "top": false
+    },
+    {
       "id": "gh-20261128-sixers-trio-out-rockets",
       "level": "reported",
       "teams": [
@@ -1986,7 +2034,7 @@ window.NBA_FEED = {
       "summaryEn": "Draymond opened up about the team's struggles without Curry, saying he'd accept a bench role."
     }
   ],
-  "updatedAt": "2026-11-28T17:50:56+09:00",
+  "updatedAt": "2026-11-28T18:00:56+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
@@ -2009,4 +2057,5 @@ window.NBA_FEED = {
     "gh-20261127-towns-questionable-heat",
     "gh-20261128-yang-hansen-questionable-warriors"
   ]
-};
+}
+;
