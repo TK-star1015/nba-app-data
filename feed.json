@@ -1,6 +1,24 @@
 {
  "articles": [
   {
+   "id": "gh-20261128-embiid-available-pacers",
+   "level": "official",
+   "teams": [
+    "PHI"
+   ],
+   "headline": "エンビード、体調不良から回復し土曜ペイサーズ戦に出場可能へ",
+   "headlineEn": "Embiid available for Friday's game at Pacers after illness",
+   "date": "2026-11-28",
+   "time": "09:00",
+   "ts": "2026-11-28T09:00:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_07_00PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "体調不良で2試合連続欠場していたジョエル・エンビードが、土曜のペイサーズ戦に出場可能へ格上げされた。NBA公式インジャリーレポートの11月27日午後7時版（日本時間28日午前9時）で、クエスチョナブルからアベイラブルに変更された。シクサーズは同戦でジェイレン・ブラウンが左ハムストリングのため欠場する。",
+   "summaryEn": "Joel Embiid, who missed two straight games with an illness, has been upgraded to available for Friday's game at the Pacers. The NBA's official injury report (7:00 p.m. ET edition, Nov. 27) moved him from questionable to available. Jaylen Brown (left hamstring) remains out for Philadelphia in the same game."
+  },
+  {
    "id": "gh-20261128-nance-available-76ers",
    "level": "official",
    "teams": [
@@ -2154,7 +2172,7 @@
    "summaryEn": "Actor Timothee Chalamet watched the Knicks beat the Pacers 113-106 from courtside at Madison Square Garden — this time without girlfriend Kylie Jenner. Dressed in a pink puffer coat, he sat in the arena's celebrity row alongside Katie Holmes."
   }
  ],
- "updatedAt": "2026-11-28T09:02:24+09:00",
+ "updatedAt": "2026-11-28T09:15:07+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
