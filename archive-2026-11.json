@@ -2,6 +2,73 @@
   "version": 1,
   "articles": [
     {
+      "id": "gh-20261125-gossip-giannis-herro-handshake",
+      "level": "gossip",
+      "teams": [
+        "MIA",
+        "MIL"
+      ],
+      "headline": "ヤニスとヒーロー、古巣相手に握手なし　ドレイモンド「衝撃」",
+      "date": "2026-11-25",
+      "sourceName": "Yardbarker",
+      "url": "https://www.yardbarker.com/nba/articles/even_warriors_draymond_green_is_shocked_by_giannis_stiffing_ex_bucks_teammates_bam_adebayo_vs_tyler_herro_beef/s1_17113_44618521",
+      "top": false,
+      "genre": "ドロドロ",
+      "headlineEn": "No handshake between Giannis and Herro vs. former teams",
+      "summary": "ヤニスとヒーローが古巣対決で握手なしに終わり、ドレイモンドが「衝撃」と反応。両者の関係に注目が集まった。",
+      "summaryEn": "Giannis and Herro skipped the handshake in their reunion game, with Draymond calling it shocking."
+    },
+    {
+      "id": "gh-20261125-gossip-gloria-james-bow",
+      "level": "gossip",
+      "teams": [
+        "PHI",
+        "MIA"
+      ],
+      "headline": "レブロンのロゴ3Pに母グロリアもお辞儀　ファン沸く",
+      "headlineEn": "Even mom Gloria bows as LeBron drills logo three",
+      "date": "2026-11-25",
+      "sourceName": "Sportskeeda",
+      "url": "https://www.sportskeeda.com/basketball/news-even-momma-james-bowing-nba-fans-can-t-get-enough-as-gloria-james-bows-down-76ers-star-lighting-up-in-2nd-qtr",
+      "genre": "キラキラ",
+      "top": false,
+      "summary": "レブロンのロゴ3Pに母グロリアがお辞儀で反応し、ファンが沸いた。親子の微笑ましい場面だった。",
+      "summaryEn": "LeBron's logo three had his mother Gloria bowing in celebration, delighting fans."
+    },
+    {
+      "id": "gh-20261127-gossip-jerami-grant-thanksgiving",
+      "level": "gossip",
+      "teams": [
+        "MEM"
+      ],
+      "headline": "ジェラミ・グラント、感謝祭に212世帯へ食事を配布　メンフィスで恩返し",
+      "headlineEn": "Jerami Grant hands out Thanksgiving meals to 212 Memphis families",
+      "date": "2026-11-25",
+      "sourceName": "Commercial Appeal",
+      "url": "https://www.commercialappeal.com/story/sports/nba/grizzlies/2026/11/25/memphis-grizzlies-thanksgiving-jerami-grant-gg-jackson/92760304007/",
+      "genre": "ほのぼの",
+      "top": false,
+      "summary": "ジェラミ・グラントが感謝祭に212世帯へ食事を配布。メンフィスで恩返しを行った。",
+      "summaryEn": "Jerami Grant provided Thanksgiving meals to 212 families in Memphis."
+    },
+    {
+      "id": "gh-20261128-gossip-glorilla-grizzlies-courtside",
+      "level": "gossip",
+      "teams": [
+        "MEM",
+        "LAC"
+      ],
+      "headline": "グロリラ、地元メンフィスに凱旋　感謝祭前夜にグリズリーズを観戦",
+      "headlineEn": "GloRilla returns home to Memphis, cheers on Grizzlies on Thanksgiving eve",
+      "date": "2026-11-25",
+      "sourceName": "Lindy's Sports",
+      "url": "https://lindyssports.com/nba/memphis-grizzlies/glorilla-grizzlies-clippers-thanksgiving-eve",
+      "genre": "キラキラ",
+      "top": false,
+      "summary": "グラミー賞ノミネートのラッパー、グロリラが感謝祭前夜のグリズリーズ対クリッパーズ戦をフェデックスフォーラムで観戦した。地元メンフィス出身のスターの姿がSNSで話題になり、グリズリーズは115-97で勝利した。",
+      "summaryEn": "Grammy-nominated rapper GloRilla watched the Grizzlies beat the Clippers at FedExForum on Thanksgiving eve. The Memphis native's appearance lit up social media."
+    },
+    {
       "id": "gh-20261124-mcconnell-recall-fix",
       "level": "reported",
       "teams": [
@@ -17,6 +84,39 @@
       "top": false,
       "summary": "T.J.マコネルがGリーグから復帰した。戦列に戻ることで、ペイサーズのローテーションに厚みが加わる。",
       "summaryEn": "T.J. McConnell has been recalled from the G League, adding depth back to the Pacers' rotation."
+    },
+    {
+      "id": "gh-20261126-gossip-nick-wright-tickets",
+      "level": "gossip",
+      "teams": [
+        "PHI"
+      ],
+      "headline": "ニック・ライト、嘘の投稿で親切なファンにコートサイド席を贈る",
+      "headlineEn": "Nick Wright gifts courtside seats to kind fans after fake SOS post",
+      "date": "2026-11-24",
+      "sourceName": "OpenCourt Basketball",
+      "url": "https://www.opencourt-basketball.com/2026/11/24/nick-wright-pulls-off-surprise-by-giving-courtside-76ers-tickets-to-two-complete-strangers/",
+      "genre": "ほのぼの",
+      "top": false,
+      "summary": "解説者のニック・ライトが、嘘の投稿をきっかけに親切なファンへコートサイド席を贈った。粋な計らいが話題になった。",
+      "summaryEn": "Nick Wright gifted courtside seats to a kind fan after a fake post, in a gesture fans loved."
+    },
+    {
+      "id": "gh-20261124-kawhi-workouts-scotto-fix",
+      "level": "reported",
+      "teams": [
+        "TOR"
+      ],
+      "headline": "カワイ、個人練習を開始　少なくともあと1週間は離脱",
+      "date": "2026-11-24",
+      "sourceName": "Basketball News",
+      "url": "https://www.basketballnews.com/news/basketballnews-nba-active-news-toronto-raptors-get-major-kawhi-leonard-injury-update-after-concerning-one-seven-run-in-his-absence/",
+      "reporter": "Michael Scotto",
+      "category": "怪我",
+      "top": false,
+      "headlineEn": "Kawhi begins individual workouts, out at least one more week",
+      "summary": "カワイ・レナードが個人練習を開始した。ただし復帰はまだ先で、少なくともあと1週間は離脱が続く見通しとされる。",
+      "summaryEn": "Kawhi Leonard has begun individual workouts, but his return is still a while away, with at least another week of absence expected."
     },
     {
       "id": "gh-20261126-gossip-doncic-outburst-redick",
