@@ -1,6 +1,23 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261128-walter-out-nets",
+      "level": "reported",
+      "teams": [
+        "TOR"
+      ],
+      "headline": "ジャコービー・ウォルター、右太もも打撲でネッツ戦途中退場",
+      "headlineEn": "Ja'Kobe Walter exits Nets game with right quad contusion",
+      "date": "2026-11-28",
+      "sourceName": "Sportsnet",
+      "url": "https://www.sportsnet.ca/nba/article/raptors-jakobe-walter-exits-vs-nets-with-quad-injury/",
+      "category": "怪我",
+      "top": false,
+      "minor": true,
+      "summary": "ラプターズのジャコービー・ウォルターが、土曜のネッツ戦の第3クォーターに右太ももの打撲で途中退場し、そのまま欠場となった。ネッツのデイロン・シャープのスクリーンで倒れ、メディカルスタッフの確認を受けた後にロッカールームへ下がった。退場までに3得点・3リバウンド・3アシストを記録。今季はカワイ・レナードの離脱を受けて先発15試合を含む17試合に出場し、平均12.1得点としている。",
+      "summaryEn": "Raptors guard Ja'Kobe Walter exited Friday's game against the Nets with a right quad contusion and was ruled out for the rest of the game. He went down on a hard screen from Day'Ron Sharpe in the third quarter and headed to the locker room after being checked by the medical staff. Walter, who has started 15 games while Kawhi Leonard is sidelined, is averaging 12.1 points in 17 games this season."
+    },
+    {
       "id": "gh-20261128-irving-out-suns",
       "level": "official",
       "teams": [
@@ -278,6 +295,10 @@ window.NBA_FEED = {
         {
           "label": "HoopsHype",
           "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/27/dylan-harper-deaaron-fox-back-for-spurs/92987755007/"
+        },
+        {
+          "label": "Sports Illustrated",
+          "url": "https://www.si.com/nba/spurs/onsi/after-missing-4-games-san-antonio-spurs-guard-dylan-harper-cleared-to-face-lakers-in-nba-cup"
         }
       ]
     },
@@ -1923,7 +1944,7 @@ window.NBA_FEED = {
       "summaryEn": "Kawhi Leonard has begun individual workouts, but his return is still a while away, with at least another week of absence expected."
     }
   ],
-  "updatedAt": "2026-11-28T11:25:46+09:00",
+  "updatedAt": "2026-11-28T11:58:55+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
