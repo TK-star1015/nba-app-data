@@ -1,6 +1,42 @@
 window.NBA_FEED = {
   "articles": [
     {
+      "id": "gh-20261128-stewart-out-wolves",
+      "level": "official",
+      "teams": [
+        "MEM"
+      ],
+      "headline": "アイザイア・スチュワート、右股関節の痛みで土曜ウルブズ戦を欠場",
+      "headlineEn": "Isaiah Stewart out vs. Timberwolves on Friday with right hip soreness",
+      "date": "2026-11-28",
+      "time": "09:45",
+      "ts": "2026-11-28T09:45:00+09:00",
+      "sourceName": "NBA公式レポート",
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_07_45PM.pdf",
+      "category": "怪我",
+      "top": false,
+      "summary": "グリズリーズのアイザイア・スチュワートが右股関節の痛みのため、土曜のウルブズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後7時45分版）でクエスチョナブルから欠場へ変更された。離脱期間についての言及はレポートにない。",
+      "summaryEn": "Grizzlies big man Isaiah Stewart will miss Friday's game against the Timberwolves with right hip soreness. The latest edition of the NBA's official injury report (7:45 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report."
+    },
+    {
+      "id": "gh-20261128-yang-out-warriors",
+      "level": "official",
+      "teams": [
+        "POR"
+      ],
+      "headline": "ヤン・ハンセン、左足首の捻挫で土曜ウォリアーズ戦を欠場",
+      "headlineEn": "Yang Hansen out vs. Warriors on Friday with left ankle sprain",
+      "date": "2026-11-28",
+      "time": "09:45",
+      "ts": "2026-11-28T09:45:00+09:00",
+      "sourceName": "NBA公式レポート",
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_07_45PM.pdf",
+      "category": "怪我",
+      "top": false,
+      "summary": "ブレイザーズのヤン・ハンセンが左足首の捻挫のため、土曜のウォリアーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後7時45分版）でクエスチョナブルから欠場へ変更された。同戦ではデイミアン・リラードの欠場もすでに決まっている。",
+      "summaryEn": "Trail Blazers center Yang Hansen will miss Friday's game against the Warriors with a left ankle sprain. The latest edition of the NBA's official injury report (7:45 p.m. ET, Nov. 27) downgraded him from questionable to out. Damian Lillard has already been ruled out for the same game."
+    },
+    {
       "id": "gh-20261128-embiid-available-pacers",
       "level": "official",
       "teams": [
@@ -2191,7 +2227,7 @@ window.NBA_FEED = {
       "summaryEn": "The Warriors have ruled Stephen Curry out for at least three more games as he rehabs a torn oblique. He is doing individual court work and making progress. He will be re-evaluated again next Wednesday after the Jazz game."
     }
   ],
-  "updatedAt": "2026-11-28T09:51:00+09:00",
+  "updatedAt": "2026-11-28T09:55:47+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
