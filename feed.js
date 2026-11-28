@@ -1149,8 +1149,8 @@ window.NBA_FEED = {
       "teams": [
         "PHI"
       ],
-      "headline": "ジェイレン・ブラウン、ハムストリングで2試合欠場へ　長期化の見通し",
-      "headlineEn": "Jaylen Brown out two games with hamstring injury, likely longer",
+      "headline": "ジェイレン・ブラウン、ハムストリングで2試合欠場へ　復帰は未定",
+      "headlineEn": "Jaylen Brown out two games with hamstring injury, return TBD",
       "date": "2026-11-26",
       "time": "09:24",
       "sourceName": "HoopsHype",
@@ -1158,8 +1158,8 @@ window.NBA_FEED = {
       "reporter": "Chris Hine",
       "category": "怪我",
       "top": false,
-      "summary": "ジェイレン・ブラウンがハムストリングの再発でヒート戦の途中に退場した。MRIでは新たな損傷や再発は認められなかったが、今夜のペイサーズ戦と月曜のキャバリアーズ戦を欠場し、さらに長期化する見通し。",
-      "summaryEn": "Jaylen Brown exited the Heat game midway after his hamstring flared up again. An MRI showed no new injury or reaggravation, but he will miss Friday's game against the Pacers and Monday's game at Cleveland, and a longer absence is expected.",
+      "summary": "ジェイレン・ブラウンがハムストリングの再発でヒート戦の途中に退場した。MRIでは新たな損傷や再発は認められなかったが、今夜のペイサーズ戦と月曜のキャバリアーズ戦を欠場する。復帰時期は未定。",
+      "summaryEn": "Jaylen Brown exited the Heat game midway after his hamstring flared up again. An MRI showed no new injury or reaggravation, but he will miss Friday's game against the Pacers and Monday's game at Cleveland, with no timetable set for his return.",
       "related": [
         {
           "label": "ESPN",
@@ -2034,7 +2034,7 @@ window.NBA_FEED = {
       "summaryEn": "Draymond opened up about the team's struggles without Curry, saying he'd accept a bench role."
     }
   ],
-  "updatedAt": "2026-11-28T18:00:56+09:00",
+  "updatedAt": "2026-11-28T18:46:00+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
