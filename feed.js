@@ -1942,9 +1942,42 @@ window.NBA_FEED = {
       "headlineEn": "Kawhi begins individual workouts, out at least one more week",
       "summary": "カワイ・レナードが個人練習を開始した。ただし復帰はまだ先で、少なくともあと1週間は離脱が続く見通しとされる。",
       "summaryEn": "Kawhi Leonard has begun individual workouts, but his return is still a while away, with at least another week of absence expected."
+    },
+    {
+      "id": "gh-20261128-gossip-lendeborg-tiktok-bark",
+      "level": "gossip",
+      "teams": [
+        "GSW"
+      ],
+      "headline": "ヤクセル・レンデボーグ、恋人のTikTokに吠えて反応　15時間で20万回再生",
+      "headlineEn": "Yaxel Lendeborg barks at girlfriend's TikTok, racks up 200K views in 15 hours",
+      "summary": "恋人タカラ・フォアマンが投稿したTikTokは、化粧台の前でレンデボーグとビデオ通話する様子を収めたもの。レンデボーグは画面越しに吠えて反応し、動画はXでも拡散され約15時間で20万回以上再生された。",
+      "summaryEn": "Girlfriend Tacarra Foreman's TikTok showed her on FaceTime with Lendeborg from her vanity. He barked at her through the screen in approval, and the clip spread on X, passing 200,000 views in about 15 hours.",
+      "date": "2026-11-28",
+      "sourceName": "New York Post",
+      "url": "https://nypost.com/2026/11/27/sports/yaxel-lendeborg-barks-girlfriend-tacarra-thirst-trap/",
+      "genre": "キラキラ",
+      "top": false
+    },
+    {
+      "id": "gh-20261128-gossip-durant-rodgers-goat",
+      "level": "gossip",
+      "teams": [
+        "HOU"
+      ],
+      "headline": "ケビン・デュラント、ロジャースを「GOAT」と推し　ファンからツッコミ殺到",
+      "headlineEn": "Kevin Durant calls Aaron Rodgers his GOAT, fans roast him in replies",
+      "summary": "デュラントはスティーラーズを解雇されたアーロン・ロジャースについて「俺のGOAT、レイブンズでキャリアを終えられるか？」と投稿。「4度のMVPで王者」と擁護したが、ファンからは「ステフやレブロンには及ばない」などのツッコミが相次いだ。",
+      "summaryEn": "Durant tweeted about Aaron Rodgers — released by the Steelers on Wednesday — asking whether his \"GOAT\" could finish his career as a Raven. He defended the pick as \"a 4x MVP and a champ,\" but fans piled on, saying he is nowhere near Steph or LeBron.",
+      "date": "2026-11-28",
+      "ts": "2026-11-28T09:46:32+09:00",
+      "sourceName": "Sportskeeda",
+      "url": "https://www.sportskeeda.com/basketball/news-both-immensely-talented-diva-cry-babies-you-nowhere-near-steph-bron-nba-fans-torch-kevin-durant-for-backing-his-aaron-rodgers-comparison",
+      "genre": "キラキラ",
+      "top": false
     }
   ],
-  "updatedAt": "2026-11-28T11:58:55+09:00",
+  "updatedAt": "2026-11-28T12:00:23+09:00",
   "version": 1,
   "retracted": [
     "fischer-kings-open",
