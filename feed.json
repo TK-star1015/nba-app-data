@@ -645,26 +645,29 @@
   },
   {
    "id": "gh-20261127-spurs-harper-fox-questionable",
-   "level": "reported",
+   "level": "official",
    "teams": [
     "SAS"
    ],
-   "headline": "ディラン・ハーパー、シュートアラウンドに参加し土曜レイカーズ戦で復帰の可能性　フォックスもクエスチョナブル",
-   "headlineEn": "Harper takes part in shootaround, could return Friday vs. Lakers; Fox also questionable",
+   "headline": "フォックスとハーパー、土曜レイカーズ戦に出場可能へ　そろって復帰",
+   "headlineEn": "Fox and Harper both available Friday vs. Lakers",
    "date": "2026-11-28",
    "time": "05:11",
-   "sourceName": "Hoops Rumors",
-   "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html",
-   "reporter": "Marc Stein",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_08_45PM.pdf",
    "category": "怪我",
    "top": true,
-   "summary": "スパーズのディラン・ハーパーが、レイカーズ戦前のシュートアラウンドに参加した。ステフォン・キャッスルはハーパーの動きを「とても良く見えた」と話し、土曜のレイカーズ戦で復帰する可能性に言及した。ハーパーはクエスチョナブルに格上げされており、ディアロン・フォックスもクエスチョナブルとなっている。",
-   "summaryEn": "Spurs guard Dylan Harper took part in the team's shootaround ahead of the Lakers game. Stephon Castle said Harper \"looked really good\" and that he'd love to have him back as early as tonight. Harper has been upgraded to questionable, as has De'Aaron Fox.",
+   "summary": "スパーズのディアロン・フォックスとディラン・ハーパーが、土曜のレイカーズ戦に出場可能となった。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後8時45分版）で、2人ともクエスチョナブルからアベイラブルに変更された。フォックスは右すねの打撲で直近2試合、ハーパーは左股関節の負傷で4試合を欠場していた。",
+   "summaryEn": "De'Aaron Fox and Dylan Harper are both available for the Spurs' game against the Lakers on Friday. The latest edition of the NBA's official injury report (8:45 p.m. ET, Nov. 27) upgraded both guards from questionable to available. Fox missed the last two games with a right shin contusion, while Harper has missed four games with a left hip injury.",
    "ts": "2026-11-28T05:11:00+09:00",
    "related": [
     {
      "label": "HoopsHype",
      "url": "https://www.hoopshype.com/story/sports/nba/rumors/2026/11/27/stephon-castle-says-dylan-harper-took-part-in-the/92982686007/"
+    },
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/spurs-notes-harper-fox-bryant-reed-gillespie.html"
     }
    ]
   },
@@ -2301,7 +2304,7 @@
    "summaryEn": "Mo Bamba will miss Friday's game against the Nuggets due to illness. The latest edition of the NBA's official injury report (8:30 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report."
   }
  ],
- "updatedAt": "2026-11-28T10:42:12+09:00",
+ "updatedAt": "2026-11-28T11:07:52+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
