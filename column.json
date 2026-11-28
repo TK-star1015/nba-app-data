@@ -1,46 +1,46 @@
 {
- "version": 1,
- "updatedAt": "2026-11-28T00:07:00+09:00",
- "columns": [
-  {
-   "date": "2026-11-28",
-   "intro": "今日のニュースに、管理人が本音でツッコむ。",
-   "introEn": "Today's news, with the editor's honest, unfiltered takes.",
-   "takes": [
+  "version": 1,
+  "updatedAt": "2026-11-28T18:52:00+09:00",
+  "columns": [
     {
-     "headline": "デュラント、ブルックスに警告",
-     "headlineEn": "Durant warns Brooks",
-     "take": "ブルックスに「先に進むなら俺も準備はできている」と警告。この2人、どっちも一歩も引く気なし。",
-     "takeEn": "Durant warns Brooks: 'If you want to take it further, I'm ready too.' Neither of these two is backing down an inch."
-    }
-   ]
-  },
-  {
-   "date": "2026-11-27",
-   "intro": "今日のニュースに、管理人が本音でツッコむ。",
-   "introEn": "Today's news, with the editor's honest, unfiltered takes.",
-   "takes": [
+      "date": "2026-11-28",
+      "intro": "今日のニュースに、管理人が本音でツッコむ。",
+      "introEn": "Today's news, with the editor's honest, unfiltered takes.",
+      "takes": [
+        {
+          "headline": "冷えた夜、熱い二人",
+          "headlineEn": "Ice-cold shooting, red-hot feud",
+          "take": "サンズの3Pは成功率15.6%、ブルックスも0/3と冷え切った夜。ならばと残り23.8秒、デュラントと鼻を突き合わせて2つ目のテクニカル、退場。SNSではオーナーまで巻き込む場外戦つきの因縁である。シュートは入らず、口だけは絶好調。面倒くさくて、最高に熱い。管理人はこの二人が大好きです。",
+          "takeEn": "Phoenix shot 15.6% from three and Brooks went 0-for-3 on a freezing night — so he closed it his way: nose-to-nose with Durant with 23.8 seconds left, a second technical, and an ejection. The feud even spills onto social media, dragging the Suns' owner into it. Their shots weren't falling, but their mouths were in midseason form. A total headache, red-hot to the end — and the editor loves them both."
+        }
+      ]
+    },
     {
-     "headline": "今日は全試合おやすみ",
-     "headlineEn": "No games today",
-     "take": "今日は全試合おやすみ（サンクスギビングデイ）。",
-     "takeEn": "All games are off today — it's Thanksgiving Day."
-    }
-   ]
-  },
-  {
-   "date": "2026-11-26",
-   "intro": "今日のニュースに、管理人が本音でツッコむ。",
-   "introEn": "Today's news, with the editor's honest, unfiltered takes.",
-   "takes": [
+      "date": "2026-11-27",
+      "intro": "今日のニュースに、管理人が本音でツッコむ。",
+      "introEn": "Today's news, with the editor's honest, unfiltered takes.",
+      "takes": [
+        {
+          "headline": "今日は全試合おやすみ",
+          "headlineEn": "No games today",
+          "take": "今日は全試合おやすみ（サンクスギビングデイ）。",
+          "takeEn": "All games are off today — it's Thanksgiving Day."
+        }
+      ]
+    },
     {
-     "headline": "KPJ、マジックと契約",
-     "headlineEn": "Kevin Porter Jr. signs with the Magic",
-     "take": "低迷するマジックの救世主となれるのか…というかマジックをレギュラーシーズン2位に予想した管理人を救ってください",
-     "takeEn": "Can he be the savior of the slumping Magic... actually, please save the editor who picked the Magic to finish second in the regular season.",
-     "meme": "kpj-savior"
+      "date": "2026-11-26",
+      "intro": "今日のニュースに、管理人が本音でツッコむ。",
+      "introEn": "Today's news, with the editor's honest, unfiltered takes.",
+      "takes": [
+        {
+          "headline": "KPJ、マジックと契約",
+          "headlineEn": "Kevin Porter Jr. signs with the Magic",
+          "take": "低迷するマジックの救世主となれるのか…というかマジックをレギュラーシーズン2位に予想した管理人を救ってください",
+          "takeEn": "Can he be the savior of the slumping Magic... actually, please save the editor who picked the Magic to finish second in the regular season.",
+          "meme": "kpj-savior"
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }
