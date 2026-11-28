@@ -43,8 +43,8 @@
     "MEM",
     "POR"
    ],
-   "headline": "アイザイア・スチュワート、右股関節の痛みで土曜ウルブズ戦を欠場　ヤン・ハンセン、左足首の捻挫で土曜ウォリアーズ戦を欠場",
-   "headlineEn": "Isaiah Stewart out vs. Timberwolves on Friday with right hip soreness; Yang Hansen out vs. Warriors on Friday with left ankle sprain",
+   "headline": "アイザイア・スチュワート、右股関節の痛みで土曜ウルブズ戦を欠場　ヤン・ハンセン、左足首の捻挫で複数試合の欠場見通し",
+   "headlineEn": "Isaiah Stewart out vs. Timberwolves on Friday with right hip soreness; Yang Hansen likely out multiple games with left ankle sprain",
    "date": "2026-11-28",
    "time": "09:45",
    "ts": "2026-11-28T09:45:00+09:00",
@@ -52,8 +52,14 @@
    "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_07_45PM.pdf",
    "category": "怪我",
    "top": false,
-   "summary": "グリズリーズのアイザイア・スチュワートが右股関節の痛みのため、土曜のウルブズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後7時45分版）でクエスチョナブルから欠場へ変更された。離脱期間についての言及はレポートにない。 ブレイザーズのヤン・ハンセンが左足首の捻挫のため、土曜のウォリアーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後7時45分版）でクエスチョナブルから欠場へ変更された。同戦ではデイミアン・リラードの欠場もすでに決まっている。",
-   "summaryEn": "Grizzlies big man Isaiah Stewart will miss Friday's game against the Timberwolves with right hip soreness. The latest edition of the NBA's official injury report (7:45 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report. Trail Blazers center Yang Hansen will miss Friday's game against the Warriors with a left ankle sprain. The latest edition of the NBA's official injury report (7:45 p.m. ET, Nov. 27) downgraded him from questionable to out. Damian Lillard has already been ruled out for the same game."
+   "summary": "グリズリーズのアイザイア・スチュワートが右股関節の痛みのため、土曜のウルブズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後7時45分版）でクエスチョナブルから欠場へ変更された。離脱期間についての言及はレポートにない。 ブレイザーズのヤン・ハンセンが左足首の捻挫のため、土曜のウォリアーズ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後7時45分版）でクエスチョナブルから欠場へ変更された。同戦ではデイミアン・リラードの欠場もすでに決まっている。 ヤン・ハンセンは土曜朝のシュートアラウンドでの5対5の最中に他選手の足を踏んで左足首を捻挫したもので、ノリ・ヘッドコーチによれば離脱期間は未定だが複数試合に及ぶ見通しで、現在はウォーキングブーツを着用している。",
+   "summaryEn": "Grizzlies big man Isaiah Stewart will miss Friday's game against the Timberwolves with right hip soreness. The latest edition of the NBA's official injury report (7:45 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report. Trail Blazers center Yang Hansen will miss Friday's game against the Warriors with a left ankle sprain. The latest edition of the NBA's official injury report (7:45 p.m. ET, Nov. 27) downgraded him from questionable to out. Damian Lillard has already been ruled out for the same game. Hansen rolled his left ankle after coming down on another player's foot during 5-on-5 at Saturday morning's shootaround. Head coach Micah Nori said the timeline is unknown, but it sounds like it will be multiple games, and Hansen is in a walking boot.",
+   "related": [
+    {
+     "label": "Bluesky",
+     "url": "https://bsky.app/profile/highkin.bsky.social/post/3n3djxwjfpc2a"
+    }
+   ]
   },
   {
    "id": "gh-20261128-curry-out-three-more-games",
@@ -542,6 +548,10 @@
     {
      "label": "Hoops Rumors",
      "url": "https://www.hoopsrumors.com/2026/11/pistons-sixers-hawks-celtics-advance-to-nba-cup-quarterfinals.html"
+    },
+    {
+     "label": "Hoops Rumors",
+     "url": "https://www.hoopsrumors.com/2026/11/nba-cup-quaterfinals-set-as-grizzlies-blazers-spurs-advance.html"
     }
    ],
    "summary": "NBAカップのグループ突破と敗退の条件を整理した展望記事。土曜の全試合の結果が、各チームの行方を左右する。",
@@ -2020,7 +2030,7 @@
    "top": false
   }
  ],
- "updatedAt": "2026-11-28T15:00:54+09:00",
+ "updatedAt": "2026-11-28T15:46:00+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
