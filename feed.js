@@ -612,19 +612,20 @@ window.NBA_FEED = {
   },
   {
    "id": "gh-20261127-hayes-questionable-nuggets",
-   "level": "reported",
+   "level": "official",
    "teams": [
     "UTA"
    ],
-   "headline": "ジャクソン・ヘイズ、左膝の故障でナゲッツ戦はクエスチョナブル",
-   "headlineEn": "Jaxson Hayes questionable for Friday vs. Nuggets with left knee strain",
+   "headline": "ジャクソン・ヘイズ、左膝の故障から回復し土曜ナゲッツ戦に出場可能へ",
+   "headlineEn": "Jaxson Hayes available vs. Nuggets on Friday after left knee strain",
    "date": "2026-11-27",
-   "sourceName": "NBC Sports",
-   "url": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-26/jaxson-hayes-knee-questionable-friday-vs-denver",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_08_30PM.pdf",
    "category": "怪我",
    "top": false,
-   "summary": "ジャクソン・ヘイズが左膝の故障でナゲッツ戦はクエスチョナブル。出場の可否は試合直前まで未定となっている。",
-   "summaryEn": "Jaxson Hayes is questionable for the Nuggets game with a left knee issue. His status will remain undecided until close to tip-off."
+   "summary": "ジャクソン・ヘイズが左膝の故障から回復し、土曜のナゲッツ戦に出場可能となった。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後8時30分版）でクエスチョナブルからアベイラブルに変更された。",
+   "summaryEn": "Jaxson Hayes has recovered from a left knee strain and is available for Friday's game against the Nuggets. The latest edition of the NBA's official injury report (8:30 p.m. ET, Nov. 27) upgraded him from questionable to available.",
+   "minor": true
   },
   {
    "id": "gh-20261127-stewart-questionable-wolves",
@@ -1790,20 +1791,21 @@ window.NBA_FEED = {
   },
   {
    "id": "gh-20261127-nurkic-questionable-nuggets",
-   "level": "reported",
+   "level": "official",
    "teams": [
     "UTA"
    ],
-   "headline": "ユスフ・ヌルキッチ、ナゲッツ戦はクエスチョナブル　今季初出場の可能性も",
-   "headlineEn": "Nurkic questionable vs. Nuggets on Friday, could make season debut",
+   "headline": "ユスフ・ヌルキッチ、土曜ナゲッツ戦に出場可能へ　今季初出場へ",
+   "headlineEn": "Nurkic available vs. Nuggets on Friday, set for season debut",
    "date": "2026-11-27",
    "time": "10:56",
-   "sourceName": "Yahoo Sports",
-   "url": "https://sports.yahoo.com/nba/articles/important-jusuf-nurkic-injury-015629072.html",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_08_30PM.pdf",
    "category": "怪我",
    "top": false,
-   "summary": "ユスフ・ヌルキッチがナゲッツ戦はクエスチョナブル。状態が整えば、今季初出場となる可能性もある。",
-   "summaryEn": "Jusuf Nurkic is questionable for the Nuggets game. If he is cleared, it could mark his season debut."
+   "summary": "ユスフ・ヌルキッチが土曜のナゲッツ戦に出場可能となった。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後8時30分版）でクエスチョナブルからアベイラブルに変更された。出場すれば今季初出場となる。",
+   "summaryEn": "Jusuf Nurkic is available for Friday's game against the Nuggets. The latest edition of the NBA's official injury report (8:30 p.m. ET, Nov. 27) upgraded him from questionable to available. If he plays, it will mark his season debut.",
+   "minor": true
   },
   {
    "id": "gh-20261127-gossip-murray-sabotage-post",
@@ -2279,9 +2281,27 @@ window.NBA_FEED = {
    "top": false,
    "summary": "ペリカンズのトレンドン・ワトフォードが右足首の捻挫から回復し、土曜のクリッパーズ戦に出場可能となった。NBA公式インジャリーレポートの最新版でプロバブルから出場可能に格上げされた。",
    "summaryEn": "Pelicans forward Trendon Watford is available for Saturday's game against the Clippers after recovering from a right ankle sprain. The NBA's latest official injury report upgraded him from probable to available."
+  },
+  {
+   "id": "gh-20261128-bamba-out-nuggets",
+   "level": "official",
+   "teams": [
+    "UTA"
+   ],
+   "headline": "モー・バンバ、体調不良で土曜ナゲッツ戦を欠場",
+   "headlineEn": "Mo Bamba out vs. Nuggets on Friday with illness",
+   "date": "2026-11-28",
+   "time": "10:30",
+   "ts": "2026-11-28T10:30:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_08_30PM.pdf",
+   "category": "怪我",
+   "top": false,
+   "summary": "モー・バンバが体調不良のため、土曜のナゲッツ戦を欠場する。NBA公式インジャリーレポートの最新版（米東部時間11月27日午後8時30分版）でクエスチョナブルから欠場へ変更された。離脱期間についての言及はレポートにない。",
+   "summaryEn": "Mo Bamba will miss Friday's game against the Nuggets due to illness. The latest edition of the NBA's official injury report (8:30 p.m. ET, Nov. 27) downgraded him from questionable to out. No timeline was given in the report."
   }
  ],
- "updatedAt": "2026-11-28T10:31:05+09:00",
+ "updatedAt": "2026-11-28T10:42:12+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
