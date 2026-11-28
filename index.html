@@ -1077,8 +1077,9 @@ body.room-open{overflow-x:clip}
 .room-text{font-size:var(--fs-headline);font-weight:700;line-height:var(--lh-headline);overflow-wrap:break-word}
 .room-time{flex:none;font-size:var(--fs-chip);line-height:1.3;color:var(--room-sub);white-space:nowrap;padding-bottom:2px;font-variant-numeric:tabular-nums}
 /* 公式発表の「公式」スタンプ：吹き出しの横に、少し傾けた印影風の大きな判子を置く。
-   二重線の枠＋赤インクの滲みに寄せた不透明度で、分類チップとは別に「公文書感」を出す */
-.room-stamp{flex:none;align-self:center;width:66px;height:66px;margin-left:-14px;position:relative;z-index:1;border:3.5px solid var(--red);border-radius:50%;box-shadow:inset 0 0 0 2px var(--room-bg),inset 0 0 0 5px var(--red);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:800;letter-spacing:.08em;transform:rotate(-10deg);opacity:.92;user-select:none}
+   二重線の枠＋赤インクの滲みに寄せた不透明度で、分類チップとは別に「公文書感」を出す
+   ※2026-11-28 TK指示で一旦非表示（display:none）。再開する場合は display:flex に戻す */
+.room-stamp{display:none}
 .room-stamp-en{font-size:9.5px;letter-spacing:.03em}
 .room-foot{display:flex;justify-content:center;padding:10px 14px 22px}
 
