@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "articles": [
+    {
+      "id": "gh-20261124-mcconnell-recall-fix",
+      "level": "reported",
+      "teams": [
+        "IND"
+      ],
+      "headline": "マコネル、Gリーグから復帰",
+      "headlineEn": "McConnell recalled from the G League",
+      "date": "2026-11-24",
+      "sourceName": "RotoWire",
+      "url": "https://www.rotowire.com/basketball/headlines/tj-mcconnell-injury-recalled-to-nba-540855",
+      "reporter": "Shams Charania",
+      "category": "怪我",
+      "top": false,
+      "summary": "T.J.マコネルがGリーグから復帰した。戦列に戻ることで、ペイサーズのローテーションに厚みが加わる。",
+      "summaryEn": "T.J. McConnell has been recalled from the G League, adding depth back to the Pacers' rotation."
+    },
+    {
+      "id": "gh-20261126-gossip-doncic-outburst-redick",
+      "level": "gossip",
+      "teams": [
+        "LAL"
+      ],
+      "headline": "ドンチッチの味方への暴言がバズる　レディック監督が擁護",
+      "date": "2026-11-23",
+      "sourceName": "Heavy",
+      "url": "https://heavy.com/sports/nba/los-angeles-lakers/lakers-luka-doncic-mamu/",
+      "genre": "ドロドロ",
+      "top": false,
+      "headlineEn": "Doncic's heated words to a teammate go viral; Redick defends him",
+      "summary": "ドンチッチの味方への暴言シーンがバズり、レディック監督が擁護に回った。熱量の高さが賛否を呼んでいる。",
+      "summaryEn": "A clip of Doncic's outburst at a teammate went viral, with coach Redick defending his star."
+    },
+    {
+      "id": "gh-20261123-gossip-butler-tatum-friday-spoof",
+      "level": "gossip",
+      "teams": [
+        "GSW",
+        "BOS"
+      ],
+      "headline": "バトラー、テイタムをAI動画「フライデー」でからかう",
+      "date": "2026-11-23",
+      "sourceName": "NY Post",
+      "url": "https://nypost.com/2026/11/23/sports/jimmy-butler-trolls-jayson-tatum-after-warriors-beat-celtics/",
+      "top": false,
+      "genre": "ドロドロ",
+      "headlineEn": "Butler trolls Tatum with AI \"Friday\" video",
+      "summary": "バトラーがテイタムをAI動画「フライデー」でからかった。オフコートの冗談がファンの笑いを誘っている。",
+      "summaryEn": "Butler trolled Tatum with an AI 'Friday' spoof video, entertaining fans."
+    },
+    {
+      "id": "gh-20261123-gossip-gg-jackson-community-assist",
+      "level": "gossip",
+      "teams": [
+        "MEM"
+      ],
+      "headline": "GGジャクソン、10月のNBAコミュニティ賞を受賞",
+      "date": "2026-11-23",
+      "sourceName": "EIN Presswire",
+      "url": "https://www.einpresswire.com/article/958620399/memphis-grizzlies-gg-jackson-ii-named-nba-cares-bob-lanier-community-assist-award-october-winner",
+      "top": false,
+      "genre": "ほのぼの",
+      "headlineEn": "GG Jackson wins October NBA Community Assist Award",
+      "summary": "GGジャクソンが10月のNBAコミュニティ賞を受賞。地域活動への取り組みが評価された。",
+      "summaryEn": "GG Jackson won the NBA Community Assist Award for October for his community work."
+    },
+    {
+      "id": "gh-20261123-gossip-randle-turkey-drive",
+      "level": "gossip",
+      "teams": [
+        "BKN"
+      ],
+      "headline": "ランドル、感謝祭に七面鳥400羽を配布　地元ブルックリンへ恩返し",
+      "date": "2026-11-23",
+      "sourceName": "Athlon Sports",
+      "url": "https://athlonsports.com/nba/brooklyn-nets/nets-julius-randle-sends-powerful-message-ahead-of-thanksgiving",
+      "top": false,
+      "genre": "ほのぼの",
+      "headlineEn": "Randle gives away 400 turkeys in Brooklyn",
+      "summary": "ランドルが感謝祭に七面鳥400羽を配布。地元ブルックリンへの恩返しを続けた。",
+      "summaryEn": "Randle handed out 400 turkeys in Brooklyn for Thanksgiving, giving back to his hometown."
+    },
+    {
+      "id": "gh-20261128-gossip-chalamet-knicks-courtside",
+      "level": "gossip",
+      "teams": [
+        "NYK"
+      ],
+      "headline": "ティモシー・シャラメ、恋人カイリー抜きでニックス戦をコートサイド観戦",
+      "headlineEn": "Timothee Chalamet Watches Knicks Courtside Without Kylie Jenner",
+      "date": "2026-11-23",
+      "sourceName": "Page Six",
+      "url": "https://pagesix.com/2026/11/23/entertainment/timothee-chalamet-cheers-courtside-at-knicks-vs-pacers-game-sans-kylie-jenner/",
+      "genre": "キラキラ",
+      "top": false,
+      "summary": "俳優ティモシー・シャラメがニックス対ペイサーズ戦をマディソン・スクエア・ガーデンでコートサイド観戦した。恋人のカイリー・ジェンナーは不在で、シャラメはピンクのパファーコート姿でケイティ・ホームズらと並んで観戦した。ニックスは113-106で勝利した。",
+      "summaryEn": "Actor Timothee Chalamet watched the Knicks beat the Pacers 113-106 from courtside at Madison Square Garden — this time without girlfriend Kylie Jenner. Dressed in a pink puffer coat, he sat in the arena's celebrity row alongside Katie Holmes."
+    },
+    {
+      "id": "gh-20261122-gossip-curry-chair-fall",
+      "level": "gossip",
+      "teams": [
+        "GSW"
+      ],
+      "headline": "ステフィン・カリー、ドレイモンド・グリーンの3Pに歓喜し椅子から転落",
+      "headlineEn": "Curry falls off his chair celebrating Draymond's three-point barrage",
+      "date": "2026-11-22",
+      "sourceName": "theScore",
+      "url": "https://www.thescore.com/nba/news/3666518",
+      "genre": "キラキラ",
+      "top": false,
+      "summary": "ステフィン・カリーがドレイモンドの3Pに歓喜し、椅子から転落。ベンチの盛り上がりを切り取った映像が話題になった。",
+      "summaryEn": "Stephen Curry was so thrilled by Draymond's three that he fell off his chair, in a clip that went viral."
+    },
+    {
+      "id": "gh-20261122-gossip-draymond-eddie-johnson",
+      "level": "gossip",
+      "teams": [
+        "GSW",
+        "PHX"
+      ],
+      "headline": "ドレイモンドと解説者エディ・ジョンソン、Xで舌戦が白熱",
+      "date": "2026-11-22",
+      "sourceName": "azcentral",
+      "url": "https://www.azcentral.com/story/sports/nba/suns/2026/11/22/beef-between-draymond-green-eddie-johnson-reaching-new-levels/92692811007/",
+      "top": false,
+      "genre": "ドロドロ",
+      "headlineEn": "Draymond, analyst Eddie Johnson spar on X",
+      "summary": "ドレイモンドと解説者エディ・ジョンソンがXで舌戦。選手とメディアの言い合いが白熱している。",
+      "summaryEn": "Draymond Green and analyst Eddie Johnson traded barbs on X in a heated exchange."
+    },
+    {
+      "id": "gh-20261126-gossip-iverson-turkey-giveaway",
+      "level": "gossip",
+      "teams": [],
+      "headline": "アイバーソン、地元で七面鳥配布　感謝祭に263羽と食料を寄付",
+      "date": "2026-11-21",
+      "sourceName": "Parade",
+      "url": "https://parade.com/celebrities/allen-iverson-thanksgiving-turkey-giveaway-virginia-hometown",
+      "genre": "ほのぼの",
+      "top": false,
+      "headlineEn": "Iverson donates 263 turkeys in hometown Thanksgiving giveaway",
+      "summary": "アイバーソンが地元で七面鳥263羽と食料を寄付。感謝祭の恒例行事として地域に恩返しした。",
+      "summaryEn": "Allen Iverson donated 263 turkeys and food in his hometown for Thanksgiving."
+    },
+    {
+      "id": "gh-20261126-gossip-westbrook-thanksgiving",
+      "level": "gossip",
+      "teams": [],
+      "headline": "ウェストブルック、雨の中 感謝祭の食事を配布",
+      "headlineEn": "Westbrook hands out Thanksgiving meals in the rain",
+      "date": "2026-11-20",
+      "sourceName": "Sports Illustrated",
+      "url": "https://www.si.com/onsi/athlete-lifestyle/russell-westbrook-powerful-statement-record-breaking-thanksgiving-charity-effort-los-angeles",
+      "genre": "ほのぼの",
+      "top": false,
+      "summary": "ウェストブルックが雨の中、感謝祭の食事を配布。長年続ける地域支援の姿が伝えられた。",
+      "summaryEn": "Westbrook handed out Thanksgiving meals in the rain, continuing his long-running community work."
+    },
+    {
+      "id": "gh-20261127-gossip-cunningham-courtside-outfits",
+      "level": "gossip",
+      "teams": [
+        "LAC"
+      ],
+      "headline": "ソフィー・カニンガム、露出コーデの観客を一喝「服を着なさい」",
+      "headlineEn": "Sophie Cunningham blasts influencers' revealing courtside outfits",
+      "date": "2026-11-20",
+      "sourceName": "Basketball Network",
+      "url": "https://www.basketballnetwork.net/off-the-court/sophie-cunningham-blasts-two-influencers-over-revealing-outfits-at-clippers-game",
+      "genre": "キラキラ",
+      "top": false,
+      "summary": "WNBAのソフィー・カニンガムが、露出の多いコーデの観客に「服を着なさい」と一喝。率直な物言いが話題になった。",
+      "summaryEn": "Sophie Cunningham called out fans' revealing courtside outfits, telling them to put clothes on."
+    },
+    {
+      "id": "gh-20261127-gossip-og-anunoby-skechers",
+      "level": "gossip",
+      "teams": [
+        "NYK"
+      ],
+      "headline": "OG・アヌノビー、優勝の立役者となったスケッチャーズ「NYCブルー」が再販",
+      "headlineEn": "OG Anunoby's title-winning Skechers 'NYC Blue' returns to sale",
+      "date": "2026-11-20",
+      "sourceName": "Skechers",
+      "url": "https://www.skechers.com/stories/og-basketball/og-anunoby-basketball-championship-skechers.html",
+      "genre": "キラキラ",
+      "top": false,
+      "summary": "OG・アヌノビーのスケッチャーズ「NYCブルー」が再販。優勝の立役者となった一足が再び注目されている。",
+      "summaryEn": "OG Anunoby's Skechers 'NYC Blue,' worn during the title run, is being re-released."
+    }
+  ]
+}
