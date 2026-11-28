@@ -201,23 +201,21 @@
   },
   {
    "id": "gh-20261128-mathurin-doubtful-clippers",
-   "level": "reported",
+   "level": "official",
    "teams": [
     "NOP"
    ],
-   "headline": "マサリン、左足底筋膜炎で土曜クリッパーズ戦はダウトフル",
-   "headlineEn": "Bennedict Mathurin doubtful vs. Clippers on Friday with left plantar fasciitis",
+   "headline": "マサリン、左足底筋膜炎で土曜クリッパーズ戦を欠場",
+   "headlineEn": "Bennedict Mathurin out vs. Clippers on Friday with left plantar fasciitis",
    "date": "2026-11-28",
    "time": "04:01",
    "ts": "2026-11-28T04:01:35+09:00",
-   "sourceName": "Bluesky",
-   "url": "https://bsky.app/profile/lawmurraythenu.bsky.social/post/3n3cusaydes24",
-   "reporter": "Law Murray",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_08_15PM.pdf",
    "category": "怪我",
-   "minor": true,
    "top": false,
-   "summary": "ペリカンズのベネディクト・マサリンが左足底筋膜炎のため、土曜のクリッパーズ戦はダウトフル（出場が疑わしい）とされた。NBA公式インジャリーレポートでもダウトフルと記載されている。",
-   "summaryEn": "Pelicans guard Bennedict Mathurin is doubtful for Friday's game against the Clippers with left plantar fasciitis. The NBA's official injury report also lists him as doubtful."
+   "summary": "ペリカンズのベネディクト・マサリンが左足底筋膜炎のため、土曜のクリッパーズ戦を欠場することが決まった。試合前はダウトフルとされていたが、NBA公式インジャリーレポートの最新版でアウトに格下げされた。",
+   "summaryEn": "Pelicans guard Bennedict Mathurin will miss Saturday's game against the Clippers with left plantar fasciitis. He had been listed as doubtful, but the NBA's latest official injury report downgraded him to out."
   },
   {
    "id": "gh-20261128-lavine-sabonis-want-out-kings",
@@ -2262,9 +2260,28 @@
    "top": true,
    "summary": "ウォリアーズがステフィン・カリーを少なくともあと3試合欠場とすると発表した。右腹斜筋断裂のリハビリ中で、現在は個人でのコートワークを行い順調に回復しているという。ジャズ戦後の水曜（日本時間12月3日）に再評価される予定。",
    "summaryEn": "The Warriors have ruled Stephen Curry out for at least three more games as he rehabs a torn oblique. He is doing individual court work and making progress. He will be re-evaluated again next Wednesday after the Jazz game."
+  },
+  {
+   "id": "gh-20261128-watford-available-clippers",
+   "level": "official",
+   "teams": [
+    "NOP"
+   ],
+   "headline": "トレンドン・ワトフォード、右足首の捻挫から回復し土曜クリッパーズ戦に出場可能へ",
+   "headlineEn": "Trendon Watford available vs. Clippers on Friday after right ankle sprain",
+   "date": "2026-11-28",
+   "time": "10:15",
+   "ts": "2026-11-28T10:15:00+09:00",
+   "sourceName": "NBA公式レポート",
+   "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-27_08_15PM.pdf",
+   "category": "怪我",
+   "minor": true,
+   "top": false,
+   "summary": "ペリカンズのトレンドン・ワトフォードが右足首の捻挫から回復し、土曜のクリッパーズ戦に出場可能となった。NBA公式インジャリーレポートの最新版でプロバブルから出場可能に格上げされた。",
+   "summaryEn": "Pelicans forward Trendon Watford is available for Saturday's game against the Clippers after recovering from a right ankle sprain. The NBA's latest official injury report upgraded him from probable to available."
   }
  ],
- "updatedAt": "2026-11-28T10:12:14+09:00",
+ "updatedAt": "2026-11-28T10:31:05+09:00",
  "version": 1,
  "retracted": [
   "fischer-kings-open",
